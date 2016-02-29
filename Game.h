@@ -12,7 +12,10 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
+#include <tmx/MapLoader.h>
+
 using namespace sf;
+using namespace tmx;
 
 class Game
 {
@@ -23,6 +26,7 @@ private:
     void render();
     RenderWindow window;
     Event event;
+    MapLoader ml;
     
 public:
     Game();

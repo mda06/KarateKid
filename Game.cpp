@@ -7,8 +7,10 @@
 //
 
 #include "Game.h"
+#include "ResourcePath.hpp"
+#include <iostream>
 
-Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984")
+Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), ml(resourcePath())
 {
     
 }
@@ -34,6 +36,7 @@ void Game::run()
 
 void Game::init()
 {
+    ml.Load("testmap.tmx");
 }
 
 void Game::handleInput()
@@ -57,5 +60,6 @@ void Game::update(float dt)
 void Game::render()
 {
     window.clear();
+    window.draw(ml);
     window.display();
 }
