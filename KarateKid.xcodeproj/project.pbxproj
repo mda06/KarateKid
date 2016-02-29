@@ -13,6 +13,7 @@
 		4C3E9F5F1C845FEA00D85323 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 4C3E9F5E1C845FEA00D85323 /* nice_music.ogg */; };
 		4C3E9F611C845FEA00D85323 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C3E9F601C845FEA00D85323 /* sansation.ttf */; };
 		4C3E9F631C845FEA00D85323 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3E9F621C845FEA00D85323 /* icon.png */; };
+		4CC798B71C84642400C2CD96 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC798B51C84642400C2CD96 /* Entity.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		4C3E9F5E1C845FEA00D85323 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		4C3E9F601C845FEA00D85323 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		4C3E9F621C845FEA00D85323 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		4CC798B51C84642400C2CD96 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		4CC798B61C84642400C2CD96 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 				4C3E9F561C845FEA00D85323 /* ResourcePath.mm */,
 				4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */,
 				4C3E9F591C845FEA00D85323 /* main.cpp */,
+				4CC798B51C84642400C2CD96 /* Entity.cpp */,
+				4CC798B61C84642400C2CD96 /* Entity.h */,
 				4C3E9F5B1C845FEA00D85323 /* Resources */,
 				4C3E9F541C845FEA00D85323 /* Supporting Files */,
 			);
@@ -168,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */,
+				4CC798B71C84642400C2CD96 /* Entity.cpp in Sources */,
 				4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +312,7 @@
 				4C3E9F681C845FEA00D85323 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
