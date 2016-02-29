@@ -9,6 +9,11 @@
 #ifndef __KarateKid__Game__
 #define __KarateKid__Game__
 
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
+
 class Game
 {
 private:
@@ -16,6 +21,8 @@ private:
     void handleInput();
     void update(float dt);
     void render();
+    RenderWindow window;
+    Event event;
     
 public:
     Game();

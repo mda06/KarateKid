@@ -24,12 +24,12 @@
 		4C3E9F591C845FEA00D85323 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4CC798B91C8465B100C2CD96 /* blond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blond.png; sourceTree = "<group>"; };
 		4CC798BA1C8465B100C2CD96 /* skull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skull.png; sourceTree = "<group>"; };
-		4CC798BD1C8465E000C2CD96 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
-		4CC798BE1C8465E000C2CD96 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		4CC798C01C8465E600C2CD96 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
-		4CC798C11C8465E600C2CD96 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		4CC798C31C8465EC00C2CD96 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
-		4CC798C41C8465EC00C2CD96 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
+		4CC798BD1C8465E000C2CD96 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Entity.cpp; path = ../Entity.cpp; sourceTree = "<group>"; };
+		4CC798BE1C8465E000C2CD96 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entity.h; path = ../Entity.h; sourceTree = "<group>"; };
+		4CC798C01C8465E600C2CD96 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = ../Game.cpp; sourceTree = "<group>"; };
+		4CC798C11C8465E600C2CD96 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Game.h; sourceTree = "<group>"; };
+		4CC798C31C8465EC00C2CD96 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Animation.cpp; path = ../Animation.cpp; sourceTree = "<group>"; };
+		4CC798C41C8465EC00C2CD96 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = ../Animation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,12 +46,6 @@
 		4C3E9F471C845FE900D85323 = {
 			isa = PBXGroup;
 			children = (
-				4CC798BD1C8465E000C2CD96 /* Entity.cpp */,
-				4CC798BE1C8465E000C2CD96 /* Entity.h */,
-				4CC798C01C8465E600C2CD96 /* Game.cpp */,
-				4CC798C11C8465E600C2CD96 /* Game.h */,
-				4CC798C31C8465EC00C2CD96 /* Animation.cpp */,
-				4CC798C41C8465EC00C2CD96 /* Animation.h */,
 				4C3E9F531C845FEA00D85323 /* KarateKid */,
 				4C3E9F521C845FEA00D85323 /* Products */,
 			);
@@ -68,6 +62,12 @@
 		4C3E9F531C845FEA00D85323 /* KarateKid */ = {
 			isa = PBXGroup;
 			children = (
+				4CC798BD1C8465E000C2CD96 /* Entity.cpp */,
+				4CC798BE1C8465E000C2CD96 /* Entity.h */,
+				4CC798C01C8465E600C2CD96 /* Game.cpp */,
+				4CC798C11C8465E600C2CD96 /* Game.h */,
+				4CC798C31C8465EC00C2CD96 /* Animation.cpp */,
+				4CC798C41C8465EC00C2CD96 /* Animation.h */,
 				4C3E9F561C845FEA00D85323 /* ResourcePath.mm */,
 				4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */,
 				4C3E9F591C845FEA00D85323 /* main.cpp */,
