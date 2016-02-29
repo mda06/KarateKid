@@ -44,7 +44,7 @@ int main(int, char const**)
     if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
         return EXIT_FAILURE;
     }
-    sf::Text text("Hello SFML", font, 50);
+    sf::Text text("Hello SFML", font, 30);
     text.setColor(sf::Color::Black);
 
     // Load a music to play
