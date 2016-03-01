@@ -9,10 +9,9 @@
 #ifndef __KarateKid__Game__
 #define __KarateKid__Game__
 
-#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-
 #include <tmx/MapLoader.h>
+#include "Entity.h"
 
 using namespace sf;
 using namespace tmx;
@@ -27,6 +26,8 @@ private:
     RenderWindow window;
     Event event;
     MapLoader ml;
+    View mapView;
+    Entity player;
     
 public:
     Game();
