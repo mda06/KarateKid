@@ -23,6 +23,7 @@ private:
     void init();
     void handleInput();
     void update(float dt);
+    void updateColHandler();
     void render();
     void printFloatRect(const FloatRect &r);
     RenderWindow window;

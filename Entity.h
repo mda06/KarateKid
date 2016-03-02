@@ -37,7 +37,7 @@ public:
     void init();
     void update(float dt);
     void render(RenderTarget &rt);
-    Vector2f getPos() const;
+    Vector2f getPosition() const;
     void setDirection(Direction dir);
     void jump();
     FloatRect getGlobalBounds() const;

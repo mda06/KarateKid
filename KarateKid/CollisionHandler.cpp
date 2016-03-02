@@ -21,7 +21,6 @@ bool CollisionHandler::canMove(const sf::FloatRect& rect)
     for(tmx::MapObject* mo : objects)
     {
         if(mo->GetAABB().intersects(rect)) {
-            std::cout << "Col\n";
             return false;
         }
     }

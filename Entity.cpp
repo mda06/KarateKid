@@ -84,7 +84,7 @@ void Entity::jump()
     vel.y = -maxVel.y;
 }
 
-Vector2f Entity::getPos() const
+Vector2f Entity::getPosition() const
 {
     return pos;
 }

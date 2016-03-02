@@ -71,16 +71,23 @@ void Game::handleInput()
         if(event.key.code == Keyboard::Right || event.key.code == Keyboard::Left)
             player->setDirection(STOP);
     }
-    
-    //mapView.setCenter(Mouse::getPosition().x, Mouse::getPosition().y);
 }
 
 void Game::update(float dt)
 {
-    ml.UpdateQuadTree(FloatRect(mapView.getViewport().left, mapView.getViewport().top, mapView.getViewport().width * window.getSize().x, mapView.getViewport().height * window.getSize().y));
+    updateColHandler();
+    player->update(dt);
+}
+
+void Game::updateColHandler()
+{
+    Vector2f c = mapView.getCenter();
+    Vector2f s = mapView.getSize();
+    ml.UpdateQuadTree(FloatRect(c.x - s.x / 2, c.y - s.y / 2, s.x, s.y));
     colHandler->setObjects(ml.QueryQuadTree(player->getGlobalBounds()));
     
-    player->update(dt);
+    mapView.setCenter(player->getPosition().x, mapView.getCenter().y);
+
 }
 
 void Game::printFloatRect(const FloatRect &r)
