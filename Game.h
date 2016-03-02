@@ -11,6 +11,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <tmx/MapLoader.h>
+#include "CollisionHandler.h"
 #include "Entity.h"
 
 using namespace sf;
@@ -23,14 +24,17 @@ private:
     void handleInput();
     void update(float dt);
     void render();
+    void printFloatRect(const FloatRect &r);
     RenderWindow window;
     Event event;
     MapLoader ml;
     View mapView;
-    Entity player;
+    Entity *player;
+    CollisionHandler *colHandler;
     
 public:
     Game();
+    ~Game();
     void run();
     
 };

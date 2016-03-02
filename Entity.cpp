@@ -10,7 +10,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-Entity::Entity() : accel(2, 1), deccel(2, 2.f), maxVel(.8f, .9f), jumpMaxCooldown(.5f)
+Entity::Entity(CollisionHandler *col) : accel(2, 1), deccel(2, 2.f), maxVel(.8f, .9f), colHandler(col)
 {
     
 }
@@ -25,10 +25,7 @@ void Entity::init()
     texture.setSmooth(true);
     sprite.setTexture(texture);
     sprite.setTextureRect(IntRect(0, 0, 104, 161));
-    sprite.setScale(size.x / 104, size.y / 161);
-    jumping = STANDING;
-    jumpCurCooldown = 0;
-}
+    sprite.setScale(size.x / 104, size.y / 161);}
 
 void Entity::update(float dt)
 {
@@ -56,36 +53,20 @@ void Entity::handleMovement(float dt)
     if(vel.x > maxVel.x) vel.x = maxVel.x;
     if(vel.x < -maxVel.x) vel.x = -maxVel.x;
     
-    if(jumping == JUMP)
-    {
-        /*vel.y += accel.y * dt;
-        if(vel.y > maxVel.y) vel.y = maxVel.y;
-        
-        jumpCurCooldown -= dt;
-        std::cout << jumpCurCooldown << std::endl;
-        if(jumpCurCooldown <= 0) {
-            jumping = FALLING;
-            jumpCurCooldown = 0;
-        }*/
-    }
-    else if(jumping == FALLING)
-    {
-        vel.y -= deccel.y * dt;
-        if(vel.y < -maxVel.y)
-            vel.y = -maxVel.y;
-    }
+    vel.y += deccel.y * dt;
+    if(vel.y > maxVel.y)
+        vel.y = maxVel.y;
     
-    if(vel.y > maxVel.y) vel.y = maxVel.y;
-    if(vel.y < -maxVel.y) vel.y = -maxVel.y;
-    
-    pos += vel;
-    if(pos.y < 16) {
-        jumping = STANDING;
+    if(colHandler->canMove(FloatRect(pos.x + vel.x, pos.y, size.x, size.y)))
+        pos.x += vel.x;
+    else
+        vel.x = 0;
+    if(colHandler->canMove(FloatRect(pos.x, pos.y + vel.y, size.x, size.y)))
+        pos.y += vel.y;
+    else
         vel.y = 0;
-        pos.y = 16;
-    }
     
-    sprite.setPosition(pos.x, 480 - pos.y - size.y);
+    sprite.setPosition(pos.x, pos.y);
 }
 
 void Entity::render(RenderTarget &rt)
@@ -100,12 +81,15 @@ void Entity::setDirection(Direction dir)
 
 void Entity::jump()
 {
-    jumping = FALLING;
-    vel.y = maxVel.y;
-    //jumpCurCooldown = jumpMaxCooldown;
+    vel.y = -maxVel.y;
 }
 
 Vector2f Entity::getPos() const
 {
     return pos;
+}
+
+FloatRect Entity::getGlobalBounds() const
+{
+    return sprite.getGlobalBounds();
 }

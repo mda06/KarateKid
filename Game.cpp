@@ -6,12 +6,20 @@
 //  Copyright (c) 2016 Michaël Van Meerbeek. All rights reserved.
 //
 
+#include <iostream>
 #include "Game.h"
 #include "ResourcePath.hpp"
-#include <iostream>
 
 Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), ml(resourcePath())
 {
+    colHandler = new CollisionHandler();
+    player = new Entity(colHandler);
+}
+
+Game::~Game()
+{
+    delete player;
+    delete colHandler;
 }
 
 void Game::run()
@@ -36,10 +44,9 @@ void Game::run()
 void Game::init()
 {
     ml.Load("testmap.tmx");
-    
     mapView.reset(FloatRect(0, 0, window.getSize().x, window.getSize().y));
     
-    player.init();
+    player->init();
 }
 
 void Game::handleInput()
@@ -55,23 +62,31 @@ void Game::handleInput()
         if(event.key.code == sf::Keyboard::Escape) {
             window.close();
         }
-        if(event.key.code == Keyboard::Right) player.setDirection(RIGHT);
-        if(event.key.code == Keyboard::Left) player.setDirection(LEFT);
-        if(event.key.code == Keyboard::Space || event.key.code == Keyboard::Up) player.jump();
+        if(event.key.code == Keyboard::Right) player->setDirection(RIGHT);
+        if(event.key.code == Keyboard::Left) player->setDirection(LEFT);
+        if(event.key.code == Keyboard::Space || event.key.code == Keyboard::Up) player->jump();
     }
     if(event.type == Event::KeyReleased)
     {
         if(event.key.code == Keyboard::Right || event.key.code == Keyboard::Left)
-            player.setDirection(STOP);
+            player->setDirection(STOP);
     }
     
     //mapView.setCenter(Mouse::getPosition().x, Mouse::getPosition().y);
-
 }
 
 void Game::update(float dt)
 {
-    player.update(dt);
+    ml.UpdateQuadTree(FloatRect(mapView.getViewport().left, mapView.getViewport().top, mapView.getViewport().width * window.getSize().x, mapView.getViewport().height * window.getSize().y));
+    colHandler->setObjects(ml.QueryQuadTree(player->getGlobalBounds()));
+    
+    player->update(dt);
+}
+
+void Game::printFloatRect(const FloatRect &r)
+{
+    std::cout << r.left << "/" << r.top << "/" << r.width << "/" << r.height << std::endl;
+    
 }
 
 void Game::render()
@@ -79,6 +94,6 @@ void Game::render()
     window.clear();
     window.setView(mapView);
     ml.Draw(window, MapLayer::DrawType::All);
-    player.render(window);
+    player->render(window);
     window.display();
 }

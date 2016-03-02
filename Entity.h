@@ -11,6 +11,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <tmx/MapLoader.h>
+#include "CollisionHandler.h"
 using namespace sf;
 
 enum Direction
@@ -20,13 +21,6 @@ enum Direction
     RIGHT
 };
 
-enum Jumping
-{
-    JUMP,
-    FALLING,
-    STANDING
-};
-
 class Entity
 {
 private:
@@ -34,19 +28,19 @@ private:
     Direction direction;
     Texture texture;
     Sprite sprite;
-    Jumping jumping;
-    float jumpCurCooldown, jumpMaxCooldown;
+    CollisionHandler *colHandler;
     
     void handleMovement(float dt);
     
 public:
-    Entity();
+    Entity(CollisionHandler *col);
     void init();
     void update(float dt);
     void render(RenderTarget &rt);
     Vector2f getPos() const;
     void setDirection(Direction dir);
     void jump();
+    FloatRect getGlobalBounds() const;
     
 };
 
