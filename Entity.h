@@ -25,7 +25,7 @@ enum Direction
 class Entity
 {
 private:
-    Vector2f vel, maxVel, accel, deccel, size;
+    Vector2f vel, maxVel, accel, deccel;
     Direction direction;
     AnimationHandler animationHandler;
     CollisionHandler *colHandler;

@@ -9,8 +9,6 @@
 #include "CollisionHandler.h"
 #include <iostream>
 
-std::vector<tmx::MapObject*> objects;
-
 void CollisionHandler::setObjects(std::vector<tmx::MapObject*> obj)
 {
     objects = obj;

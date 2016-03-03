@@ -10,7 +10,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-Entity::Entity(CollisionHandler *col) : accel(2, 1), deccel(2, 2.f), maxVel(.8f, .9f), colHandler(col), animationHandler()
+Entity::Entity(CollisionHandler *col) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col)
 {
     
 }
@@ -18,7 +18,6 @@ Entity::Entity(CollisionHandler *col) : accel(2, 1), deccel(2, 2.f), maxVel(.8f,
 void Entity::init()
 {
     direction = STOP;
-    size = Vector2f(48, 48);
     vel = Vector2f();
 }
 
@@ -54,11 +53,16 @@ void Entity::handleMovement(float dt)
         vel.y = maxVel.y;
     
     Vector2f movement;
-    if(colHandler->canMove(FloatRect(animationHandler.getPosition().x + vel.x, animationHandler.getPosition().y, size.x, size.y)))
+    FloatRect bounds = getGlobalBounds();
+    bounds.left += vel.x;
+    if(colHandler->canMove(bounds))
         movement.x += vel.x;
     else
         vel.x = 0;
-    if(colHandler->canMove(FloatRect(animationHandler.getPosition().x, animationHandler.getPosition().y + vel.y, size.x, size.y)))
+    
+    bounds = getGlobalBounds();
+    bounds.top += vel.y;
+    if(colHandler->canMove(bounds))
         movement.y += vel.y;
     else
         vel.y = 0;
@@ -79,10 +83,10 @@ void Entity::setDirection(Direction dir)
     {
         case STOP : if(curType != IDLE) animationHandler.setType(IDLE); break;
         case LEFT: if(curType != WALK) animationHandler.setType(WALK);
-            //if(sprite.getScale().x > 0) sprite.scale(-1, 1);
+            if(animationHandler.getSprite().getScale().x > 0) animationHandler.getSprite().scale(-1, 1);
             break;
         case RIGHT: if(curType != WALK) animationHandler.setType(WALK);
-            //if(sprite.getScale().x < 0) sprite.scale(-1, 1);
+            if(animationHandler.getSprite().getScale().x < 0) animationHandler.getSprite().scale(-1, 1);
             break;
     }
 }
@@ -90,6 +94,7 @@ void Entity::setDirection(Direction dir)
 void Entity::jump()
 {
     vel.y = -maxVel.y;
+    animationHandler.setType(JUMP);
 }
 
 Vector2f Entity::getPosition() const

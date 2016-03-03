@@ -89,7 +89,6 @@ void Game::updateColHandler()
     float x = player->getPosition().x;
     if(x < s.x / 2) x = s.x / 2;
     mapView.setCenter(x, mapView.getCenter().y);
-    printFloatRect(player->getGlobalBounds());
 }
 
 void Game::printFloatRect(const FloatRect &r)

@@ -33,11 +33,8 @@ public:
     void setType(AnimationType type);
     void move(Vector2f move);
     AnimationType getType() const;
-    AnimatedSprite getSprite();
+    AnimatedSprite &getSprite();
     Vector2f getPosition() const;
-    //pos
-    //move
-    //draw
 };
 
 #endif /* defined(__KarateKid__AnimationHandler__) */
