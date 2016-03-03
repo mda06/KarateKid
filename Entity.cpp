@@ -10,7 +10,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-Entity::Entity(CollisionHandler *col) : accel(2, 1), deccel(2, 2.f), maxVel(.8f, .9f), colHandler(col)
+Entity::Entity(CollisionHandler *col) : accel(2, 1), deccel(2, 2.f), maxVel(.8f, .9f), colHandler(col), animationHandler()
 {
     
 }
@@ -18,18 +18,14 @@ Entity::Entity(CollisionHandler *col) : accel(2, 1), deccel(2, 2.f), maxVel(.8f,
 void Entity::init()
 {
     direction = STOP;
-    pos = Vector2f(50, 16);
     size = Vector2f(48, 48);
     vel = Vector2f();
-    texture.loadFromFile(resourcePath() + "blond.png");
-    texture.setSmooth(true);
-    sprite.setTexture(texture);
-    sprite.setTextureRect(IntRect(0, 0, 104, 161));
-    sprite.setScale(size.x / 104, size.y / 161);}
+}
 
-void Entity::update(float dt)
+void Entity::update(Time time)
 {
-    handleMovement(dt);
+    handleMovement(time.asSeconds());
+    animationHandler.update(time);
 }
 
 void Entity::handleMovement(float dt)
@@ -57,26 +53,38 @@ void Entity::handleMovement(float dt)
     if(vel.y > maxVel.y)
         vel.y = maxVel.y;
     
-    if(colHandler->canMove(FloatRect(pos.x + vel.x, pos.y, size.x, size.y)))
-        pos.x += vel.x;
+    Vector2f movement;
+    if(colHandler->canMove(FloatRect(animationHandler.getPosition().x + vel.x, animationHandler.getPosition().y, size.x, size.y)))
+        movement.x += vel.x;
     else
         vel.x = 0;
-    if(colHandler->canMove(FloatRect(pos.x, pos.y + vel.y, size.x, size.y)))
-        pos.y += vel.y;
+    if(colHandler->canMove(FloatRect(animationHandler.getPosition().x, animationHandler.getPosition().y + vel.y, size.x, size.y)))
+        movement.y += vel.y;
     else
         vel.y = 0;
     
-    sprite.setPosition(pos.x, pos.y);
+    animationHandler.move(movement);
 }
 
 void Entity::render(RenderTarget &rt)
 {
-    rt.draw(sprite);
+    rt.draw(animationHandler.getSprite());
 }
 
 void Entity::setDirection(Direction dir)
 {
     direction = dir;
+    AnimationType curType = animationHandler.getType();
+    switch(dir)
+    {
+        case STOP : if(curType != IDLE) animationHandler.setType(IDLE); break;
+        case LEFT: if(curType != WALK) animationHandler.setType(WALK);
+            //if(sprite.getScale().x > 0) sprite.scale(-1, 1);
+            break;
+        case RIGHT: if(curType != WALK) animationHandler.setType(WALK);
+            //if(sprite.getScale().x < 0) sprite.scale(-1, 1);
+            break;
+    }
 }
 
 void Entity::jump()
@@ -86,10 +94,10 @@ void Entity::jump()
 
 Vector2f Entity::getPosition() const
 {
-    return pos;
+    return animationHandler.getPosition();
 }
 
-FloatRect Entity::getGlobalBounds() const
+FloatRect Entity::getGlobalBounds()
 {
-    return sprite.getGlobalBounds();
+    return animationHandler.getSprite().getGlobalBounds();
 }

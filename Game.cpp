@@ -36,7 +36,7 @@ void Game::run()
             handleInput();
         }
      
-        update(ellapsed.asSeconds());
+        update(ellapsed);
         render();
     }
 }
@@ -73,10 +73,10 @@ void Game::handleInput()
     }
 }
 
-void Game::update(float dt)
+void Game::update(Time time)
 {
+    player->update(time);
     updateColHandler();
-    player->update(dt);
 }
 
 void Game::updateColHandler()
@@ -86,8 +86,10 @@ void Game::updateColHandler()
     ml.UpdateQuadTree(FloatRect(c.x - s.x / 2, c.y - s.y / 2, s.x, s.y));
     colHandler->setObjects(ml.QueryQuadTree(player->getGlobalBounds()));
     
-    mapView.setCenter(player->getPosition().x, mapView.getCenter().y);
-
+    float x = player->getPosition().x;
+    if(x < s.x / 2) x = s.x / 2;
+    mapView.setCenter(x, mapView.getCenter().y);
+    printFloatRect(player->getGlobalBounds());
 }
 
 void Game::printFloatRect(const FloatRect &r)

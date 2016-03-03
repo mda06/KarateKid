@@ -22,7 +22,7 @@ class Game
 private:
     void init();
     void handleInput();
-    void update(float dt);
+    void update(Time time);
     void updateColHandler();
     void render();
     void printFloatRect(const FloatRect &r);

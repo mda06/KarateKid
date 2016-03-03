@@ -9,6 +9,7 @@
 #ifndef __KarateKid__Entity__
 #define __KarateKid__Entity__
 
+#include "AnimationHandler.h"
 #include <SFML/Graphics.hpp>
 #include <tmx/MapLoader.h>
 #include "CollisionHandler.h"
@@ -24,10 +25,9 @@ enum Direction
 class Entity
 {
 private:
-    Vector2f pos, vel, maxVel, accel, deccel, size;
+    Vector2f vel, maxVel, accel, deccel, size;
     Direction direction;
-    Texture texture;
-    Sprite sprite;
+    AnimationHandler animationHandler;
     CollisionHandler *colHandler;
     
     void handleMovement(float dt);
@@ -35,12 +35,12 @@ private:
 public:
     Entity(CollisionHandler *col);
     void init();
-    void update(float dt);
+    void update(Time time);
     void render(RenderTarget &rt);
     Vector2f getPosition() const;
     void setDirection(Direction dir);
     void jump();
-    FloatRect getGlobalBounds() const;
+    FloatRect getGlobalBounds();
     
 };
 
