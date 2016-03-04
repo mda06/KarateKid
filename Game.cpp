@@ -66,6 +66,8 @@ void Game::handleInput()
         if(event.key.code == Keyboard::Right) player->setDirection(RIGHT);
         if(event.key.code == Keyboard::Left) player->setDirection(LEFT);
         if(event.key.code == Keyboard::Space || event.key.code == Keyboard::Up) player->jump();
+        
+        if(event.key.code == Keyboard::R) player->init();
     }
     if(event.type == Event::KeyReleased)
     {

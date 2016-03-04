@@ -19,6 +19,7 @@ void Entity::init()
 {
     direction = STOP;
     vel = Vector2f();
+    animationHandler.getSprite().setPosition(0, 0);
 }
 
 void Entity::update(Time time)
