@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F561C845FEA00D85323 /* ResourcePath.mm */; };
 		4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F591C845FEA00D85323 /* main.cpp */; };
-		4C3FEADA1C85A546004B3A58 /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3FEAD81C85A546004B3A58 /* forest_tile.png */; };
 		4C60A4721C85F3260031FFEA /* testmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4C60A4711C85F3260031FFEA /* testmap.tmx */; };
 		4CA5324C1C8498F700550B05 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5324B1C8498F700550B05 /* libz.1.1.3.dylib */; };
 		4CA532781C849DFB00550B05 /* DebugShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532701C849DFB00550B05 /* DebugShape.cpp */; };
@@ -20,6 +19,7 @@
 		4CA5327D1C849DFB00550B05 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532761C849DFB00550B05 /* pugixml.cpp */; };
 		4CA5327E1C849DFB00550B05 /* QuadTreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532771C849DFB00550B05 /* QuadTreeNode.cpp */; };
 		4CB3AB401C88A40A0061D1F3 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */; };
+		4CB3AB421C88BC7A0061D1F3 /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CB3AB411C88BC7A0061D1F3 /* forest_tile.png */; };
 		4CC798BB1C8465B100C2CD96 /* blond.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC798B91C8465B100C2CD96 /* blond.png */; };
 		4CC798BC1C8465B100C2CD96 /* skull.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC798BA1C8465B100C2CD96 /* skull.png */; };
 		4CC798BF1C8465E000C2CD96 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC798BD1C8465E000C2CD96 /* Entity.cpp */; };
@@ -27,7 +27,6 @@
 		4CC939EF1C8868B80068A9B5 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC939ED1C8868B80068A9B5 /* Animation.cpp */; };
 		4CC93A101C88795A0068A9B5 /* AnimationHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC93A0E1C88795A0068A9B5 /* AnimationHandler.cpp */; };
 		4CEE28991C879C0D009FC0DE /* CollisionHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */; };
-		4CEE289B1C87A742009FC0DE /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEE289A1C87A742009FC0DE /* forest_tile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,18 +35,18 @@
 		4C3E9F561C845FEA00D85323 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		4C3E9F591C845FEA00D85323 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		4C3FEAD81C85A546004B3A58 /* forest_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forest_tile.png; path = "../../../../../Pictures/karate kid sprites/map/forest_tile.png"; sourceTree = "<group>"; };
-		4C60A4711C85F3260031FFEA /* testmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = testmap.tmx; path = "../../../../../Pictures/karate kid sprites/map/testmap.tmx"; sourceTree = "<group>"; };
+		4C60A4711C85F3260031FFEA /* testmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testmap.tmx; sourceTree = "<group>"; };
 		4CA5324B1C8498F700550B05 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
-		4CA532701C849DFB00550B05 /* DebugShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebugShape.cpp; path = "../../../Documents/Programmation/Game Programming/sfml-tmxloader-master/src/DebugShape.cpp"; sourceTree = "<group>"; };
-		4CA532711C849DFB00550B05 /* MapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapLayer.cpp; path = "../../../Documents/Programmation/Game Programming/sfml-tmxloader-master/src/MapLayer.cpp"; sourceTree = "<group>"; };
-		4CA532721C849DFB00550B05 /* MapLoaderPrivate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapLoaderPrivate.cpp; path = "../../../Documents/Programmation/Game Programming/sfml-tmxloader-master/src/MapLoaderPrivate.cpp"; sourceTree = "<group>"; };
-		4CA532731C849DFB00550B05 /* MapLoaderPublic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapLoaderPublic.cpp; path = "../../../Documents/Programmation/Game Programming/sfml-tmxloader-master/src/MapLoaderPublic.cpp"; sourceTree = "<group>"; };
-		4CA532741C849DFB00550B05 /* MapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapObject.cpp; path = "../../../Documents/Programmation/Game Programming/sfml-tmxloader-master/src/MapObject.cpp"; sourceTree = "<group>"; };
+		4CA532701C849DFB00550B05 /* DebugShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugShape.cpp; sourceTree = "<group>"; };
+		4CA532711C849DFB00550B05 /* MapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLayer.cpp; sourceTree = "<group>"; };
+		4CA532721C849DFB00550B05 /* MapLoaderPrivate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoaderPrivate.cpp; sourceTree = "<group>"; };
+		4CA532731C849DFB00550B05 /* MapLoaderPublic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoaderPublic.cpp; sourceTree = "<group>"; };
+		4CA532741C849DFB00550B05 /* MapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObject.cpp; sourceTree = "<group>"; };
 		4CA532761C849DFB00550B05 /* pugixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pugixml.cpp; sourceTree = "<group>"; };
-		4CA532771C849DFB00550B05 /* QuadTreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QuadTreeNode.cpp; path = "../../../Documents/Programmation/Game Programming/sfml-tmxloader-master/src/QuadTreeNode.cpp"; sourceTree = "<group>"; };
+		4CA532771C849DFB00550B05 /* QuadTreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadTreeNode.cpp; sourceTree = "<group>"; };
 		4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
 		4CB3AB3F1C88A40A0061D1F3 /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
+		4CB3AB411C88BC7A0061D1F3 /* forest_tile.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = forest_tile.png; sourceTree = "<group>"; };
 		4CC798B91C8465B100C2CD96 /* blond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blond.png; sourceTree = "<group>"; };
 		4CC798BA1C8465B100C2CD96 /* skull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skull.png; sourceTree = "<group>"; };
 		4CC798BD1C8465E000C2CD96 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Entity.cpp; path = ../Entity.cpp; sourceTree = "<group>"; };
@@ -60,7 +59,6 @@
 		4CC93A0F1C88795A0068A9B5 /* AnimationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationHandler.h; sourceTree = "<group>"; };
 		4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionHandler.cpp; sourceTree = "<group>"; };
 		4CEE28981C879C0D009FC0DE /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
-		4CEE289A1C87A742009FC0DE /* forest_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forest_tile.png; path = "../../../../../Pictures/karate kid sprites/map/forest_tile.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,12 +135,12 @@
 		4CA530EB1C848B2F00550B05 /* map */ = {
 			isa = PBXGroup;
 			children = (
-				4CEE289A1C87A742009FC0DE /* forest_tile.png */,
+				4CB3AB411C88BC7A0061D1F3 /* forest_tile.png */,
 				4C60A4711C85F3260031FFEA /* testmap.tmx */,
-				4C3FEAD81C85A546004B3A58 /* forest_tile.png */,
 			);
-			path = map;
-			sourceTree = "<group>";
+			name = map;
+			path = KarateKid/map;
+			sourceTree = SOURCE_ROOT;
 		};
 		4CA5324D1C84995D00550B05 /* tmx */ = {
 			isa = PBXGroup;
@@ -155,8 +153,7 @@
 				4CA532751C849DFB00550B05 /* pugixml */,
 				4CA532771C849DFB00550B05 /* QuadTreeNode.cpp */,
 			);
-			name = tmx;
-			path = "../../../../Downloads/sfml-tmxloader-master/tmx";
+			path = tmx;
 			sourceTree = "<group>";
 		};
 		4CA532751C849DFB00550B05 /* pugixml */ = {
@@ -164,8 +161,7 @@
 			children = (
 				4CA532761C849DFB00550B05 /* pugixml.cpp */,
 			);
-			name = pugixml;
-			path = "../../../Documents/Programmation/Game Programming/sfml-tmxloader-master/src/pugixml";
+			path = pugixml;
 			sourceTree = "<group>";
 		};
 		4CC798B81C8465B100C2CD96 /* sprites */ = {
@@ -231,9 +227,8 @@
 			files = (
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
+				4CB3AB421C88BC7A0061D1F3 /* forest_tile.png in Resources */,
 				4C60A4721C85F3260031FFEA /* testmap.tmx in Resources */,
-				4C3FEADA1C85A546004B3A58 /* forest_tile.png in Resources */,
-				4CEE289B1C87A742009FC0DE /* forest_tile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

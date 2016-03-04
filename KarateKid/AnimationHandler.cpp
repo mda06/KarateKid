@@ -30,10 +30,10 @@ AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(s
     walkAnim.addFrame(IntRect(459, 189, 94, 160));
  
     jumpAnim.setSpriteSheet(texture);
-    jumpAnim.addFrame(IntRect(11, 571, 93, 160));
-    jumpAnim.addFrame(IntRect(122, 584, 104, 148));
-    jumpAnim.addFrame(IntRect(259, 547, 93, 167));
-    jumpAnim.addFrame(IntRect(380, 582, 106, 149));
+    jumpAnim.addFrame(IntRect(11, 547, 93, 184));
+    jumpAnim.addFrame(IntRect(122, 547, 104, 184));
+    jumpAnim.addFrame(IntRect(259, 547, 93, 184));
+    jumpAnim.addFrame(IntRect(380, 547, 106, 184));
     
     runAnim.setSpriteSheet(texture);
     atkFAnim.setSpriteSheet(texture);
@@ -43,6 +43,7 @@ AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(s
  
     animatedSprite.play(idleAnim);
     animatedSprite.setScale(size.x / 100, size.y / 160);
+    animatedSprite.setPosition(20, 50);
     animatedSprite.setOrigin(animatedSprite.getGlobalBounds().width, animatedSprite.getGlobalBounds().height);
 }
 

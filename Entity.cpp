@@ -93,8 +93,13 @@ void Entity::setDirection(Direction dir)
 
 void Entity::jump()
 {
-    vel.y = -maxVel.y;
-    animationHandler.setType(JUMP);
+    FloatRect bounds = getGlobalBounds();
+    bounds.top += 1;
+    if(!colHandler->canMove(bounds))
+    {
+        vel.y = -maxVel.y;
+        //animationHandler.setType(JUMP);
+    }
 }
 
 Vector2f Entity::getPosition() const
