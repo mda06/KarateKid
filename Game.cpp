@@ -43,7 +43,8 @@ void Game::run()
 
 void Game::init()
 {
-    ml.Load("testmap.tmx");
+    std::cout << "Loading map... " << ml.Load("testmap.tmx") << std::endl;;
+    
     mapView.reset(FloatRect(0, 0, window.getSize().x, window.getSize().y));
     
     player->init();
