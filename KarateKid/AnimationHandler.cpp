@@ -10,6 +10,11 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
+//Change type to whatever
+//Add frames
+//Change animatedSprite.player(animation)
+//comment body of setType
+
 AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(seconds(.2f))
 {
     //If fail ...
@@ -37,11 +42,16 @@ AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(s
     
     runAnim.setSpriteSheet(texture);
     atkFAnim.setSpriteSheet(texture);
+    atkFAnim.addFrame(IntRect(10, 767, 95, 162));
+    atkFAnim.addFrame(IntRect(110, 767, 130, 162));
+    atkFAnim.addFrame(IntRect(362, 767, 209, 162));
+    
     atkPAnim.setSpriteSheet(texture);
     hitAnim.setSpriteSheet(texture);
     deadAnim.setSpriteSheet(texture);
  
     animatedSprite.play(idleAnim);
+    
     animatedSprite.setScale(size.x / 100, size.y / 160);
     animatedSprite.setPosition(20, 50);
     animatedSprite.setOrigin(animatedSprite.getGlobalBounds().width, animatedSprite.getGlobalBounds().height);
