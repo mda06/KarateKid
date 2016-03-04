@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F561C845FEA00D85323 /* ResourcePath.mm */; };
 		4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F591C845FEA00D85323 /* main.cpp */; };
-		4C60A4721C85F3260031FFEA /* testmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4C60A4711C85F3260031FFEA /* testmap.tmx */; };
+		4C9DD2301C8996CE00B6CCB9 /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9DD2321C8996CE00B6CCB9 /* forest_tile.png */; };
+		4C9DD2331C8996D300B6CCB9 /* testmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4C9DD2351C8996D300B6CCB9 /* testmap.tmx */; };
 		4CA5324C1C8498F700550B05 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5324B1C8498F700550B05 /* libz.1.1.3.dylib */; };
 		4CA532781C849DFB00550B05 /* DebugShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532701C849DFB00550B05 /* DebugShape.cpp */; };
 		4CA532791C849DFB00550B05 /* MapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532711C849DFB00550B05 /* MapLayer.cpp */; };
@@ -19,7 +20,6 @@
 		4CA5327D1C849DFB00550B05 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532761C849DFB00550B05 /* pugixml.cpp */; };
 		4CA5327E1C849DFB00550B05 /* QuadTreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532771C849DFB00550B05 /* QuadTreeNode.cpp */; };
 		4CB3AB401C88A40A0061D1F3 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */; };
-		4CB3AB421C88BC7A0061D1F3 /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CB3AB411C88BC7A0061D1F3 /* forest_tile.png */; };
 		4CC798BB1C8465B100C2CD96 /* blond.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC798B91C8465B100C2CD96 /* blond.png */; };
 		4CC798BC1C8465B100C2CD96 /* skull.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC798BA1C8465B100C2CD96 /* skull.png */; };
 		4CC798BF1C8465E000C2CD96 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC798BD1C8465E000C2CD96 /* Entity.cpp */; };
@@ -35,7 +35,8 @@
 		4C3E9F561C845FEA00D85323 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		4C3E9F591C845FEA00D85323 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		4C60A4711C85F3260031FFEA /* testmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testmap.tmx; sourceTree = "<group>"; };
+		4C9DD2311C8996CE00B6CCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/forest_tile.png; sourceTree = "<group>"; };
+		4C9DD2341C8996D300B6CCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/testmap.tmx; sourceTree = "<group>"; };
 		4CA5324B1C8498F700550B05 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		4CA532701C849DFB00550B05 /* DebugShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugShape.cpp; sourceTree = "<group>"; };
 		4CA532711C849DFB00550B05 /* MapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLayer.cpp; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		4CA532771C849DFB00550B05 /* QuadTreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadTreeNode.cpp; sourceTree = "<group>"; };
 		4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
 		4CB3AB3F1C88A40A0061D1F3 /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
-		4CB3AB411C88BC7A0061D1F3 /* forest_tile.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = forest_tile.png; sourceTree = "<group>"; };
 		4CC798B91C8465B100C2CD96 /* blond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blond.png; sourceTree = "<group>"; };
 		4CC798BA1C8465B100C2CD96 /* skull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skull.png; sourceTree = "<group>"; };
 		4CC798BD1C8465E000C2CD96 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Entity.cpp; path = ../Entity.cpp; sourceTree = "<group>"; };
@@ -135,12 +135,11 @@
 		4CA530EB1C848B2F00550B05 /* map */ = {
 			isa = PBXGroup;
 			children = (
-				4CB3AB411C88BC7A0061D1F3 /* forest_tile.png */,
-				4C60A4711C85F3260031FFEA /* testmap.tmx */,
+				4C9DD2321C8996CE00B6CCB9 /* forest_tile.png */,
+				4C9DD2351C8996D300B6CCB9 /* testmap.tmx */,
 			);
-			name = map;
-			path = KarateKid/map;
-			sourceTree = SOURCE_ROOT;
+			path = map;
+			sourceTree = "<group>";
 		};
 		4CA5324D1C84995D00550B05 /* tmx */ = {
 			isa = PBXGroup;
@@ -227,8 +226,8 @@
 			files = (
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
-				4CB3AB421C88BC7A0061D1F3 /* forest_tile.png in Resources */,
-				4C60A4721C85F3260031FFEA /* testmap.tmx in Resources */,
+				4C9DD2301C8996CE00B6CCB9 /* forest_tile.png in Resources */,
+				4C9DD2331C8996D300B6CCB9 /* testmap.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +274,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4C9DD2321C8996CE00B6CCB9 /* forest_tile.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C9DD2311C8996CE00B6CCB9 /* Base */,
+			);
+			name = forest_tile.png;
+			sourceTree = "<group>";
+		};
+		4C9DD2351C8996D300B6CCB9 /* testmap.tmx */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C9DD2341C8996D300B6CCB9 /* Base */,
+			);
+			name = testmap.tmx;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4C3E9F641C845FEA00D85323 /* Debug */ = {
