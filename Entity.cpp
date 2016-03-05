@@ -10,7 +10,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-Entity::Entity(CollisionHandler *col) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col)
+Entity::Entity(CollisionHandler *col, Vector2f pos) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos)
 {
     
 }
@@ -19,7 +19,7 @@ void Entity::init()
 {
     direction = STOP;
     vel = Vector2f();
-    animationHandler.getSprite().setPosition(0, 0);
+    animationHandler.getSprite().setPosition(initialPos);
 }
 
 void Entity::update(Time time)
@@ -56,14 +56,22 @@ void Entity::handleMovement(float dt)
     Vector2f movement;
     FloatRect bounds = getGlobalBounds();
     bounds.left += vel.x;
-    if(colHandler->canMove(bounds))
+    bool colEntity = colHandler->collisionWithEntity(this, bounds);
+    if(colHandler->canMove(bounds) && !colEntity)
+    {
         movement.x += vel.x;
+    }
     else
+    {
         vel.x = 0;
+        //To climb but not on enemies
+        if(!colEntity)
+            vel.y -= accel.y * dt * 5;
+    }
     
     bounds = getGlobalBounds();
     bounds.top += vel.y;
-    if(colHandler->canMove(bounds))
+    if(colHandler->canMove(bounds) && !colHandler->collisionWithEntity(this, bounds))
         movement.y += vel.y;
     else
         vel.y = 0;
@@ -96,7 +104,7 @@ void Entity::jump()
 {
     FloatRect bounds = getGlobalBounds();
     bounds.top += 1;
-    if(!colHandler->canMove(bounds))
+    if(!colHandler->canMove(bounds) || colHandler->collisionWithEntity(this, bounds))
     {
         vel.y = -maxVel.y;
         //animationHandler.setType(JUMP);
@@ -110,5 +118,5 @@ Vector2f Entity::getPosition() const
 
 FloatRect Entity::getGlobalBounds()
 {
-    return animationHandler.getSprite().getGlobalBounds();
+    return (animationHandler.getSprite().getGlobalBounds());
 }

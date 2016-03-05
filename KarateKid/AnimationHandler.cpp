@@ -15,10 +15,11 @@
 //Change animatedSprite.player(animation)
 //comment body of setType
 
-AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(seconds(.2f))
+AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(seconds(1))
 {
-    //If fail ...
-    texture.loadFromFile(resourcePath() + "blond.png");
+    if(!texture.loadFromFile(resourcePath() + "blond.png"))
+        std::cout << "Failed to load texture in AnimationHandler" << std::endl;
+    
     texture.setSmooth(true);
    
     idleAnim.setSpriteSheet(texture);

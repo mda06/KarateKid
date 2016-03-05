@@ -13,14 +13,21 @@
 #include <tmx/MapLoader.h>
 #include <SFML/Graphics.hpp>
 
+class Game;
+class Entity;
+
 class CollisionHandler
 {
 private:
-    std::vector<tmx::MapObject*> objects;
+    tmx::MapObjects objects;
+    Game *game;
+    bool collisionAABB(sf::FloatRect r1, sf::FloatRect r2);
     
 public:
-    void setObjects(std::vector<tmx::MapObject*> obj);
+    CollisionHandler(Game *game);
+    void setObjects(tmx::MapObjects obj);
     bool canMove(const sf::FloatRect &rect);
+    bool collisionWithEntity(Entity* e, sf::FloatRect rect);
 };
 
 #endif /* defined(__KarateKid__CollisionHandler__) */

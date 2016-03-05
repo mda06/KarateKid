@@ -11,6 +11,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <tmx/MapLoader.h>
+#include <string>
+#include <vector>
 #include "CollisionHandler.h"
 #include "Entity.h"
 
@@ -21,22 +23,28 @@ class Game
 {
 private:
     void init();
+    void initEnemies();
     void handleInput();
     void update(Time time);
-    void updateColHandler();
+    void updateView();
     void render();
     void printFloatRect(const FloatRect &r);
     RenderWindow window;
     Event event;
     MapLoader ml;
-    View mapView;
+    View mapView, hudView;
     Entity *player;
     CollisionHandler *colHandler;
+    std::string filePath;
+    std::vector<Entity*> enemies;
+    Font font;
+    Text txtPosition;
     
 public:
     Game();
     ~Game();
     void run();
+    std::vector<Entity*> getEnemies();
     
 };
 

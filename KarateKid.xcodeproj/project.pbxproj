@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1F10AC1C8B19070062A96D /* enemies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10AB1C8B19070062A96D /* enemies.txt */; };
+		4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10B01C8B36C50062A96D /* master_of_break.ttf */; };
 		4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F561C845FEA00D85323 /* ResourcePath.mm */; };
 		4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F591C845FEA00D85323 /* main.cpp */; };
 		4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9CDE291C899D8400693D5B /* forest_tile.png */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C1F10AB1C8B19070062A96D /* enemies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = enemies.txt; sourceTree = "<group>"; };
+		4C1F10B01C8B36C50062A96D /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
 		4C3E9F511C845FEA00D85323 /* KarateKid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KarateKid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3E9F551C845FEA00D85323 /* KarateKid-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KarateKid-Info.plist"; sourceTree = "<group>"; };
 		4C3E9F561C845FEA00D85323 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		4C3E9F5B1C845FEA00D85323 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C1F10B01C8B36C50062A96D /* master_of_break.ttf */,
+				4C1F10AB1C8B19070062A96D /* enemies.txt */,
 				4C9CDE281C899D8400693D5B /* map */,
 				4CC798B81C8465B100C2CD96 /* sprites */,
 			);
@@ -225,9 +231,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C9CDE2C1C899D8400693D5B /* testmap.tmx in Resources */,
+				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */,
+				4C1F10AC1C8B19070062A96D /* enemies.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

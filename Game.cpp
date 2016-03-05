@@ -7,17 +7,22 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
 #include "Game.h"
 #include "ResourcePath.hpp"
 
-Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), ml(resourcePath())
+Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), ml(resourcePath()), filePath(resourcePath() + "enemies.txt")
 {
-    colHandler = new CollisionHandler();
-    player = new Entity(colHandler);
+    colHandler = new CollisionHandler(this);
+    player = new Entity(colHandler, Vector2f(60, 430));
 }
 
 Game::~Game()
 {
+    for(Entity* e : enemies)
+        delete e;
     delete player;
     delete colHandler;
 }
@@ -46,8 +51,57 @@ void Game::init()
     std::cout << "Loading map... " << ml.Load("testmap.tmx") << std::endl;;
     
     mapView.reset(FloatRect(0, 0, window.getSize().x, window.getSize().y));
+    hudView.reset(FloatRect(0, 0, window.getSize().x, window.getSize().y));
     
     player->init();
+    initEnemies();
+    
+    //Change with quadtree for optimisation and don't update enemies not in the range of the rect
+    for(MapLayer o : ml.GetLayers())
+    {
+        if(o.name == "Col")
+        {
+            colHandler->setObjects(o.objects);
+        }
+    }
+    
+    if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
+        std::cout << "Can't load font !" << std::endl;
+    txtPosition.setFont(font);
+    txtPosition.setCharacterSize(20);
+}
+
+void Game::initEnemies()
+{
+    for(Entity* e : enemies)
+        delete e;
+    enemies.clear();
+    std::string line;
+    std::ifstream file(filePath);
+    if (file.is_open())
+    {
+        while ( getline (file,line) )
+        {
+            std::string token, delim(",");
+            int x, y, i = 0;
+            while(token != line){
+                token = line.substr(0,line.find_first_of(delim));
+                line = line.substr(line.find_first_of(delim) + 1);
+                
+                if(i == 0) x = std::stoi(token.c_str());
+                else y = std::stoi(token.c_str());
+                i++;
+            }
+            enemies.push_back(new Entity(colHandler, Vector2f(x, y)));
+            enemies.back()->init();
+            std::cout << "Added enemy at " << x << "/" << y << std::endl;
+        }
+        file.close();
+    }
+    else
+    {
+        std::cout << "Can't open enemies file" << std::endl;
+    }
 }
 
 void Game::handleInput()
@@ -67,7 +121,12 @@ void Game::handleInput()
         if(event.key.code == Keyboard::Left) player->setDirection(LEFT);
         if(event.key.code == Keyboard::Space || event.key.code == Keyboard::Up) player->jump();
         
-        if(event.key.code == Keyboard::R) player->init();
+        if(event.key.code == Keyboard::R)
+        {
+            player->init();
+            initEnemies();
+
+        }
     }
     if(event.type == Event::KeyReleased)
     {
@@ -78,26 +137,28 @@ void Game::handleInput()
 
 void Game::update(Time time)
 {
+    for(Entity* e : enemies)
+        e->update(time);
+    
     player->update(time);
-    updateColHandler();
+    updateView();
 }
 
-void Game::updateColHandler()
+void Game::updateView()
 {
-    Vector2f c = mapView.getCenter();
     Vector2f s = mapView.getSize();
-    ml.UpdateQuadTree(FloatRect(c.x - s.x / 2, c.y - s.y / 2, s.x, s.y));
-    colHandler->setObjects(ml.QueryQuadTree(player->getGlobalBounds()));
-    
     float x = player->getPosition().x;
     if(x < s.x / 2) x = s.x / 2;
     mapView.setCenter(x, mapView.getCenter().y);
+    double pi = 3.14159265359;
+    std::stringstream stream;
+    stream << "Position: " << std::fixed << std::setprecision(0) << player->getPosition().x << "/" << player->getPosition().y;
+    txtPosition.setString(stream.str());
 }
 
 void Game::printFloatRect(const FloatRect &r)
 {
     std::cout << r.left << "/" << r.top << "/" << r.width << "/" << r.height << std::endl;
-    
 }
 
 void Game::render()
@@ -105,6 +166,15 @@ void Game::render()
     window.clear();
     window.setView(mapView);
     ml.Draw(window, MapLayer::DrawType::All);
+    for(Entity* e : enemies)
+        e->render(window);
     player->render(window);
+    window.setView(hudView);
+    window.draw(txtPosition);
     window.display();
+}
+
+std::vector<Entity*> Game::getEnemies()
+{
+    return enemies;
 }

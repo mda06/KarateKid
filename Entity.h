@@ -29,11 +29,11 @@ private:
     Direction direction;
     AnimationHandler animationHandler;
     CollisionHandler *colHandler;
-    
     void handleMovement(float dt);
+    Vector2f initialPos;
     
 public:
-    Entity(CollisionHandler *col);
+    Entity(CollisionHandler *col, Vector2f pos = Vector2f());
     void init();
     void update(Time time);
     void render(RenderTarget &rt);
