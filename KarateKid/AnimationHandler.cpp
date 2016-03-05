@@ -42,13 +42,21 @@ AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(s
     jumpAnim.addFrame(IntRect(380, 547, 106, 184));
     
     runAnim.setSpriteSheet(texture);
-    atkFAnim.setSpriteSheet(texture);
-    atkFAnim.addFrame(IntRect(10, 767, 95, 162));
-    atkFAnim.addFrame(IntRect(110, 767, 130, 162));
-    atkFAnim.addFrame(IntRect(362, 767, 209, 162));
     
+    atkFAnim.setSpriteSheet(texture);
+    atkFAnim.addFrame(IntRect(11, 766, 93, 162));
+    atkFAnim.addFrame(IntRect(134, 766, 215, 162));
+    atkFAnim.addFrame(IntRect(360, 766, 212, 162));
+     
     atkPAnim.setSpriteSheet(texture);
+    atkPAnim.addFrame(IntRect(11, 936, 93, 214));
+    atkPAnim.addFrame(IntRect(128, 936, 115, 214));
+    atkPAnim.addFrame(IntRect(273, 936, 115, 214));
+    
     hitAnim.setSpriteSheet(texture);
+    hitAnim.addFrame(IntRect(11, 1061, 93, 161));
+    hitAnim.addFrame(IntRect(146, 1061, 96, 161));
+
     deadAnim.setSpriteSheet(texture);
  
     animatedSprite.play(idleAnim);
@@ -77,8 +85,9 @@ void AnimationHandler::setType(AnimationType type)
         case WALK: animatedSprite.play(walkAnim); animatedSprite.setFrameTime(seconds(.08f)); break;
         case RUN: animatedSprite.play(runAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
         case JUMP: animatedSprite.play(jumpAnim); animatedSprite.setFrameTime(seconds(.14f)); animatedSprite.setLooped(false); break;
-        case ATTACK_FOOT: animatedSprite.play(atkFAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
-        case ATTACK_PUNCH: animatedSprite.play(atkPAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
+        case ATTACK_FOOT: animatedSprite.play(atkFAnim); animatedSprite.setFrameTime(seconds(.4f));
+            animatedSprite.setLooped(false); break;
+        case ATTACK_PUNCH: animatedSprite.play(atkPAnim); animatedSprite.setFrameTime(seconds(.4f)); animatedSprite.setLooped(false); break;
         case HIT: animatedSprite.play(hitAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
         case DEAD: animatedSprite.play(deadAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
     }
