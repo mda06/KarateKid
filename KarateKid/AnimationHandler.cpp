@@ -58,6 +58,11 @@ AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(s
     hitAnim.addFrame(IntRect(146, 1061, 96, 161));
 
     deadAnim.setSpriteSheet(texture);
+    deadAnim.addFrame(IntRect(14, 1358, 96, 161));
+    deadAnim.addFrame(IntRect(127, 1358, 96, 161));
+    deadAnim.addFrame(IntRect(242, 1358, 96, 161));
+    deadAnim.addFrame(IntRect(351, 1358, 102, 161));
+    deadAnim.addFrame(IntRect(467, 1358, 100, 161));
  
     animatedSprite.play(idleAnim);
     
@@ -85,11 +90,13 @@ void AnimationHandler::setType(AnimationType type)
         case WALK: animatedSprite.play(walkAnim); animatedSprite.setFrameTime(seconds(.08f)); break;
         case RUN: animatedSprite.play(runAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
         case JUMP: animatedSprite.play(jumpAnim); animatedSprite.setFrameTime(seconds(.14f)); animatedSprite.setLooped(false); break;
-        case ATTACK_FOOT: animatedSprite.play(atkFAnim); animatedSprite.setFrameTime(seconds(.4f));
+        case ATTACK_FOOT: animatedSprite.play(atkFAnim); animatedSprite.setFrameTime(seconds(.2f));
             animatedSprite.setLooped(false); break;
-        case ATTACK_PUNCH: animatedSprite.play(atkPAnim); animatedSprite.setFrameTime(seconds(.4f)); animatedSprite.setLooped(false); break;
-        case HIT: animatedSprite.play(hitAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
-        case DEAD: animatedSprite.play(deadAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
+        case ATTACK_PUNCH: animatedSprite.play(atkPAnim); animatedSprite.setFrameTime(seconds(.15f)); animatedSprite.setLooped(false); break;
+        case HIT: animatedSprite.play(hitAnim); animatedSprite.setFrameTime(seconds(.4f));
+            animatedSprite.setLooped(false); break;
+        case DEAD: animatedSprite.play(deadAnim); animatedSprite.setFrameTime(seconds(.4f));
+            animatedSprite.setLooped(false); break;
     }
 }
 
