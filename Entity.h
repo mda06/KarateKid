@@ -39,6 +39,7 @@ public:
     void render(RenderTarget &rt);
     Vector2f getPosition() const;
     void setDirection(Direction dir);
+    void setColor(Color color);
     void jump();
     void attackFoot();
     void attackPunch();

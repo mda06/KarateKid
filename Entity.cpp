@@ -111,6 +111,11 @@ void Entity::jump()
     }
 }
 
+void Entity::setColor(Color color)
+{
+    animationHandler.getSprite().setColor(color);
+}
+
 void Entity::attackFoot()
 {
     animationHandler.setType(ATTACK_FOOT);

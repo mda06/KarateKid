@@ -94,6 +94,7 @@ void Game::initEnemies()
             }
             enemies.push_back(new Entity(colHandler, Vector2f(x, y)));
             enemies.back()->init();
+            enemies.back()->setColor(Color::Magenta);
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();
