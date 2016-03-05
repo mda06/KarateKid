@@ -120,6 +120,14 @@ void Game::handleInput()
         if(event.key.code == Keyboard::Right) player->setDirection(RIGHT);
         if(event.key.code == Keyboard::Left) player->setDirection(LEFT);
         if(event.key.code == Keyboard::Space || event.key.code == Keyboard::Up) player->jump();
+        if(event.key.code == Keyboard::W)
+            player->attackFoot();
+        if(event.key.code == Keyboard::X)
+            player->attackPunch();
+        if(event.key.code == Keyboard::C)
+            player->hit();
+        if(event.key.code == Keyboard::V)
+            player->dead();
         
         if(event.key.code == Keyboard::R)
         {

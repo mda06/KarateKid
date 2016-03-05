@@ -111,6 +111,26 @@ void Entity::jump()
     }
 }
 
+void Entity::attackFoot()
+{
+    animationHandler.setType(ATTACK_FOOT);
+}
+
+void Entity::attackPunch()
+{
+    animationHandler.setType(ATTACK_PUNCH);
+}
+
+void Entity::hit()
+{
+    animationHandler.setType(HIT);
+}
+
+void Entity::dead()
+{
+    animationHandler.setType(DEAD);
+}
+
 Vector2f Entity::getPosition() const
 {
     return animationHandler.getPosition();

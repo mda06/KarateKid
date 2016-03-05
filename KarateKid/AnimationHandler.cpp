@@ -54,8 +54,8 @@ AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(s
     atkPAnim.addFrame(IntRect(273, 936, 115, 214));
     
     hitAnim.setSpriteSheet(texture);
-    hitAnim.addFrame(IntRect(11, 1061, 93, 161));
-    hitAnim.addFrame(IntRect(146, 1061, 96, 161));
+    hitAnim.addFrame(IntRect(11, 1161, 93, 161));
+    hitAnim.addFrame(IntRect(146, 1161, 96, 161));
 
     deadAnim.setSpriteSheet(texture);
     deadAnim.addFrame(IntRect(14, 1358, 96, 161));

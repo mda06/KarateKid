@@ -40,6 +40,10 @@ public:
     Vector2f getPosition() const;
     void setDirection(Direction dir);
     void jump();
+    void attackFoot();
+    void attackPunch();
+    void hit();
+    void dead();
     FloatRect getGlobalBounds();
     
 };
