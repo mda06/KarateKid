@@ -45,6 +45,7 @@ public:
     void attackPunch();
     void block();
     void dead();
+    bool isDeadAnimFinished() const;
     FloatRect getGlobalBounds();
     FighterCharacteristics &getFighterCharacteristics();
 };

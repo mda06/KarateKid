@@ -128,8 +128,6 @@ void Game::handleInput()
             player->attackPunch();
         if(event.key.code == Keyboard::C)
             player->block();
-        if(event.key.code == Keyboard::V)
-            player->dead();
         
         if(event.key.code == Keyboard::R)
         {
@@ -147,8 +145,16 @@ void Game::handleInput()
 
 void Game::update(Time time)
 {
-    for(Entity* e : enemies)
+    for(int i = enemies.size() - 1; i >= 0; i--)
+    {
+        Entity *e = enemies[i];
         e->update(time);
+        if(e->isDeadAnimFinished())
+        {
+            enemies.erase(enemies.begin() + i);
+            delete e;
+        }
+    }
     
     player->update(time);
     updateView();

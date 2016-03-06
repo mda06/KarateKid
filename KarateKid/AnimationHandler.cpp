@@ -15,7 +15,7 @@
 //Change animatedSprite.player(animation)
 //comment body of setType
 
-AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(seconds(1))
+AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false)
 {
     if(!texture.loadFromFile(resourcePath() + "blond.png"))
         std::cout << "Failed to load texture in AnimationHandler" << std::endl;
@@ -82,10 +82,13 @@ void AnimationHandler::update(Time time)
             case ATTACK_FOOT: setType(IDLE); break;
             case ATTACK_PUNCH: setType(IDLE); break;
             case BLOCK: setType(IDLE); break;
-            case DEAD: setType(IDLE); break;
+            case DEAD: isAnimDeadFinished = true; break;
             default: break;
         }
     }
+    
+    if(fighterChar.isDead() && type != DEAD)
+        setType(DEAD);
 }
 
 void AnimationHandler::move(Vector2f move)
@@ -135,10 +138,15 @@ void AnimationHandler::setType(AnimationType type, Entity* launcher, Entity* rec
                     animatedSprite.setFrameTime(seconds(.14f));
                     animatedSprite.setLooped(false); break;
         case DEAD:  animatedSprite.play(deadAnim);
-                    animatedSprite.setFrameTime(seconds(.1f));
+                    animatedSprite.setFrameTime(seconds(.3f));
                     animatedSprite.setLooped(false); break;
         default: break;
     }
+}
+
+bool AnimationHandler::isDeadAnimFinished() const
+{
+    return isAnimDeadFinished;
 }
 
 bool AnimationHandler::isAnimationFinished() const

@@ -29,12 +29,14 @@ private:
     Vector2f size;
     FighterCharacteristics fighterChar;
     float timeAtkFoot, timeAtkPunch, timeBlock;
+    bool isAnimDeadFinished;
     
 public:
     AnimationHandler();
     void update(Time time);
     void setType(AnimationType type, Entity* launcher = NULL, Entity* receiver = NULL);
     void move(Vector2f move);
+    bool isDeadAnimFinished() const;
     AnimationType getType() const;
     AnimatedSprite &getSprite();
     Vector2f getPosition() const;

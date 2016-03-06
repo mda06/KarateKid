@@ -24,8 +24,8 @@ void Entity::init()
 
 void Entity::update(Time time)
 {
-    handleMovement(time.asSeconds());
     animationHandler.update(time);
+    handleMovement(time.asSeconds());
 }
 
 void Entity::handleMovement(float dt)
@@ -140,14 +140,14 @@ FighterCharacteristics& Entity::getFighterCharacteristics()
     return animationHandler.getFighterCharacteristics();
 }
 
-void Entity::dead()
-{
-    animationHandler.setType(DEAD);
-}
-
 Vector2f Entity::getPosition() const
 {
     return animationHandler.getPosition();
+}
+
+bool Entity::isDeadAnimFinished() const
+{
+    return animationHandler.isDeadAnimFinished();
 }
 
 FloatRect Entity::getGlobalBounds()

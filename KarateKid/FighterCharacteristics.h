@@ -39,6 +39,7 @@ public:
     int getHealth() const;
     int getMaxHealth() const;
     int getRangeHit() const;
+    bool isDead() const;
     bool canAtkFoot() const;
     bool canAtkPunch() const;
     bool canBlock() const;

@@ -56,9 +56,8 @@ void FightStateAttack::effect(Entity *launcher, Entity *receiver)
 {
     curCooldown = cooldown;
     curActiveCooldown = activeCooldown;
-    std::cout << "Effect of Atk" << std::endl;
-    if(launcher != NULL && receiver != NULL)
+    if(launcher != NULL && receiver != NULL && !launcher->getFighterCharacteristics().isDead() && !receiver->getFighterCharacteristics().isDead())
     {
-        std::cout << "\t HIT !" << std::endl;
+        receiver->getFighterCharacteristics().hit(100);
     }
 }

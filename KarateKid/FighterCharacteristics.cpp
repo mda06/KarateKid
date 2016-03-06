@@ -79,6 +79,11 @@ bool FighterCharacteristics::canAtkFoot() const
     return fightAtkFoot.canDoEffect();
 }
 
+bool FighterCharacteristics::isDead() const
+{
+    return health <= 0;
+}
+
 FightState FighterCharacteristics::getFightState() const
 {
     return state;
