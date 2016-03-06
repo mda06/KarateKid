@@ -28,6 +28,7 @@ private:
     FightState state;
     int maxHealth, health;
     int rangeHit;
+    float strength;
     
 public:
     FighterCharacteristics();
@@ -36,9 +37,11 @@ public:
     void effect(Entity* launcher, Entity* receiver);
     void hit(int dmg);
     void setHealthAndMaxHealth(int h);
+    void setStrength(int s);
     int getHealth() const;
     int getMaxHealth() const;
     int getRangeHit() const;
+    int getStrength() const;
     bool isDead() const;
     bool canAtkFoot() const;
     bool canAtkPunch() const;

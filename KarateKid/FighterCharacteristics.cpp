@@ -9,7 +9,7 @@
 #include "FighterCharacteristics.h"
 #include "Entity.h"
 
-FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.2f), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(5)
+FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.2f), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), strength(100)
 {}
 
 void FighterCharacteristics::update(float dt)
@@ -59,6 +59,11 @@ void FighterCharacteristics::setHealthAndMaxHealth(int h)
     health = maxHealth = h;
 }
 
+void FighterCharacteristics::setStrength(int s)
+{
+    strength = s;
+}
+
 int FighterCharacteristics::getHealth() const
 {
     return health;
@@ -72,6 +77,11 @@ int FighterCharacteristics::getMaxHealth() const
 int FighterCharacteristics::getRangeHit() const
 {
     return rangeHit;
+}
+
+int FighterCharacteristics::getStrength() const
+{
+    return strength;
 }
 
 bool FighterCharacteristics::canAtkFoot() const
