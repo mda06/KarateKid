@@ -20,6 +20,7 @@ void Entity::init()
     direction = STOP;
     vel = Vector2f();
     animationHandler.getSprite().setPosition(initialPos);
+    animationHandler.init();
 }
 
 void Entity::update(Time time)
@@ -100,6 +101,20 @@ void Entity::setDirection(Direction dir)
     }
 }
 
+void Entity::setOrientation(Direction dir)
+{
+    switch(dir)
+    {
+        case LEFT: if(animationHandler.getSprite().getScale().x > 0) animationHandler.getSprite().scale(-1, 1);
+            break;
+        case RIGHT: if(animationHandler.getSprite().getScale().x < 0) animationHandler.getSprite().scale(-1, 1);
+            break;
+            
+        default: break;
+    }
+
+}
+
 void Entity::jump()
 {
     FloatRect bounds = getGlobalBounds();
@@ -138,6 +153,16 @@ void Entity::block()
 FighterCharacteristics& Entity::getFighterCharacteristics()
 {
     return animationHandler.getFighterCharacteristics();
+}
+
+void Entity::setMaxVel(Vector2f v)
+{
+    maxVel = v;
+}
+
+void Entity::setAccel(Vector2f v)
+{
+    accel = v;
 }
 
 Vector2f Entity::getPosition() const

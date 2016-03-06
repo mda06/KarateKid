@@ -32,6 +32,7 @@ private:
     
 public:
     FighterCharacteristics();
+    void init();
     void update(float dt);
     void setFightState(FightState fs);
     void effect(Entity* launcher, Entity* receiver);

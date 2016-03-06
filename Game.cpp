@@ -96,6 +96,8 @@ void Game::initEnemies()
             enemies.back()->init();
             enemies.back()->setColor(Color::Magenta);
             enemies.back()->getFighterCharacteristics().setHealthAndMaxHealth(350);
+            enemies.back()->setMaxVel(Vector2f(1, .5f));
+            enemies.back()->setAccel(Vector2f(.4f, .9f));
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();
@@ -154,6 +156,26 @@ void Game::update(Time time)
             enemies.erase(enemies.begin() + i);
             delete e;
         }
+        if(!e->getFighterCharacteristics().isDead()) {
+            float ex = e->getPosition().x, px = player->getPosition().x;
+            if(ex > px)
+            {
+                if(ex - px < e->getFighterCharacteristics().getRangeHit() * 3 + e->getGlobalBounds().width)
+                {
+                    e->setOrientation(LEFT);
+                    e->attackPunch();
+                }
+            }
+            else if(ex < px)
+            {
+                if(px - ex < e->getFighterCharacteristics().getRangeHit() * 3 + player->getGlobalBounds().width)
+                {
+                    e->setOrientation(RIGHT);
+                    e->attackPunch();
+                }
+            }
+        }
+        
     }
     
     player->update(time);
@@ -188,6 +210,11 @@ void Game::render()
     window.setView(hudView);
     window.draw(txtPosition);
     window.display();
+}
+
+Entity* Game::getPlayer()
+{
+    return player;
 }
 
 std::vector<Entity*> Game::getEnemies()

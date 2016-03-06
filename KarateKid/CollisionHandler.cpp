@@ -42,6 +42,10 @@ bool CollisionHandler::collisionWithEntity(Entity *e, FloatRect rect)
             return true;
         }
     }
+    
+    if(collisionAABB(game->getPlayer()->getGlobalBounds(), rect) && game->getPlayer() != e && !game->getPlayer()->getFighterCharacteristics().isDead())
+        return true;
+    
     return false;
 }
 
@@ -55,6 +59,10 @@ Entity* CollisionHandler::getCollsionWithEntity(Entity *e, FloatRect rect)
             return ent;
         }
     }
+    
+    if(collisionAABB(game->getPlayer()->getGlobalBounds(), rect) && game->getPlayer() != e && !game->getPlayer()->getFighterCharacteristics().isDead())
+        return game->getPlayer();
+    
     return NULL;
 }
 

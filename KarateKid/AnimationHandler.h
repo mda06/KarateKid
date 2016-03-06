@@ -36,6 +36,7 @@ public:
     void update(Time time);
     void setType(AnimationType type, Entity* launcher = NULL, Entity* receiver = NULL);
     void move(Vector2f move);
+    void init();
     bool isDeadAnimFinished() const;
     AnimationType getType() const;
     AnimatedSprite &getSprite();

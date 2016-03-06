@@ -45,6 +45,7 @@ public:
     ~Game();
     void run();
     std::vector<Entity*> getEnemies();
+    Entity* getPlayer();
     
 };
 

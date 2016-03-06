@@ -38,7 +38,10 @@ public:
     void update(Time time);
     void render(RenderTarget &rt);
     Vector2f getPosition() const;
+    void setMaxVel(Vector2f v);
+    void setAccel(Vector2f v);
     void setDirection(Direction dir);
+    void setOrientation(Direction dir);
     void setColor(Color color);
     void jump();
     void attackFoot();

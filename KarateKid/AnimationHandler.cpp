@@ -154,6 +154,12 @@ bool AnimationHandler::isAnimationFinished() const
     return !animatedSprite.isPlaying();
 }
 
+void AnimationHandler::init()
+{
+    isAnimDeadFinished = false;
+    fighterChar.init();
+}
+
 Vector2f AnimationHandler::getPosition() const
 {
     return animatedSprite.getPosition();
