@@ -73,7 +73,19 @@ AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(s
 
 void AnimationHandler::update(Time time)
 {
+    fighterChar.update(time.asSeconds());
     animatedSprite.update(time);
+    if(isAnimationFinished())
+    {
+        switch(type)
+        {
+            case ATTACK_FOOT: setType(IDLE); break;
+            case ATTACK_PUNCH: setType(IDLE); break;
+            case BLOCK: setType(IDLE); break;
+            case DEAD: setType(IDLE); break;
+            default: break;
+        }
+    }
 }
 
 void AnimationHandler::move(Vector2f move)
@@ -81,23 +93,57 @@ void AnimationHandler::move(Vector2f move)
     animatedSprite.move(move);
 }
 
-void AnimationHandler::setType(AnimationType type)
+void AnimationHandler::setType(AnimationType type, Entity* launcher, Entity* receiver)
 {
+    switch(type)
+    {
+        case ATTACK_FOOT: if(fighterChar.canAtkFoot()) {
+            fighterChar.setFightState(ATTACK_FOOT_STATE);
+            fighterChar.effect(launcher, receiver);
+            animatedSprite.play(atkFAnim);
+            animatedSprite.setFrameTime(seconds(.1f));
+            animatedSprite.setLooped(false);
+        } break;
+        case ATTACK_PUNCH: if(fighterChar.canAtkPunch()) {
+            fighterChar.setFightState(ATTACK_PUNCH_STATE);
+            fighterChar.effect(launcher, receiver);
+            animatedSprite.play(atkPAnim);
+            animatedSprite.setFrameTime(seconds(.1f));
+            animatedSprite.setLooped(false);
+        } break;
+        case BLOCK: if(fighterChar.canBlock()) {
+            fighterChar.setFightState(BLOCK_STATE);
+            fighterChar.effect(launcher, receiver);
+            animatedSprite.play(hitAnim);
+            animatedSprite.setFrameTime(seconds(.2f));
+            animatedSprite.setLooped(false);
+        }break;
+            
+        default: break;
+    }
+    
     this->type = type;
     switch(type)
     {
-        case IDLE: animatedSprite.play(idleAnim); animatedSprite.setFrameTime(seconds(1)); break;
-        case WALK: animatedSprite.play(walkAnim); animatedSprite.setFrameTime(seconds(.08f)); break;
-        case RUN: animatedSprite.play(runAnim); animatedSprite.setFrameTime(seconds(.4f)); break;
-        case JUMP: animatedSprite.play(jumpAnim); animatedSprite.setFrameTime(seconds(.14f)); animatedSprite.setLooped(false); break;
-        case ATTACK_FOOT: animatedSprite.play(atkFAnim); animatedSprite.setFrameTime(seconds(.2f));
-            animatedSprite.setLooped(false); break;
-        case ATTACK_PUNCH: animatedSprite.play(atkPAnim); animatedSprite.setFrameTime(seconds(.15f)); animatedSprite.setLooped(false); break;
-        case HIT: animatedSprite.play(hitAnim); animatedSprite.setFrameTime(seconds(.4f));
-            animatedSprite.setLooped(false); break;
-        case DEAD: animatedSprite.play(deadAnim); animatedSprite.setFrameTime(seconds(.4f));
-            animatedSprite.setLooped(false); break;
+        case IDLE:  animatedSprite.play(idleAnim);
+                    animatedSprite.setFrameTime(seconds(1)); break;
+        case WALK:  animatedSprite.play(walkAnim);
+                    animatedSprite.setFrameTime(seconds(.08f)); break;
+        case RUN:   animatedSprite.play(runAnim);
+                    animatedSprite.setFrameTime(seconds(.4f)); break;
+        case JUMP:  animatedSprite.play(jumpAnim);
+                    animatedSprite.setFrameTime(seconds(.14f));
+                    animatedSprite.setLooped(false); break;
+        case DEAD:  animatedSprite.play(deadAnim);
+                    animatedSprite.setFrameTime(seconds(.1f));
+                    animatedSprite.setLooped(false); break;
+        default: break;
     }
+}
+
+bool AnimationHandler::isAnimationFinished() const
+{
+    return !animatedSprite.isPlaying();
 }
 
 Vector2f AnimationHandler::getPosition() const
@@ -108,6 +154,11 @@ Vector2f AnimationHandler::getPosition() const
 AnimationType AnimationHandler::getType() const
 {
     return type;
+}
+
+FighterCharacteristics& AnimationHandler::getFighterCharacteristics()
+{
+    return fighterChar;
 }
 
 AnimatedSprite &AnimationHandler::getSprite()

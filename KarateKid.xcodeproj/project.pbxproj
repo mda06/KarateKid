@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C1F10AC1C8B19070062A96D /* enemies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10AB1C8B19070062A96D /* enemies.txt */; };
 		4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10B01C8B36C50062A96D /* master_of_break.ttf */; };
+		4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */; };
+		4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2401121C8B9AB70068ED85 /* FightState.cpp */; };
 		4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F561C845FEA00D85323 /* ResourcePath.mm */; };
 		4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F591C845FEA00D85323 /* main.cpp */; };
 		4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9CDE291C899D8400693D5B /* forest_tile.png */; };
@@ -34,6 +36,10 @@
 /* Begin PBXFileReference section */
 		4C1F10AB1C8B19070062A96D /* enemies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = enemies.txt; sourceTree = "<group>"; };
 		4C1F10B01C8B36C50062A96D /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
+		4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FighterCharacteristics.cpp; sourceTree = "<group>"; };
+		4C2401101C8B9A530068ED85 /* FighterCharacteristics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FighterCharacteristics.h; sourceTree = "<group>"; };
+		4C2401121C8B9AB70068ED85 /* FightState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FightState.cpp; sourceTree = "<group>"; };
+		4C2401131C8B9AB70068ED85 /* FightState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightState.h; sourceTree = "<group>"; };
 		4C3E9F511C845FEA00D85323 /* KarateKid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KarateKid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3E9F551C845FEA00D85323 /* KarateKid-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KarateKid-Info.plist"; sourceTree = "<group>"; };
 		4C3E9F561C845FEA00D85323 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -99,6 +105,10 @@
 			children = (
 				4CA5324D1C84995D00550B05 /* tmx */,
 				4CC798BD1C8465E000C2CD96 /* Entity.cpp */,
+				4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */,
+				4C2401101C8B9A530068ED85 /* FighterCharacteristics.h */,
+				4C2401121C8B9AB70068ED85 /* FightState.cpp */,
+				4C2401131C8B9AB70068ED85 /* FightState.h */,
 				4CC798BE1C8465E000C2CD96 /* Entity.h */,
 				4CC939ED1C8868B80068A9B5 /* Animation.cpp */,
 				4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */,
@@ -263,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */,
 				4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */,
 				4CC93A101C88795A0068A9B5 /* AnimationHandler.cpp in Sources */,
 				4CC798BF1C8465E000C2CD96 /* Entity.cpp in Sources */,
@@ -275,6 +286,7 @@
 				4CC798C21C8465E600C2CD96 /* Game.cpp in Sources */,
 				4CA5327A1C849DFB00550B05 /* MapLoaderPrivate.cpp in Sources */,
 				4CC939EF1C8868B80068A9B5 /* Animation.cpp in Sources */,
+				4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */,
 				4CA5327D1C849DFB00550B05 /* pugixml.cpp in Sources */,
 				4CEE28991C879C0D009FC0DE /* CollisionHandler.cpp in Sources */,
 				4CA532781C849DFB00550B05 /* DebugShape.cpp in Sources */,

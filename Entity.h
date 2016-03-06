@@ -43,10 +43,10 @@ public:
     void jump();
     void attackFoot();
     void attackPunch();
-    void hit();
+    void block();
     void dead();
     FloatRect getGlobalBounds();
-    
+    FighterCharacteristics &getFighterCharacteristics();
 };
 
 #endif /* defined(__KarateKid__Entity__) */

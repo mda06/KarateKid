@@ -45,6 +45,19 @@ bool CollisionHandler::collisionWithEntity(Entity *e, FloatRect rect)
     return false;
 }
 
+Entity* CollisionHandler::getCollsionWithEntity(Entity *e, FloatRect rect)
+{
+    for(Entity *ent : game->getEnemies())
+    {
+        FloatRect r = ent->getGlobalBounds();
+        if(collisionAABB(r, rect) && ent != e)
+        {
+            return ent;
+        }
+    }
+    return NULL;
+}
+
 bool CollisionHandler::collisionAABB(FloatRect r1, FloatRect r2)
 {
     if(r1.left + r1.width < r2.left

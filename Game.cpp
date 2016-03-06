@@ -95,6 +95,7 @@ void Game::initEnemies()
             enemies.push_back(new Entity(colHandler, Vector2f(x, y)));
             enemies.back()->init();
             enemies.back()->setColor(Color::Magenta);
+            enemies.back()->getFighterCharacteristics().setHealthAndMaxHealth(350);
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();
@@ -126,7 +127,7 @@ void Game::handleInput()
         if(event.key.code == Keyboard::X)
             player->attackPunch();
         if(event.key.code == Keyboard::C)
-            player->hit();
+            player->block();
         if(event.key.code == Keyboard::V)
             player->dead();
         
@@ -159,9 +160,9 @@ void Game::updateView()
     float x = player->getPosition().x;
     if(x < s.x / 2) x = s.x / 2;
     mapView.setCenter(x, mapView.getCenter().y);
-    double pi = 3.14159265359;
+    
     std::stringstream stream;
-    stream << "Position: " << std::fixed << std::setprecision(0) << player->getPosition().x << "/" << player->getPosition().y;
+    stream << "Position: " << std::fixed << std::setprecision(0) << player->getPosition().x << "/" << player->getPosition().y << std::endl << "Fight state: " << player->getFighterCharacteristics().getFightState() << std::endl << "Health: " << player->getFighterCharacteristics().getHealth() << "/" << player->getFighterCharacteristics().getMaxHealth();
     txtPosition.setString(stream.str());
 }
 

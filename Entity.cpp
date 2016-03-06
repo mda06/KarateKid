@@ -118,17 +118,26 @@ void Entity::setColor(Color color)
 
 void Entity::attackFoot()
 {
-    animationHandler.setType(ATTACK_FOOT);
+    FloatRect bd = getGlobalBounds();
+    bd.left += animationHandler.getSprite().getScale().x * getFighterCharacteristics().getRangeHit();
+    animationHandler.setType(ATTACK_FOOT, this, colHandler->getCollsionWithEntity(this, bd));
 }
 
 void Entity::attackPunch()
 {
-    animationHandler.setType(ATTACK_PUNCH);
+    FloatRect bd = getGlobalBounds();
+    bd.left += animationHandler.getSprite().getScale().x * getFighterCharacteristics().getRangeHit();
+    animationHandler.setType(ATTACK_PUNCH, this, colHandler->getCollsionWithEntity(this, bd));
 }
 
-void Entity::hit()
+void Entity::block()
 {
-    animationHandler.setType(HIT);
+    animationHandler.setType(BLOCK, NULL, NULL);
+}
+
+FighterCharacteristics& Entity::getFighterCharacteristics()
+{
+    return animationHandler.getFighterCharacteristics();
 }
 
 void Entity::dead()

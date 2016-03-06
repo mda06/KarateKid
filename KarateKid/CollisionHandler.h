@@ -28,6 +28,7 @@ public:
     void setObjects(tmx::MapObjects obj);
     bool canMove(const sf::FloatRect &rect);
     bool collisionWithEntity(Entity* e, sf::FloatRect rect);
+    Entity* getCollsionWithEntity(Entity *e, sf::FloatRect rect);
 };
 
 #endif /* defined(__KarateKid__CollisionHandler__) */

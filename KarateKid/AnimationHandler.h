@@ -10,12 +10,13 @@
 #define __KarateKid__AnimationHandler__
 
 #include "AnimatedSprite.h"
+#include "FighterCharacteristics.h"
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
 enum AnimationType
 {
-    IDLE, WALK, RUN, JUMP, ATTACK_FOOT, ATTACK_PUNCH, HIT, DEAD
+    IDLE, WALK, RUN, JUMP, ATTACK_FOOT, ATTACK_PUNCH, BLOCK, DEAD
 };
 
 class AnimationHandler
@@ -26,15 +27,19 @@ private:
     AnimatedSprite animatedSprite;
     AnimationType type;
     Vector2f size;
+    FighterCharacteristics fighterChar;
+    float timeAtkFoot, timeAtkPunch, timeBlock;
     
 public:
     AnimationHandler();
     void update(Time time);
-    void setType(AnimationType type);
+    void setType(AnimationType type, Entity* launcher = NULL, Entity* receiver = NULL);
     void move(Vector2f move);
     AnimationType getType() const;
     AnimatedSprite &getSprite();
     Vector2f getPosition() const;
+    bool isAnimationFinished() const;
+    FighterCharacteristics& getFighterCharacteristics();
 };
 
 #endif /* defined(__KarateKid__AnimationHandler__) */
