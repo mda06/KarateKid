@@ -104,6 +104,21 @@ FightState FighterCharacteristics::getFightState() const
     return state;
 }
 
+FightStateAttack &FighterCharacteristics::getAtkFootState()
+{
+    return fightAtkFoot;
+}
+
+FightStateAttack &FighterCharacteristics::getAtkPunchState()
+{
+    return fightAtkPunch;
+}
+
+FightStateBlock &FighterCharacteristics::getBlockState()
+{
+    return fightBlock;
+}
+
 bool FighterCharacteristics::canAtkPunch() const
 {
     return fightAtkPunch.canDoEffect();

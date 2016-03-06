@@ -19,6 +19,8 @@ protected:
 public:
     AbstractFightState(float active, float cooldown);
     void update(float dt);
+    void setCooldown(float c);
+    void setActiveCooldown(float c);
     bool canDoEffect() const;
     bool finishEffect() const;
     virtual void effect(Entity *launcher, Entity *receiver) = 0;

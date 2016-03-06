@@ -21,6 +21,19 @@ void AbstractFightState::update(float dt)
     curCooldown -= dt;
     curActiveCooldown -= dt;
 }
+
+void AbstractFightState::setActiveCooldown(float c)
+{
+    activeCooldown = c;
+    curActiveCooldown = c;
+}
+
+void AbstractFightState::setCooldown(float c)
+{
+    cooldown = c;
+    curCooldown = c;
+}
+
 bool AbstractFightState::canDoEffect() const
 {
     return curCooldown <= 0;

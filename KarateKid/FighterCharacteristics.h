@@ -48,6 +48,9 @@ public:
     bool canAtkPunch() const;
     bool canBlock() const;
     FightState getFightState() const;
+    FightStateAttack &getAtkFootState();
+    FightStateBlock &getBlockState();
+    FightStateAttack &getAtkPunchState();
 };
 
 #endif /* defined(__KarateKid__FighterCharacteristics__) */

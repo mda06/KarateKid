@@ -98,6 +98,9 @@ void Game::initEnemies()
             enemies.back()->getFighterCharacteristics().setHealthAndMaxHealth(350);
             enemies.back()->setMaxVel(Vector2f(1, .5f));
             enemies.back()->setAccel(Vector2f(.4f, .9f));
+            enemies.back()->getFighterCharacteristics().getAtkFootState().setCooldown(2);
+            enemies.back()->getFighterCharacteristics().getAtkPunchState().setCooldown(2);
+            enemies.back()->getFighterCharacteristics().getBlockState().setCooldown(2);
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();
