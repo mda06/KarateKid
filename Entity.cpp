@@ -179,3 +179,19 @@ FloatRect Entity::getGlobalBounds()
 {
     return (animationHandler.getSprite().getGlobalBounds());
 }
+
+void Entity::drawHpBar(RenderTarget &rt)
+{
+    hpBarT.loadFromFile(resourcePath() + "barre hp pleine.png"); // texture
+    
+    hpBarR.height = 18; // int rect
+    hpBarR.width = 153;
+    hpBarR.top = 0;
+    hpBarR.left = 0;
+    
+    hpBarS.setTexture(hpBarT); // sprite
+    hpBarS.setTextureRect(hpBarR);
+    hpBarS.setPosition(10, 70);
+    
+    rt.draw(hpBarS);
+}

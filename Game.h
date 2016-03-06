@@ -38,7 +38,7 @@ private:
     std::string filePath;
     std::vector<Entity*> enemies;
     Font font;
-    Text txtPosition;
+    Text txtPosition;    
     
 public:
     Game();

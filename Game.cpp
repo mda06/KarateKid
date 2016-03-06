@@ -210,6 +210,7 @@ void Game::render()
     for(Entity* e : enemies)
         e->render(window);
     player->render(window);
+    player->drawHpBar(window);
     window.setView(hudView);
     window.draw(txtPosition);
     window.display();
