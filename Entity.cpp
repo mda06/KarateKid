@@ -182,10 +182,18 @@ FloatRect Entity::getGlobalBounds()
 
 void Entity::drawHpBar(RenderTarget &rt)
 {
-    hpBarT.loadFromFile(resourcePath() + "barre hp pleine.png"); // texture
+    int maxHp = getFighterCharacteristics().getMaxHealth();
+    int currHp = getFighterCharacteristics().getHealth();
     
-    hpBarR.height = 18; // int rect
-    hpBarR.width = 153;
+    // barre vide
+    Texture hpBarT;
+    IntRect hpBarR;
+    Sprite hpBarS;
+    
+    hpBarT.loadFromFile(resourcePath() + "barre hp vide.png"); // texture
+    
+    hpBarR.height = 19; // int rect
+    hpBarR.width = 156;
     hpBarR.top = 0;
     hpBarR.left = 0;
     
@@ -194,4 +202,27 @@ void Entity::drawHpBar(RenderTarget &rt)
     hpBarS.setPosition(10, 70);
     
     rt.draw(hpBarS);
+    
+    // hp sur la barre
+    Texture hpT;
+    IntRect hpR;
+    Sprite hpS;
+    
+    hpT.loadFromFile(resourcePath() + "barre hp couleur.png"); // texture
+    
+    hpR.height = 7; // int rect
+    hpR.width = (double)currHp / (double)maxHp * 126; // à modifier en fonction de currHp !!!
+    
+    // x hp => x / 1000  * maxwidth de la barre totale
+    // 1000 hp => 1000 / 1000 * maxwidth = maxwidth
+    // 500 hp => 500 / 1000 = 1/2 maxwidth
+    
+    hpR.top = 0;
+    hpR.left = 0;
+    
+    hpS.setTexture(hpT); // sprite
+    hpS.setTextureRect(hpR);
+    hpS.setPosition(hpBarS.getPosition().x + 25, hpBarS.getPosition().y + 6);
+    
+    rt.draw(hpS);
 }
