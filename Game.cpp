@@ -222,6 +222,7 @@ void Game::render()
     window.setView(hudView);
     window.draw(txtPosition);
     player->drawHpBar(window);
+    player->drawEnergyBar(window);
     window.display();
 }
 

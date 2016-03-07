@@ -157,6 +157,8 @@ bool AnimationHandler::isAnimationFinished() const
 void AnimationHandler::init()
 {
     isAnimDeadFinished = false;
+    setType(IDLE);
+    animatedSprite.play();
     fighterChar.init();
 }
 

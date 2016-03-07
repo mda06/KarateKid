@@ -12,8 +12,10 @@
 
 Entity::Entity(CollisionHandler *col, Vector2f pos) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos)
 {
-    hpBarT.loadFromFile(resourcePath() + "barre hp vide.png"); // texture
-    hpT.loadFromFile(resourcePath() + "barre hp couleur.png"); // texture
+    hpBarT.loadFromFile(resourcePath() + "barre_hp_vide.png");
+    hpT.loadFromFile(resourcePath() + "barre_hp_couleur.png");
+    energyBarT.loadFromFile(resourcePath() + "barre_energie_vide.png");
+    energyT.loadFromFile(resourcePath() + "barre_energie_couleur.png");
 }
 
 void Entity::init()
@@ -189,8 +191,8 @@ void Entity::drawHpBar(RenderTarget &rt, bool aboveEntity)
     // barre vide
     if (!aboveEntity)
     {
-        hpBarR.height = 19; // int rect
-        hpBarR.width = 156;
+        hpBarR.height = 18; // int rect
+        hpBarR.width = 152;
         hpBarR.top = 0;
         hpBarR.left = 0;
         
@@ -218,7 +220,40 @@ void Entity::drawHpBar(RenderTarget &rt, bool aboveEntity)
         hpS.setPosition(getPosition().x - (maxWidth / 4), getPosition().y - 30);
     }
     else
-        hpS.setPosition(hpBarS.getPosition().x + 25, hpBarS.getPosition().y + 6);
+        hpS.setPosition(hpBarS.getPosition().x + 22, hpBarS.getPosition().y + 5);
     
     rt.draw(hpS);
+}
+
+void Entity::drawEnergyBar(RenderTarget &rt)
+{
+    int maxEnergy = getFighterCharacteristics().getMaxHealth();
+    int currEnergy = getFighterCharacteristics().getHealth();
+    
+    // barre vide
+    energyBarR.height = 18; // int rect
+    energyBarR.width = 152;
+    energyBarR.top = 0;
+    energyBarR.left = 0;
+    
+    energyBarS.setTexture(energyBarT); // sprite
+    energyBarS.setTextureRect(energyBarR);
+    energyBarS.setPosition(10, 100);
+    
+    rt.draw(energyBarS);
+    
+    // hp sur la barre
+    int maxWidth = 126;
+    
+    energyR.height = 6; // int rect
+    energyR.width = (double)currEnergy / (double)maxEnergy * maxWidth;
+    energyR.top = 0;
+    energyR.left = 0;
+    
+    energyS.setTexture(energyT); // sprite
+    energyS.setTextureRect(energyR);
+    
+    energyS.setPosition(energyBarS.getPosition().x + 22, energyBarS.getPosition().y + 6);
+    
+    rt.draw(energyS);
 }

@@ -37,6 +37,12 @@ private:
     Texture hpT;
     IntRect hpR;
     Sprite hpS;
+    Texture energyBarT;
+    IntRect energyBarR;
+    Sprite energyBarS;
+    Texture energyT;
+    IntRect energyR;
+    Sprite energyS;
     
 public:
     Entity(CollisionHandler *col, Vector2f pos = Vector2f());
@@ -58,6 +64,7 @@ public:
     FloatRect getGlobalBounds();
     FighterCharacteristics &getFighterCharacteristics();
     void drawHpBar(RenderTarget &rt, bool aboveEntity = false);
+    void drawEnergyBar(RenderTarget &rt);
     
 };
 

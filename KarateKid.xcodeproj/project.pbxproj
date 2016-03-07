@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2252F33A1C8D9397007F8E4C /* barre hp couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 2252F3381C8D9397007F8E4C /* barre hp couleur.png */; };
-		2252F33B1C8D9397007F8E4C /* barre hp vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 2252F3391C8D9397007F8E4C /* barre hp vide.png */; };
+		2253D26D1C8DC15A00795F46 /* barre_energie_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 2253D26B1C8DC15A00795F46 /* barre_energie_couleur.png */; };
+		2253D26E1C8DC15A00795F46 /* barre_energie_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 2253D26C1C8DC15A00795F46 /* barre_energie_vide.png */; };
+		2253D2711C8DC7E500795F46 /* barre_hp_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 2253D26F1C8DC7E500795F46 /* barre_hp_vide.png */; };
+		2253D2721C8DC7E500795F46 /* barre_hp_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 2253D2701C8DC7E500795F46 /* barre_hp_couleur.png */; };
 		4C1F10AC1C8B19070062A96D /* enemies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10AB1C8B19070062A96D /* enemies.txt */; };
 		4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10B01C8B36C50062A96D /* master_of_break.ttf */; };
 		4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */; };
@@ -36,8 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2252F3381C8D9397007F8E4C /* barre hp couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barre hp couleur.png"; sourceTree = "<group>"; };
-		2252F3391C8D9397007F8E4C /* barre hp vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barre hp vide.png"; sourceTree = "<group>"; };
+		2253D26B1C8DC15A00795F46 /* barre_energie_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_couleur.png; sourceTree = "<group>"; };
+		2253D26C1C8DC15A00795F46 /* barre_energie_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_vide.png; sourceTree = "<group>"; };
+		2253D26F1C8DC7E500795F46 /* barre_hp_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_vide.png; sourceTree = "<group>"; };
+		2253D2701C8DC7E500795F46 /* barre_hp_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_couleur.png; sourceTree = "<group>"; };
 		4C1F10AB1C8B19070062A96D /* enemies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = enemies.txt; sourceTree = "<group>"; };
 		4C1F10B01C8B36C50062A96D /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
 		4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FighterCharacteristics.cpp; sourceTree = "<group>"; };
@@ -186,8 +190,10 @@
 		4CC798B81C8465B100C2CD96 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
-				2252F3381C8D9397007F8E4C /* barre hp couleur.png */,
-				2252F3391C8D9397007F8E4C /* barre hp vide.png */,
+				2253D26F1C8DC7E500795F46 /* barre_hp_vide.png */,
+				2253D2701C8DC7E500795F46 /* barre_hp_couleur.png */,
+				2253D26B1C8DC15A00795F46 /* barre_energie_couleur.png */,
+				2253D26C1C8DC15A00795F46 /* barre_energie_vide.png */,
 				4CC798B91C8465B100C2CD96 /* blond.png */,
 				4CC798BA1C8465B100C2CD96 /* skull.png */,
 			);
@@ -246,9 +252,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2252F33B1C8D9397007F8E4C /* barre hp vide.png in Resources */,
+				2253D26E1C8DC15A00795F46 /* barre_energie_vide.png in Resources */,
+				2253D26D1C8DC15A00795F46 /* barre_energie_couleur.png in Resources */,
+				2253D2711C8DC7E500795F46 /* barre_hp_vide.png in Resources */,
+				2253D2721C8DC7E500795F46 /* barre_hp_couleur.png in Resources */,
 				4C9CDE2C1C899D8400693D5B /* testmap.tmx in Resources */,
-				2252F33A1C8D9397007F8E4C /* barre hp couleur.png in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
