@@ -31,9 +31,9 @@ void FighterCharacteristics::setFightState(FightState fs)
 {
     switch(fs)
     {
-        case ATTACK_FOOT_STATE : if(!fightAtkFoot.canDoEffect()) return;
-        case ATTACK_PUNCH_STATE : if(!fightAtkPunch.canDoEffect()) return;
-        case BLOCK_STATE : if(!fightBlock.canDoEffect()) return;
+        case ATTACK_FOOT_STATE : if(!fightAtkFoot.canDoEffect()) return; break;
+        case ATTACK_PUNCH_STATE : if(!fightAtkPunch.canDoEffect()) return; break;
+        case BLOCK_STATE : if(!fightBlock.canDoEffect()) return; break;
             
         default: break;
     }
