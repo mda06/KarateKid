@@ -101,6 +101,7 @@ void Game::initEnemies()
             enemies.back()->getFighterCharacteristics().getAtkFootState().setCooldown(2);
             enemies.back()->getFighterCharacteristics().getAtkPunchState().setCooldown(2);
             enemies.back()->getFighterCharacteristics().getBlockState().setCooldown(2);
+            enemies.back()->setGUIBarOnBack(false);
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();
@@ -154,6 +155,7 @@ void Game::update(Time time)
     {
         Entity *e = enemies[i];
         e->update(time);
+        e->getHealthBar().setPosition(e->getPosition());
         if(e->isDeadAnimFinished())
         {
             enemies.erase(enemies.begin() + i);

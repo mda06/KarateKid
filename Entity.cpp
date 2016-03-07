@@ -10,12 +10,12 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-Entity::Entity(CollisionHandler *col, Vector2f pos) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos)
+Entity::Entity(CollisionHandler *col, Vector2f pos) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, true), gbEnergy(resourcePath() + "barre_energie_vide.png", resourcePath() + "barre_energie_couleur.png", Vector2f(10, 100), 126, true)
 {
-    hpBarT.loadFromFile(resourcePath() + "barre_hp_vide.png");
+    /*hpBarT.loadFromFile(resourcePath() + "barre_hp_vide.png");
     hpT.loadFromFile(resourcePath() + "barre_hp_couleur.png");
     energyBarT.loadFromFile(resourcePath() + "barre_energie_vide.png");
-    energyT.loadFromFile(resourcePath() + "barre_energie_couleur.png");
+    energyT.loadFromFile(resourcePath() + "barre_energie_couleur.png");*/
 }
 
 void Entity::init()
@@ -168,6 +168,17 @@ void Entity::setAccel(Vector2f v)
     accel = v;
 }
 
+void Entity::setGUIBarOnBack(bool withBack)
+{
+    gbHealth.setWithBack(withBack);
+    gbEnergy.setWithBack(withBack);
+}
+
+GUIBar &Entity::getHealthBar()
+{
+    return gbHealth;
+}
+
 Vector2f Entity::getPosition() const
 {
     return animationHandler.getPosition();
@@ -187,7 +198,10 @@ void Entity::drawHpBar(RenderTarget &rt, bool aboveEntity)
 {
     int maxHp = getFighterCharacteristics().getMaxHealth();
     int currHp = getFighterCharacteristics().getHealth();
+    gbHealth.setPerc((float)currHp / maxHp);
+    gbHealth.draw(rt);
     
+    /*
     // barre vide
     if (!aboveEntity)
     {
@@ -222,7 +236,7 @@ void Entity::drawHpBar(RenderTarget &rt, bool aboveEntity)
     else
         hpS.setPosition(hpBarS.getPosition().x + 22, hpBarS.getPosition().y + 5);
     
-    rt.draw(hpS);
+    rt.draw(hpS);*/
 }
 
 void Entity::drawEnergyBar(RenderTarget &rt)
@@ -230,7 +244,10 @@ void Entity::drawEnergyBar(RenderTarget &rt)
     int maxEnergy = getFighterCharacteristics().getMaxHealth();
     int currEnergy = getFighterCharacteristics().getHealth();
     
-    // barre vide
+    //gbEnergy.setPerc((float)currEnergy / maxEnergy);
+    gbEnergy.draw(rt);
+    
+    /*// barre vide
     energyBarR.height = 18; // int rect
     energyBarR.width = 152;
     energyBarR.top = 0;
@@ -255,5 +272,5 @@ void Entity::drawEnergyBar(RenderTarget &rt)
     
     energyS.setPosition(energyBarS.getPosition().x + 22, energyBarS.getPosition().y + 6);
     
-    rt.draw(energyS);
+    rt.draw(energyS);*/
 }

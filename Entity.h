@@ -13,6 +13,7 @@
 #include <SFML/Graphics.hpp>
 #include <tmx/MapLoader.h>
 #include "CollisionHandler.h"
+#include "GUIBar.h"
 using namespace sf;
 
 enum Direction
@@ -31,7 +32,8 @@ private:
     CollisionHandler *colHandler;
     void handleMovement(float dt);
     Vector2f initialPos;
-    Texture hpBarT;
+    GUIBar gbHealth, gbEnergy;
+    /*Texture hpBarT;
     IntRect hpBarR;
     Sprite hpBarS;
     Texture hpT;
@@ -42,7 +44,7 @@ private:
     Sprite energyBarS;
     Texture energyT;
     IntRect energyR;
-    Sprite energyS;
+    Sprite energyS;*/
     
 public:
     Entity(CollisionHandler *col, Vector2f pos = Vector2f());
@@ -55,6 +57,8 @@ public:
     void setDirection(Direction dir);
     void setOrientation(Direction dir);
     void setColor(Color color);
+    void setGUIBarOnBack(bool withBack);
+    GUIBar &getHealthBar();
     void jump();
     void attackFoot();
     void attackPunch();
