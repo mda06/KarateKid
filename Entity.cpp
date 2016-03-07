@@ -213,7 +213,10 @@ void Entity::drawHpBar(RenderTarget &rt, bool aboveEntity)
     hpS.setTextureRect(hpR);
     
     if(aboveEntity)
-        hpS.setPosition(getPosition().x - (maxWidth / 2), getPosition().y - 30);
+    {
+        hpS.setScale(0.5, 1);
+        hpS.setPosition(getPosition().x - (maxWidth / 4), getPosition().y - 30);
+    }
     else
         hpS.setPosition(hpBarS.getPosition().x + 25, hpBarS.getPosition().y + 6);
     
