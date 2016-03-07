@@ -107,7 +107,7 @@ void FightStateBlock::update(float dt, bool active)
         }
         else
         {
-            curActiveCooldown += dt;
+            curActiveCooldown += dt / 4;
         }
     }
     
