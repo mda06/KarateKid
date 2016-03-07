@@ -54,7 +54,21 @@ void FighterCharacteristics::effect(Entity* launcher, Entity* receiver)
 
 void FighterCharacteristics::hit(int dmg)
 {
-    health -= dmg;
+    float multiplier;
+    
+    switch (getFightState())
+    {
+        case NORMAL_STATE: multiplier = 1;
+            break;
+        case BLOCK_STATE: multiplier = 0.3;
+            break;
+        case ATTACK_FOOT_STATE:
+        case ATTACK_PUNCH_STATE: multiplier = 1.3;
+            break;
+    }
+    
+    health -= dmg * multiplier;
+    
     if(health < 0) health = 0;
     if(health > maxHealth) health = maxHealth;
 }
