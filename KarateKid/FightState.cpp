@@ -139,7 +139,7 @@ void FightStateAttack::effect(Entity *launcher, Entity *receiver)
     curActiveCooldown = activeCooldown;
     if(launcher != NULL && receiver != NULL && !launcher->getFighterCharacteristics().isDead() && !receiver->getFighterCharacteristics().isDead())
     {
-        receiver->getFighterCharacteristics().hit(launcher->getFighterCharacteristics().getStrength());
+        receiver->getFighterCharacteristics().hit(launcher->getFighterCharacteristics().getDamages());
     }
 }
 /*  |

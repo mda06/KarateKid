@@ -32,7 +32,7 @@ private:
     CollisionHandler *colHandler;
     void handleMovement(float dt);
     Vector2f initialPos;
-    GUIBar gbHealth, gbEnergy;
+    GUIBar gbHealth, gbEnergy, gbStrength;
     
 public:
     Entity(CollisionHandler *col, Vector2f pos = Vector2f());
@@ -58,6 +58,7 @@ public:
     FighterCharacteristics &getFighterCharacteristics();
     void drawHpBar(RenderTarget &rt, bool aboveEntity = false);
     void drawEnergyBar(RenderTarget &rt);
+    void drawStrengthBar(RenderTarget &rt);
     
 };
 

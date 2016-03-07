@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2253D26D1C8DC15A00795F46 /* barre_energie_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 2253D26B1C8DC15A00795F46 /* barre_energie_couleur.png */; };
-		2253D26E1C8DC15A00795F46 /* barre_energie_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 2253D26C1C8DC15A00795F46 /* barre_energie_vide.png */; };
-		2253D2711C8DC7E500795F46 /* barre_hp_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 2253D26F1C8DC7E500795F46 /* barre_hp_vide.png */; };
-		2253D2721C8DC7E500795F46 /* barre_hp_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 2253D2701C8DC7E500795F46 /* barre_hp_couleur.png */; };
+		22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */; };
+		22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */; };
+		22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB81C8E299B001A8E71 /* barre_force_couleur.png */; };
+		22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */; };
+		22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */; };
+		22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */; };
 		4C1F10AC1C8B19070062A96D /* enemies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10AB1C8B19070062A96D /* enemies.txt */; };
 		4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10B01C8B36C50062A96D /* master_of_break.ttf */; };
 		4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */; };
@@ -39,10 +41,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2253D26B1C8DC15A00795F46 /* barre_energie_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_couleur.png; sourceTree = "<group>"; };
-		2253D26C1C8DC15A00795F46 /* barre_energie_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_vide.png; sourceTree = "<group>"; };
-		2253D26F1C8DC7E500795F46 /* barre_hp_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_vide.png; sourceTree = "<group>"; };
-		2253D2701C8DC7E500795F46 /* barre_hp_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_couleur.png; sourceTree = "<group>"; };
+		22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_couleur.png; sourceTree = "<group>"; };
+		22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_vide.png; sourceTree = "<group>"; };
+		22BFCAB81C8E299B001A8E71 /* barre_force_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_force_couleur.png; sourceTree = "<group>"; };
+		22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_couleur.png; sourceTree = "<group>"; };
+		22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_vide.png; sourceTree = "<group>"; };
+		22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_force_vide.png; sourceTree = "<group>"; };
 		4C1F10AB1C8B19070062A96D /* enemies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = enemies.txt; sourceTree = "<group>"; };
 		4C1F10B01C8B36C50062A96D /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
 		4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FighterCharacteristics.cpp; sourceTree = "<group>"; };
@@ -94,6 +98,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22BFCAB51C8E299B001A8E71 /* GUI Bars */ = {
+			isa = PBXGroup;
+			children = (
+				22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */,
+				22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */,
+				22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */,
+				22BFCAB81C8E299B001A8E71 /* barre_force_couleur.png */,
+				22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */,
+				22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */,
+			);
+			path = "GUI Bars";
+			sourceTree = "<group>";
+		};
 		4C3E9F471C845FE900D85323 = {
 			isa = PBXGroup;
 			children = (
@@ -195,10 +212,7 @@
 		4CC798B81C8465B100C2CD96 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
-				2253D26F1C8DC7E500795F46 /* barre_hp_vide.png */,
-				2253D2701C8DC7E500795F46 /* barre_hp_couleur.png */,
-				2253D26B1C8DC15A00795F46 /* barre_energie_couleur.png */,
-				2253D26C1C8DC15A00795F46 /* barre_energie_vide.png */,
+				22BFCAB51C8E299B001A8E71 /* GUI Bars */,
 				4CC798B91C8465B100C2CD96 /* blond.png */,
 				4CC798BA1C8465B100C2CD96 /* skull.png */,
 			);
@@ -257,13 +271,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2253D26E1C8DC15A00795F46 /* barre_energie_vide.png in Resources */,
-				2253D26D1C8DC15A00795F46 /* barre_energie_couleur.png in Resources */,
-				2253D2711C8DC7E500795F46 /* barre_hp_vide.png in Resources */,
-				2253D2721C8DC7E500795F46 /* barre_hp_couleur.png in Resources */,
 				4C9CDE2C1C899D8400693D5B /* testmap.tmx in Resources */,
+				22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */,
+				22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
+				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,
+				22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */,
+				22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
+				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */,
 				4C1F10AC1C8B19070062A96D /* enemies.txt in Resources */,

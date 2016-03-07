@@ -9,12 +9,13 @@
 #include "FighterCharacteristics.h"
 #include "Entity.h"
 
-FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.8f, 1), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), strength(100)
+FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.8f, 1), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), initStrength(10), maxStrength(100), currStrength(initStrength), strengthDiff(15)
 {}
 
 void FighterCharacteristics::init()
 {
     health = maxHealth;
+    currStrength = initStrength;
 }
 
 void FighterCharacteristics::update(float dt)
@@ -80,7 +81,22 @@ void FighterCharacteristics::setHealthAndMaxHealth(int h)
 
 void FighterCharacteristics::setStrength(int s)
 {
-    strength = s;
+    if(s > maxStrength)
+        currStrength = maxStrength;
+    else if(s<initStrength)
+        currStrength = initStrength;
+    else
+        currStrength = s;
+}
+
+void FighterCharacteristics::addStrength(int s)
+{
+    if(currStrength + s > maxStrength)
+        currStrength = maxStrength;
+    else if(currStrength + s < initStrength)
+        currStrength = initStrength;
+    else
+        currStrength += s;
 }
 
 int FighterCharacteristics::getHealth() const
@@ -98,9 +114,24 @@ int FighterCharacteristics::getRangeHit() const
     return rangeHit;
 }
 
-int FighterCharacteristics::getStrength() const
+int FighterCharacteristics::getCurrStrength() const
 {
-    return strength;
+    return currStrength;
+}
+
+int FighterCharacteristics::getMaxStrength() const
+{
+    return maxStrength;
+}
+
+int FighterCharacteristics::getStrengthDiff() const
+{
+    return strengthDiff;
+}
+
+int FighterCharacteristics::getDamages() const
+{
+    return currStrength * 2;
 }
 
 bool FighterCharacteristics::canAtkFoot() const

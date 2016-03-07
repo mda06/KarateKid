@@ -25,7 +25,7 @@ GUIBar::GUIBar(std::string pathBack, std::string pathFront, Vector2f pos, int mw
     spriteBack.setTextureRect(irBack);
     spriteBack.setPosition(pos);
     
-    irFront.height = 7;
+    irFront.height = 6;
     irFront.width = maxWidth;
     irFront.top = 0;
     irFront.left = 0;
@@ -38,7 +38,7 @@ GUIBar::GUIBar(std::string pathBack, std::string pathFront, Vector2f pos, int mw
         spriteFront.setPosition(pos.x - (maxWidth / 4), pos.y - 30);
     }
     else
-        spriteFront.setPosition(pos.x + 22, pos.y + 5);
+        spriteFront.setPosition(pos.x + 22, pos.y + 6);
 }
 
 void GUIBar::setPerc(float perc)

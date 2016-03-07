@@ -228,6 +228,7 @@ void Game::render()
     window.draw(txtPosition);
     player->drawHpBar(window);
     player->drawEnergyBar(window);
+    player->drawStrengthBar(window);
     window.display();
 }
 
