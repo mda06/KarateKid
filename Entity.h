@@ -31,6 +31,12 @@ private:
     CollisionHandler *colHandler;
     void handleMovement(float dt);
     Vector2f initialPos;
+    Texture hpBarT;
+    IntRect hpBarR;
+    Sprite hpBarS;
+    Texture hpT;
+    IntRect hpR;
+    Sprite hpS;
     
 public:
     Entity(CollisionHandler *col, Vector2f pos = Vector2f());

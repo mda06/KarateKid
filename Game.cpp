@@ -182,6 +182,12 @@ void Game::update(Time time)
     }
     
     player->update(time);
+    if (player->isDeadAnimFinished() || player->getGlobalBounds().top > 500)
+    {
+        player->init();
+        initEnemies();
+    }
+        
     updateView();
 }
 
@@ -210,9 +216,9 @@ void Game::render()
     for(Entity* e : enemies)
         e->render(window);
     player->render(window);
-    player->drawHpBar(window);
     window.setView(hudView);
     window.draw(txtPosition);
+    player->drawHpBar(window);
     window.display();
 }
 

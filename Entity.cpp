@@ -12,7 +12,8 @@
 
 Entity::Entity(CollisionHandler *col, Vector2f pos) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos)
 {
-    
+    hpBarT.loadFromFile(resourcePath() + "barre hp vide.png"); // texture
+    hpT.loadFromFile(resourcePath() + "barre hp couleur.png"); // texture
 }
 
 void Entity::init()
@@ -186,11 +187,6 @@ void Entity::drawHpBar(RenderTarget &rt)
     int currHp = getFighterCharacteristics().getHealth();
     
     // barre vide
-    Texture hpBarT;
-    IntRect hpBarR;
-    Sprite hpBarS;
-    
-    hpBarT.loadFromFile(resourcePath() + "barre hp vide.png"); // texture
     
     hpBarR.height = 19; // int rect
     hpBarR.width = 156;
@@ -204,18 +200,9 @@ void Entity::drawHpBar(RenderTarget &rt)
     rt.draw(hpBarS);
     
     // hp sur la barre
-    Texture hpT;
-    IntRect hpR;
-    Sprite hpS;
-    
-    hpT.loadFromFile(resourcePath() + "barre hp couleur.png"); // texture
     
     hpR.height = 7; // int rect
-    hpR.width = (double)currHp / (double)maxHp * 126; // à modifier en fonction de currHp !!!
-    
-    // x hp => x / 1000  * maxwidth de la barre totale
-    // 1000 hp => 1000 / 1000 * maxwidth = maxwidth
-    // 500 hp => 500 / 1000 = 1/2 maxwidth
+    hpR.width = (double)currHp / (double)maxHp * 126;
     
     hpR.top = 0;
     hpR.left = 0;
