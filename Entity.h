@@ -57,7 +57,7 @@ public:
     bool isDeadAnimFinished() const;
     FloatRect getGlobalBounds();
     FighterCharacteristics &getFighterCharacteristics();
-    void drawHpBar(RenderTarget &rt);
+    void drawHpBar(RenderTarget &rt, bool aboveEntity = false);
     
 };
 

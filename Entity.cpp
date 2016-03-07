@@ -181,35 +181,41 @@ FloatRect Entity::getGlobalBounds()
     return (animationHandler.getSprite().getGlobalBounds());
 }
 
-void Entity::drawHpBar(RenderTarget &rt)
+void Entity::drawHpBar(RenderTarget &rt, bool aboveEntity)
 {
     int maxHp = getFighterCharacteristics().getMaxHealth();
     int currHp = getFighterCharacteristics().getHealth();
     
     // barre vide
-    
-    hpBarR.height = 19; // int rect
-    hpBarR.width = 156;
-    hpBarR.top = 0;
-    hpBarR.left = 0;
-    
-    hpBarS.setTexture(hpBarT); // sprite
-    hpBarS.setTextureRect(hpBarR);
-    hpBarS.setPosition(10, 70);
-    
-    rt.draw(hpBarS);
+    if (!aboveEntity)
+    {
+        hpBarR.height = 19; // int rect
+        hpBarR.width = 156;
+        hpBarR.top = 0;
+        hpBarR.left = 0;
+        
+        hpBarS.setTexture(hpBarT); // sprite
+        hpBarS.setTextureRect(hpBarR);
+        hpBarS.setPosition(10, 70);
+        
+        rt.draw(hpBarS);
+    }
     
     // hp sur la barre
+    int maxWidth = 126;
     
     hpR.height = 7; // int rect
-    hpR.width = (double)currHp / (double)maxHp * 126;
-    
+    hpR.width = (double)currHp / (double)maxHp * maxWidth;
     hpR.top = 0;
     hpR.left = 0;
     
     hpS.setTexture(hpT); // sprite
     hpS.setTextureRect(hpR);
-    hpS.setPosition(hpBarS.getPosition().x + 25, hpBarS.getPosition().y + 6);
+    
+    if(aboveEntity)
+        hpS.setPosition(getPosition().x - (maxWidth / 2), getPosition().y - 30);
+    else
+        hpS.setPosition(hpBarS.getPosition().x + 25, hpBarS.getPosition().y + 6);
     
     rt.draw(hpS);
 }

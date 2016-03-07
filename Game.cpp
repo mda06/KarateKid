@@ -214,7 +214,10 @@ void Game::render()
     window.setView(mapView);
     ml.Draw(window, MapLayer::DrawType::All);
     for(Entity* e : enemies)
+    {
         e->render(window);
+        e->drawHpBar(window, true);
+    }
     player->render(window);
     window.setView(hudView);
     window.draw(txtPosition);
