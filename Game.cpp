@@ -73,8 +73,6 @@ void Game::init()
 
 void Game::initEnemies()
 {
-    return;
-    
     for(Entity* e : enemies)
         delete e;
     enemies.clear();
