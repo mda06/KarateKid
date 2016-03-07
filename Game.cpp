@@ -13,7 +13,7 @@
 #include "Game.h"
 #include "ResourcePath.hpp"
 
-Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), ml(resourcePath()), filePath(resourcePath() + "enemies.txt")
+Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), ml(resourcePath()), filePath(resourcePath() + "enemies.txt"), keyBlock(Keyboard::C)
 {
     colHandler = new CollisionHandler(this);
     player = new Entity(colHandler, Vector2f(60, 430));
@@ -73,6 +73,8 @@ void Game::init()
 
 void Game::initEnemies()
 {
+    return;
+    
     for(Entity* e : enemies)
         delete e;
     enemies.clear();
@@ -132,7 +134,7 @@ void Game::handleInput()
             player->attackFoot();
         if(event.key.code == Keyboard::X)
             player->attackPunch();
-        if(event.key.code == Keyboard::C)
+        if(event.key.code == keyBlock)
             player->block();
         
         if(event.key.code == Keyboard::R)
@@ -145,6 +147,9 @@ void Game::handleInput()
     if(event.type == Event::KeyReleased)
     {
         if(event.key.code == Keyboard::Right || event.key.code == Keyboard::Left)
+            player->setDirection(STOP);
+        
+        if(event.key.code == keyBlock)
             player->setDirection(STOP);
     }
 }

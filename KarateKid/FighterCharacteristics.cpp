@@ -9,7 +9,7 @@
 #include "FighterCharacteristics.h"
 #include "Entity.h"
 
-FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.8f), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), strength(100)
+FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.8f, 1), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), strength(100)
 {}
 
 void FighterCharacteristics::init()
@@ -21,7 +21,7 @@ void FighterCharacteristics::update(float dt)
 {
     fightAtkFoot.update(dt);
     fightAtkPunch.update(dt);
-    fightBlock.update(dt);
+    fightBlock.update(dt, state == BLOCK_STATE);
     
     if(fightAtkFoot.finishEffect() && fightAtkPunch.finishEffect() && fightBlock.finishEffect())
         setFightState(NORMAL_STATE);

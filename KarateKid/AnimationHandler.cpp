@@ -81,11 +81,12 @@ void AnimationHandler::update(Time time)
         {
             case ATTACK_FOOT: setType(IDLE); break;
             case ATTACK_PUNCH: setType(IDLE); break;
-            case BLOCK: setType(IDLE); break;
             case DEAD: isAnimDeadFinished = true; break;
             default: break;
         }
     }
+    if(!fighterChar.getBlockState().canDoEffect() && type == BLOCK)
+        setType(IDLE);
     
     if(fighterChar.isDead() && type != DEAD)
         setType(DEAD);
@@ -118,15 +119,15 @@ void AnimationHandler::setType(AnimationType type, Entity* launcher, Entity* rec
             fighterChar.setFightState(BLOCK_STATE);
             fighterChar.effect(launcher, receiver);
             animatedSprite.play(hitAnim);
-            animatedSprite.setFrameTime(seconds(.2f));
-            animatedSprite.setLooped(false);
+            animatedSprite.setFrame(1);
+            animatedSprite.pause();
         }break;
             
-        default: break;
+        default: fighterChar.setFightState(NORMAL_STATE); break;
     }
     
     this->type = type;
-    switch(type)
+    switch(this->type)
     {
         case IDLE:  animatedSprite.play(idleAnim);
                     animatedSprite.setFrameTime(seconds(1)); break;

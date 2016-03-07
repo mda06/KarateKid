@@ -21,8 +21,10 @@ public:
     void update(float dt);
     void setCooldown(float c);
     void setActiveCooldown(float c);
-    bool canDoEffect() const;
+    virtual bool canDoEffect() const;
     bool finishEffect() const;
+    float getCurActiveCooldown() const;
+    float getActiveCooldown() const;
     virtual void effect(Entity *launcher, Entity *receiver) = 0;
 };
 
@@ -45,7 +47,9 @@ public:
 class FightStateBlock : public AbstractFightState
 {
 public:
-    FightStateBlock(float act);
+    FightStateBlock(float maxTime, float waitTime);
+    void update(float dt, bool active);
+    virtual bool canDoEffect() const;
     void effect(Entity *launcher, Entity *receiver);
 };
 

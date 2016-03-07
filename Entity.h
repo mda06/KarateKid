@@ -33,23 +33,12 @@ private:
     void handleMovement(float dt);
     Vector2f initialPos;
     GUIBar gbHealth, gbEnergy;
-    /*Texture hpBarT;
-    IntRect hpBarR;
-    Sprite hpBarS;
-    Texture hpT;
-    IntRect hpR;
-    Sprite hpS;
-    Texture energyBarT;
-    IntRect energyBarR;
-    Sprite energyBarS;
-    Texture energyT;
-    IntRect energyR;
-    Sprite energyS;*/
     
 public:
     Entity(CollisionHandler *col, Vector2f pos = Vector2f());
     void init();
     void update(Time time);
+    void updateGUIBar();
     void render(RenderTarget &rt);
     Vector2f getPosition() const;
     void setMaxVel(Vector2f v);

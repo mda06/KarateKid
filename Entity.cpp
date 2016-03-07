@@ -12,10 +12,6 @@
 
 Entity::Entity(CollisionHandler *col, Vector2f pos) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, true), gbEnergy(resourcePath() + "barre_energie_vide.png", resourcePath() + "barre_energie_couleur.png", Vector2f(10, 100), 126, true)
 {
-    /*hpBarT.loadFromFile(resourcePath() + "barre_hp_vide.png");
-    hpT.loadFromFile(resourcePath() + "barre_hp_couleur.png");
-    energyBarT.loadFromFile(resourcePath() + "barre_energie_vide.png");
-    energyT.loadFromFile(resourcePath() + "barre_energie_couleur.png");*/
 }
 
 void Entity::init()
@@ -29,7 +25,16 @@ void Entity::init()
 void Entity::update(Time time)
 {
     animationHandler.update(time);
+    updateGUIBar();
     handleMovement(time.asSeconds());
+}
+
+void Entity::updateGUIBar()
+{
+    FighterCharacteristics fc = getFighterCharacteristics();
+    
+    gbHealth.setPerc((float)fc.getHealth() / fc.getMaxHealth());
+    gbEnergy.setPerc((float)fc.getBlockState().getCurActiveCooldown() / fc.getBlockState().getActiveCooldown());
 }
 
 void Entity::handleMovement(float dt)
@@ -196,81 +201,10 @@ FloatRect Entity::getGlobalBounds()
 
 void Entity::drawHpBar(RenderTarget &rt, bool aboveEntity)
 {
-    int maxHp = getFighterCharacteristics().getMaxHealth();
-    int currHp = getFighterCharacteristics().getHealth();
-    gbHealth.setPerc((float)currHp / maxHp);
     gbHealth.draw(rt);
-    
-    /*
-    // barre vide
-    if (!aboveEntity)
-    {
-        hpBarR.height = 18; // int rect
-        hpBarR.width = 152;
-        hpBarR.top = 0;
-        hpBarR.left = 0;
-        
-        hpBarS.setTexture(hpBarT); // sprite
-        hpBarS.setTextureRect(hpBarR);
-        hpBarS.setPosition(10, 70);
-        
-        rt.draw(hpBarS);
-    }
-    
-    // hp sur la barre
-    int maxWidth = 126;
-    
-    hpR.height = 7; // int rect
-    hpR.width = (double)currHp / (double)maxHp * maxWidth;
-    hpR.top = 0;
-    hpR.left = 0;
-    
-    hpS.setTexture(hpT); // sprite
-    hpS.setTextureRect(hpR);
-    
-    if(aboveEntity)
-    {
-        hpS.setScale(0.5, 1);
-        hpS.setPosition(getPosition().x - (maxWidth / 4), getPosition().y - 30);
-    }
-    else
-        hpS.setPosition(hpBarS.getPosition().x + 22, hpBarS.getPosition().y + 5);
-    
-    rt.draw(hpS);*/
 }
 
 void Entity::drawEnergyBar(RenderTarget &rt)
 {
-    int maxEnergy = getFighterCharacteristics().getMaxHealth();
-    int currEnergy = getFighterCharacteristics().getHealth();
-    
-    //gbEnergy.setPerc((float)currEnergy / maxEnergy);
     gbEnergy.draw(rt);
-    
-    /*// barre vide
-    energyBarR.height = 18; // int rect
-    energyBarR.width = 152;
-    energyBarR.top = 0;
-    energyBarR.left = 0;
-    
-    energyBarS.setTexture(energyBarT); // sprite
-    energyBarS.setTextureRect(energyBarR);
-    energyBarS.setPosition(10, 100);
-    
-    rt.draw(energyBarS);
-    
-    // hp sur la barre
-    int maxWidth = 126;
-    
-    energyR.height = 6; // int rect
-    energyR.width = (double)currEnergy / (double)maxEnergy * maxWidth;
-    energyR.top = 0;
-    energyR.left = 0;
-    
-    energyS.setTexture(energyT); // sprite
-    energyS.setTextureRect(energyR);
-    
-    energyS.setPosition(energyBarS.getPosition().x + 22, energyBarS.getPosition().y + 6);
-    
-    rt.draw(energyS);*/
 }

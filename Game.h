@@ -38,7 +38,8 @@ private:
     std::string filePath;
     std::vector<Entity*> enemies;
     Font font;
-    Text txtPosition;    
+    Text txtPosition;
+    Keyboard::Key keyBlock;
     
 public:
     Game();
