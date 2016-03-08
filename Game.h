@@ -14,7 +14,8 @@
 #include <string>
 #include <vector>
 #include "CollisionHandler.h"
-#include "Entity.h"
+#include "Enemy.h"
+#include "Player.h"
 
 using namespace sf;
 using namespace tmx;
@@ -33,10 +34,10 @@ private:
     Event event;
     MapLoader ml;
     View mapView, hudView;
-    Entity *player;
+    Player *player;
     CollisionHandler *colHandler;
     std::string filePath;
-    std::vector<Entity*> enemies;
+    std::vector<Enemy*> enemies;
     Font font;
     Text txtPosition;
     Keyboard::Key keyBlock;
@@ -45,8 +46,8 @@ public:
     Game();
     ~Game();
     void run();
-    std::vector<Entity*> getEnemies();
-    Entity* getPlayer();
+    std::vector<Enemy*> getEnemies();
+    Player* getPlayer();
     
 };
 

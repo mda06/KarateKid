@@ -31,7 +31,7 @@ private:
     float initStrength, currStrength, maxStrength, strengthDiff, recupStrength;
     
 public:
-    FighterCharacteristics();
+    FighterCharacteristics(int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
     void init();
     void update(float dt);
     void setFightState(FightState fs);

@@ -10,12 +10,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-//Change type to whatever
-//Add frames
-//Change animatedSprite.player(animation)
-//comment body of setType
-
-AnimationHandler::AnimationHandler(): size(48, 48), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false)
+AnimationHandler::AnimationHandler(int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown): size(48, 48), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false), fighterChar(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)
 {
     if(!texture.loadFromFile(resourcePath() + "blond.png"))
         std::cout << "Failed to load texture in AnimationHandler" << std::endl;

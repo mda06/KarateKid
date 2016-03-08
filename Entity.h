@@ -25,28 +25,27 @@ enum Direction
 
 class Entity
 {
-private:
+protected:
     Vector2f vel, maxVel, accel, deccel;
     Direction direction;
     AnimationHandler animationHandler;
     CollisionHandler *colHandler;
     void handleMovement(float dt);
     Vector2f initialPos;
-    GUIBar gbHealth, gbEnergy, gbStrength;
+    GUIBar gbHealth;
+    virtual void updateGUIBar();
     
 public:
-    Entity(CollisionHandler *col, Vector2f pos = Vector2f());
+    Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
     void init();
-    void update(Time time);
-    void updateGUIBar();
+    virtual void update(Time time);
     void render(RenderTarget &rt);
     Vector2f getPosition() const;
     void setMaxVel(Vector2f v);
     void setAccel(Vector2f v);
     void setDirection(Direction dir);
     void setOrientation(Direction dir);
-    void setColor(Color color);
-    void setGUIBarOnBack(bool withBack);
+    void setColor(Color color);             
     GUIBar &getHealthBar();
     void jump();
     void attackFoot();
@@ -56,10 +55,7 @@ public:
     bool isDeadAnimFinished() const;
     FloatRect getGlobalBounds();
     FighterCharacteristics &getFighterCharacteristics();
-    void drawHpBar(RenderTarget &rt, bool aboveEntity = false);
-    void drawEnergyBar(RenderTarget &rt);
-    void drawStrengthBar(RenderTarget &rt);
-    
+    void drawHpBar(RenderTarget &rt);
 };
 
 #endif /* defined(__KarateKid__Entity__) */

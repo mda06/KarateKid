@@ -37,6 +37,8 @@
 		4CC939EF1C8868B80068A9B5 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC939ED1C8868B80068A9B5 /* Animation.cpp */; };
 		4CC93A101C88795A0068A9B5 /* AnimationHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC93A0E1C88795A0068A9B5 /* AnimationHandler.cpp */; };
 		4CDEFE281C8DE65A00DCCF17 /* GUIBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */; };
+		4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB291C8ED2AC0049F23B /* Player.cpp */; };
+		4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */; };
 		4CEE28991C879C0D009FC0DE /* CollisionHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,10 @@
 		4CC93A0F1C88795A0068A9B5 /* AnimationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationHandler.h; sourceTree = "<group>"; };
 		4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIBar.cpp; sourceTree = "<group>"; };
 		4CDEFE271C8DE65A00DCCF17 /* GUIBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIBar.h; sourceTree = "<group>"; };
+		4CEBEB291C8ED2AC0049F23B /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		4CEBEB2A1C8ED2AC0049F23B /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		4CEBEB2D1C8ED8560049F23B /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionHandler.cpp; sourceTree = "<group>"; };
 		4CEE28981C879C0D009FC0DE /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +139,8 @@
 			children = (
 				4CA5324D1C84995D00550B05 /* tmx */,
 				4CC798BD1C8465E000C2CD96 /* Entity.cpp */,
+				4CEBEB291C8ED2AC0049F23B /* Player.cpp */,
+				4CEBEB2A1C8ED2AC0049F23B /* Player.h */,
 				4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */,
 				4CDEFE271C8DE65A00DCCF17 /* GUIBar.h */,
 				4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */,
@@ -147,6 +155,8 @@
 				4CC93A0F1C88795A0068A9B5 /* AnimationHandler.h */,
 				4CC939EE1C8868B80068A9B5 /* Animation.h */,
 				4CC798C01C8465E600C2CD96 /* Game.cpp */,
+				4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */,
+				4CEBEB2D1C8ED8560049F23B /* Enemy.h */,
 				4CC798C11C8465E600C2CD96 /* Game.h */,
 				4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */,
 				4CEE28981C879C0D009FC0DE /* CollisionHandler.h */,
@@ -322,10 +332,12 @@
 				4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */,
 				4CC798C21C8465E600C2CD96 /* Game.cpp in Sources */,
 				4CA5327A1C849DFB00550B05 /* MapLoaderPrivate.cpp in Sources */,
+				4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */,
 				4CC939EF1C8868B80068A9B5 /* Animation.cpp in Sources */,
 				4CDEFE281C8DE65A00DCCF17 /* GUIBar.cpp in Sources */,
 				4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */,
 				4CA5327D1C849DFB00550B05 /* pugixml.cpp in Sources */,
+				4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */,
 				4CEE28991C879C0D009FC0DE /* CollisionHandler.cpp in Sources */,
 				4CA532781C849DFB00550B05 /* DebugShape.cpp in Sources */,
 			);

@@ -16,7 +16,7 @@
 Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), ml(resourcePath()), filePath(resourcePath() + "enemies.txt"), keyBlock(Keyboard::C)
 {
     colHandler = new CollisionHandler(this);
-    player = new Entity(colHandler, Vector2f(60, 430));
+    player = new Player(colHandler, Vector2f(60, 430));
 }
 
 Game::~Game()
@@ -92,16 +92,11 @@ void Game::initEnemies()
                 else y = std::stoi(token.c_str());
                 i++;
             }
-            enemies.push_back(new Entity(colHandler, Vector2f(x, y)));
+            enemies.push_back(new Enemy(colHandler, Vector2f(x, y), 450, 80, 1.5f, 1.5f, 1.5f));
             enemies.back()->init();
             enemies.back()->setColor(Color::Magenta);
-            enemies.back()->getFighterCharacteristics().setHealthAndMaxHealth(350);
             enemies.back()->setMaxVel(Vector2f(1, .5f));
             enemies.back()->setAccel(Vector2f(.4f, .9f));
-            enemies.back()->getFighterCharacteristics().getAtkFootState().setCooldown(2);
-            enemies.back()->getFighterCharacteristics().getAtkPunchState().setCooldown(2);
-            enemies.back()->getFighterCharacteristics().getBlockState().setCooldown(2);
-            enemies.back()->setGUIBarOnBack(false);
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();
@@ -156,32 +151,16 @@ void Game::update(Time time)
 {
     for(int i = enemies.size() - 1; i >= 0; i--)
     {
-        Entity *e = enemies[i];
+        Enemy *e = enemies[i];
         e->update(time);
-        e->getHealthBar().setPosition(e->getPosition());
         if(e->isDeadAnimFinished())
         {
             enemies.erase(enemies.begin() + i);
             delete e;
         }
+        
         if(!e->getFighterCharacteristics().isDead()) {
-            float ex = e->getPosition().x, px = player->getPosition().x;
-            if(ex > px)
-            {
-                if(ex - px < e->getFighterCharacteristics().getRangeHit() * 3 + e->getGlobalBounds().width)
-                {
-                    e->setOrientation(LEFT);
-                    e->attackPunch();
-                }
-            }
-            else if(ex < px)
-            {
-                if(px - ex < e->getFighterCharacteristics().getRangeHit() * 3 + player->getGlobalBounds().width)
-                {
-                    e->setOrientation(RIGHT);
-                    e->attackPunch();
-                }
-            }
+            e->updateTarget(player);
         }
         
     }
@@ -221,7 +200,7 @@ void Game::render()
     for(Entity* e : enemies)
     {
         e->render(window);
-        e->drawHpBar(window, true);
+        e->drawHpBar(window);
     }
     player->render(window);
     window.setView(hudView);
@@ -232,12 +211,12 @@ void Game::render()
     window.display();
 }
 
-Entity* Game::getPlayer()
+Player* Game::getPlayer()
 {
     return player;
 }
 
-std::vector<Entity*> Game::getEnemies()
+std::vector<Enemy*> Game::getEnemies()
 {
     return enemies;
 }

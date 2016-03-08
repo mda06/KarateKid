@@ -39,7 +39,7 @@ public:
 class FightStateAttack : public AbstractFightState
 {
 public:
-    FightStateAttack(float act);
+    FightStateAttack(float act, float cd);
     void effect(Entity *launcher, Entity *receiver);
 };
 

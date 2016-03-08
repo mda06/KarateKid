@@ -130,7 +130,7 @@ bool FightStateBlock::canDoEffect() const
 /*  ATK
     |
  */
-FightStateAttack::FightStateAttack(float act) : AbstractFightState(act, .6f)
+FightStateAttack::FightStateAttack(float act, float cd) : AbstractFightState(act, cd)
 {}
 
 void FightStateAttack::effect(Entity *launcher, Entity *receiver)

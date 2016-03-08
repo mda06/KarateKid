@@ -34,7 +34,7 @@ bool CollisionHandler::canMove(const sf::FloatRect& rect)
 
 bool CollisionHandler::collisionWithEntity(Entity *e, FloatRect rect)
 {
-    for(Entity *ent : game->getEnemies())
+    for(Enemy *ent : game->getEnemies())
     {
         FloatRect r = ent->getGlobalBounds();
         if(collisionAABB(r, rect) && ent != e && !ent->getFighterCharacteristics().isDead())
@@ -51,7 +51,7 @@ bool CollisionHandler::collisionWithEntity(Entity *e, FloatRect rect)
 
 Entity* CollisionHandler::getCollsionWithEntity(Entity *e, FloatRect rect)
 {
-    for(Entity *ent : game->getEnemies())
+    for(Enemy *ent : game->getEnemies())
     {
         FloatRect r = ent->getGlobalBounds();
         if(collisionAABB(r, rect) && ent != e && !ent->getFighterCharacteristics().isDead())
