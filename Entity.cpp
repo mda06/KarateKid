@@ -9,9 +9,17 @@
 #include "Entity.h"
 #include "ResourcePath.hpp"
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
 
 Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown) : accel(2, 1), deccel(1.7f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), animationHandler(AnimationHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown))
-{}
+{
+    if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
+        std::cout << "Can't load font !" << std::endl;
+    txtHp.setFont(font);
+    txtHp.setCharacterSize(7);
+}
 
 void Entity::init()
 {
@@ -33,6 +41,11 @@ void Entity::updateGUIBar()
 {
     FighterCharacteristics fc = getFighterCharacteristics();
     gbHealth.setPerc((float)fc.getHealth() / fc.getMaxHealth());
+    
+    std::stringstream stream;
+    stream << fc.getHealth() << " / " << fc.getMaxHealth();
+    txtHp.setString(stream.str());
+    txtHp.setPosition(gbHealth.getPos().x + (gbHealth.getWidth() / 2), gbHealth.getPos().y + 5);
 }
 
 void Entity::handleMovement(float dt)
@@ -222,4 +235,5 @@ FloatRect Entity::getGlobalBounds()
 void Entity::drawHpBar(RenderTarget &rt)
 {
     gbHealth.draw(rt);
+    rt.draw(txtHp);
 }

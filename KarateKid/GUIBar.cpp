@@ -9,7 +9,7 @@
 #include "GUIBar.h"
 #include <iostream>
 
-GUIBar::GUIBar(std::string pathBack, std::string pathFront, Vector2f pos, int mw, bool wb) : withBack(wb), maxWidth(mw)
+GUIBar::GUIBar(std::string pathBack, std::string pathFront, Vector2f pos, int mw, bool wb) : withBack(wb), maxWidth(mw), pos(pos)
 {
     if(!textBack.loadFromFile(pathBack))
         std::cout << "Error texture " << pathBack << " not found." << std::endl;
@@ -63,4 +63,14 @@ void GUIBar::draw(RenderTarget &rt)
     if(withBack)
         rt.draw(spriteBack);
     rt.draw(spriteFront);
+}
+
+Vector2f GUIBar::getPos()
+{
+    return pos;
+}
+
+int GUIBar::getWidth()
+{
+    return maxWidth;
 }

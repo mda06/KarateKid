@@ -18,6 +18,11 @@ Scene::Scene(std::string enemiesFile, std::string mapName, Vector2f pos) : ml(re
 {
     colHandler = new CollisionHandler(this);
     player = new Player(colHandler, pos);
+    
+    if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
+        std::cout << "Can't load font !" << std::endl;
+    txtPosition.setFont(font);
+    txtPosition.setCharacterSize(20);
 }
 
 Scene::~Scene()
@@ -46,11 +51,6 @@ void Scene::init()
             colHandler->setObjects(o.objects);
         }
     }
-    
-    if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
-        std::cout << "Can't load font !" << std::endl;
-    txtPosition.setFont(font);
-    txtPosition.setCharacterSize(20);
 }
 
 void Scene::initEnemies()

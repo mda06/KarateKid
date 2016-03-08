@@ -35,6 +35,8 @@ protected:
     GUIBar gbHealth;
     virtual void updateGUIBar();
     bool canClimb(float dt);
+    Font font;
+    Text txtHp;
     
 public:
     Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);

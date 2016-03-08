@@ -24,6 +24,7 @@ private:
     IntRect irFront;
     bool withBack;
     int maxWidth;
+    Vector2f pos;
     
 public:
     GUIBar(std::string pathBack, std::string pathFront, Vector2f pos, int mw, bool withBack = true);
@@ -31,7 +32,8 @@ public:
     void setWithBack(bool b);
     void setPosition(Vector2f pos);
     void setPerc(float perc);
-    
+    Vector2f getPos();
+    int getWidth();
 };
 
 #endif /* defined(__KarateKid__GUIBar__) */
