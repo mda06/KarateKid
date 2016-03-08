@@ -74,8 +74,14 @@ void Entity::handleMovement(float dt)
     else
     {
         vel.x = 0;
-        //To climb but not on enemies
-        if(!colEntity)
+        
+        // change bounds -> only look for collision with ground
+        bounds.left += 5;
+        bounds.width -= 10;
+        bounds.top += 25; // he can climb 25 pixels
+        
+        //To climb but not on enemies and not if he is not on the ground
+        if(!colEntity && !colHandler->canMove(bounds))
             vel.y -= accel.y * dt * 5;
     }
     
