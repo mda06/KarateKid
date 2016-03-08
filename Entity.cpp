@@ -73,14 +73,34 @@ void Entity::handleMovement(float dt)
     {
         vel.x = 0;
         
+        if (canClimb(dt))
+            vel.y -= accel.y * dt * 5;
+        
+        /*
         // change bounds -> only look for collision with ground
         bounds.left += 5;
         bounds.width -= 10;
-        bounds.top += 25; // he can climb 25 pixels
+        bounds.height += 25; // he can climb 25 pixels
         
-        //To climb but not on enemies and not if he is not on the ground
-        if(!colEntity && !colHandler->canMove(bounds))
-            vel.y -= accel.y * dt * 5;
+        //To climb but not on enemies...
+        if(!colEntity)
+        {
+            if (!colHandler->canMove(bounds)) // ...and not if he is not on the ground
+            {
+                vel.y -= accel.y * dt * 5;
+            }
+            else // if he is 25px higher, is there still collision? yes->don't climb
+            {
+                bounds = getGlobalBounds();
+                bounds.top -= 26;
+                if (colHandler->canMove(bounds))
+                    //ok
+                    return;
+                else
+                    // don't climb
+                    return;
+            }
+        }*/
     }
     
     bounds = getGlobalBounds();
@@ -91,6 +111,32 @@ void Entity::handleMovement(float dt)
         vel.y = 0;
     
     animationHandler.move(movement);
+}
+
+bool Entity::canClimb(float dt)
+{
+    FloatRect bounds = getGlobalBounds();
+    bool colEntity = colHandler->collisionWithEntity(this, bounds);
+    
+    // change bounds -> only look for collision with ground
+    bounds.left += 5;
+    bounds.width -= 10;
+    bounds.height += 25; // he can climb 25 pixels
+    
+    //To climb but not on enemies and not if he is not on the ground
+    if(!colEntity && !colHandler->canMove(bounds))
+    {
+        bounds = getGlobalBounds(); // reset bounds
+        bounds.top -= 25; // change bounds -> what will happen if he climbs 25 px?
+        bounds.left+=1; // make 1 px bigger to check collision
+        bounds.width+=2;
+        if (colHandler->canMove(bounds)) // no collision? -> can climb
+            return true;
+        else
+            return false;
+    }
+    else
+        return false;
 }
 
 void Entity::render(RenderTarget &rt)
