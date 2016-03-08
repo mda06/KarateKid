@@ -9,7 +9,7 @@
 #include "FighterCharacteristics.h"
 #include "Entity.h"
 
-FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.8f, 1), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), initStrength(10), maxStrength(100), currStrength(initStrength), strengthDiff(15)
+FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.8f, 1), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), initStrength(0), maxStrength(100), currStrength(initStrength), strengthDiff(15)
 {}
 
 void FighterCharacteristics::init()
