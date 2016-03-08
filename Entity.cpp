@@ -155,9 +155,6 @@ void Entity::attackFoot()
 
 void Entity::attackPunch()
 {
-    if(getFighterCharacteristics().canAtkPunch())
-        getFighterCharacteristics().addStrength(getFighterCharacteristics().getStrengthDiff());
-    
     FloatRect bd = getGlobalBounds();
     bd.left += animationHandler.getSprite().getScale().x * getFighterCharacteristics().getRangeHit();
     animationHandler.setType(ATTACK_PUNCH, this, colHandler->getCollsionWithEntity(this, bd));    

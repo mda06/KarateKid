@@ -109,7 +109,6 @@ void AnimationHandler::setType(AnimationType type, Entity* launcher, Entity* rec
             animatedSprite.setLooped(false);
         } break;
         case ATTACK_PUNCH: if(fighterChar.canAtkPunch()) {
-            std::cout << "Set to punch in Anim\n";
             fighterChar.setFightState(ATTACK_PUNCH_STATE);
             fighterChar.effect(launcher, receiver);
             animatedSprite.play(atkPAnim);

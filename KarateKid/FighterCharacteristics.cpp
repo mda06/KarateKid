@@ -9,7 +9,7 @@
 #include "FighterCharacteristics.h"
 #include "Entity.h"
 
-FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.8f, 1), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), initStrength(0), maxStrength(100), currStrength(initStrength), strengthDiff(15)
+FighterCharacteristics::FighterCharacteristics() : state(NORMAL_STATE), fightBlock(.8f, 1), fightAtkPunch(.35f), fightAtkFoot(.35f), maxHealth(1000), health(maxHealth), rangeHit(10), initStrength(0), maxStrength(100), currStrength(initStrength), strengthDiff(15), recupStrength(10)
 {}
 
 void FighterCharacteristics::init()
@@ -23,6 +23,7 @@ void FighterCharacteristics::update(float dt)
     fightAtkFoot.update(dt);
     fightAtkPunch.update(dt);
     fightBlock.update(dt, state == BLOCK_STATE);
+    addStrength(recupStrength * dt);
     
     if(fightAtkFoot.finishEffect() && fightAtkPunch.finishEffect() && fightBlock.finishEffect())
         setFightState(NORMAL_STATE);
@@ -33,7 +34,7 @@ void FighterCharacteristics::setFightState(FightState fs)
     switch(fs)
     {
         case ATTACK_FOOT_STATE : if(!fightAtkFoot.canDoEffect()) return; break;
-        case ATTACK_PUNCH_STATE : if(!fightAtkPunch.canDoEffect()) return; break;
+        case ATTACK_PUNCH_STATE : if(!fightAtkPunch.canDoEffect()) return; addStrength(-strengthDiff); break;
         case BLOCK_STATE : if(!fightBlock.canDoEffect()) return; break;
             
         default: break;
@@ -89,7 +90,7 @@ void FighterCharacteristics::setStrength(int s)
         currStrength = s;
 }
 
-void FighterCharacteristics::addStrength(int s)
+void FighterCharacteristics::addStrength(float s)
 {
     if(currStrength + s > maxStrength)
         currStrength = maxStrength;
@@ -97,6 +98,9 @@ void FighterCharacteristics::addStrength(int s)
         currStrength = initStrength;
     else
         currStrength += s;
+    
+    if(currStrength < 0)
+        currStrength = 0;
 }
 
 int FighterCharacteristics::getHealth() const

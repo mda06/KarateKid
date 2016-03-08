@@ -28,7 +28,7 @@ private:
     FightState state;
     int maxHealth, health;
     int rangeHit;
-    float initStrength, currStrength, maxStrength, strengthDiff;
+    float initStrength, currStrength, maxStrength, strengthDiff, recupStrength;
     
 public:
     FighterCharacteristics();
@@ -39,7 +39,7 @@ public:
     void hit(int dmg);
     void setHealthAndMaxHealth(int h);
     void setStrength(int s);
-    void addStrength(int s);
+    void addStrength(float s);
     int getHealth() const;
     int getMaxHealth() const;
     int getRangeHit() const;
