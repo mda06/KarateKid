@@ -10,10 +10,8 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown) : accel(2, 1), deccel(1.4f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), animationHandler(AnimationHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown))
-{
-    
-}
+Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown) : accel(2, 1), deccel(1.7f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), animationHandler(AnimationHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown))
+{}
 
 void Entity::init()
 {

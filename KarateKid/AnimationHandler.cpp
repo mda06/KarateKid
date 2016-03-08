@@ -24,11 +24,11 @@ AnimationHandler::AnimationHandler(int maxHealth, int maxStrength, float blockWa
     idleAnim.addFrame(IntRect(350, 0, 94, 161));
     
     walkAnim.setSpriteSheet(texture);
-    walkAnim.addFrame(IntRect(11, 189, 93, 160));
-    walkAnim.addFrame(IntRect(123, 189, 93, 160));
+    walkAnim.addFrame(IntRect(11, 189, 95, 160));
+    walkAnim.addFrame(IntRect(123, 189, 95, 160));
     walkAnim.addFrame(IntRect(234, 189, 95, 160));
     walkAnim.addFrame(IntRect(346, 189, 95, 160));
-    walkAnim.addFrame(IntRect(459, 189, 94, 160));
+    walkAnim.addFrame(IntRect(459, 189, 95, 160));
  
     jumpAnim.setSpriteSheet(texture);
     jumpAnim.addFrame(IntRect(11, 547, 93, 184));
