@@ -11,9 +11,9 @@
 #include <iostream>
 #include "Game.h"
 
-CollisionHandler::CollisionHandler(Game *game)
+CollisionHandler::CollisionHandler(Scene *scene)
 {
-    this->game = game;
+    this->scene = scene;
 }
 
 void CollisionHandler::setObjects(tmx::MapObjects obj)
@@ -34,7 +34,7 @@ bool CollisionHandler::canMove(const sf::FloatRect& rect)
 
 bool CollisionHandler::collisionWithEntity(Entity *e, FloatRect rect)
 {
-    for(Enemy *ent : game->getEnemies())
+    for(Enemy *ent : scene->getEnemies())
     {
         FloatRect r = ent->getGlobalBounds();
         if(collisionAABB(r, rect) && ent != e && !ent->getFighterCharacteristics().isDead())
@@ -43,7 +43,7 @@ bool CollisionHandler::collisionWithEntity(Entity *e, FloatRect rect)
         }
     }
     
-    if(collisionAABB(game->getPlayer()->getGlobalBounds(), rect) && game->getPlayer() != e && !game->getPlayer()->getFighterCharacteristics().isDead())
+    if(collisionAABB(scene->getPlayer()->getGlobalBounds(), rect) && scene->getPlayer() != e && !scene->getPlayer()->getFighterCharacteristics().isDead())
         return true;
     
     return false;
@@ -51,7 +51,7 @@ bool CollisionHandler::collisionWithEntity(Entity *e, FloatRect rect)
 
 Entity* CollisionHandler::getCollsionWithEntity(Entity *e, FloatRect rect)
 {
-    for(Enemy *ent : game->getEnemies())
+    for(Enemy *ent : scene->getEnemies())
     {
         FloatRect r = ent->getGlobalBounds();
         if(collisionAABB(r, rect) && ent != e && !ent->getFighterCharacteristics().isDead())
@@ -60,8 +60,8 @@ Entity* CollisionHandler::getCollsionWithEntity(Entity *e, FloatRect rect)
         }
     }
     
-    if(collisionAABB(game->getPlayer()->getGlobalBounds(), rect) && game->getPlayer() != e && !game->getPlayer()->getFighterCharacteristics().isDead())
-        return game->getPlayer();
+    if(collisionAABB(scene->getPlayer()->getGlobalBounds(), rect) && scene->getPlayer() != e && !scene->getPlayer()->getFighterCharacteristics().isDead())
+        return scene->getPlayer();
     
     return NULL;
 }

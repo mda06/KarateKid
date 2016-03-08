@@ -13,14 +13,15 @@
 		22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */; };
 		22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */; };
 		22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */; };
-		4C1F10AC1C8B19070062A96D /* enemies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10AB1C8B19070062A96D /* enemies.txt */; };
+		4C1F10AC1C8B19070062A96D /* forest.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10AB1C8B19070062A96D /* forest.txt */; };
 		4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10B01C8B36C50062A96D /* master_of_break.ttf */; };
 		4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */; };
 		4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2401121C8B9AB70068ED85 /* FightState.cpp */; };
 		4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F561C845FEA00D85323 /* ResourcePath.mm */; };
 		4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F591C845FEA00D85323 /* main.cpp */; };
 		4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9CDE291C899D8400693D5B /* forest_tile.png */; };
-		4C9CDE2C1C899D8400693D5B /* testmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4C9CDE2A1C899D8400693D5B /* testmap.tmx */; };
+		4CA097E91C8F270700BD7238 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA097E71C8F270700BD7238 /* Scene.cpp */; };
+		4CA097EB1C8F328300BD7238 /* forest.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4CA097EA1C8F328300BD7238 /* forest.tmx */; };
 		4CA5324C1C8498F700550B05 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5324B1C8498F700550B05 /* libz.1.1.3.dylib */; };
 		4CA532781C849DFB00550B05 /* DebugShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532701C849DFB00550B05 /* DebugShape.cpp */; };
 		4CA532791C849DFB00550B05 /* MapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532711C849DFB00550B05 /* MapLayer.cpp */; };
@@ -49,7 +50,7 @@
 		22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_couleur.png; sourceTree = "<group>"; };
 		22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_vide.png; sourceTree = "<group>"; };
 		22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_force_vide.png; sourceTree = "<group>"; };
-		4C1F10AB1C8B19070062A96D /* enemies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = enemies.txt; sourceTree = "<group>"; };
+		4C1F10AB1C8B19070062A96D /* forest.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = forest.txt; path = ../forest.txt; sourceTree = "<group>"; };
 		4C1F10B01C8B36C50062A96D /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
 		4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FighterCharacteristics.cpp; sourceTree = "<group>"; };
 		4C2401101C8B9A530068ED85 /* FighterCharacteristics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FighterCharacteristics.h; sourceTree = "<group>"; };
@@ -61,7 +62,9 @@
 		4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		4C3E9F591C845FEA00D85323 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4C9CDE291C899D8400693D5B /* forest_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forest_tile.png; sourceTree = "<group>"; };
-		4C9CDE2A1C899D8400693D5B /* testmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testmap.tmx; sourceTree = "<group>"; };
+		4CA097E71C8F270700BD7238 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		4CA097E81C8F270700BD7238 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		4CA097EA1C8F328300BD7238 /* forest.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = forest.tmx; sourceTree = "<group>"; };
 		4CA5324B1C8498F700550B05 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		4CA532701C849DFB00550B05 /* DebugShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugShape.cpp; sourceTree = "<group>"; };
 		4CA532711C849DFB00550B05 /* MapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLayer.cpp; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 			children = (
 				4CA5324D1C84995D00550B05 /* tmx */,
 				4CC798BD1C8465E000C2CD96 /* Entity.cpp */,
+				4CA097E71C8F270700BD7238 /* Scene.cpp */,
+				4CA097E81C8F270700BD7238 /* Scene.h */,
 				4CEBEB291C8ED2AC0049F23B /* Player.cpp */,
 				4CEBEB2A1C8ED2AC0049F23B /* Player.h */,
 				4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */,
@@ -181,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				4C1F10B01C8B36C50062A96D /* master_of_break.ttf */,
-				4C1F10AB1C8B19070062A96D /* enemies.txt */,
 				4C9CDE281C899D8400693D5B /* map */,
 				4CC798B81C8465B100C2CD96 /* sprites */,
 			);
@@ -191,8 +195,9 @@
 		4C9CDE281C899D8400693D5B /* map */ = {
 			isa = PBXGroup;
 			children = (
+				4C1F10AB1C8B19070062A96D /* forest.txt */,
+				4CA097EA1C8F328300BD7238 /* forest.tmx */,
 				4C9CDE291C899D8400693D5B /* forest_tile.png */,
-				4C9CDE2A1C899D8400693D5B /* testmap.tmx */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -281,9 +286,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C9CDE2C1C899D8400693D5B /* testmap.tmx in Resources */,
 				22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */,
 				22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */,
+				4CA097EB1C8F328300BD7238 /* forest.tmx in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
 				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,
 				22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */,
@@ -292,7 +297,7 @@
 				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */,
-				4C1F10AC1C8B19070062A96D /* enemies.txt in Resources */,
+				4C1F10AC1C8B19070062A96D /* forest.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +340,7 @@
 				4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */,
 				4CC939EF1C8868B80068A9B5 /* Animation.cpp in Sources */,
 				4CDEFE281C8DE65A00DCCF17 /* GUIBar.cpp in Sources */,
+				4CA097E91C8F270700BD7238 /* Scene.cpp in Sources */,
 				4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */,
 				4CA5327D1C849DFB00550B05 /* pugixml.cpp in Sources */,
 				4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */,

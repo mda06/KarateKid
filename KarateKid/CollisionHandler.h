@@ -13,18 +13,18 @@
 #include <tmx/MapLoader.h>
 #include <SFML/Graphics.hpp>
 
-class Game;
+class Scene;
 class Entity;
 
 class CollisionHandler
 {
 private:
     tmx::MapObjects objects;
-    Game *game;
+    Scene *scene;
     bool collisionAABB(sf::FloatRect r1, sf::FloatRect r2);
     
 public:
-    CollisionHandler(Game *game);
+    CollisionHandler(Scene *scene);
     void setObjects(tmx::MapObjects obj);
     bool canMove(const sf::FloatRect &rect);
     bool collisionWithEntity(Entity* e, sf::FloatRect rect);

@@ -6,219 +6,32 @@
 //  Copyright (c) 2016 Michaël Van Meerbeek. All rights reserved.
 //
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <iomanip>
 #include "Game.h"
 #include "ResourcePath.hpp"
 
-Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), ml(resourcePath()), filePath(resourcePath() + "enemies.txt"), keyBlock(Keyboard::C)
-{
-    colHandler = new CollisionHandler(this);
-    player = new Player(colHandler, Vector2f(60, 430));
-}
-
-Game::~Game()
-{
-    for(Entity* e : enemies)
-        delete e;
-    delete player;
-    delete colHandler;
-}
+Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), scene(resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 430))
+{}
 
 void Game::run()
 {
-    init();
+    scene.init();
     
     Clock clock;
+    Event event;
     
     while (window.isOpen())
     {
         Time ellapsed = clock.restart();
         while (window.pollEvent(event))
         {
-            handleInput();
+            if (event.type == sf::Event::Closed)
+            window.close();
+            scene.handleInput(event);
         }
      
-        update(ellapsed);
-        render();
+        scene.update(ellapsed);
+        window.clear();
+        scene.render(window);
+        window.display();
     }
-}
-
-void Game::init()
-{
-    std::cout << "Loading map... " << ml.Load("testmap.tmx") << std::endl;;
-    
-    mapView.reset(FloatRect(0, 0, window.getSize().x, window.getSize().y));
-    hudView.reset(FloatRect(0, 0, window.getSize().x, window.getSize().y));
-    
-    player->init();
-    initEnemies();
-    
-    //Change with quadtree for optimisation and don't update enemies not in the range of the rect
-    for(MapLayer o : ml.GetLayers())
-    {
-        if(o.name == "Col")
-        {
-            colHandler->setObjects(o.objects);
-        }
-    }
-    
-    if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
-        std::cout << "Can't load font !" << std::endl;
-    txtPosition.setFont(font);
-    txtPosition.setCharacterSize(20);
-}
-
-void Game::initEnemies()
-{
-    for(Entity* e : enemies)
-        delete e;
-    enemies.clear();
-    std::string line;
-    std::ifstream file(filePath);
-    if (file.is_open())
-    {
-        while ( getline (file,line) )
-        {
-            std::string token, delim(",");
-            int x, y, i = 0;
-            while(token != line){
-                token = line.substr(0,line.find_first_of(delim));
-                line = line.substr(line.find_first_of(delim) + 1);
-                
-                if(i == 0) x = std::stoi(token.c_str());
-                else y = std::stoi(token.c_str());
-                i++;
-            }
-            enemies.push_back(new Enemy(colHandler, Vector2f(x, y), 450, 80, 1.5f, 1.5f, 1.5f));
-            enemies.back()->init();
-            enemies.back()->setColor(Color::Magenta);
-            enemies.back()->setMaxVel(Vector2f(1, .5f));
-            enemies.back()->setAccel(Vector2f(.4f, .9f));
-            std::cout << "Added enemy at " << x << "/" << y << std::endl;
-        }
-        file.close();
-    }
-    else
-    {
-        std::cout << "Can't open enemies file" << std::endl;
-    }
-}
-
-void Game::handleInput()
-{
-    // Close window: exit
-    if (event.type == sf::Event::Closed) {
-        window.close();
-    }
-    
-    // Escape pressed: exit
-    if (event.type == sf::Event::KeyPressed)
-    {
-        if(event.key.code == sf::Keyboard::Escape) {
-            window.close();
-        }
-        if(event.key.code == Keyboard::Right) player->setDirection(RIGHT);
-        if(event.key.code == Keyboard::Left) player->setDirection(LEFT);
-        if(event.key.code == Keyboard::Space || event.key.code == Keyboard::Up) player->jump();
-        if(event.key.code == Keyboard::W)
-            player->attackFoot();
-        if(event.key.code == Keyboard::X)
-            player->attackPunch();
-        if(event.key.code == keyBlock)
-            player->block();
-        
-        if(event.key.code == Keyboard::R)
-        {
-            player->init();
-            initEnemies();
-
-        }
-    }
-    if(event.type == Event::KeyReleased)
-    {
-        if(event.key.code == Keyboard::Right || event.key.code == Keyboard::Left)
-            player->setDirection(STOP);
-        
-        if(event.key.code == keyBlock)
-            player->setDirection(STOP);
-    }
-}
-
-void Game::update(Time time)
-{
-    for(int i = enemies.size() - 1; i >= 0; i--)
-    {
-        Enemy *e = enemies[i];
-        e->update(time);
-        
-        if(e->isDeadAnimFinished())
-        {
-            enemies.erase(enemies.begin() + i);
-            delete e;
-        }
-        
-        if(!e->getFighterCharacteristics().isDead()) {
-            e->updateTarget(player);
-        }
-        
-    }
-    
-    player->update(time);
-    
-    if (player->isDeadAnimFinished() || player->getGlobalBounds().top > 500)
-    {
-        player->init();
-        initEnemies();
-    }
-        
-    updateView();
-}
-
-void Game::updateView()
-{
-    Vector2f s = mapView.getSize();
-    float x = player->getPosition().x;
-    if(x < s.x / 2) x = s.x / 2;
-    mapView.setCenter(x, mapView.getCenter().y);
-    
-    std::stringstream stream;
-    stream << "Position: " << std::fixed << std::setprecision(0) << player->getPosition().x << "/" << player->getPosition().y << std::endl << "Fight state: " << player->getFighterCharacteristics().getFightState() << std::endl << "Health: " << player->getFighterCharacteristics().getHealth() << "/" << player->getFighterCharacteristics().getMaxHealth();
-    txtPosition.setString(stream.str());
-}
-
-void Game::printFloatRect(const FloatRect &r)
-{
-    std::cout << r.left << "/" << r.top << "/" << r.width << "/" << r.height << std::endl;
-}
-
-void Game::render()
-{
-    window.clear();
-    window.setView(mapView);
-    ml.Draw(window, MapLayer::DrawType::All);
-    for(Entity* e : enemies)
-    {
-        e->render(window);
-        e->drawHpBar(window);
-    }
-    player->render(window);
-    window.setView(hudView);
-    window.draw(txtPosition);
-    player->drawHpBar(window);
-    player->drawEnergyBar(window);
-    player->drawStrengthBar(window);
-    window.display();
-}
-
-Player* Game::getPlayer()
-{
-    return player;
-}
-
-std::vector<Enemy*> Game::getEnemies()
-{
-    return enemies;
 }
