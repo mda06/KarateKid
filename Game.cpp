@@ -153,6 +153,7 @@ void Game::update(Time time)
     {
         Enemy *e = enemies[i];
         e->update(time);
+        
         if(e->isDeadAnimFinished())
         {
             enemies.erase(enemies.begin() + i);
@@ -166,6 +167,7 @@ void Game::update(Time time)
     }
     
     player->update(time);
+    
     if (player->isDeadAnimFinished() || player->getGlobalBounds().top > 500)
     {
         player->init();

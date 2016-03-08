@@ -27,7 +27,8 @@ void Entity::update(Time time)
 {
     animationHandler.update(time);
     updateGUIBar();
-    handleMovement(time.asSeconds());
+    if(!getFighterCharacteristics().isDead())
+        handleMovement(time.asSeconds());
 }
 
 void Entity::updateGUIBar()
@@ -118,6 +119,8 @@ void Entity::render(RenderTarget &rt)
 
 void Entity::setDirection(Direction dir)
 {
+    if(getFighterCharacteristics().isDead()) return;
+    
     direction = dir;
     AnimationType curType = animationHandler.getType();
     switch(dir)
@@ -134,6 +137,8 @@ void Entity::setDirection(Direction dir)
 
 void Entity::setOrientation(Direction dir)
 {
+    if(getFighterCharacteristics().isDead()) return;
+    
     switch(dir)
     {
         case LEFT: if(animationHandler.getSprite().getScale().x > 0) animationHandler.getSprite().scale(-1, 1);

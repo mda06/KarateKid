@@ -94,6 +94,8 @@ void AnimationHandler::move(Vector2f move)
 
 void AnimationHandler::setType(AnimationType type, Entity* launcher, Entity* receiver)
 {
+    if(fighterChar.isDead() && type != DEAD) return;
+    
     switch(type)
     {
         case ATTACK_FOOT: if(fighterChar.canAtkFoot()) {
