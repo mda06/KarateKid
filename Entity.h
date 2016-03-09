@@ -37,9 +37,10 @@ protected:
     bool canClimb(float dt);
     Font font;
     Text txtHp;
+    bool enableFootAtk;
     
 public:
-    Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
+    Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enableFootAtk = false);
     void init();
     virtual void update(Time time);
     void render(RenderTarget &rt);

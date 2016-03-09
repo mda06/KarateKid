@@ -122,6 +122,11 @@ void Scene::handleInput(Event &event)
         if(event.key.code == keyBlock)
             player->setDirection(STOP);
     }
+    
+    if(event.type == Event::Resized)
+    {
+        mapView.setSize(event.size.width, event.size.height);
+    }
 }
 
 void Scene::update(Time time)

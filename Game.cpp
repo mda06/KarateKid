@@ -9,7 +9,7 @@
 #include "Game.h"
 #include "ResourcePath.hpp"
 
-Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"), scene(resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 430))
+Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/), scene(resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 430))
 {}
 
 void Game::run()
@@ -24,8 +24,7 @@ void Game::run()
         Time ellapsed = clock.restart();
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
-            window.close();
+            if (event.type == sf::Event::Closed) window.close();
             scene.handleInput(event);
         }
      

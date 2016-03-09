@@ -127,11 +127,14 @@ void AnimationHandler::setType(AnimationType type, Entity* launcher, Entity* rec
     switch(this->type)
     {
         case IDLE:  animatedSprite.play(idleAnim);
-                    animatedSprite.setFrameTime(seconds(1)); break;
+                    animatedSprite.setFrameTime(seconds(1));
+                    animatedSprite.setLooped(true); break;
         case WALK:  animatedSprite.play(walkAnim);
-                    animatedSprite.setFrameTime(seconds(.08f)); break;
+                    animatedSprite.setFrameTime(seconds(.08f));
+                    animatedSprite.setLooped(true);break;
         case RUN:   animatedSprite.play(runAnim);
-                    animatedSprite.setFrameTime(seconds(.4f)); break;
+                    animatedSprite.setFrameTime(seconds(.4f));
+                    animatedSprite.setLooped(true); break;
         case JUMP:  animatedSprite.play(jumpAnim);
                     animatedSprite.setFrameTime(seconds(.14f));
                     animatedSprite.setLooped(false); break;

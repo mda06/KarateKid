@@ -13,7 +13,7 @@
 #include <sstream>
 #include <iomanip>
 
-Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown) : accel(2, 1), deccel(1.7f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), animationHandler(AnimationHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown))
+Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool fatk) : accel(2, 1), deccel(1.7f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), animationHandler(AnimationHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)), enableFootAtk(fatk)
 {
     if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
         std::cout << "Can't load font !" << std::endl;
@@ -180,6 +180,8 @@ void Entity::setColor(Color color)
 
 void Entity::attackFoot()
 {
+    if(!enableFootAtk) return;
+    
     FloatRect bd = getGlobalBounds();
     bd.left += animationHandler.getSprite().getScale().x * getFighterCharacteristics().getRangeHit();
     animationHandler.setType(ATTACK_FOOT, this, colHandler->getCollsionWithEntity(this, bd));
