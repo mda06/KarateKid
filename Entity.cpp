@@ -66,6 +66,8 @@ void Entity::handleMovement(float dt)
         }
     }
     
+    bool wasVelXNull = vel.x == 0;
+    
     if(vel.x > maxVel.x) vel.x = maxVel.x;
     if(vel.x < -maxVel.x) vel.x = -maxVel.x;
     
@@ -97,6 +99,27 @@ void Entity::handleMovement(float dt)
         vel.y = 0;
     
     animationHandler.move(movement);
+    
+    if(vel.x > 0)
+    {
+        if(vel.x == maxVel.x){
+            if(animationHandler.getType() != RUN)
+                animationHandler.setType(RUN);
+        }
+        else
+            animationHandler.setType(WALK);
+    }
+    else if(vel.x < 0)
+    {
+        if(vel.x == -maxVel.x){
+            if(animationHandler.getType() != RUN)
+                animationHandler.setType(RUN);
+        }
+        else
+            animationHandler.setType(WALK);
+    }
+    else if(wasVelXNull && animationHandler.getType() == WALK)
+        animationHandler.setType(IDLE);
 }
 
 bool Entity::canClimb(float dt)
@@ -137,10 +160,10 @@ void Entity::setDirection(Direction dir)
     switch(dir)
     {
         case STOP : if(curType != IDLE) animationHandler.setType(IDLE); break;
-        case LEFT: if(curType != WALK) animationHandler.setType(WALK);
+        case LEFT: if(curType != WALK && curType != RUN) animationHandler.setType(WALK);
             if(animationHandler.getSprite().getScale().x > 0) animationHandler.getSprite().scale(-1, 1);
             break;
-        case RIGHT: if(curType != WALK) animationHandler.setType(WALK);
+        case RIGHT: if(curType != WALK && curType != RUN) animationHandler.setType(WALK);
             if(animationHandler.getSprite().getScale().x < 0) animationHandler.getSprite().scale(-1, 1);
             break;
     }
