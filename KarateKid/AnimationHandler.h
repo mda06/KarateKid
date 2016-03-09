@@ -38,6 +38,7 @@ public:
     void move(Vector2f move);
     void init();
     bool isDeadAnimFinished() const;
+    void setDeadAnimFinished(bool b);
     AnimationType getType() const;
     AnimatedSprite &getSprite();
     Vector2f getPosition() const;

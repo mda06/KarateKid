@@ -150,6 +150,11 @@ bool AnimationHandler::isDeadAnimFinished() const
     return isAnimDeadFinished;
 }
 
+void AnimationHandler::setDeadAnimFinished(bool b)
+{
+    isAnimDeadFinished = b;
+}
+
 bool AnimationHandler::isAnimationFinished() const
 {
     return !animatedSprite.isPlaying();

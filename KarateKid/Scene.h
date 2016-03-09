@@ -35,6 +35,8 @@ private:
     Font font;
     Text txtPosition;
     Keyboard::Key keyBlock;
+    Texture txtGameOver;
+    Sprite sprGameOver;
 
 public:
     Scene(std::string enemiesFile, std::string mapName, Vector2f pos);

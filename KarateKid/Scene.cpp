@@ -23,6 +23,10 @@ Scene::Scene(std::string enemiesFile, std::string mapName, Vector2f pos) : ml(re
         std::cout << "Can't load font !" << std::endl;
     txtPosition.setFont(font);
     txtPosition.setCharacterSize(20);
+    
+    if(!txtGameOver.loadFromFile(resourcePath() + "gameOver.jpg"))
+        std::cout << "Can't load game over texture" << std::endl;
+    sprGameOver.setTexture(txtGameOver);
 }
 
 Scene::~Scene()
@@ -150,10 +154,9 @@ void Scene::update(Time time)
     
     player->update(time);
     
-    if (player->isDeadAnimFinished() || player->getGlobalBounds().top > 500)
+    if (player->getGlobalBounds().top > 500)
     {
-        player->init();
-        initEnemies();
+        player->setDeadAnimFinished(true);
     }
     
     updateView();
@@ -191,6 +194,8 @@ void Scene::render(RenderTarget &window)
     player->drawHpBar(window);
     player->drawEnergyBar(window);
     player->drawStrengthBar(window);
+    if(player->isDeadAnimFinished())
+        window.draw(sprGameOver);
 }
 
 Player* Scene::getPlayer()

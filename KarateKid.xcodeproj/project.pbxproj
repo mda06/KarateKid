@@ -30,6 +30,7 @@
 		4CA5327C1C849DFB00550B05 /* MapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532741C849DFB00550B05 /* MapObject.cpp */; };
 		4CA5327D1C849DFB00550B05 /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532761C849DFB00550B05 /* pugixml.cpp */; };
 		4CA5327E1C849DFB00550B05 /* QuadTreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA532771C849DFB00550B05 /* QuadTreeNode.cpp */; };
+		4CB1867D1C90721300640D99 /* gameOver.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CB1867C1C90721300640D99 /* gameOver.jpg */; };
 		4CB3AB401C88A40A0061D1F3 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */; };
 		4CC798BB1C8465B100C2CD96 /* blond.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC798B91C8465B100C2CD96 /* blond.png */; };
 		4CC798BC1C8465B100C2CD96 /* skull.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC798BA1C8465B100C2CD96 /* skull.png */; };
@@ -73,6 +74,7 @@
 		4CA532741C849DFB00550B05 /* MapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObject.cpp; sourceTree = "<group>"; };
 		4CA532761C849DFB00550B05 /* pugixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pugixml.cpp; sourceTree = "<group>"; };
 		4CA532771C849DFB00550B05 /* QuadTreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadTreeNode.cpp; sourceTree = "<group>"; };
+		4CB1867C1C90721300640D99 /* gameOver.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gameOver.jpg; sourceTree = "<group>"; };
 		4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
 		4CB3AB3F1C88A40A0061D1F3 /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
 		4CC798B91C8465B100C2CD96 /* blond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blond.png; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		4CC798B81C8465B100C2CD96 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				4CB1867C1C90721300640D99 /* gameOver.jpg */,
 				22BFCAB51C8E299B001A8E71 /* GUI Bars */,
 				4CC798B91C8465B100C2CD96 /* blond.png */,
 				4CC798BA1C8465B100C2CD96 /* skull.png */,
@@ -298,6 +301,7 @@
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */,
 				4C1F10AC1C8B19070062A96D /* forest.txt in Resources */,
+				4CB1867D1C90721300640D99 /* gameOver.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

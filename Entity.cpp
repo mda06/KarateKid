@@ -224,6 +224,11 @@ Vector2f Entity::getPosition() const
     return animationHandler.getPosition();
 }
 
+void Entity::setDeadAnimFinished(bool b)
+{
+    animationHandler.setDeadAnimFinished(b);
+}
+
 bool Entity::isDeadAnimFinished() const
 {
     return animationHandler.isDeadAnimFinished();

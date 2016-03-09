@@ -55,7 +55,7 @@ public:
     void attackFoot();
     void attackPunch();
     void block();
-    void dead();
+    void setDeadAnimFinished(bool b);
     bool isDeadAnimFinished() const;
     FloatRect getGlobalBounds();
     FighterCharacteristics &getFighterCharacteristics();
