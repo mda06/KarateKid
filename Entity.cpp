@@ -183,14 +183,20 @@ void Entity::attackFoot()
     if(!enableFootAtk) return;
     
     FloatRect bd = getGlobalBounds();
-    bd.left += animationHandler.getSprite().getScale().x * getFighterCharacteristics().getRangeHit();
+    if(animationHandler.getSprite().getScale().x < 0)
+        bd.left -= getFighterCharacteristics().getRangeHit();
+    else
+        bd.left += getFighterCharacteristics().getRangeHit();
     animationHandler.setType(ATTACK_FOOT, this, colHandler->getCollsionWithEntity(this, bd));
 }
 
 void Entity::attackPunch()
 {
     FloatRect bd = getGlobalBounds();
-    bd.left += animationHandler.getSprite().getScale().x * getFighterCharacteristics().getRangeHit();
+    if(animationHandler.getSprite().getScale().x < 0)
+        bd.left -= getFighterCharacteristics().getRangeHit();
+    else
+        bd.left += getFighterCharacteristics().getRangeHit();
     animationHandler.setType(ATTACK_PUNCH, this, colHandler->getCollsionWithEntity(this, bd));    
 }
 

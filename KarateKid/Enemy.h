@@ -14,6 +14,7 @@
 class Enemy : public Entity
 {
 private:
+    int targetRange;
     
 public:
     Enemy(CollisionHandler *col, Vector2f pos, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);

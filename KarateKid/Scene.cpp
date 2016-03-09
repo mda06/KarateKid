@@ -84,8 +84,6 @@ void Scene::initEnemies()
             enemies.push_back(new Enemy(colHandler, Vector2f(x, y), health, maxStrength, 1.5f, 1.5f, 1.5f));
             enemies.back()->init();
             enemies.back()->setColor(Color::Magenta);
-            enemies.back()->setMaxVel(Vector2f(1, .5f));
-            enemies.back()->setAccel(Vector2f(.4f, .9f));
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();
