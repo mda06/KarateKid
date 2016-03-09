@@ -10,7 +10,7 @@
 #include "ResourcePath.hpp"
 
 //Call gbHealth true/false
-Player::Player(CollisionHandler *col, Vector2f pos) : Entity(col, pos, true, 1000, 100, 1, .6f, .6f), gbEnergy(resourcePath() + "barre_energie_vide.png", resourcePath() + "barre_energie_couleur.png", Vector2f(10, 100), 126, true), gbStrength(resourcePath() + "barre_force_vide.png", resourcePath() + "barre_force_couleur.png", Vector2f(10, 130), 126, true)
+Player::Player(CollisionHandler *col, Vector2f pos) : Entity(col, pos, true, 1500, 100, 1, .6f, .6f), gbEnergy(resourcePath() + "barre_energie_vide.png", resourcePath() + "barre_energie_couleur.png", Vector2f(10, 100), 126, true), gbStrength(resourcePath() + "barre_force_vide.png", resourcePath() + "barre_force_couleur.png", Vector2f(10, 130), 126, true)
 {
 }
 
