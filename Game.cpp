@@ -9,8 +9,9 @@
 #include "Game.h"
 #include "ResourcePath.hpp"
 
-Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/), scene(resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 430))
-{}
+Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/), scene(resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30))
+{
+}
 
 void Game::run()
 {

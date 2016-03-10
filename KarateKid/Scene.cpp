@@ -127,7 +127,13 @@ void Scene::handleInput(Event &event)
     
     if(event.type == Event::Resized)
     {
-        mapView.setSize(event.size.width, event.size.height);
+        /*std::cout << mapView.getSize().x << ", " << mapView.getSize().y << std::endl;
+        
+        std::cout << "\tRatio: " << aspectRatio << std::endl;*/
+        //mapView.setSize(event.size.width * aspectRatio * 1.3f, event.size.height * aspectRatio);
+        //float aspectRatio = (float) event.size.width / (float) event.size.height;
+        float y = event.size.height;
+        mapView.setSize(event.size.width, y);
     }
 }
 
@@ -142,6 +148,11 @@ void Scene::update(Time time)
         {
             enemies.erase(enemies.begin() + i);
             delete e;
+        }
+        
+        if (e->getGlobalBounds().top > 500)
+        {
+            e->setDeadAnimFinished(true);
         }
         
         if(!e->getFighterCharacteristics().isDead()) {
@@ -165,6 +176,7 @@ void Scene::updateView()
     Vector2f s = mapView.getSize();
     float x = player->getPosition().x;
     if(x < s.x / 2) x = s.x / 2;
+    if(x > ml.GetMapSize().x - s.x / 2) x = ml.GetMapSize().x - s.x / 2;
     mapView.setCenter(x, mapView.getCenter().y);
     
     std::stringstream stream;
