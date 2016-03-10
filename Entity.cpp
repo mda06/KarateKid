@@ -45,7 +45,7 @@ void Entity::updateGUIBar()
     std::stringstream stream;
     stream << fc.getHealth() << " / " << fc.getMaxHealth();
     txtHp.setString(stream.str());
-    txtHp.setPosition(gbHealth.getPos().x + (gbHealth.getWidth() / 2), gbHealth.getPos().y + 5);
+    txtHp.setPosition(gbHealth.getPos().x + (gbHealth.getWidth() / 4), gbHealth.getPos().y - 2);
 }
 
 void Entity::handleMovement(float dt)

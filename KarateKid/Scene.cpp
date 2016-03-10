@@ -132,8 +132,8 @@ void Scene::handleInput(Event &event)
         std::cout << "\tRatio: " << aspectRatio << std::endl;*/
         //mapView.setSize(event.size.width * aspectRatio * 1.3f, event.size.height * aspectRatio);
         //float aspectRatio = (float) event.size.width / (float) event.size.height;
-        float y = event.size.height;
-        mapView.setSize(event.size.width, y);
+        //float y = event.size.height;
+        mapView.setSize(event.size.width, mapView.getSize().y);
     }
 }
 

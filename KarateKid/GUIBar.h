@@ -24,7 +24,6 @@ private:
     IntRect irFront;
     bool withBack;
     int maxWidth;
-    Vector2f pos;
     
 public:
     GUIBar(std::string pathBack, std::string pathFront, Vector2f pos, int mw, bool withBack = true);
