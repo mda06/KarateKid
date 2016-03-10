@@ -215,12 +215,16 @@ void Entity::attackFoot()
 
 void Entity::attackPunch()
 {
+    if(!animationHandler.getFighterCharacteristics().canAtkPunch()) return;
+    
     FloatRect bd = getGlobalBounds();
     if(animationHandler.getSprite().getScale().x < 0)
         bd.left -= getFighterCharacteristics().getRangeHit();
     else
         bd.left += getFighterCharacteristics().getRangeHit();
-    animationHandler.setType(ATTACK_PUNCH, this, colHandler->getCollsionWithEntity(this, bd));    
+    animationHandler.setType(ATTACK_PUNCH, this, colHandler->getCollsionWithEntity(this, bd));
+    
+    sound.playPunch();
 }
 
 void Entity::block()

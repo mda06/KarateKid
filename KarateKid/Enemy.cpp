@@ -24,6 +24,18 @@ void Enemy::update(Time time)
 
 void Enemy::updateTarget(Entity *target)
 {
+    float ey = getPosition().y, py = target->getPosition().y;
+    if(ey < py)
+    {
+        if(py - ey > target->getGlobalBounds().height)
+            return;
+    }
+    else
+    {
+        if(ey - py > getGlobalBounds().height)
+            return;
+    }
+    
     float ex = getPosition().x, px = target->getPosition().x;
     if(ex > px)
     {

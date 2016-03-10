@@ -38,6 +38,8 @@
 		4CC798C21C8465E600C2CD96 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC798C01C8465E600C2CD96 /* Game.cpp */; };
 		4CC939EF1C8868B80068A9B5 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC939ED1C8868B80068A9B5 /* Animation.cpp */; };
 		4CC93A101C88795A0068A9B5 /* AnimationHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC93A0E1C88795A0068A9B5 /* AnimationHandler.cpp */; };
+		4CD76A601C92249A008D70DF /* punch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CD76A5F1C92249A008D70DF /* punch.wav */; };
+		4CD76A631C9224C8008D70DF /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CD76A611C9224C8008D70DF /* SoundManager.cpp */; };
 		4CDEFE281C8DE65A00DCCF17 /* GUIBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */; };
 		4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB291C8ED2AC0049F23B /* Player.cpp */; };
 		4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */; };
@@ -87,6 +89,9 @@
 		4CC939EE1C8868B80068A9B5 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		4CC93A0E1C88795A0068A9B5 /* AnimationHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationHandler.cpp; sourceTree = "<group>"; };
 		4CC93A0F1C88795A0068A9B5 /* AnimationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationHandler.h; sourceTree = "<group>"; };
+		4CD76A5F1C92249A008D70DF /* punch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = punch.wav; sourceTree = "<group>"; };
+		4CD76A611C9224C8008D70DF /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
+		4CD76A621C9224C8008D70DF /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIBar.cpp; sourceTree = "<group>"; };
 		4CDEFE271C8DE65A00DCCF17 /* GUIBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIBar.h; sourceTree = "<group>"; };
 		4CEBEB291C8ED2AC0049F23B /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -144,6 +149,8 @@
 			children = (
 				4CA5324D1C84995D00550B05 /* tmx */,
 				4CC798BD1C8465E000C2CD96 /* Entity.cpp */,
+				4CD76A611C9224C8008D70DF /* SoundManager.cpp */,
+				4CD76A621C9224C8008D70DF /* SoundManager.h */,
 				4CA097E71C8F270700BD7238 /* Scene.cpp */,
 				4CA097E81C8F270700BD7238 /* Scene.h */,
 				4CEBEB291C8ED2AC0049F23B /* Player.cpp */,
@@ -187,6 +194,7 @@
 		4C3E9F5B1C845FEA00D85323 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4CD76A5E1C92248B008D70DF /* sounds */,
 				4C1F10B01C8B36C50062A96D /* master_of_break.ttf */,
 				4C9CDE281C899D8400693D5B /* map */,
 				4CC798B81C8465B100C2CD96 /* sprites */,
@@ -235,6 +243,14 @@
 				4CC798BA1C8465B100C2CD96 /* skull.png */,
 			);
 			path = sprites;
+			sourceTree = "<group>";
+		};
+		4CD76A5E1C92248B008D70DF /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				4CD76A5F1C92249A008D70DF /* punch.wav */,
+			);
+			name = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +310,7 @@
 				4CA097EB1C8F328300BD7238 /* forest.tmx in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
 				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,
+				4CD76A601C92249A008D70DF /* punch.wav in Resources */,
 				22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */,
 				22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
@@ -350,6 +367,7 @@
 				4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */,
 				4CEE28991C879C0D009FC0DE /* CollisionHandler.cpp in Sources */,
 				4CA532781C849DFB00550B05 /* DebugShape.cpp in Sources */,
+				4CD76A631C9224C8008D70DF /* SoundManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

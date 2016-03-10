@@ -14,6 +14,7 @@
 #include <tmx/MapLoader.h>
 #include "CollisionHandler.h"
 #include "GUIBar.h"
+#include "SoundManager.h"
 using namespace sf;
 
 enum Direction
@@ -38,6 +39,7 @@ protected:
     Font font;
     Text txtHp;
     bool enableFootAtk;
+    SoundManager sound;
     
 public:
     Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enableFootAtk = false);
