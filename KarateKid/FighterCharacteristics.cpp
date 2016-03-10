@@ -90,6 +90,11 @@ void FighterCharacteristics::setStrength(int s)
         currStrength = s;
 }
 
+void FighterCharacteristics::addMaxStrength(float s)
+{
+    maxStrength += s;
+}
+
 void FighterCharacteristics::addStrength(float s)
 {
     if(currStrength + s > maxStrength)

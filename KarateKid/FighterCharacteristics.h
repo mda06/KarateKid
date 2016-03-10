@@ -40,6 +40,7 @@ public:
     void setHealthAndMaxHealth(int h);
     void setStrength(int s);
     void addStrength(float s);
+    void addMaxStrength(float s);
     int getHealth() const;
     int getMaxHealth() const;
     int getRangeHit() const;

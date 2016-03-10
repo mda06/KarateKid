@@ -147,6 +147,7 @@ void Scene::update(Time time)
         if(e->isDeadAnimFinished())
         {
             enemies.erase(enemies.begin() + i);
+            player->getFighterCharacteristics().addMaxStrength(5);
             delete e;
         }
         
