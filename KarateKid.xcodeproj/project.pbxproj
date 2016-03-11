@@ -19,6 +19,8 @@
 		4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2401121C8B9AB70068ED85 /* FightState.cpp */; };
 		4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F561C845FEA00D85323 /* ResourcePath.mm */; };
 		4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F591C845FEA00D85323 /* main.cpp */; };
+		4C7DF0D41C92D81100855472 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7DF0D21C92D81100855472 /* GameObject.cpp */; };
+		4C7DF0E71C92DA0F00855472 /* potionHealth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7DF0E61C92DA0F00855472 /* potionHealth.png */; };
 		4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9CDE291C899D8400693D5B /* forest_tile.png */; };
 		4CA097E91C8F270700BD7238 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA097E71C8F270700BD7238 /* Scene.cpp */; };
 		4CA097EB1C8F328300BD7238 /* forest.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4CA097EA1C8F328300BD7238 /* forest.tmx */; };
@@ -64,6 +66,9 @@
 		4C3E9F561C845FEA00D85323 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		4C3E9F591C845FEA00D85323 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4C7DF0D21C92D81100855472 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = "sprites/GUI Bars/GameObject.cpp"; sourceTree = "<group>"; };
+		4C7DF0D31C92D81100855472 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = "sprites/GUI Bars/GameObject.h"; sourceTree = "<group>"; };
+		4C7DF0E61C92DA0F00855472 /* potionHealth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionHealth.png; sourceTree = "<group>"; };
 		4C9CDE291C899D8400693D5B /* forest_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forest_tile.png; sourceTree = "<group>"; };
 		4CA097E71C8F270700BD7238 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		4CA097E81C8F270700BD7238 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
@@ -147,38 +152,40 @@
 		4C3E9F531C845FEA00D85323 /* KarateKid */ = {
 			isa = PBXGroup;
 			children = (
-				4CA5324D1C84995D00550B05 /* tmx */,
+				4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */,
+				4CB3AB3F1C88A40A0061D1F3 /* AnimatedSprite.h */,
+				4CC939ED1C8868B80068A9B5 /* Animation.cpp */,
+				4CC939EE1C8868B80068A9B5 /* Animation.h */,
+				4CC93A0E1C88795A0068A9B5 /* AnimationHandler.cpp */,
+				4CC93A0F1C88795A0068A9B5 /* AnimationHandler.h */,
+				4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */,
+				4CEE28981C879C0D009FC0DE /* CollisionHandler.h */,
+				4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */,
+				4CEBEB2D1C8ED8560049F23B /* Enemy.h */,
 				4CC798BD1C8465E000C2CD96 /* Entity.cpp */,
-				4CD76A611C9224C8008D70DF /* SoundManager.cpp */,
-				4CD76A621C9224C8008D70DF /* SoundManager.h */,
-				4CA097E71C8F270700BD7238 /* Scene.cpp */,
-				4CA097E81C8F270700BD7238 /* Scene.h */,
-				4CEBEB291C8ED2AC0049F23B /* Player.cpp */,
-				4CEBEB2A1C8ED2AC0049F23B /* Player.h */,
-				4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */,
-				4CDEFE271C8DE65A00DCCF17 /* GUIBar.h */,
+				4CC798BE1C8465E000C2CD96 /* Entity.h */,
 				4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */,
 				4C2401101C8B9A530068ED85 /* FighterCharacteristics.h */,
 				4C2401121C8B9AB70068ED85 /* FightState.cpp */,
 				4C2401131C8B9AB70068ED85 /* FightState.h */,
-				4CC798BE1C8465E000C2CD96 /* Entity.h */,
-				4CC939ED1C8868B80068A9B5 /* Animation.cpp */,
-				4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */,
-				4CB3AB3F1C88A40A0061D1F3 /* AnimatedSprite.h */,
-				4CC93A0E1C88795A0068A9B5 /* AnimationHandler.cpp */,
-				4CC93A0F1C88795A0068A9B5 /* AnimationHandler.h */,
-				4CC939EE1C8868B80068A9B5 /* Animation.h */,
 				4CC798C01C8465E600C2CD96 /* Game.cpp */,
-				4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */,
-				4CEBEB2D1C8ED8560049F23B /* Enemy.h */,
 				4CC798C11C8465E600C2CD96 /* Game.h */,
-				4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */,
-				4CEE28981C879C0D009FC0DE /* CollisionHandler.h */,
-				4C3E9F561C845FEA00D85323 /* ResourcePath.mm */,
-				4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */,
+				4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */,
+				4CDEFE271C8DE65A00DCCF17 /* GUIBar.h */,
 				4C3E9F591C845FEA00D85323 /* main.cpp */,
+				4CEBEB291C8ED2AC0049F23B /* Player.cpp */,
+				4CEBEB2A1C8ED2AC0049F23B /* Player.h */,
+				4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */,
+				4C3E9F561C845FEA00D85323 /* ResourcePath.mm */,
+				4C7DF0D21C92D81100855472 /* GameObject.cpp */,
+				4C7DF0D31C92D81100855472 /* GameObject.h */,
 				4C3E9F5B1C845FEA00D85323 /* Resources */,
+				4CA097E71C8F270700BD7238 /* Scene.cpp */,
+				4CA097E81C8F270700BD7238 /* Scene.h */,
+				4CD76A611C9224C8008D70DF /* SoundManager.cpp */,
+				4CD76A621C9224C8008D70DF /* SoundManager.h */,
 				4C3E9F541C845FEA00D85323 /* Supporting Files */,
+				4CA5324D1C84995D00550B05 /* tmx */,
 			);
 			path = KarateKid;
 			sourceTree = "<group>";
@@ -200,6 +207,14 @@
 				4CC798B81C8465B100C2CD96 /* sprites */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		4C7DF0E51C92DA0F00855472 /* potions */ = {
+			isa = PBXGroup;
+			children = (
+				4C7DF0E61C92DA0F00855472 /* potionHealth.png */,
+			);
+			path = potions;
 			sourceTree = "<group>";
 		};
 		4C9CDE281C899D8400693D5B /* map */ = {
@@ -237,6 +252,7 @@
 		4CC798B81C8465B100C2CD96 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				4C7DF0E51C92DA0F00855472 /* potions */,
 				4CB1867C1C90721300640D99 /* gameOver.jpg */,
 				22BFCAB51C8E299B001A8E71 /* GUI Bars */,
 				4CC798B91C8465B100C2CD96 /* blond.png */,
@@ -317,6 +333,7 @@
 				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */,
+				4C7DF0E71C92DA0F00855472 /* potionHealth.png in Resources */,
 				4C1F10AC1C8B19070062A96D /* forest.txt in Resources */,
 				4CB1867D1C90721300640D99 /* gameOver.jpg in Resources */,
 			);
@@ -346,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7DF0D41C92D81100855472 /* GameObject.cpp in Sources */,
 				4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */,
 				4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */,
 				4CC93A101C88795A0068A9B5 /* AnimationHandler.cpp in Sources */,

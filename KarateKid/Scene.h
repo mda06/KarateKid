@@ -16,6 +16,7 @@
 #include "CollisionHandler.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "GameObject.h"
 
 using namespace sf;
 using namespace tmx;
@@ -37,6 +38,8 @@ private:
     Keyboard::Key keyBlock;
     Texture txtGameOver;
     Sprite sprGameOver;
+    std::vector<GameObject*> gameObjects;
+    void addGameObject(Vector2f pos);
 
 public:
     Scene(std::string enemiesFile, std::string mapName, Vector2f pos);
@@ -47,6 +50,7 @@ public:
     void render(RenderTarget &rt);
     std::vector<Enemy*> getEnemies();
     Player* getPlayer();
+    std::vector<GameObject*> getGameObjects();
 };
 
 #endif /* defined(__KarateKid__Scene__) */

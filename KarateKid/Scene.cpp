@@ -27,6 +27,7 @@ Scene::Scene(std::string enemiesFile, std::string mapName, Vector2f pos) : ml(re
     if(!txtGameOver.loadFromFile(resourcePath() + "gameOver.jpg"))
         std::cout << "Can't load game over texture" << std::endl;
     sprGameOver.setTexture(txtGameOver);
+    srand(time(NULL));
 }
 
 Scene::~Scene()
@@ -35,6 +36,9 @@ Scene::~Scene()
         delete e;
     delete player;
     delete colHandler;
+    
+    for(GameObject* go : gameObjects)
+        delete go;
 }
 
 void Scene::init()
@@ -55,6 +59,10 @@ void Scene::init()
             colHandler->setObjects(o.objects);
         }
     }
+    
+    for(GameObject* go : gameObjects)
+        delete go;
+    gameObjects.clear();
 }
 
 void Scene::initEnemies()
@@ -137,6 +145,14 @@ void Scene::handleInput(Event &event)
     }
 }
 
+void Scene::addGameObject(Vector2f pos)
+{
+    /*int r = rand() % 100;
+    if(r < 25)*/ gameObjects.push_back(new GameObjectPotion(pos));
+    //else if(r < 50) gameObjects.push_back(new GameObjectStrength(pos));
+    //else if(r < 75) gameObjects.push_back(new GameObjectsBlock(pos));
+}
+
 void Scene::update(Time time)
 {
     for(int i = enemies.size() - 1; i >= 0; i--)
@@ -146,8 +162,9 @@ void Scene::update(Time time)
         
         if(e->isDeadAnimFinished())
         {
+            addGameObject(e->getPosition());
             enemies.erase(enemies.begin() + i);
-            player->getFighterCharacteristics().addMaxStrength(5);
+            //player->getFighterCharacteristics().addMaxStrength(5);
             delete e;
         }
         
@@ -168,6 +185,15 @@ void Scene::update(Time time)
     {
         player->setDeadAnimFinished(true);
     }
+    
+    for(int i = gameObjects.size() - 1; i >=0 ; i--)
+    {
+        GameObject *go = gameObjects[i];
+        go->update(time.asSeconds());
+        if(go->isUsed())
+            gameObjects.erase(gameObjects.begin() + i);
+    }
+
     
     updateView();
 }
@@ -200,6 +226,8 @@ void Scene::render(RenderTarget &window)
         e->drawHpBar(window);
     }
     player->render(window);
+    for(GameObject* go : gameObjects)
+        go->draw(window);
     window.setView(hudView);
     window.draw(txtPosition);
     player->drawHpBar(window);
@@ -212,6 +240,11 @@ void Scene::render(RenderTarget &window)
 Player* Scene::getPlayer()
 {
     return player;
+}
+
+std::vector<GameObject*> Scene::getGameObjects()
+{
+    return gameObjects;
 }
 
 std::vector<Enemy*> Scene::getEnemies()

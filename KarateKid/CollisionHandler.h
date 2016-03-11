@@ -26,6 +26,7 @@ private:
 public:
     CollisionHandler(Scene *scene);
     void setObjects(tmx::MapObjects obj);
+    void handleGameObjects(Entity* e);
     bool canMove(const sf::FloatRect &rect);
     bool collisionWithEntity(Entity* e, sf::FloatRect rect);
     Entity* getCollsionWithEntity(Entity *e, sf::FloatRect rect);

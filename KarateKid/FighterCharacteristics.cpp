@@ -63,6 +63,7 @@ void FighterCharacteristics::hit(int dmg)
         case NORMAL_STATE: multiplier = 1;
             break;
         case BLOCK_STATE: multiplier = 0.3;
+            addStrength(15);
             break;
         case ATTACK_FOOT_STATE:
         case ATTACK_PUNCH_STATE: multiplier = 1.3;
@@ -106,6 +107,13 @@ void FighterCharacteristics::addStrength(float s)
     
     if(currStrength < 0)
         currStrength = 0;
+}
+
+void FighterCharacteristics::addHealth(int s)
+{
+    health += s;
+    if(health < 0) health = 0;
+    if(health > maxHealth) health = maxHealth;
 }
 
 int FighterCharacteristics::getHealth() const

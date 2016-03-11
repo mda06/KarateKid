@@ -28,7 +28,6 @@ private:
     AnimationType type;
     Vector2f size;
     FighterCharacteristics fighterChar;
-    float timeAtkFoot, timeAtkPunch, timeBlock;
     bool isAnimDeadFinished;
     
 public:

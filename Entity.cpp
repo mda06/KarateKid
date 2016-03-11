@@ -35,6 +35,7 @@ void Entity::update(Time time)
     updateGUIBar();
     if(!getFighterCharacteristics().isDead())
         handleMovement(time.asSeconds());
+    colHandler->handleGameObjects(this);
 }
 
 void Entity::updateGUIBar()

@@ -7,6 +7,7 @@
 //
 
 #include "CollisionHandler.h"
+#include "GameObject.h"
 #include "Entity.h"
 #include <iostream>
 #include "Game.h"
@@ -19,6 +20,15 @@ CollisionHandler::CollisionHandler(Scene *scene)
 void CollisionHandler::setObjects(tmx::MapObjects obj)
 {
     objects = obj;
+}
+
+void CollisionHandler::handleGameObjects(Entity *e)
+{
+    for(GameObject* go : scene->getGameObjects())
+    {
+        if(collisionAABB(go->getBounds(), e->getGlobalBounds()))
+            go->effect(e);
+    }
 }
 
 bool CollisionHandler::canMove(const sf::FloatRect& rect)
