@@ -56,6 +56,11 @@ float AbstractFightState::getCurActiveCooldown() const
 {
     return curActiveCooldown;
 }
+
+void AbstractFightState::addActiveCooldown(float c)
+{
+    activeCooldown += c;
+}
 /*
     |
     Abstract

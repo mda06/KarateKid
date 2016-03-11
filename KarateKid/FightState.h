@@ -21,6 +21,7 @@ public:
     void update(float dt);
     void setCooldown(float c);
     void setActiveCooldown(float c);
+    void addActiveCooldown(float c);
     virtual bool canDoEffect() const;
     bool finishEffect() const;
     float getCurActiveCooldown() const;

@@ -37,5 +37,18 @@ public:
     virtual void effect(Entity* target);
 };
 
+class GameObjectStrength : public GameObject
+{
+public:
+    GameObjectStrength(Vector2f pos);
+    virtual void effect(Entity* target);
+};
+
+class GameObjectEnergy : public GameObject
+{
+public:
+    GameObjectEnergy(Vector2f pos);
+    virtual void effect(Entity* target);
+};
 
 #endif /* defined(__KarateKid__MapObject__) */

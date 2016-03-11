@@ -16,6 +16,7 @@ GameObject::GameObject(std::string path, Vector2f pos)
     
     sprite.setTexture(texture);
     sprite.setPosition(pos.x, pos.y);
+    sprite.setOrigin(sprite.getGlobalBounds().width, sprite.getGlobalBounds().height);
     isUse = false;
     
     std::cout << "Added gameObject at " << pos.x << "/" << pos.y << std::endl;
@@ -60,4 +61,26 @@ void GameObjectPotion::effect(Entity *target)
     GameObject::effect(nullptr);
     //target->getFighterCharacteristics().addMaxStrength(5);
     target->getFighterCharacteristics().addHealth(50);
+}
+
+GameObjectStrength::GameObjectStrength(Vector2f pos) : GameObject(resourcePath() + "potionStrength.png", pos)
+{
+}
+
+void GameObjectStrength::effect(Entity *target)
+{
+    GameObject::effect(nullptr);
+    //target->getFighterCharacteristics().addMaxStrength(5);
+    target->getFighterCharacteristics().addStrength(50);
+}
+
+GameObjectEnergy::GameObjectEnergy(Vector2f pos) : GameObject(resourcePath() + "potionEnergy.png", pos)
+{
+}
+
+void GameObjectEnergy::effect(Entity *target)
+{
+    GameObject::effect(nullptr);
+    //target->getFighterCharacteristics().addMaxStrength(5);
+    target->getFighterCharacteristics().getBlockState().addActiveCooldown(.2f);
 }
