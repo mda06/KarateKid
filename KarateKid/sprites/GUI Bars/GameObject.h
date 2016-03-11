@@ -19,7 +19,6 @@ private:
     Sprite sprite;
     Texture texture;
     bool isUse;
-    float a, yBase;
     
 public:
     GameObject(std::string path, Vector2f pos);

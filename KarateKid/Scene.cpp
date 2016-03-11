@@ -147,8 +147,8 @@ void Scene::handleInput(Event &event)
 
 void Scene::addGameObject(Vector2f pos)
 {
-    /*int r = rand() % 100;
-    if(r < 25)*/ gameObjects.push_back(new GameObjectPotion(pos));
+    int r = rand() % 100;
+    if(r < 25) gameObjects.push_back(new GameObjectPotion(pos));
     //else if(r < 50) gameObjects.push_back(new GameObjectStrength(pos));
     //else if(r < 75) gameObjects.push_back(new GameObjectsBlock(pos));
 }

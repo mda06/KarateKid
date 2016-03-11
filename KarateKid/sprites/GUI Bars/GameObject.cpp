@@ -17,8 +17,6 @@ GameObject::GameObject(std::string path, Vector2f pos)
     sprite.setTexture(texture);
     sprite.setPosition(pos.x, pos.y);
     isUse = false;
-    a = 0;
-    yBase = pos.y;
     
     std::cout << "Added gameObject at " << pos.x << "/" << pos.y << std::endl;
 }
@@ -28,10 +26,9 @@ GameObject::~GameObject()
 
 void GameObject::update(float dt)
 {
-    a += 1 * dt;
-    sprite.setPosition(sprite.getPosition().x, yBase + cos(a) * 25);
-    std::cout << sprite.getPosition().y << std::endl;
-    //e.posX = w/2 + Math.cos(e.cosX += 0.007) * w / 2;
+    sprite.move(0, -20*dt);
+    if(sprite.getPosition().y < 0)
+        isUse = true;
 }
 
 void GameObject::effect(Entity *target)
