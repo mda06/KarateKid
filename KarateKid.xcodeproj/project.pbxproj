@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		228DC5D61C9307040069D09D /* potionStrength.png in Resources */ = {isa = PBXBuildFile; fileRef = 228DC5D51C9307040069D09D /* potionStrength.png */; };
 		22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */; };
 		22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */; };
 		22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB81C8E299B001A8E71 /* barre_force_couleur.png */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		228DC5D51C9307040069D09D /* potionStrength.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionStrength.png; sourceTree = "<group>"; };
 		22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_couleur.png; sourceTree = "<group>"; };
 		22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_vide.png; sourceTree = "<group>"; };
 		22BFCAB81C8E299B001A8E71 /* barre_force_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_force_couleur.png; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		4C7DF0E51C92DA0F00855472 /* potions */ = {
 			isa = PBXGroup;
 			children = (
+				228DC5D51C9307040069D09D /* potionStrength.png */,
 				4C7DF0E61C92DA0F00855472 /* potionHealth.png */,
 			);
 			path = potions;
@@ -334,6 +337,7 @@
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */,
 				4C7DF0E71C92DA0F00855472 /* potionHealth.png in Resources */,
+				228DC5D61C9307040069D09D /* potionStrength.png in Resources */,
 				4C1F10AC1C8B19070062A96D /* forest.txt in Resources */,
 				4CB1867D1C90721300640D99 /* gameOver.jpg in Resources */,
 			);
