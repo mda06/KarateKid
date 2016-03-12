@@ -6,11 +6,11 @@
 //  Copyright (c) 2016 Michaël Van Meerbeek. All rights reserved.
 //
 
-#include "AnimationHandler.h"
+#include "FeatureHandler.h"
 #include "ResourcePath.hpp"
 #include <iostream>
 
-AnimationHandler::AnimationHandler(int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown): size(48, 48), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false), fighterChar(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)
+FeatureHandler::FeatureHandler(int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown): size(48, 48), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false), fighterChar(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)
 {
     if(!texture.loadFromFile(resourcePath() + "blond.png"))
         std::cout << "Failed to load texture in AnimationHandler" << std::endl;
@@ -68,7 +68,7 @@ AnimationHandler::AnimationHandler(int maxHealth, int maxStrength, float blockWa
     animatedSprite.setOrigin(animatedSprite.getGlobalBounds().width, animatedSprite.getGlobalBounds().height);
 }
 
-void AnimationHandler::update(Time time)
+void FeatureHandler::update(Time time)
 {
     fighterChar.update(time.asSeconds());
     animatedSprite.update(time);
@@ -89,12 +89,12 @@ void AnimationHandler::update(Time time)
         setType(DEAD);
 }
 
-void AnimationHandler::move(Vector2f move)
+void FeatureHandler::move(Vector2f move)
 {
     animatedSprite.move(move);
 }
 
-void AnimationHandler::setType(AnimationType type, Entity* launcher, Entity* receiver)
+void FeatureHandler::setType(AnimationType type, Entity* launcher, Entity* receiver)
 {
     if(fighterChar.isDead() && type != DEAD) return;
     
@@ -147,22 +147,22 @@ void AnimationHandler::setType(AnimationType type, Entity* launcher, Entity* rec
     }
 }
 
-bool AnimationHandler::isDeadAnimFinished() const
+bool FeatureHandler::isDeadAnimFinished() const
 {
     return isAnimDeadFinished;
 }
 
-void AnimationHandler::setDeadAnimFinished(bool b)
+void FeatureHandler::setDeadAnimFinished(bool b)
 {
     isAnimDeadFinished = b;
 }
 
-bool AnimationHandler::isAnimationFinished() const
+bool FeatureHandler::isAnimationFinished() const
 {
     return !animatedSprite.isPlaying();
 }
 
-void AnimationHandler::init()
+void FeatureHandler::init()
 {
     isAnimDeadFinished = false;
     setType(IDLE);
@@ -170,22 +170,22 @@ void AnimationHandler::init()
     fighterChar.init();
 }
 
-Vector2f AnimationHandler::getPosition() const
+Vector2f FeatureHandler::getPosition() const
 {
     return animatedSprite.getPosition();
 }
 
-AnimationType AnimationHandler::getType() const
+AnimationType FeatureHandler::getType() const
 {
     return type;
 }
 
-FighterCharacteristics& AnimationHandler::getFighterCharacteristics()
+FighterCharacteristics& FeatureHandler::getFighterCharacteristics()
 {
     return fighterChar;
 }
 
-AnimatedSprite &AnimationHandler::getSprite()
+AnimatedSprite &FeatureHandler::getSprite()
 {
     return animatedSprite;
 }

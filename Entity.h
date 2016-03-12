@@ -9,7 +9,7 @@
 #ifndef __KarateKid__Entity__
 #define __KarateKid__Entity__
 
-#include "AnimationHandler.h"
+#include "FeatureHandler.h"
 #include <SFML/Graphics.hpp>
 #include <tmx/MapLoader.h>
 #include "CollisionHandler.h"
@@ -29,7 +29,7 @@ class Entity
 protected:
     Vector2f vel, maxVel, accel, deccel;
     Direction direction;
-    AnimationHandler animationHandler;
+    FeatureHandler featureHandler;
     CollisionHandler *colHandler;
     void handleMovement(float dt);
     Vector2f initialPos;

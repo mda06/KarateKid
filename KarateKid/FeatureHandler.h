@@ -19,7 +19,7 @@ enum AnimationType
     IDLE, WALK, RUN, JUMP, ATTACK_FOOT, ATTACK_PUNCH, BLOCK, DEAD
 };
 
-class AnimationHandler
+class FeatureHandler
 {
 private:
     Texture texture;
@@ -31,7 +31,7 @@ private:
     bool isAnimDeadFinished;
     
 public:
-    AnimationHandler(int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
+    FeatureHandler(int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
     void update(Time time);
     void setType(AnimationType type, Entity* launcher = NULL, Entity* receiver = NULL);
     void move(Vector2f move);

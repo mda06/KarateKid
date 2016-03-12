@@ -58,7 +58,7 @@ void Enemy::updateTarget(Entity *target)
             else
                 setDirection(STOP);
         }
-        else if(animationHandler.getType() == WALK)
+        else if(featureHandler.getType() == WALK)
             setDirection(STOP);
     }
     else if(ex < px)
@@ -81,7 +81,7 @@ void Enemy::updateTarget(Entity *target)
             else
                 setDirection(STOP);
         }
-        else if(animationHandler.getType() == WALK)
+        else if(featureHandler.getType() == WALK)
             setDirection(STOP);
 
     }

@@ -13,7 +13,7 @@
 #include <sstream>
 #include <iomanip>
 
-Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool fatk) : accel(2, 1), deccel(1.7f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), animationHandler(AnimationHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)), enableFootAtk(fatk)
+Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool fatk) : accel(2, 1), deccel(1.7f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), featureHandler(FeatureHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)), enableFootAtk(fatk)
 {
     if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
         std::cout << "Can't load font !" << std::endl;
@@ -25,13 +25,13 @@ void Entity::init()
 {
     direction = STOP;
     vel = Vector2f();
-    animationHandler.getSprite().setPosition(initialPos);
-    animationHandler.init();
+    featureHandler.getSprite().setPosition(initialPos);
+    featureHandler.init();
 }
 
 void Entity::update(Time time)
 {
-    animationHandler.update(time);
+    featureHandler.update(time);
     updateGUIBar();
     if(!getFighterCharacteristics().isDead())
         handleMovement(time.asSeconds());
@@ -99,28 +99,28 @@ void Entity::handleMovement(float dt)
     else
         vel.y = 0;
     
-    animationHandler.move(movement);
+    featureHandler.move(movement);
     
     if(vel.x > 0)
     {
         if(vel.x == maxVel.x){
-            if(animationHandler.getType() != RUN)
-                animationHandler.setType(RUN);
+            if(featureHandler.getType() != RUN)
+                featureHandler.setType(RUN);
         }
         else
-            animationHandler.setType(WALK);
+            featureHandler.setType(WALK);
     }
     else if(vel.x < 0)
     {
         if(vel.x == -maxVel.x){
-            if(animationHandler.getType() != RUN)
-                animationHandler.setType(RUN);
+            if(featureHandler.getType() != RUN)
+                featureHandler.setType(RUN);
         }
         else
-            animationHandler.setType(WALK);
+            featureHandler.setType(WALK);
     }
-    else if(wasVelXNull && animationHandler.getType() == WALK)
-        animationHandler.setType(IDLE);
+    else if(wasVelXNull && featureHandler.getType() == WALK)
+        featureHandler.setType(IDLE);
 }
 
 bool Entity::canClimb(float dt)
@@ -149,7 +149,7 @@ bool Entity::canClimb(float dt)
 
 void Entity::render(RenderTarget &rt)
 {
-    rt.draw(animationHandler.getSprite());
+    rt.draw(featureHandler.getSprite());
 }
 
 void Entity::setDirection(Direction dir)
@@ -157,15 +157,15 @@ void Entity::setDirection(Direction dir)
     if(getFighterCharacteristics().isDead()) return;
     
     direction = dir;
-    AnimationType curType = animationHandler.getType();
+    AnimationType curType = featureHandler.getType();
     switch(dir)
     {
-        case STOP : if(curType != IDLE) animationHandler.setType(IDLE); break;
-        case LEFT: if(curType != WALK && curType != RUN) animationHandler.setType(WALK);
-            if(animationHandler.getSprite().getScale().x > 0) animationHandler.getSprite().scale(-1, 1);
+        case STOP : if(curType != IDLE) featureHandler.setType(IDLE); break;
+        case LEFT: if(curType != WALK && curType != RUN) featureHandler.setType(WALK);
+            if(featureHandler.getSprite().getScale().x > 0) featureHandler.getSprite().scale(-1, 1);
             break;
-        case RIGHT: if(curType != WALK && curType != RUN) animationHandler.setType(WALK);
-            if(animationHandler.getSprite().getScale().x < 0) animationHandler.getSprite().scale(-1, 1);
+        case RIGHT: if(curType != WALK && curType != RUN) featureHandler.setType(WALK);
+            if(featureHandler.getSprite().getScale().x < 0) featureHandler.getSprite().scale(-1, 1);
             break;
     }
 }
@@ -176,9 +176,9 @@ void Entity::setOrientation(Direction dir)
     
     switch(dir)
     {
-        case LEFT: if(animationHandler.getSprite().getScale().x > 0) animationHandler.getSprite().scale(-1, 1);
+        case LEFT: if(featureHandler.getSprite().getScale().x > 0) featureHandler.getSprite().scale(-1, 1);
             break;
-        case RIGHT: if(animationHandler.getSprite().getScale().x < 0) animationHandler.getSprite().scale(-1, 1);
+        case RIGHT: if(featureHandler.getSprite().getScale().x < 0) featureHandler.getSprite().scale(-1, 1);
             break;
             
         default: break;
@@ -199,7 +199,7 @@ void Entity::jump()
 
 void Entity::setColor(Color color)
 {
-    animationHandler.getSprite().setColor(color);
+    featureHandler.getSprite().setColor(color);
 }
 
 void Entity::attackFoot()
@@ -207,35 +207,35 @@ void Entity::attackFoot()
     if(!enableFootAtk) return;
     
     FloatRect bd = getGlobalBounds();
-    if(animationHandler.getSprite().getScale().x < 0)
+    if(featureHandler.getSprite().getScale().x < 0)
         bd.left -= getFighterCharacteristics().getRangeHit();
     else
         bd.left += getFighterCharacteristics().getRangeHit();
-    animationHandler.setType(ATTACK_FOOT, this, colHandler->getCollsionWithEntity(this, bd));
+    featureHandler.setType(ATTACK_FOOT, this, colHandler->getCollsionWithEntity(this, bd));
 }
 
 void Entity::attackPunch()
 {
-    if(!animationHandler.getFighterCharacteristics().canAtkPunch()) return;
+    if(!featureHandler.getFighterCharacteristics().canAtkPunch()) return;
     
     FloatRect bd = getGlobalBounds();
-    if(animationHandler.getSprite().getScale().x < 0)
+    if(featureHandler.getSprite().getScale().x < 0)
         bd.left -= getFighterCharacteristics().getRangeHit();
     else
         bd.left += getFighterCharacteristics().getRangeHit();
-    animationHandler.setType(ATTACK_PUNCH, this, colHandler->getCollsionWithEntity(this, bd));
+    featureHandler.setType(ATTACK_PUNCH, this, colHandler->getCollsionWithEntity(this, bd));
     
     sound.playPunch();
 }
 
 void Entity::block()
 {
-    animationHandler.setType(BLOCK, NULL, NULL);
+    featureHandler.setType(BLOCK, NULL, NULL);
 }
 
 FighterCharacteristics& Entity::getFighterCharacteristics()
 {
-    return animationHandler.getFighterCharacteristics();
+    return featureHandler.getFighterCharacteristics();
 }
 
 void Entity::setMaxVel(Vector2f v)
@@ -255,22 +255,22 @@ GUIBar &Entity::getHealthBar()
 
 Vector2f Entity::getPosition() const
 {
-    return animationHandler.getPosition();
+    return featureHandler.getPosition();
 }
 
 void Entity::setDeadAnimFinished(bool b)
 {
-    animationHandler.setDeadAnimFinished(b);
+    featureHandler.setDeadAnimFinished(b);
 }
 
 bool Entity::isDeadAnimFinished() const
 {
-    return animationHandler.isDeadAnimFinished();
+    return featureHandler.isDeadAnimFinished();
 }
 
 FloatRect Entity::getGlobalBounds()
 {
-    return (animationHandler.getSprite().getGlobalBounds());
+    return (featureHandler.getSprite().getGlobalBounds());
 }
 
 void Entity::drawHpBar(RenderTarget &rt)
