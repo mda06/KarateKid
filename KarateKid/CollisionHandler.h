@@ -21,6 +21,8 @@ class CollisionHandler
 private:
     tmx::MapObjects objects;
     Scene *scene;
+    
+public:
     bool collisionAABB(sf::FloatRect r1, sf::FloatRect r2);
     
 public:

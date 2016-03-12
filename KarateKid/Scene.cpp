@@ -213,7 +213,7 @@ void Scene::updateView()
 
 void Scene::printFloatRect(const FloatRect &r)
 {
-    std::cout << r.left << "/" << r.top << "/" << r.width << "/" << r.height << std::endl;
+    std::cout << r.left << "/" << r.top << "/" << r.width << "/" << r.height;// << std::endl;
 }
 
 void Scene::render(RenderTarget &window)

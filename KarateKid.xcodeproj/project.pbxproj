@@ -21,6 +21,7 @@
 		4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C2401121C8B9AB70068ED85 /* FightState.cpp */; };
 		4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F561C845FEA00D85323 /* ResourcePath.mm */; };
 		4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E9F591C845FEA00D85323 /* main.cpp */; };
+		4C50F2281C94556100C26618 /* potion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4C50F2271C94556100C26618 /* potion.wav */; };
 		4C7DF0D41C92D81100855472 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7DF0D21C92D81100855472 /* GameObject.cpp */; };
 		4C7DF0E71C92DA0F00855472 /* potionHealth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7DF0E61C92DA0F00855472 /* potionHealth.png */; };
 		4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9CDE291C899D8400693D5B /* forest_tile.png */; };
@@ -70,6 +71,7 @@
 		4C3E9F561C845FEA00D85323 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		4C3E9F591C845FEA00D85323 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4C50F2271C94556100C26618 /* potion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = potion.wav; sourceTree = "<group>"; };
 		4C7DF0D21C92D81100855472 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = "sprites/GUI Bars/GameObject.cpp"; sourceTree = "<group>"; };
 		4C7DF0D31C92D81100855472 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = "sprites/GUI Bars/GameObject.h"; sourceTree = "<group>"; };
 		4C7DF0E61C92DA0F00855472 /* potionHealth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionHealth.png; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		4CD76A5E1C92248B008D70DF /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				4C50F2271C94556100C26618 /* potion.wav */,
 				4CD76A5F1C92249A008D70DF /* punch.wav */,
 			);
 			name = sounds;
@@ -336,6 +339,7 @@
 				22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */,
 				22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
+				4C50F2281C94556100C26618 /* potion.wav in Resources */,
 				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				22455D351C930A4B00C00560 /* potionEnergy.png in Resources */,

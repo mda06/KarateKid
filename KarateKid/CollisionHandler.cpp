@@ -79,7 +79,7 @@ Entity* CollisionHandler::getCollsionWithEntity(Entity *e, FloatRect rect)
 bool CollisionHandler::collisionAABB(FloatRect r1, FloatRect r2)
 {
     if(r1.left + r1.width < r2.left
-       || r1.left > r2.left + r1.width
+       || r1.left > r2.left + r2.width
        || r1.top + r1.height < r2.top
        || r1.top > r2.top + r2.height
        ) return false;

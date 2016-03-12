@@ -16,8 +16,12 @@ GameObject::GameObject(std::string path, Vector2f pos)
     
     sprite.setTexture(texture);
     sprite.setPosition(pos.x, pos.y);
-    sprite.setOrigin(sprite.getGlobalBounds().width, sprite.getGlobalBounds().height);
     isUse = false;
+    
+    if(!buf.loadFromFile(resourcePath() + "potion.wav"))
+        std::cout << "Can't load sound potion" << std::endl;
+    
+    sound.setBuffer(buf);
     
     std::cout << "Added gameObject at " << pos.x << "/" << pos.y << std::endl;
 }
@@ -27,7 +31,7 @@ GameObject::~GameObject()
 
 void GameObject::update(float dt)
 {
-    sprite.move(0, -20*dt);
+    sprite.move(0, -10*dt);
     if(sprite.getPosition().y < 0)
         isUse = true;
 }
@@ -35,6 +39,7 @@ void GameObject::update(float dt)
 void GameObject::effect(Entity *target)
 {
     isUse = true;
+    sound.play();
 }
 
 void GameObject::draw(sf::RenderTarget &rt)

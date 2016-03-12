@@ -10,6 +10,7 @@
 #define __KarateKid__MapObject__
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Entity.h"
 using namespace sf;
 
@@ -19,6 +20,8 @@ private:
     Sprite sprite;
     Texture texture;
     bool isUse;
+    SoundBuffer buf;
+    Sound sound;
     
 public:
     GameObject(std::string path, Vector2f pos);
