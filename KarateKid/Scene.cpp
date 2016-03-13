@@ -39,6 +39,9 @@ Scene::~Scene()
     
     for(GameObject* go : gameObjects)
         delete go;
+    
+    for(Text* t : textInfo)
+        delete t;
 }
 
 void Scene::init()
@@ -63,6 +66,10 @@ void Scene::init()
     for(GameObject* go : gameObjects)
         delete go;
     gameObjects.clear();
+    
+    for(Text* t : textInfo)
+        delete t;
+    textInfo.clear();
 }
 
 void Scene::initEnemies()
@@ -191,9 +198,19 @@ void Scene::update(Time time)
         GameObject *go = gameObjects[i];
         go->update(time.asSeconds());
         if(go->isUsed())
+        {
+            addText(go->getString(), go->getPos());
             gameObjects.erase(gameObjects.begin() + i);
+        }
     }
 
+    for (int i = 0; i < textInfo.size(); i++)
+    {
+        Text* t = textInfo[i];
+        t->move(0, -30 * time.asSeconds());
+        if(t->getPosition().y < 0)
+            textInfo.erase(textInfo.begin() + i);
+    }
     
     updateView();
 }
@@ -228,6 +245,8 @@ void Scene::render(RenderTarget &window)
     player->render(window);
     for(GameObject* go : gameObjects)
         go->draw(window);
+    for(Text* t : textInfo)
+        window.draw(*t);
     window.setView(hudView);
     window.draw(txtPosition);
     player->drawHpBar(window);
@@ -250,4 +269,10 @@ std::vector<GameObject*> Scene::getGameObjects()
 std::vector<Enemy*> Scene::getEnemies()
 {
     return enemies;
+}
+
+void Scene::addText(String txt, Vector2f pos)
+{
+    textInfo.push_back(new Text(txt, font, 15));
+    textInfo[textInfo.size() - 1]->setPosition(pos);
 }

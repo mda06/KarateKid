@@ -40,6 +40,7 @@ private:
     Sprite sprGameOver;
     std::vector<GameObject*> gameObjects;
     void addGameObject(Vector2f pos);
+    std::vector<Text*> textInfo;
 
 public:
     Scene(std::string enemiesFile, std::string mapName, Vector2f pos);
@@ -51,6 +52,7 @@ public:
     std::vector<Enemy*> getEnemies();
     Player* getPlayer();
     std::vector<GameObject*> getGameObjects();
+    void addText(String txt, Vector2f pos);
 };
 
 #endif /* defined(__KarateKid__Scene__) */

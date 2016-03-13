@@ -9,7 +9,7 @@
 #include "GameObject.h"
 #include "ResourcePath.hpp"
 
-GameObject::GameObject(std::string path, Vector2f pos)
+GameObject::GameObject(std::string path, Vector2f pos) : pos(pos)
 {
     if(!texture.loadFromFile(path))
         std::cout << "Can't load mapObject " << path << std::endl;
@@ -63,9 +63,10 @@ GameObjectPotion::GameObjectPotion(Vector2f pos) : GameObject(resourcePath() + "
 
 void GameObjectPotion::effect(Entity *target)
 {
-    GameObject::effect(nullptr);
+    GameObject::effect(target);
     //target->getFighterCharacteristics().addMaxStrength(5);
     target->getFighterCharacteristics().addHealth(50);
+    text = "+50 Health";
 }
 
 GameObjectStrength::GameObjectStrength(Vector2f pos) : GameObject(resourcePath() + "potionStrength.png", pos)
@@ -74,9 +75,10 @@ GameObjectStrength::GameObjectStrength(Vector2f pos) : GameObject(resourcePath()
 
 void GameObjectStrength::effect(Entity *target)
 {
-    GameObject::effect(nullptr);
+    GameObject::effect(target);
     //target->getFighterCharacteristics().addMaxStrength(5);
     target->getFighterCharacteristics().addStrength(50);
+    text = "+50 Strength";
 }
 
 GameObjectEnergy::GameObjectEnergy(Vector2f pos) : GameObject(resourcePath() + "potionEnergy.png", pos)
@@ -85,7 +87,18 @@ GameObjectEnergy::GameObjectEnergy(Vector2f pos) : GameObject(resourcePath() + "
 
 void GameObjectEnergy::effect(Entity *target)
 {
-    GameObject::effect(nullptr);
+    GameObject::effect(target);
     //target->getFighterCharacteristics().addMaxStrength(5);
     target->getFighterCharacteristics().getBlockState().addActiveCooldown(.2f);
+    text = "+0.2 Block time";
+}
+
+Vector2f GameObject::getPos()
+{
+    return pos;
+}
+
+String GameObject::getString()
+{
+    return text;
 }

@@ -22,6 +22,10 @@ private:
     bool isUse;
     SoundBuffer buf;
     Sound sound;
+    Vector2f pos;
+    
+protected:
+    String text;
     
 public:
     GameObject(std::string path, Vector2f pos);
@@ -31,6 +35,8 @@ public:
     void draw(RenderTarget &rt);
     bool isUsed() const;
     FloatRect getBounds() const;
+    Vector2f getPos();
+    String getString();
 };
 
 class GameObjectPotion : public GameObject
