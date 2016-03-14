@@ -15,6 +15,11 @@
 		22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */; };
 		22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */; };
 		22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */; };
+		4C03E9571C96C67F00E6EFB9 /* MenuScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C03E9551C96C67F00E6EFB9 /* MenuScreen.cpp */; };
+		4C03E9591C96C74000E6EFB9 /* HowToPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C03E9581C96C74000E6EFB9 /* HowToPlay.png */; };
+		4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C03E95A1C96CAF800E6EFB9 /* menuScreenBG.png */; };
+		4C03E9631C96CE7400E6EFB9 /* SimpleButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C03E9611C96CE7400E6EFB9 /* SimpleButton.cpp */; };
+		4C03E9651C96D16D00E6EFB9 /* btnBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C03E9641C96D16D00E6EFB9 /* btnBg.png */; };
 		4C1F10AC1C8B19070062A96D /* forest.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10AB1C8B19070062A96D /* forest.txt */; };
 		4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10B01C8B36C50062A96D /* master_of_break.ttf */; };
 		4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */; };
@@ -60,6 +65,13 @@
 		22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_couleur.png; sourceTree = "<group>"; };
 		22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_vide.png; sourceTree = "<group>"; };
 		22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_force_vide.png; sourceTree = "<group>"; };
+		4C03E9551C96C67F00E6EFB9 /* MenuScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScreen.cpp; sourceTree = "<group>"; };
+		4C03E9561C96C67F00E6EFB9 /* MenuScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScreen.h; sourceTree = "<group>"; };
+		4C03E9581C96C74000E6EFB9 /* HowToPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HowToPlay.png; sourceTree = "<group>"; };
+		4C03E95A1C96CAF800E6EFB9 /* menuScreenBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuScreenBG.png; sourceTree = "<group>"; };
+		4C03E9611C96CE7400E6EFB9 /* SimpleButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleButton.cpp; path = ../SimpleButton.cpp; sourceTree = "<group>"; };
+		4C03E9621C96CE7400E6EFB9 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleButton.h; path = ../SimpleButton.h; sourceTree = "<group>"; };
+		4C03E9641C96D16D00E6EFB9 /* btnBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnBg.png; sourceTree = "<group>"; };
 		4C1F10AB1C8B19070062A96D /* forest.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = forest.txt; path = ../forest.txt; sourceTree = "<group>"; };
 		4C1F10B01C8B36C50062A96D /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
 		4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FighterCharacteristics.cpp; sourceTree = "<group>"; };
@@ -138,11 +150,21 @@
 			path = "GUI Bars";
 			sourceTree = "<group>";
 		};
+		4C03E95C1C96CBA200E6EFB9 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				4C03E9641C96D16D00E6EFB9 /* btnBg.png */,
+				4C03E9581C96C74000E6EFB9 /* HowToPlay.png */,
+				4C03E95A1C96CAF800E6EFB9 /* menuScreenBG.png */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
 		4C3E9F471C845FE900D85323 = {
 			isa = PBXGroup;
 			children = (
-				4CA5324B1C8498F700550B05 /* libz.1.1.3.dylib */,
 				4C3E9F531C845FEA00D85323 /* KarateKid */,
+				4CA5324B1C8498F700550B05 /* libz.1.1.3.dylib */,
 				4C3E9F521C845FEA00D85323 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,32 +184,36 @@
 				4CB3AB3F1C88A40A0061D1F3 /* AnimatedSprite.h */,
 				4CC939ED1C8868B80068A9B5 /* Animation.cpp */,
 				4CC939EE1C8868B80068A9B5 /* Animation.h */,
-				4CC93A0E1C88795A0068A9B5 /* FeatureHandler.cpp */,
-				4CC93A0F1C88795A0068A9B5 /* FeatureHandler.h */,
 				4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */,
 				4CEE28981C879C0D009FC0DE /* CollisionHandler.h */,
 				4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */,
 				4CEBEB2D1C8ED8560049F23B /* Enemy.h */,
 				4CC798BD1C8465E000C2CD96 /* Entity.cpp */,
 				4CC798BE1C8465E000C2CD96 /* Entity.h */,
+				4CC93A0E1C88795A0068A9B5 /* FeatureHandler.cpp */,
+				4CC93A0F1C88795A0068A9B5 /* FeatureHandler.h */,
 				4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */,
 				4C2401101C8B9A530068ED85 /* FighterCharacteristics.h */,
 				4C2401121C8B9AB70068ED85 /* FightState.cpp */,
 				4C2401131C8B9AB70068ED85 /* FightState.h */,
 				4CC798C01C8465E600C2CD96 /* Game.cpp */,
 				4CC798C11C8465E600C2CD96 /* Game.h */,
+				4C7DF0D21C92D81100855472 /* GameObject.cpp */,
+				4C7DF0D31C92D81100855472 /* GameObject.h */,
 				4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */,
 				4CDEFE271C8DE65A00DCCF17 /* GUIBar.h */,
 				4C3E9F591C845FEA00D85323 /* main.cpp */,
+				4C03E9551C96C67F00E6EFB9 /* MenuScreen.cpp */,
+				4C03E9561C96C67F00E6EFB9 /* MenuScreen.h */,
 				4CEBEB291C8ED2AC0049F23B /* Player.cpp */,
 				4CEBEB2A1C8ED2AC0049F23B /* Player.h */,
 				4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */,
 				4C3E9F561C845FEA00D85323 /* ResourcePath.mm */,
-				4C7DF0D21C92D81100855472 /* GameObject.cpp */,
-				4C7DF0D31C92D81100855472 /* GameObject.h */,
 				4C3E9F5B1C845FEA00D85323 /* Resources */,
 				4CA097E71C8F270700BD7238 /* Scene.cpp */,
 				4CA097E81C8F270700BD7238 /* Scene.h */,
+				4C03E9611C96CE7400E6EFB9 /* SimpleButton.cpp */,
+				4C03E9621C96CE7400E6EFB9 /* SimpleButton.h */,
 				4CD76A611C9224C8008D70DF /* SoundManager.cpp */,
 				4CD76A621C9224C8008D70DF /* SoundManager.h */,
 				4C3E9F541C845FEA00D85323 /* Supporting Files */,
@@ -207,6 +233,7 @@
 		4C3E9F5B1C845FEA00D85323 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C03E95C1C96CBA200E6EFB9 /* menu */,
 				4CD76A5E1C92248B008D70DF /* sounds */,
 				4C1F10B01C8B36C50062A96D /* master_of_break.ttf */,
 				4C9CDE281C899D8400693D5B /* map */,
@@ -338,6 +365,8 @@
 				4CD76A601C92249A008D70DF /* punch.wav in Resources */,
 				22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */,
 				22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */,
+				4C03E9591C96C74000E6EFB9 /* HowToPlay.png in Resources */,
+				4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				4C50F2281C94556100C26618 /* potion.wav in Resources */,
 				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,
@@ -348,6 +377,7 @@
 				228DC5D61C9307040069D09D /* potionStrength.png in Resources */,
 				4C1F10AC1C8B19070062A96D /* forest.txt in Resources */,
 				4CB1867D1C90721300640D99 /* gameOver.jpg in Resources */,
+				4C03E9651C96D16D00E6EFB9 /* btnBg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +409,7 @@
 				4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */,
 				4C3E9F5A1C845FEA00D85323 /* main.cpp in Sources */,
 				4CC93A101C88795A0068A9B5 /* FeatureHandler.cpp in Sources */,
+				4C03E9571C96C67F00E6EFB9 /* MenuScreen.cpp in Sources */,
 				4CC798BF1C8465E000C2CD96 /* Entity.cpp in Sources */,
 				4CA5327E1C849DFB00550B05 /* QuadTreeNode.cpp in Sources */,
 				4CA5327B1C849DFB00550B05 /* MapLoaderPublic.cpp in Sources */,
@@ -387,6 +418,7 @@
 				4CB3AB401C88A40A0061D1F3 /* AnimatedSprite.cpp in Sources */,
 				4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */,
 				4CC798C21C8465E600C2CD96 /* Game.cpp in Sources */,
+				4C03E9631C96CE7400E6EFB9 /* SimpleButton.cpp in Sources */,
 				4CA5327A1C849DFB00550B05 /* MapLoaderPrivate.cpp in Sources */,
 				4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */,
 				4CC939EF1C8868B80068A9B5 /* Animation.cpp in Sources */,

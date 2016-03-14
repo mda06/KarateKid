@@ -10,12 +10,16 @@
 #define __KarateKid__Game__
 
 #include "Scene.h"
+#include "MenuScreen.h"
 
 class Game
 {
 private:
     RenderWindow window;
     Scene scene;
+    MenuScreen menuScreen;
+    bool renderMenuScreen;
+    
 public:
     Game();
     void run();

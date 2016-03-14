@@ -9,7 +9,8 @@
 #include "Game.h"
 #include "ResourcePath.hpp"
 
-Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/), scene(resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30))
+Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/), scene(resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30)), renderMenuScreen(true), menuScreen(&window)
+
 {
 }
 
@@ -25,13 +26,34 @@ void Game::run()
         Time ellapsed = clock.restart();
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed) window.close();
-            scene.handleInput(event);
+            if(event.type == sf::Event::Closed) window.close();
+            if(event.type == Event::KeyReleased)
+                if(event.key.code == Keyboard::Escape)
+                {
+                    renderMenuScreen = !renderMenuScreen;
+                    if(renderMenuScreen)
+                        menuScreen.setGoToPlay(false);
+                }
+          
+            if(renderMenuScreen)
+                menuScreen.handleInput(event);
+            else
+                scene.handleInput(event);
         }
      
-        scene.update(ellapsed);
+        if(renderMenuScreen)
+            menuScreen.update(ellapsed.asSeconds());
+        else
+            scene.update(ellapsed);
+        
+        if(menuScreen.goToPlay())
+            renderMenuScreen = false;
+        
         window.clear();
-        scene.render(window);
+        if(renderMenuScreen)
+            menuScreen.render(window);
+        else
+            scene.render(window);
         window.display();
     }
 }
