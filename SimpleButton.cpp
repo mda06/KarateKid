@@ -27,9 +27,7 @@ SimpleButton::SimpleButton(Vector2f pos, std::string path, std::string txt)
     text.setColor(Color::Black);
     text.setString(txt);
     text.setOrigin(text.getGlobalBounds().width / 2, text.getGlobalBounds().height / 2);
-    float x = pos.x + (sprBg.getGlobalBounds().width - text.getGlobalBounds().width - text.getOrigin().x) / 2;
-    float y = pos.y + (sprBg.getGlobalBounds().height - text.getGlobalBounds().height) / 2;
-    text.setPosition(x, y);
+    text.setPosition(pos.x, pos.y + 5);
     
     isClicked = false;
 }

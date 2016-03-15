@@ -11,17 +11,17 @@
 
 #include "Scene.h"
 #include "MenuScreen.h"
+#include "ScreenManager.h"
 
 class Game
 {
 private:
     RenderWindow window;
-    Scene scene;
-    MenuScreen menuScreen;
-    bool renderMenuScreen;
+    ScreenManager* screenManager;
     
 public:
     Game();
+    ~Game();
     void run();
     
 };

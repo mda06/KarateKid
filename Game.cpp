@@ -9,15 +9,24 @@
 #include "Game.h"
 #include "ResourcePath.hpp"
 
-Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/), scene(resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30)), renderMenuScreen(true), menuScreen(&window)
+Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/)
 
 {
+    screenManager = new ScreenManager();
+    Scene *s = new Scene(screenManager, resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30));
+    s->init();
+    screenManager->addScreen(s, "sceneforest");
+    screenManager->addScreen(new MenuScreen(screenManager, &window), "menu");
+    
+}
+
+Game::~Game()
+{
+    delete screenManager;
 }
 
 void Game::run()
 {
-    scene.init();
-    
     Clock clock;
     Event event;
     
@@ -30,30 +39,20 @@ void Game::run()
             if(event.type == Event::KeyReleased)
                 if(event.key.code == Keyboard::Escape)
                 {
-                    renderMenuScreen = !renderMenuScreen;
-                    if(renderMenuScreen)
-                        menuScreen.setGoToPlay(false);
+                   if(screenManager->getCurrentScreenKey() == "sceneforest")
+                       screenManager->setScreen("menu");
+                   else if(screenManager->getCurrentScreenKey() == "menu")
+                       screenManager->setScreen("sceneforest");
+                        
                 }
           
-            if(renderMenuScreen)
-                menuScreen.handleInput(event);
-            else
-                scene.handleInput(event);
+            screenManager->handleInput(event);
         }
      
-        if(renderMenuScreen)
-            menuScreen.update(ellapsed.asSeconds());
-        else
-            scene.update(ellapsed);
-        
-        if(menuScreen.goToPlay())
-            renderMenuScreen = false;
+        screenManager->update(ellapsed);
         
         window.clear();
-        if(renderMenuScreen)
-            menuScreen.render(window);
-        else
-            scene.render(window);
+        screenManager->render(window);
         window.display();
     }
 }

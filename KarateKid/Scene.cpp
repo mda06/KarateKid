@@ -14,7 +14,7 @@
 #include <iomanip>
 #include "ResourcePath.hpp"
 
-Scene::Scene(std::string enemiesFile, std::string mapName, Vector2f pos) : ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName)
+Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos) : AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName)
 {
     colHandler = new CollisionHandler(this);
     player = new Player(colHandler, pos);

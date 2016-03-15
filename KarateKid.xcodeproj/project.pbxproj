@@ -20,6 +20,8 @@
 		4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C03E95A1C96CAF800E6EFB9 /* menuScreenBG.png */; };
 		4C03E9631C96CE7400E6EFB9 /* SimpleButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C03E9611C96CE7400E6EFB9 /* SimpleButton.cpp */; };
 		4C03E9651C96D16D00E6EFB9 /* btnBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C03E9641C96D16D00E6EFB9 /* btnBg.png */; };
+		4C0B85EA1C97FF10005F71A1 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B85E81C97FF10005F71A1 /* Screen.cpp */; };
+		4C0B85ED1C97FF19005F71A1 /* ScreenManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C0B85EB1C97FF19005F71A1 /* ScreenManager.cpp */; };
 		4C1F10AC1C8B19070062A96D /* forest.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10AB1C8B19070062A96D /* forest.txt */; };
 		4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C1F10B01C8B36C50062A96D /* master_of_break.ttf */; };
 		4C2401111C8B9A530068ED85 /* FighterCharacteristics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */; };
@@ -72,6 +74,10 @@
 		4C03E9611C96CE7400E6EFB9 /* SimpleButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleButton.cpp; path = ../SimpleButton.cpp; sourceTree = "<group>"; };
 		4C03E9621C96CE7400E6EFB9 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleButton.h; path = ../SimpleButton.h; sourceTree = "<group>"; };
 		4C03E9641C96D16D00E6EFB9 /* btnBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnBg.png; sourceTree = "<group>"; };
+		4C0B85E81C97FF10005F71A1 /* Screen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Screen.cpp; sourceTree = "<group>"; };
+		4C0B85E91C97FF10005F71A1 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
+		4C0B85EB1C97FF19005F71A1 /* ScreenManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenManager.cpp; sourceTree = "<group>"; };
+		4C0B85EC1C97FF19005F71A1 /* ScreenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenManager.h; sourceTree = "<group>"; };
 		4C1F10AB1C8B19070062A96D /* forest.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = forest.txt; path = ../forest.txt; sourceTree = "<group>"; };
 		4C1F10B01C8B36C50062A96D /* master_of_break.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = master_of_break.ttf; sourceTree = "<group>"; };
 		4C24010F1C8B9A530068ED85 /* FighterCharacteristics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FighterCharacteristics.cpp; sourceTree = "<group>"; };
@@ -197,6 +203,10 @@
 				4C2401121C8B9AB70068ED85 /* FightState.cpp */,
 				4C2401131C8B9AB70068ED85 /* FightState.h */,
 				4CC798C01C8465E600C2CD96 /* Game.cpp */,
+				4C0B85E81C97FF10005F71A1 /* Screen.cpp */,
+				4C0B85E91C97FF10005F71A1 /* Screen.h */,
+				4C0B85EB1C97FF19005F71A1 /* ScreenManager.cpp */,
+				4C0B85EC1C97FF19005F71A1 /* ScreenManager.h */,
 				4CC798C11C8465E600C2CD96 /* Game.h */,
 				4C7DF0D21C92D81100855472 /* GameObject.cpp */,
 				4C7DF0D31C92D81100855472 /* GameObject.h */,
@@ -419,9 +429,11 @@
 				4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */,
 				4CC798C21C8465E600C2CD96 /* Game.cpp in Sources */,
 				4C03E9631C96CE7400E6EFB9 /* SimpleButton.cpp in Sources */,
+				4C0B85ED1C97FF19005F71A1 /* ScreenManager.cpp in Sources */,
 				4CA5327A1C849DFB00550B05 /* MapLoaderPrivate.cpp in Sources */,
 				4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */,
 				4CC939EF1C8868B80068A9B5 /* Animation.cpp in Sources */,
+				4C0B85EA1C97FF10005F71A1 /* Screen.cpp in Sources */,
 				4CDEFE281C8DE65A00DCCF17 /* GUIBar.cpp in Sources */,
 				4CA097E91C8F270700BD7238 /* Scene.cpp in Sources */,
 				4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */,

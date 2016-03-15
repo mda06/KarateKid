@@ -10,25 +10,22 @@
 #define __KarateKid__MenuScreen__
 
 #include "SimpleButton.h"
-#include <SFML/Graphics.hpp>
-using namespace sf;
+#include "Screen.h"
 
-class MenuScreen
+class MenuScreen : public AbstractScreen
 {
 private:
     Window *window;
     SimpleButton btnPlay, btnExit, btnHowTo, btnReturn;
     Texture textHowToPlay, textBG;
     Sprite sprHowToPlay, sprBG;
-    bool renderHowToPlay, play;
+    bool renderHowToPlay;
     
 public:
-    MenuScreen(Window* w);
+    MenuScreen(ScreenManager* sm, Window* w);
     void handleInput(Event &event);
-    void update(float dt);
+    void update(Time time);
     void render(RenderTarget &rt);
-    void setGoToPlay(bool b);
-    bool goToPlay();
 };
 
 #endif /* defined(__KarateKid__MenuScreen__) */

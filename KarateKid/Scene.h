@@ -9,7 +9,6 @@
 #ifndef __KarateKid__Scene__
 #define __KarateKid__Scene__
 
-#include <SFML/Graphics.hpp>
 #include <tmx/MapLoader.h>
 #include <string>
 #include <vector>
@@ -17,11 +16,11 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "GameObject.h"
+#include "Screen.h"
 
-using namespace sf;
 using namespace tmx;
 
-class Scene
+class Scene : public AbstractScreen
 {
 private:
     void initEnemies();
@@ -43,8 +42,8 @@ private:
     std::vector<Text*> textInfo;
 
 public:
-    Scene(std::string enemiesFile, std::string mapName, Vector2f pos);
-    ~Scene();
+    Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos);
+    virtual ~Scene();
     void init();
     void handleInput(Event &event);
     void update(Time time);

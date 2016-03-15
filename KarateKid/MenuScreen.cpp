@@ -7,10 +7,11 @@
 //
 
 #include "MenuScreen.h"
+#include "ScreenManager.h"
 #include "ResourcePath.hpp"
 #include <iostream>
 
-MenuScreen::MenuScreen(Window *w): renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "btnBg.png", "Play"), btnExit(Vector2f(320, 260), resourcePath() + "btnBg.png", "Exit"), btnHowTo(Vector2f(320, 340), resourcePath() + "btnBg.png", "How"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return")
+MenuScreen::MenuScreen(ScreenManager *sm, Window *w) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "btnBg.png", "Play"), btnExit(Vector2f(320, 260), resourcePath() + "btnBg.png", "Exit"), btnHowTo(Vector2f(320, 340), resourcePath() + "btnBg.png", "How"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return")
 {
     if(!textHowToPlay.loadFromFile(resourcePath() + "HowToPlay.png"))
         std::cout << "Can't load howtoplay.png" << std::endl;
@@ -40,7 +41,7 @@ void MenuScreen::handleInput(sf::Event &event)
     btnHowTo.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
 }
 
-void MenuScreen::update(float dt)
+void MenuScreen::update(Time time)
 {
     if(renderHowToPlay)
     {
@@ -48,22 +49,12 @@ void MenuScreen::update(float dt)
             renderHowToPlay = false;
         return;
     }
-    if(btnPlay.clicked())
-        play = true;
     if(btnHowTo.clicked())
         renderHowToPlay = true;
     if(btnExit.clicked())
         window->close();
-}
-
-void MenuScreen::setGoToPlay(bool b)
-{
-    play = b;
-}
-
-bool MenuScreen::goToPlay()
-{
-    return play;
+    if(btnPlay.clicked())
+        screenManager->setScreen("sceneforest");
 }
 
 void MenuScreen::render(RenderTarget &rt)
