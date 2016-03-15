@@ -28,6 +28,17 @@ Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Ve
         std::cout << "Can't load game over texture" << std::endl;
     sprGameOver.setTexture(txtGameOver);
     srand(time(NULL));
+    
+    std::cout << "Loading map... " << ml.Load(mapName) << std::endl;;
+    //Change with quadtree for optimisation and don't update enemies not in the range of the rect
+    for(MapLayer o : ml.GetLayers())
+    {
+        if(o.name == "Col")
+        {
+            colHandler->setObjects(o.objects);
+        }
+    }
+
 }
 
 Scene::~Scene()
@@ -46,22 +57,11 @@ Scene::~Scene()
 
 void Scene::init()
 {
-    std::cout << "Loading map... " << ml.Load(mapName) << std::endl;;
-    
     mapView.reset(FloatRect(0, 0, 640, 480));
     hudView.reset(FloatRect(0, 0, 640, 480));
     
     player->init();
     initEnemies();
-    
-    //Change with quadtree for optimisation and don't update enemies not in the range of the rect
-    for(MapLayer o : ml.GetLayers())
-    {
-        if(o.name == "Col")
-        {
-            colHandler->setObjects(o.objects);
-        }
-    }
     
     for(GameObject* go : gameObjects)
         delete go;
@@ -126,9 +126,7 @@ void Scene::handleInput(Event &event)
         
         if(event.key.code == Keyboard::R)
         {
-            player->init();
-            initEnemies();
-            
+            init();
         }
     }
     if(event.type == Event::KeyReleased)
@@ -171,7 +169,6 @@ void Scene::update(Time time)
         {
             addGameObject(e->getPosition());
             enemies.erase(enemies.begin() + i);
-            //player->getFighterCharacteristics().addMaxStrength(5);
             delete e;
         }
         

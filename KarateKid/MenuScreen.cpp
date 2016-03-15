@@ -59,6 +59,7 @@ void MenuScreen::update(Time time)
 
 void MenuScreen::render(RenderTarget &rt)
 {
+    
     if(renderHowToPlay)
     {
         rt.draw(sprHowToPlay);

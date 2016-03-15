@@ -41,7 +41,7 @@ void Game::run()
                 {
                    if(screenManager->getCurrentScreenKey() == "sceneforest")
                        screenManager->setScreen("menu");
-                   else if(screenManager->getCurrentScreenKey() == "menu")
+                   else
                        screenManager->setScreen("sceneforest");
                         
                 }
