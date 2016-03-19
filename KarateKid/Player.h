@@ -17,7 +17,7 @@ private:
     GUIBar gbEnergy, gbStrength;
     
 public:
-    Player(CollisionHandler *col, Vector2f pos);
+    Player(CollisionHandler *col, Vector2f pos, Vector2f size);
     virtual void updateGUIBar();
     void drawEnergyBar(RenderTarget &rt);
     void drawStrengthBar(RenderTarget &rt);

@@ -53,6 +53,9 @@
 		4CD76A601C92249A008D70DF /* punch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4CD76A5F1C92249A008D70DF /* punch.wav */; };
 		4CD76A631C9224C8008D70DF /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CD76A611C9224C8008D70DF /* SoundManager.cpp */; };
 		4CDEFE281C8DE65A00DCCF17 /* GUIBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */; };
+		4CEBB1C91C9D90C800393EB6 /* tilesetDesertGlued.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEBB1C81C9D90C800393EB6 /* tilesetDesertGlued.png */; };
+		4CEBB1CD1C9D915100393EB6 /* desert.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CEBB1CC1C9D915100393EB6 /* desert.txt */; };
+		4CEBB1D51C9D9D5D00393EB6 /* desert.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4CEBB1D41C9D9D5D00393EB6 /* desert.tmx */; };
 		4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB291C8ED2AC0049F23B /* Player.cpp */; };
 		4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */; };
 		4CEE28991C879C0D009FC0DE /* CollisionHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */; };
@@ -127,6 +130,9 @@
 		4CD76A621C9224C8008D70DF /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		4CDEFE261C8DE65A00DCCF17 /* GUIBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIBar.cpp; sourceTree = "<group>"; };
 		4CDEFE271C8DE65A00DCCF17 /* GUIBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIBar.h; sourceTree = "<group>"; };
+		4CEBB1C81C9D90C800393EB6 /* tilesetDesertGlued.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilesetDesertGlued.png; sourceTree = "<group>"; };
+		4CEBB1CC1C9D915100393EB6 /* desert.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desert.txt; sourceTree = "<group>"; };
+		4CEBB1D41C9D9D5D00393EB6 /* desert.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = desert.tmx; sourceTree = "<group>"; };
 		4CEBEB291C8ED2AC0049F23B /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		4CEBEB2A1C8ED2AC0049F23B /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
@@ -280,9 +286,12 @@
 		4C9CDE281C899D8400693D5B /* map */ = {
 			isa = PBXGroup;
 			children = (
+				4CEBB1D41C9D9D5D00393EB6 /* desert.tmx */,
+				4CEBB1C81C9D90C800393EB6 /* tilesetDesertGlued.png */,
 				4C1F10AB1C8B19070062A96D /* forest.txt */,
 				4CA097EA1C8F328300BD7238 /* forest.tmx */,
 				4C9CDE291C899D8400693D5B /* forest_tile.png */,
+				4CEBB1CC1C9D915100393EB6 /* desert.txt */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -389,6 +398,7 @@
 				4CA097EB1C8F328300BD7238 /* forest.tmx in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
 				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,
+				4CEBB1D51C9D9D5D00393EB6 /* desert.tmx in Resources */,
 				4CFCA75B1C9D6DDE0063D38D /* winScreenBG.png in Resources */,
 				4CD76A601C92249A008D70DF /* punch.wav in Resources */,
 				22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */,
@@ -397,11 +407,13 @@
 				4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				4C50F2281C94556100C26618 /* potion.wav in Resources */,
+				4CEBB1CD1C9D915100393EB6 /* desert.txt in Resources */,
 				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				22455D351C930A4B00C00560 /* potionEnergy.png in Resources */,
 				4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */,
 				4C7DF0E71C92DA0F00855472 /* potionHealth.png in Resources */,
+				4CEBB1C91C9D90C800393EB6 /* tilesetDesertGlued.png in Resources */,
 				228DC5D61C9307040069D09D /* potionStrength.png in Resources */,
 				4C1F10AC1C8B19070062A96D /* forest.txt in Resources */,
 				4CB1867D1C90721300640D99 /* gameOver.jpg in Resources */,

@@ -31,7 +31,7 @@ private:
     bool isAnimDeadFinished;
     
 public:
-    FeatureHandler(int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
+    FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
     void update(Time time);
     void setType(AnimationType type, Entity* launcher = NULL, Entity* receiver = NULL);
     void move(Vector2f move);

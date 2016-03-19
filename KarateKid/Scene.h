@@ -38,9 +38,10 @@ private:
     std::vector<GameObject*> gameObjects;
     void addGameObject(Vector2f pos, bool boss);
     std::vector<Text*> textInfo;
+    Vector2f entitySize;
 
 public:
-    Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos);
+    Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize);
     virtual ~Scene();
     void init();
     void handleInput(Event &event);

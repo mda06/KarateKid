@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="10" tilewidth="82" tileheight="82">
+ <tileset firstgid="1" name="Desert" tilewidth="82" tileheight="82">
+  <image source="tilesetDesertGlued.png" width="1000" height="379"/>
+ </tileset>
+ <layer name="Background" width="100" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3DMQ0AAAwEoRvev+bK6AIJq6aqqqq+Pjs+X+mgDwAA
+  </data>
+ </layer>
+ <layer name="Collision" width="100" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2XWw+CMAyFJ8bbg4gmPIgPvCFe4v//eXYJJynNJkx2wcQmXwKo60nPWqZS84pragH/6MWKWBOb1EJmEg3xipgP/TB3H5oEORdERiwj5ApR/y2xY/c+a6hrE6MuPM5ERVwC53kGWBN7SeKjhlrvnjiI59pvuQd+IVp27bsvtA8n4k7kBmQNXdfO2Po34qjsnpfst7Xq92cxQQcPzHe+dmn6oiV81x86uA/VB77tdfSEyWOJzSfuF/zQ+uvuGnVs1fjZKufAqcs9Zg6Emku8H6bs/7E5pqI1Fh22uQoeTAf3yHUOyP8Noc5Lcs+6+GHaH/w8ic/xHvWF7lH0x1DPoW4A9RvSJOdArPMqdOUWHS6R4ow9VNc3/RnJE6APAAA=
+  </data>
+ </layer>
+ <objectgroup name="Col" width="100" height="10">
+  <object x="7" y="673" width="63" height="93"/>
+  <object x="73" y="739" width="331" height="23"/>
+  <object x="245" y="248" width="243" height="160"/>
+  <object x="654" y="575" width="569" height="239"/>
+  <object x="1475" y="741" width="244" height="29"/>
+  <object x="1970" y="493" width="243" height="59"/>
+  <object x="2458" y="243" width="246" height="58"/>
+  <object x="2954" y="85" width="244" height="47"/>
+  <object x="3609" y="574" width="242" height="242"/>
+  <object x="4100" y="331" width="572" height="239"/>
+  <object x="5167" y="741" width="242" height="68"/>
+  <object x="5660" y="573" width="165" height="165"/>
+  <object x="5824" y="409" width="897" height="168"/>
+  <object x="6071" y="250" width="158" height="153"/>
+  <object x="6725" y="495" width="652" height="240"/>
+  <object x="7545" y="575" width="648" height="240"/>
+  <object x="495" y="661" width="156" height="152"/>
+  <object x="1805" y="659" width="244" height="75"/>
+  <object x="2297" y="411" width="245" height="54"/>
+  <object x="2788" y="169" width="240" height="47"/>
+  <object x="3938" y="412" width="159" height="156"/>
+  <object x="4846" y="677" width="61" height="59"/>
+  <object x="5505" y="682" width="56" height="51"/>
+  <object x="2389" y="345" width="56" height="62"/>
+  <object x="1895" y="599" width="61" height="54"/>
+  <object x="3774" y="496" width="162" height="74"/>
+  <object x="6000" y="352" width="51" height="50"/>
+  <object x="5749" y="513" width="57" height="55"/>
+ </objectgroup>
+</map>

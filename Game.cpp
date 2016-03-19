@@ -12,16 +12,17 @@
 #include "WinScreen.h"
 
 Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/)
-
 {
     screenManager = new ScreenManager();
-    Scene *s = new Scene(screenManager, resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30));
+    Scene *s = new Scene(screenManager, resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30), Vector2f(48, 48));
     s->init();
     screenManager->addScreen(s, "sceneforest");
+    s = new Scene(screenManager, resourcePath() + "desert.txt", "desert.tmx", Vector2f(120, 650), Vector2f(80, 100));
+    s->init();
+    screenManager->addScreen(s, "scenedesert");
     screenManager->addScreen(new GameOverScreen(screenManager), "gameover");
     screenManager->addScreen(new WinScreen(screenManager), "win");
     screenManager->addScreen(new MenuScreen(screenManager, &window), "menu");
-    
 }
 
 Game::~Game()
@@ -43,10 +44,10 @@ void Game::run()
             if(event.type == Event::KeyReleased)
                 if(event.key.code == Keyboard::Escape)
                 {
-                   if(screenManager->getCurrentScreenKey() == "sceneforest")
+                   if(screenManager->getCurrentScreenKey() == "scenedesert")
                        screenManager->setScreen("menu");
                    else
-                       screenManager->setScreen("sceneforest");
+                       screenManager->setScreen("scenedesert");
                         
                 }
           

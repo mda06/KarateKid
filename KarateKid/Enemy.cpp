@@ -8,7 +8,7 @@
 
 #include "Enemy.h"
 
-Enemy::Enemy(CollisionHandler * col, Vector2f pos, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown) : Entity(col, pos, false, maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown), targetRange(50)
+Enemy::Enemy(CollisionHandler * col, Vector2f pos, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, Vector2f size) : Entity(col, pos, size, false, maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown), targetRange(50)
 {
     
     setMaxVel(Vector2f(250, 250));

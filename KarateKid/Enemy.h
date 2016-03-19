@@ -17,7 +17,7 @@ private:
     int targetRange;
     
 public:
-    Enemy(CollisionHandler *col, Vector2f pos, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
+    Enemy(CollisionHandler *col, Vector2f pos, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, Vector2f size);
     virtual void update(Time time);
     void updateTarget(Entity* target);
 };

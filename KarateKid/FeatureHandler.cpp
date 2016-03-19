@@ -10,7 +10,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-FeatureHandler::FeatureHandler(int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown): size(48, 48), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false), fighterChar(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)
+FeatureHandler::FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown): size(size), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false), fighterChar(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)
 {
     if(!texture.loadFromFile(resourcePath() + "blond.png"))
         std::cout << "Failed to load texture in AnimationHandler" << std::endl;
@@ -63,9 +63,9 @@ FeatureHandler::FeatureHandler(int maxHealth, int maxStrength, float blockWaitTi
  
     animatedSprite.play(idleAnim);
     
+     animatedSprite.setOrigin(animatedSprite.getGlobalBounds().width / 2, animatedSprite.getGlobalBounds().height/2);
     animatedSprite.setScale(size.x / 100, size.y / 160);
-    animatedSprite.setPosition(20, 50);
-    animatedSprite.setOrigin(animatedSprite.getGlobalBounds().width, animatedSprite.getGlobalBounds().height);
+    animatedSprite.setPosition(pos);
 }
 
 void FeatureHandler::update(Time time)

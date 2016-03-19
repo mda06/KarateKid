@@ -15,10 +15,10 @@
 #include "ResourcePath.hpp"
 #include "ScreenManager.h"
 
-Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos) : AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName)
+Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize) : AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize)
 {
     colHandler = new CollisionHandler(this);
-    player = new Player(colHandler, pos);
+    player = new Player(colHandler, pos, entitySize);
     
     if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
         std::cout << "Can't load font !" << std::endl;
@@ -36,7 +36,6 @@ Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Ve
             colHandler->setObjects(o.objects);
         }
     }
-
 }
 
 Scene::~Scene()
@@ -94,7 +93,7 @@ void Scene::initEnemies()
                 else if(i == 3) maxStrength = std::stoi(token.c_str());
                 i++;
             }
-            enemies.push_back(new Enemy(colHandler, Vector2f(x, y), health, maxStrength, 1.5f, 1.5f, 1.5f));
+            enemies.push_back(new Enemy(colHandler, Vector2f(x, y), health, maxStrength, 1.5f, 1.5f, 1.5f, entitySize));
             enemies.back()->init();
             enemies.back()->setColor(Color::Magenta);
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
@@ -191,7 +190,7 @@ void Scene::update(Time time)
     if(player->isDeadAnimFinished())
         screenManager->setScreen("gameover");
     
-    if (player->getGlobalBounds().top > 500)
+    if (player->getGlobalBounds().top > ml.GetMapSize().y)
     {
         player->setDeadAnimFinished(true);
     }
@@ -224,7 +223,10 @@ void Scene::updateView()
     float x = player->getPosition().x;
     if(x < s.x / 2) x = s.x / 2;
     if(x > ml.GetMapSize().x - s.x / 2) x = ml.GetMapSize().x - s.x / 2;
-    mapView.setCenter(x, mapView.getCenter().y);
+    float y = player->getPosition().y;
+    if(y < s.y / 2) y = s.y / 2;
+    if(y > ml.GetMapSize().y - s.y / 2) y = ml.GetMapSize().y - s.y / 2;
+    mapView.setCenter(x, y);
     
     std::stringstream stream;
     stream << "Position: " << std::fixed << std::setprecision(0) << player->getPosition().x << "/" << player->getPosition().y << std::endl << "Fight state: " << player->getFighterCharacteristics().getFightState();
