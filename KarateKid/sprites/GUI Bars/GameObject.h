@@ -5,6 +5,7 @@
 //  Created by Michaël Van Meerbeek on 11/03/16.
 //  Copyright (c) 2016 Michaël Van Meerbeek. All rights reserved.
 //
+//Hello
 
 #ifndef __KarateKid__MapObject__
 #define __KarateKid__MapObject__
