@@ -11,7 +11,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-MenuScreen::MenuScreen(ScreenManager *sm, Window *w) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "btnBg.png", "Play"), btnExit(Vector2f(320, 260), resourcePath() + "btnBg.png", "Exit"), btnHowTo(Vector2f(320, 340), resourcePath() + "btnBg.png", "How"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return")
+MenuScreen::MenuScreen(ScreenManager *sm, Window *w) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "btnBg.png", "Play"), btnExit(Vector2f(320, 260), resourcePath() + "btnBg.png", "Exit"), btnHowTo(Vector2f(320, 340), resourcePath() + "btnBg.png", "How"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return"), firstIndex(1), lastIndex(3), index(1)
 {
     if(!textHowToPlay.loadFromFile(resourcePath() + "HowToPlay.png"))
         std::cout << "Can't load howtoplay.png" << std::endl;
@@ -32,13 +32,70 @@ void MenuScreen::handleInput(sf::Event &event)
 {
     if(renderHowToPlay)
     {
+        if(event.type == sf::Event::KeyPressed)
+        {
+            if (event.key.code == sf::Keyboard::Key::BackSpace || event.key.code == sf::Keyboard::Key::Escape)
+            {
+                renderHowToPlay = false;
+                index = 1;
+                btnPlay.setScale(1.2f, 1.2f);
+                return;
+            }
+        }
+        
         btnReturn.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
         return;
     }
     
-    btnPlay.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
-    btnExit.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
-    btnHowTo.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
+    if(event.type == sf::Event::KeyPressed)
+    {
+        if (event.key.code == sf::Keyboard::Key::Down)
+        {
+            if (index < lastIndex)
+                index++;
+            else
+                index = firstIndex;
+        }
+        else if (event.key.code == sf::Keyboard::Key::Up)
+        {
+            if (index > firstIndex)
+                index--;
+            else
+                index = lastIndex;
+        }
+        else if (event.key.code == sf::Keyboard::Key::Return)
+        {
+            btnPlay.handleInput(event,false);
+            btnExit.handleInput(event, false);
+            btnHowTo.handleInput(event, false);
+        }
+
+        
+        switch (index)
+        {
+            case 1:
+                btnPlay.handleInput(event, true);
+                btnExit.handleInput(event, false);
+                btnHowTo.handleInput(event, false);
+                break;
+            case 2:
+                btnPlay.handleInput(event,false);
+                btnExit.handleInput(event, true);
+                btnHowTo.handleInput(event, false);
+                break;
+            case 3:
+                btnPlay.handleInput(event,false);
+                btnExit.handleInput(event, false);
+                btnHowTo.handleInput(event, true);
+                break;
+        }
+    }
+    else
+    {
+        btnPlay.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
+        btnExit.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
+        btnHowTo.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
+    }
 }
 
 void MenuScreen::update(Time time)
@@ -72,4 +129,11 @@ void MenuScreen::render(RenderTarget &rt)
         btnExit.render(rt);
         btnHowTo.render(rt);
     }
+}
+
+void MenuScreen::enter()
+{
+    index = 1;
+    
+    btnPlay.setScale(1.2f, 1.2f);
 }

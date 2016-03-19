@@ -24,8 +24,11 @@ private:
 public:
     SimpleButton(Vector2f pos, std::string path, std::string txt);
     void handleInput(Event &event, Vector2f mousePos);
+    void handleInput(Event &event, bool focus);
     void render(RenderTarget &rt);
     bool clicked();
+    void setScale(float x, float y);
+    
 };
 
 

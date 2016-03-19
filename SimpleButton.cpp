@@ -39,14 +39,34 @@ void SimpleButton::handleInput(Event &event, Vector2f mousePos)
         FloatRect fr = sprBg.getGlobalBounds();
         if(fr.contains(mousePos))
            sprBg.setScale(1.2f, 1.2f);
-        else
-           sprBg.setScale(1, 1);
+        //else
+           //sprBg.setScale(1, 1);
     }
     if(Mouse::isButtonPressed(Mouse::Button::Left))
     {
         FloatRect fr = sprBg.getGlobalBounds();
         if(fr.contains(mousePos))
             isClicked = true;
+    }
+}
+
+void SimpleButton::handleInput(Event &event, bool focus)
+{
+    if(event.type == Event::KeyPressed)
+    {
+        if (event.key.code == sf::Keyboard::Key::Return)
+        {
+            if (focus)
+                isClicked = true;
+            sprBg.setScale(1, 1);
+        }
+        else if (event.key.code == sf::Keyboard::Key::Up || event.key.code == sf::Keyboard::Key::Down)
+        {
+            if (focus)
+                sprBg.setScale(1.2f, 1.2f);
+            else
+                sprBg.setScale(1, 1);
+        }
     }
 }
 
@@ -64,4 +84,9 @@ void SimpleButton::render(sf::RenderTarget &rt)
 {
     rt.draw(sprBg);
     rt.draw(text);
+}
+
+void SimpleButton::setScale(float x, float y)
+{
+    sprBg.setScale(x, y);
 }

@@ -20,12 +20,15 @@ private:
     Texture textHowToPlay, textBG;
     Sprite sprHowToPlay, sprBG;
     bool renderHowToPlay;
+    int index;
+    const int firstIndex, lastIndex;
     
 public:
     MenuScreen(ScreenManager* sm, Window* w);
     void handleInput(Event &event);
     void update(Time time);
     void render(RenderTarget &rt);
+    void enter();
 };
 
 #endif /* defined(__KarateKid__MenuScreen__) */
