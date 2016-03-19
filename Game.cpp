@@ -9,6 +9,7 @@
 #include "Game.h"
 #include "ResourcePath.hpp"
 #include "GameOverScreen.h"
+#include "WinScreen.h"
 
 Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/)
 
@@ -18,6 +19,7 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     s->init();
     screenManager->addScreen(s, "sceneforest");
     screenManager->addScreen(new GameOverScreen(screenManager), "gameover");
+    screenManager->addScreen(new WinScreen(screenManager), "win");
     screenManager->addScreen(new MenuScreen(screenManager, &window), "menu");
     
 }

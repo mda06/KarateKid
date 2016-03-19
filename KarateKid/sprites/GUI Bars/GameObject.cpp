@@ -101,7 +101,7 @@ void GameObjectKey::effect(Entity *target)
 {
     GameObject::effect(target);
     sm->initScenes();
-    sm->setScreen("menu");
+    sm->setScreen("win");
     text = "Key !";
 }
 
