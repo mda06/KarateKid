@@ -7,6 +7,8 @@
 //
 
 #include "ScreenManager.h"
+#include "Scene.h"
+#include <iostream>
 
 ScreenManager::ScreenManager() : curScreen(nullptr)
 {}
@@ -40,11 +42,28 @@ void ScreenManager::render(RenderTarget &rt)
 
 void ScreenManager::setScreen(std::string key)
 {
+    AbstractScreen* tmp = curScreen;
     if(curScreen != nullptr)
         curScreen->leave();
     
     curScreen = screens[key];
-    curScreen->enter();
+    if(curScreen != nullptr)
+        curScreen->enter();
+    else
+        curScreen = tmp;
+}
+
+void ScreenManager::initScenes()
+{
+    for(auto it = screens.begin();it != screens.end(); ++it)
+    {
+        std::string key = it->first;
+        if (key.find("scene") != std::string::npos) {
+            std::cout << "Initializating: " << key << '\n';
+            Scene* s = (Scene*)it->second;
+            s->init();
+        }
+    }
 }
 
 std::string ScreenManager::getCurrentScreenKey() const

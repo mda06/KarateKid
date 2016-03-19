@@ -35,8 +35,6 @@ private:
     Font font;
     Text txtPosition;
     Keyboard::Key keyBlock;
-    Texture txtGameOver;
-    Sprite sprGameOver;
     std::vector<GameObject*> gameObjects;
     void addGameObject(Vector2f pos, bool boss);
     std::vector<Text*> textInfo;

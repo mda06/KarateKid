@@ -27,6 +27,7 @@ public:
     void update(Time time);
     void render(RenderTarget &rt);
     void setScreen(std::string key);
+    void initScenes();
     AbstractScreen *getCurrentScreen();
     std::string getCurrentScreenKey() const;
 };

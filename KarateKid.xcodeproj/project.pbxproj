@@ -57,6 +57,7 @@
 		4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */; };
 		4CEE28991C879C0D009FC0DE /* CollisionHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */; };
 		4CFCA7531C9D67FD0063D38D /* potionKey.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFCA7521C9D67FD0063D38D /* potionKey.png */; };
+		4CFCA7561C9D69200063D38D /* GameOverScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CFCA7541C9D69200063D38D /* GameOverScreen.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,8 @@
 		4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionHandler.cpp; sourceTree = "<group>"; };
 		4CEE28981C879C0D009FC0DE /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
 		4CFCA7521C9D67FD0063D38D /* potionKey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionKey.png; sourceTree = "<group>"; };
+		4CFCA7541C9D69200063D38D /* GameOverScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameOverScreen.cpp; path = ../GameOverScreen.cpp; sourceTree = "<group>"; };
+		4CFCA7551C9D69200063D38D /* GameOverScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScreen.h; path = ../GameOverScreen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +191,8 @@
 		4C3E9F531C845FEA00D85323 /* KarateKid */ = {
 			isa = PBXGroup;
 			children = (
+				4CFCA7541C9D69200063D38D /* GameOverScreen.cpp */,
+				4CFCA7551C9D69200063D38D /* GameOverScreen.h */,
 				4CB3AB3E1C88A40A0061D1F3 /* AnimatedSprite.cpp */,
 				4CB3AB3F1C88A40A0061D1F3 /* AnimatedSprite.h */,
 				4CC939ED1C8868B80068A9B5 /* Animation.cpp */,
@@ -428,6 +433,7 @@
 				4CA5327E1C849DFB00550B05 /* QuadTreeNode.cpp in Sources */,
 				4CA5327B1C849DFB00550B05 /* MapLoaderPublic.cpp in Sources */,
 				4CA5327C1C849DFB00550B05 /* MapObject.cpp in Sources */,
+				4CFCA7561C9D69200063D38D /* GameOverScreen.cpp in Sources */,
 				4CA532791C849DFB00550B05 /* MapLayer.cpp in Sources */,
 				4CB3AB401C88A40A0061D1F3 /* AnimatedSprite.cpp in Sources */,
 				4C3E9F571C845FEA00D85323 /* ResourcePath.mm in Sources */,

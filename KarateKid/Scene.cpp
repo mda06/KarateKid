@@ -13,6 +13,7 @@
 #include <sstream>
 #include <iomanip>
 #include "ResourcePath.hpp"
+#include "ScreenManager.h"
 
 Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos) : AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName)
 {
@@ -24,9 +25,6 @@ Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Ve
     txtPosition.setFont(font);
     txtPosition.setCharacterSize(20);
     
-    if(!txtGameOver.loadFromFile(resourcePath() + "gameOver.jpg"))
-        std::cout << "Can't load game over texture" << std::endl;
-    sprGameOver.setTexture(txtGameOver);
     srand(time(NULL));
     
     std::cout << "Loading map... " << ml.Load(mapName) << std::endl;;
@@ -190,6 +188,8 @@ void Scene::update(Time time)
     }
     
     player->update(time);
+    if(player->isDeadAnimFinished())
+        screenManager->setScreen("gameover");
     
     if (player->getGlobalBounds().top > 500)
     {
@@ -255,8 +255,6 @@ void Scene::render(RenderTarget &window)
     player->drawHpBar(window);
     player->drawEnergyBar(window);
     player->drawStrengthBar(window);
-    if(player->isDeadAnimFinished())
-        window.draw(sprGameOver);
 }
 
 Player* Scene::getPlayer()
