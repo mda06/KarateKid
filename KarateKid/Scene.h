@@ -38,7 +38,7 @@ private:
     Texture txtGameOver;
     Sprite sprGameOver;
     std::vector<GameObject*> gameObjects;
-    void addGameObject(Vector2f pos);
+    void addGameObject(Vector2f pos, bool boss);
     std::vector<Text*> textInfo;
 
 public:

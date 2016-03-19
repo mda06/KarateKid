@@ -8,6 +8,7 @@
 
 #include "GameObject.h"
 #include "ResourcePath.hpp"
+#include "ScreenManager.h"
 
 GameObject::GameObject(std::string path, Vector2f pos) : pos(pos)
 {
@@ -64,7 +65,6 @@ GameObjectPotion::GameObjectPotion(Vector2f pos) : GameObject(resourcePath() + "
 void GameObjectPotion::effect(Entity *target)
 {
     GameObject::effect(target);
-    //target->getFighterCharacteristics().addMaxStrength(5);
     target->getFighterCharacteristics().addHealth(50);
     text = "+50 Health";
 }
@@ -76,7 +76,6 @@ GameObjectStrength::GameObjectStrength(Vector2f pos) : GameObject(resourcePath()
 void GameObjectStrength::effect(Entity *target)
 {
     GameObject::effect(target);
-    //target->getFighterCharacteristics().addMaxStrength(5);
     target->getFighterCharacteristics().addStrength(50);
     text = "+50 Strength";
 }
@@ -88,9 +87,20 @@ GameObjectEnergy::GameObjectEnergy(Vector2f pos) : GameObject(resourcePath() + "
 void GameObjectEnergy::effect(Entity *target)
 {
     GameObject::effect(target);
-    //target->getFighterCharacteristics().addMaxStrength(5);
     target->getFighterCharacteristics().getBlockState().addActiveCooldown(.2f);
     text = "+0.2 Block time";
+}
+
+
+GameObjectKey::GameObjectKey(ScreenManager *sm, Vector2f pos) : GameObject(resourcePath() + "potionKey.png", pos), sm(sm)
+{
+}
+
+void GameObjectKey::effect(Entity *target)
+{
+    GameObject::effect(target);
+    sm->setScreen("menu");
+    text = "Key !";
 }
 
 Vector2f GameObject::getPos()

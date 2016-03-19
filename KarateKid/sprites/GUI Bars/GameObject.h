@@ -14,6 +14,8 @@
 #include "Entity.h"
 using namespace sf;
 
+class ScreenManager;
+
 class GameObject
 {
 private:
@@ -57,6 +59,15 @@ class GameObjectEnergy : public GameObject
 {
 public:
     GameObjectEnergy(Vector2f pos);
+    virtual void effect(Entity* target);
+};
+
+class GameObjectKey : public GameObject
+{
+private:
+    ScreenManager* sm;
+public:
+    GameObjectKey(ScreenManager* sm, Vector2f pos);
     virtual void effect(Entity* target);
 };
 

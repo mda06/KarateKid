@@ -56,6 +56,7 @@
 		4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB291C8ED2AC0049F23B /* Player.cpp */; };
 		4CEBEB2E1C8ED8560049F23B /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBEB2C1C8ED8560049F23B /* Enemy.cpp */; };
 		4CEE28991C879C0D009FC0DE /* CollisionHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */; };
+		4CFCA7531C9D67FD0063D38D /* potionKey.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFCA7521C9D67FD0063D38D /* potionKey.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		4CEBEB2D1C8ED8560049F23B /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		4CEE28971C879C0D009FC0DE /* CollisionHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionHandler.cpp; sourceTree = "<group>"; };
 		4CEE28981C879C0D009FC0DE /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
+		4CFCA7521C9D67FD0063D38D /* potionKey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionKey.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 		4C7DF0E51C92DA0F00855472 /* potions */ = {
 			isa = PBXGroup;
 			children = (
+				4CFCA7521C9D67FD0063D38D /* potionKey.png */,
 				22455D341C930A4B00C00560 /* potionEnergy.png */,
 				228DC5D51C9307040069D09D /* potionStrength.png */,
 				4C7DF0E61C92DA0F00855472 /* potionHealth.png */,
@@ -369,6 +372,7 @@
 			files = (
 				22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */,
 				22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */,
+				4CFCA7531C9D67FD0063D38D /* potionKey.png in Resources */,
 				4CA097EB1C8F328300BD7238 /* forest.tmx in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
 				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,

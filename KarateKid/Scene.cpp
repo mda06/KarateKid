@@ -150,8 +150,14 @@ void Scene::handleInput(Event &event)
     }
 }
 
-void Scene::addGameObject(Vector2f pos)
+void Scene::addGameObject(Vector2f pos, bool boss)
 {
+    if(boss)
+    {
+        gameObjects.push_back(new GameObjectKey(screenManager, pos));
+        return;
+    }
+    
     int r = rand() % 100;
     if(r < 25) gameObjects.push_back(new GameObjectPotion(pos));
     else if(r < 50) gameObjects.push_back(new GameObjectStrength(pos));
@@ -167,7 +173,7 @@ void Scene::update(Time time)
         
         if(e->isDeadAnimFinished())
         {
-            addGameObject(e->getPosition());
+            addGameObject(e->getPosition(), i == enemies.size() - 1);
             enemies.erase(enemies.begin() + i);
             delete e;
         }
