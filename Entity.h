@@ -40,6 +40,11 @@ protected:
     Text txtHp;
     bool enableFootAtk;
     SoundManager sound;
+    void syncAnimationWithVel(bool wasVelXNull);
+    bool updateVelX(float dt);
+    void updateVelY(float dt);
+    float checkColX(float dt);
+    float checkColY(float dt);
     
 public:
     Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enableFootAtk = false);

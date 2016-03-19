@@ -10,9 +10,10 @@
 
 Enemy::Enemy(CollisionHandler * col, Vector2f pos, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown) : Entity(col, pos, false, maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown), targetRange(50)
 {
-    setMaxVel(Vector2f(.5f, .5f));
-    setAccel(Vector2f(.4f, .9f));
-    deccel = Vector2f(1, .5f);
+    
+    setMaxVel(Vector2f(250, 250));
+    setAccel(Vector2f(200, 450));
+    deccel = Vector2f(500, 250);
 }
 
 

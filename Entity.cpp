@@ -13,7 +13,7 @@
 #include <sstream>
 #include <iomanip>
 
-Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool fatk) : accel(2, 1), deccel(1.7f, 2.f), maxVel(.8f, .9f), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), featureHandler(FeatureHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)), enableFootAtk(fatk)
+Entity::Entity(CollisionHandler *col, Vector2f pos, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool fatk) : accel(1000, 500), deccel(850, 1000), maxVel(400, 450), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), featureHandler(FeatureHandler(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)), enableFootAtk(fatk)
 {
     if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
         std::cout << "Can't load font !" << std::endl;
@@ -51,6 +51,60 @@ void Entity::updateGUIBar()
 
 void Entity::handleMovement(float dt)
 {
+    bool wasVelXNull = updateVelX(dt);
+    updateVelY(dt);
+    
+    Vector2f movement;
+    movement.x = checkColX(dt);
+    movement.y = checkColY(dt);
+    
+    featureHandler.move(movement);
+    syncAnimationWithVel(wasVelXNull);
+}
+
+float Entity::checkColY(float dt)
+{
+    float y = 0;
+    FloatRect bounds = getGlobalBounds();
+    bounds.top += vel.y * dt;
+    if(colHandler->canMove(bounds) && !colHandler->collisionWithEntity(this, bounds))
+        y = vel.y * dt;
+    else
+        vel.y = 0;
+
+    return y;
+}
+
+float Entity::checkColX(float dt)
+{
+    float x = 0;
+    FloatRect bounds = getGlobalBounds();
+    bounds.left += vel.x * dt;
+    bool colEntity = colHandler->collisionWithEntity(this, bounds);
+    if(colHandler->canMove(bounds) && !colEntity)
+    {
+        x = vel.x * dt;
+    }
+    else
+    {
+        vel.x = 0;
+        
+        if (!colEntity && canClimb(dt))
+            vel.y -= accel.y * dt * 5;
+    }
+
+    return x;
+}
+
+void Entity::updateVelY(float dt)
+{
+    vel.y += deccel.y * dt;
+    if(vel.y > maxVel.y)
+        vel.y = maxVel.y;
+}
+
+bool Entity::updateVelX(float dt)
+{
     if(direction == LEFT) vel.x -= accel.x * dt;
     else if(direction == RIGHT) vel.x += accel.x * dt;
     else
@@ -72,35 +126,11 @@ void Entity::handleMovement(float dt)
     if(vel.x > maxVel.x) vel.x = maxVel.x;
     if(vel.x < -maxVel.x) vel.x = -maxVel.x;
     
-    vel.y += deccel.y * dt;
-    if(vel.y > maxVel.y)
-        vel.y = maxVel.y;
-    
-    Vector2f movement;
-    FloatRect bounds = getGlobalBounds();
-    bounds.left += vel.x;
-    bool colEntity = colHandler->collisionWithEntity(this, bounds);
-    if(colHandler->canMove(bounds) && !colEntity)
-    {
-        movement.x += vel.x;
-    }
-    else
-    {
-        vel.x = 0;
-        
-        if (!colEntity && canClimb(dt))
-            vel.y -= accel.y * dt * 5;
-    }
-    
-    bounds = getGlobalBounds();
-    bounds.top += vel.y;
-    if(colHandler->canMove(bounds) && !colHandler->collisionWithEntity(this, bounds))
-        movement.y += vel.y;
-    else
-        vel.y = 0;
-    
-    featureHandler.move(movement);
-    
+    return wasVelXNull;
+}
+
+void Entity::syncAnimationWithVel(bool wasVelXNull)
+{
     if(vel.x > 0)
     {
         if(vel.x == maxVel.x){
@@ -121,6 +151,7 @@ void Entity::handleMovement(float dt)
     }
     else if(wasVelXNull && featureHandler.getType() == WALK)
         featureHandler.setType(IDLE);
+
 }
 
 bool Entity::canClimb(float dt)
