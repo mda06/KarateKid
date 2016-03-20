@@ -39,8 +39,8 @@ void SimpleButton::handleInput(Event &event, Vector2f mousePos)
         FloatRect fr = sprBg.getGlobalBounds();
         if(fr.contains(mousePos))
            sprBg.setScale(1.2f, 1.2f);
-        //else
-           //sprBg.setScale(1, 1);
+        else
+           sprBg.setScale(1, 1);
     }
     if(Mouse::isButtonPressed(Mouse::Button::Left))
     {
@@ -54,7 +54,7 @@ void SimpleButton::handleInput(Event &event, bool focus)
 {
     if(event.type == Event::KeyPressed)
     {
-        if (event.key.code == sf::Keyboard::Key::Return)
+        if (event.key.code == sf::Keyboard::Key::Return || Mouse::isButtonPressed(Mouse::Button::Left))
         {
             if (focus)
                 isClicked = true;
@@ -67,6 +67,18 @@ void SimpleButton::handleInput(Event &event, bool focus)
             else
                 sprBg.setScale(1, 1);
         }
+    }
+    else if (event.type == Event::MouseMoved)
+    {
+        if (focus)
+            sprBg.setScale(1.2f, 1.2f);
+        else
+            sprBg.setScale(1, 1);
+    }
+    else if (Mouse::isButtonPressed(Mouse::Button::Left))
+    {
+        if (focus)
+            isClicked = true;
     }
 }
 
@@ -89,4 +101,9 @@ void SimpleButton::render(sf::RenderTarget &rt)
 void SimpleButton::setScale(float x, float y)
 {
     sprBg.setScale(x, y);
+}
+
+Sprite SimpleButton::getSprite()
+{
+    return sprBg;
 }

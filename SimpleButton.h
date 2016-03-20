@@ -28,6 +28,7 @@ public:
     void render(RenderTarget &rt);
     bool clicked();
     void setScale(float x, float y);
+    Sprite getSprite();
     
 };
 

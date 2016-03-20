@@ -39,11 +39,26 @@ void MenuScreen::handleInput(sf::Event &event)
                 renderHowToPlay = false;
                 index = 1;
                 btnPlay.setScale(1.2f, 1.2f);
-                return;
+                btnHowTo.setScale(1, 1);
             }
         }
-        
-        btnReturn.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
+        else if (event.type == sf::Event::MouseMoved)
+        {
+            if(btnReturn.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+                btnReturn.handleInput(event, true);
+            else
+                btnReturn.handleInput(event, false);
+        }
+        else if(Mouse::isButtonPressed(Mouse::Left))
+        {
+            if(btnReturn.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            {
+                renderHowToPlay = false;
+                index = 1;
+                btnPlay.setScale(1.2f, 1.2f);
+                btnHowTo.setScale(1, 1);
+            }
+        }
         return;
     }
     
@@ -63,38 +78,35 @@ void MenuScreen::handleInput(sf::Event &event)
             else
                 index = lastIndex;
         }
-        else if (event.key.code == sf::Keyboard::Key::Return)
-        {
-            btnPlay.handleInput(event,false);
+    }
+    
+    if(event.type == Event::MouseMoved)
+    {
+        if(btnPlay.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            index = 1;
+        else if(btnExit.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            index = 2;
+        else if(btnHowTo.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            index = 3;
+    }
+    
+    switch (index)
+    {
+        case 1:
+            btnPlay.handleInput(event, true);
             btnExit.handleInput(event, false);
             btnHowTo.handleInput(event, false);
-        }
-
-        
-        switch (index)
-        {
-            case 1:
-                btnPlay.handleInput(event, true);
-                btnExit.handleInput(event, false);
-                btnHowTo.handleInput(event, false);
-                break;
-            case 2:
-                btnPlay.handleInput(event,false);
-                btnExit.handleInput(event, true);
-                btnHowTo.handleInput(event, false);
-                break;
-            case 3:
-                btnPlay.handleInput(event,false);
-                btnExit.handleInput(event, false);
-                btnHowTo.handleInput(event, true);
-                break;
-        }
-    }
-    else
-    {
-        btnPlay.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
-        btnExit.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
-        btnHowTo.handleInput(event, Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y));
+            break;
+        case 2:
+            btnPlay.handleInput(event,false);
+            btnExit.handleInput(event, true);
+            btnHowTo.handleInput(event, false);
+            break;
+        case 3:
+            btnPlay.handleInput(event,false);
+            btnExit.handleInput(event, false);
+            btnHowTo.handleInput(event, true);
+            break;
     }
 }
 
