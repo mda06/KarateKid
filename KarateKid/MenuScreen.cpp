@@ -11,7 +11,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-MenuScreen::MenuScreen(ScreenManager *sm, Window *w) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "btnBg.png", "Play"), btnExit(Vector2f(320, 260), resourcePath() + "btnBg.png", "Exit"), btnHowTo(Vector2f(320, 340), resourcePath() + "btnBg.png", "How"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return"), firstIndex(1), lastIndex(3), index(1)
+MenuScreen::MenuScreen(ScreenManager *sm, Window *w) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "btnBg.png", "Play"), btnExit(Vector2f(320, 260), resourcePath() + "btnBg.png", "Exit"), btnHowTo(Vector2f(320, 340), resourcePath() + "btnBg.png", "How"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return"), firstIndex(1), lastIndex(3), index(1), focus(false)
 {
     if(!textHowToPlay.loadFromFile(resourcePath() + "HowToPlay.png"))
         std::cout << "Can't load howtoplay.png" << std::endl;
@@ -36,77 +36,53 @@ void MenuScreen::handleInput(sf::Event &event)
         {
             if (event.key.code == sf::Keyboard::Key::BackSpace || event.key.code == sf::Keyboard::Key::Escape)
             {
-                renderHowToPlay = false;
-                index = 1;
-                btnPlay.setScale(1.2f, 1.2f);
-                btnHowTo.setScale(1, 1);
+                focus = true;
+                event.key.code = sf::Keyboard::Key::Return;
             }
+            else focus = false;
         }
         else if (event.type == sf::Event::MouseMoved)
         {
             if(btnReturn.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
-                btnReturn.handleInput(event, true);
-            else
-                btnReturn.handleInput(event, false);
+                focus = true;
+            else focus = false;
         }
-        else if(Mouse::isButtonPressed(Mouse::Left))
+        
+        btnReturn.handleInput(event, focus);
+    }
+    else
+    {
+        if(event.type == sf::Event::KeyPressed)
         {
-            if(btnReturn.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            if (event.key.code == sf::Keyboard::Key::Down)
             {
-                renderHowToPlay = false;
-                index = 1;
-                btnPlay.setScale(1.2f, 1.2f);
-                btnHowTo.setScale(1, 1);
+                if (index < lastIndex)
+                    index++;
+                else
+                    index = firstIndex;
+            }
+            else if (event.key.code == sf::Keyboard::Key::Up)
+            {
+                if (index > firstIndex)
+                    index--;
+                else
+                    index = lastIndex;
             }
         }
-        return;
-    }
-    
-    if(event.type == sf::Event::KeyPressed)
-    {
-        if (event.key.code == sf::Keyboard::Key::Down)
+        else if(event.type == Event::MouseMoved)
         {
-            if (index < lastIndex)
-                index++;
-            else
-                index = firstIndex;
+            if(btnPlay.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+                index = 1;
+            else if(btnExit.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+                index = 2;
+            else if(btnHowTo.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+                index = 3;
+            else index = 0;
         }
-        else if (event.key.code == sf::Keyboard::Key::Up)
-        {
-            if (index > firstIndex)
-                index--;
-            else
-                index = lastIndex;
-        }
-    }
-    
-    if(event.type == Event::MouseMoved)
-    {
-        if(btnPlay.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
-            index = 1;
-        else if(btnExit.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
-            index = 2;
-        else if(btnHowTo.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
-            index = 3;
-    }
-    
-    switch (index)
-    {
-        case 1:
-            btnPlay.handleInput(event, true);
-            btnExit.handleInput(event, false);
-            btnHowTo.handleInput(event, false);
-            break;
-        case 2:
-            btnPlay.handleInput(event,false);
-            btnExit.handleInput(event, true);
-            btnHowTo.handleInput(event, false);
-            break;
-        case 3:
-            btnPlay.handleInput(event,false);
-            btnExit.handleInput(event, false);
-            btnHowTo.handleInput(event, true);
-            break;
+        
+        btnPlay.handleInput(event, (index == 1));
+        btnExit.handleInput(event, (index == 2));
+        btnHowTo.handleInput(event, (index == 3));
     }
 }
 
@@ -119,7 +95,10 @@ void MenuScreen::update(Time time)
         return;
     }
     if(btnHowTo.clicked())
+    {
+        init();
         renderHowToPlay = true;
+    }
     if(btnExit.clicked())
         window->close();
     if(btnPlay.clicked())
@@ -145,7 +124,16 @@ void MenuScreen::render(RenderTarget &rt)
 
 void MenuScreen::enter()
 {
+    init();
+}
+
+void MenuScreen::init()
+{
     index = 1;
     
     btnPlay.setScale(1.2f, 1.2f);
+    btnExit.setScale(1, 1);
+    btnHowTo.setScale(1, 1);
+    btnReturn.setScale(1, 1);
+    focus = false;
 }

@@ -19,7 +19,7 @@ private:
     SimpleButton btnPlay, btnExit, btnHowTo, btnReturn;
     Texture textHowToPlay, textBG;
     Sprite sprHowToPlay, sprBG;
-    bool renderHowToPlay;
+    bool renderHowToPlay, focus;
     int index;
     const int firstIndex, lastIndex;
     
@@ -29,6 +29,8 @@ public:
     void update(Time time);
     void render(RenderTarget &rt);
     void enter();
+    void init();
+    
 };
 
 #endif /* defined(__KarateKid__MenuScreen__) */
