@@ -15,6 +15,9 @@ class Enemy : public Entity
 {
 private:
     int targetRange;
+    bool isEntityUpOrDown(Entity *target);
+    void moveLeft(float ex, float px, Entity *target);
+    void moveRight(float ex, float px, Entity *target);
     
 public:
     Enemy(CollisionHandler *col, Vector2f pos, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, Vector2f size);
