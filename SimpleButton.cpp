@@ -54,7 +54,7 @@ void SimpleButton::handleInput(Event &event, bool focus)
 {
     if(event.type == Event::KeyPressed)
     {
-        if (event.key.code == sf::Keyboard::Key::Return)
+        if (event.key.code == sf::Keyboard::Key::Return || event.key.code == sf::Keyboard::Key::Space)
         {
             if (focus)
                 isClicked = true;
