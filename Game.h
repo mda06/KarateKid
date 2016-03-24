@@ -18,6 +18,7 @@ class Game
 private:
     RenderWindow window;
     ScreenManager* screenManager;
+    std::string oldCurrScreenKey;
     
 public:
     Game();

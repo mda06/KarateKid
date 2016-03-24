@@ -23,6 +23,8 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     screenManager->addScreen(new GameOverScreen(screenManager), "gameover");
     screenManager->addScreen(new WinScreen(screenManager), "win");
     screenManager->addScreen(new MenuScreen(screenManager, &window), "menu");
+    
+    oldCurrScreenKey = "sceneforest";
 }
 
 Game::~Game()
@@ -44,11 +46,13 @@ void Game::run()
             if(event.type == Event::KeyReleased)
                 if(event.key.code == Keyboard::Escape)
                 {
-                   if(screenManager->getCurrentScreenKey() == "scenedesert")
-                       screenManager->setScreen("menu");
-                   else
-                       screenManager->setScreen("scenedesert");
-                        
+                    if(screenManager->getCurrentScreenKey() == "menu")
+                        screenManager->setScreen(oldCurrScreenKey);
+                    else
+                    {
+                        oldCurrScreenKey = screenManager->getCurrentScreenKey();
+                        screenManager->setScreen("menu");
+                    }
                 }
           
             screenManager->handleInput(event);
