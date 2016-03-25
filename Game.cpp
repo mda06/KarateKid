@@ -44,6 +44,7 @@ void Game::run()
         {
             if(event.type == sf::Event::Closed) window.close();
             if(event.type == Event::KeyReleased)
+            {
                 if(event.key.code == Keyboard::Escape)
                 {
                     if(screenManager->getCurrentScreenKey() == "menu")
@@ -54,6 +55,17 @@ void Game::run()
                         screenManager->setScreen("menu");
                     }
                 }
+                if(event.key.code == Keyboard::Num1)
+                {
+                    if(screenManager->getCurrentScreenKey() != "sceneforest")
+                        screenManager->setScreen("sceneforest");
+                }
+                if(event.key.code == Keyboard::Num2)
+                {
+                    if(screenManager->getCurrentScreenKey() != "scenedesert")
+                        screenManager->setScreen("scenedesert");
+                }
+            }
           
             screenManager->handleInput(event);
         }
