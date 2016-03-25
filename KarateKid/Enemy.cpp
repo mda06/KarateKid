@@ -25,66 +25,82 @@ void Enemy::update(Time time)
 
 void Enemy::updateTarget(Entity *target)
 {
-    float ey = getPosition().y, py = target->getPosition().y;
-    if(ey < py)
-    {
-        if(py - ey > target->getGlobalBounds().height)
-            return;
-    }
-    else
-    {
-        if(ey - py > getGlobalBounds().height)
-            return;
-    }
+    if(isEntityUpOrDown(target)) return;
     
     float ex = getPosition().x, px = target->getPosition().x;
     if(ex > px)
     {
-        FloatRect bounds = getGlobalBounds();
-        bounds.left -= getFighterCharacteristics().getRangeHit();
-        if(ex - px < getFighterCharacteristics().getRangeHit() + getGlobalBounds().width && getFighterCharacteristics().canAtkPunch())
-        {
-            setDirection(STOP);
-            setOrientation(LEFT);
-            attackPunch();
-        }
-        else if(ex - px < targetRange + getGlobalBounds().width && !colHandler->collisionWithEntity(this, bounds))
-        {
-            
-            FloatRect boundsDown = getGlobalBounds();
-            boundsDown.top += 5;
-            boundsDown.left -= getFighterCharacteristics().getRangeHit();
-            if(colHandler->canMove(bounds) && !colHandler->canMove(boundsDown))
-                setDirection(LEFT);
-            else
-                setDirection(STOP);
-        }
-        else if(featureHandler.getType() == WALK)
-            setDirection(STOP);
+        moveLeft(ex, px, target);
     }
     else if(ex < px)
     {
-        FloatRect bounds = getGlobalBounds();
-        bounds.left += getFighterCharacteristics().getRangeHit();
-        if(px - ex < getFighterCharacteristics().getRangeHit() + target->getGlobalBounds().width && getFighterCharacteristics().canAtkPunch())
-        {
-            setDirection(STOP);
-            setOrientation(RIGHT);
-            attackPunch();
-        }
-        else if(px - ex < targetRange + target->getGlobalBounds().width && !colHandler->collisionWithEntity(this, bounds))
-        {
-            FloatRect boundsDown = getGlobalBounds();
-            boundsDown.top += 5;
-            boundsDown.left += getFighterCharacteristics().getRangeHit();;
-            if(colHandler->canMove(bounds) && !colHandler->canMove(boundsDown))
-                setDirection(RIGHT);
-            else
-                setDirection(STOP);
-        }
-        else if(featureHandler.getType() == WALK)
-            setDirection(STOP);
+        moveRight(ex, px, target);
+    }
+}
 
+bool Enemy::isEntityUpOrDown(Entity *target)
+{
+    float ey = getPosition().y, py = target->getPosition().y;
+    if(ey < py)
+    {
+        if(py - ey > target->getGlobalBounds().height)
+            return true;
+    }
+    else
+    {
+        if(ey - py > getGlobalBounds().height)
+            return true;
     }
 
+    return false;
 }
+
+void Enemy::moveLeft(float ex, float px, Entity *target)
+{
+    FloatRect bounds = getGlobalBounds();
+    bounds.left -= getFighterCharacteristics().getRangeHit();
+    if(ex - px < getFighterCharacteristics().getRangeHit() + getGlobalBounds().width && getFighterCharacteristics().canAtkPunch())
+    {
+        setDirection(STOP);
+        setOrientation(LEFT);
+        attackPunch();
+    }
+    else if(ex - px < targetRange + getGlobalBounds().width && !colHandler->collisionWithEntity(this, bounds))
+    {
+        
+        FloatRect boundsDown = getGlobalBounds();
+        boundsDown.top += 5;
+        boundsDown.left -= getFighterCharacteristics().getRangeHit();
+        if(colHandler->canMove(bounds) && !colHandler->canMove(boundsDown))
+            setDirection(LEFT);
+        else
+            setDirection(STOP);
+    }
+    else if(featureHandler.getType() == WALK)
+        setDirection(STOP);
+}
+
+void Enemy::moveRight(float ex, float px, Entity *target)
+{
+    FloatRect bounds = getGlobalBounds();
+    bounds.left += getFighterCharacteristics().getRangeHit();
+    if(px - ex < getFighterCharacteristics().getRangeHit() + target->getGlobalBounds().width && getFighterCharacteristics().canAtkPunch())
+    {
+        setDirection(STOP);
+        setOrientation(RIGHT);
+        attackPunch();
+    }
+    else if(px - ex < targetRange + target->getGlobalBounds().width && !colHandler->collisionWithEntity(this, bounds))
+    {
+        FloatRect boundsDown = getGlobalBounds();
+        boundsDown.top += 5;
+        boundsDown.left += getFighterCharacteristics().getRangeHit();;
+        if(colHandler->canMove(bounds) && !colHandler->canMove(boundsDown))
+            setDirection(RIGHT);
+        else
+            setDirection(STOP);
+    }
+    else if(featureHandler.getType() == WALK)
+        setDirection(STOP);
+}
+
