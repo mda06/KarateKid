@@ -10,7 +10,7 @@
 #include "Scene.h"
 #include <iostream>
 
-ScreenManager::ScreenManager() : curScreen(nullptr)
+ScreenManager::ScreenManager() : curScreen(nullptr), sceneCount(1)
 {}
 
 ScreenManager::~ScreenManager()
@@ -22,7 +22,6 @@ ScreenManager::~ScreenManager()
 void ScreenManager::addScreen(AbstractScreen* as, std::string key)
 {
     screens[key] = as;
-    setScreen(key);
 }
 
 void ScreenManager::handleInput(Event &event)
@@ -43,12 +42,19 @@ void ScreenManager::render(RenderTarget &rt)
 void ScreenManager::setScreen(std::string key)
 {
     AbstractScreen* tmp = curScreen;
+    std::string oldScreenKey = getCurrentScreenKey();
     if(curScreen != nullptr)
         curScreen->leave();
     
     curScreen = screens[key];
     if(curScreen != nullptr)
-        curScreen->enter();
+    {
+        std::string s = curScreen->getScreenManager()->getCurrentScreenKey();
+        if(s.find("menu") != -1)
+            curScreen->enter(oldScreenKey);
+        else
+            curScreen->enter();
+    }
     else
         curScreen = tmp;
 }
@@ -78,4 +84,16 @@ std::string ScreenManager::getCurrentScreenKey() const
 AbstractScreen *ScreenManager::getCurrentScreen()
 {
     return curScreen;
+}
+
+void ScreenManager::nextScene()
+{
+    sceneCount++;
+    initScenes();
+    setScreen("win");
+}
+
+int ScreenManager::getSceneCount()
+{
+    return sceneCount;
 }

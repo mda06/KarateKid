@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		22455D351C930A4B00C00560 /* potionEnergy.png in Resources */ = {isa = PBXBuildFile; fileRef = 22455D341C930A4B00C00560 /* potionEnergy.png */; };
+		2249639E1CA8524F0006DD62 /* menu-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2249639D1CA8524F0006DD62 /* menu-bg.jpg */; };
+		224963A21CA85CFF0006DD62 /* btnBgWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 224963A11CA85CFF0006DD62 /* btnBgWhite.png */; };
 		228DC5D61C9307040069D09D /* potionStrength.png in Resources */ = {isa = PBXBuildFile; fileRef = 228DC5D51C9307040069D09D /* potionStrength.png */; };
 		22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */; };
 		22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */; };
@@ -67,6 +69,8 @@
 
 /* Begin PBXFileReference section */
 		22455D341C930A4B00C00560 /* potionEnergy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionEnergy.png; sourceTree = "<group>"; };
+		2249639D1CA8524F0006DD62 /* menu-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "menu-bg.jpg"; sourceTree = "<group>"; };
+		224963A11CA85CFF0006DD62 /* btnBgWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnBgWhite.png; sourceTree = "<group>"; };
 		228DC5D51C9307040069D09D /* potionStrength.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionStrength.png; sourceTree = "<group>"; };
 		22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_couleur.png; sourceTree = "<group>"; };
 		22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_vide.png; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 		4C03E95C1C96CBA200E6EFB9 /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				224963A11CA85CFF0006DD62 /* btnBgWhite.png */,
+				2249639D1CA8524F0006DD62 /* menu-bg.jpg */,
 				4C03E9641C96D16D00E6EFB9 /* btnBg.png */,
 				4C03E9581C96C74000E6EFB9 /* HowToPlay.png */,
 				4C03E95A1C96CAF800E6EFB9 /* menuScreenBG.png */,
@@ -407,8 +413,10 @@
 				4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				4C50F2281C94556100C26618 /* potion.wav in Resources */,
+				224963A21CA85CFF0006DD62 /* btnBgWhite.png in Resources */,
 				4CEBB1CD1C9D915100393EB6 /* desert.txt in Resources */,
 				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,
+				2249639E1CA8524F0006DD62 /* menu-bg.jpg in Resources */,
 				4CC798BB1C8465B100C2CD96 /* blond.png in Resources */,
 				22455D351C930A4B00C00560 /* potionEnergy.png in Resources */,
 				4C9CDE2B1C899D8400693D5B /* forest_tile.png in Resources */,

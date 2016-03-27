@@ -29,6 +29,7 @@ public:
     bool clicked();
     void setScale(float x, float y);
     Sprite getSprite();
+    void setText(std::string txt);
     
 };
 

@@ -23,7 +23,7 @@ void WinScreen::handleInput(sf::Event &event)
     if(event.type == Event::KeyPressed)
     {
         screenManager->initScenes();
-        screenManager->setScreen("menu");
+        screenManager->setScreen("menuwon");
     }
 }
 

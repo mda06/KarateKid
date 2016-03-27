@@ -10,6 +10,7 @@
 #include "ResourcePath.hpp"
 #include "GameOverScreen.h"
 #include "WinScreen.h"
+#include "MenuScreen.h"
 
 Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/)
 {
@@ -22,7 +23,12 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     screenManager->addScreen(s, "scenedesert");
     screenManager->addScreen(new GameOverScreen(screenManager), "gameover");
     screenManager->addScreen(new WinScreen(screenManager), "win");
-    screenManager->addScreen(new MenuScreen(screenManager, &window), "menu");
+    screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::BEGIN), "menubegin");
+    screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::PAUSE), "menupause");
+    screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::WON), "menuwon");
+    screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::LOST), "menulost");
+    
+    screenManager->setScreen("menubegin");
     
     oldCurrScreenKey = "sceneforest";
 }
@@ -47,12 +53,12 @@ void Game::run()
             {
                 if(event.key.code == Keyboard::Escape)
                 {
-                    if(screenManager->getCurrentScreenKey() == "menu")
+                    if(screenManager->getCurrentScreenKey() == "menupause")
                         screenManager->setScreen(oldCurrScreenKey);
                     else
                     {
                         oldCurrScreenKey = screenManager->getCurrentScreenKey();
-                        screenManager->setScreen("menu");
+                        screenManager->setScreen("menupause");
                     }
                 }
                 if(event.key.code == Keyboard::Num1)

@@ -19,6 +19,8 @@ class ScreenManager
 private:
     std::map<std::string, AbstractScreen*> screens;
     AbstractScreen *curScreen;
+    int sceneCount;
+    
 public:
     ScreenManager();
     ~ScreenManager();
@@ -30,6 +32,8 @@ public:
     void initScenes();
     AbstractScreen *getCurrentScreen();
     std::string getCurrentScreenKey() const;
+    void nextScene();
+    int getSceneCount();
 };
 
 #endif /* defined(__KarateKid__ScreenManager__) */

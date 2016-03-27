@@ -26,7 +26,9 @@ public:
     virtual void update(Time time) = 0;
     virtual void render(RenderTarget &rt) = 0;
     virtual void enter();
+    virtual void enter(std::string osk);
     virtual void leave();
+    ScreenManager* getScreenManager();
 };
 
 #endif /* defined(__KarateKid__Screen__) */

@@ -18,5 +18,13 @@ AbstractScreen::~AbstractScreen()
 void AbstractScreen::enter()
 {}
 
+void AbstractScreen::enter(std::string osk)
+{}
+
 void AbstractScreen::leave()
 {}
+
+ScreenManager* AbstractScreen::getScreenManager()
+{
+    return screenManager;
+}
