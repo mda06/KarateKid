@@ -96,3 +96,8 @@ int ScreenManager::getSceneCount()
 {
     return sceneCount;
 }
+
+void ScreenManager::setSceneCount(int sc)
+{
+    sceneCount = sc;
+}

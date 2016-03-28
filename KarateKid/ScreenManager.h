@@ -34,6 +34,7 @@ public:
     std::string getCurrentScreenKey() const;
     void nextScene();
     int getSceneCount();
+    void setSceneCount(int sc);
 };
 
 #endif /* defined(__KarateKid__ScreenManager__) */

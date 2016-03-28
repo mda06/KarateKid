@@ -18,6 +18,8 @@
 		22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */; };
 		22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */; };
 		22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */; };
+		22C8EEB51CA96858002F3F5E /* theend.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C8EEB41CA96858002F3F5E /* theend.png */; };
+		22C8EEB71CA968DA002F3F5E /* EndScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22C8EEB61CA968DA002F3F5E /* EndScreen.cpp */; };
 		4C03E9571C96C67F00E6EFB9 /* MenuScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C03E9551C96C67F00E6EFB9 /* MenuScreen.cpp */; };
 		4C03E9591C96C74000E6EFB9 /* HowToPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C03E9581C96C74000E6EFB9 /* HowToPlay.png */; };
 		4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C03E95A1C96CAF800E6EFB9 /* menuScreenBG.png */; };
@@ -80,6 +82,9 @@
 		22BFCABA1C8E299B001A8E71 /* barre_hp_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_couleur.png; sourceTree = "<group>"; };
 		22BFCABB1C8E299B001A8E71 /* barre_hp_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_hp_vide.png; sourceTree = "<group>"; };
 		22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_force_vide.png; sourceTree = "<group>"; };
+		22C8EEB41CA96858002F3F5E /* theend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theend.png; sourceTree = "<group>"; };
+		22C8EEB61CA968DA002F3F5E /* EndScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EndScreen.cpp; sourceTree = "<group>"; };
+		22C8EEB81CA968F8002F3F5E /* EndScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EndScreen.h; sourceTree = "<group>"; };
 		4C03E9551C96C67F00E6EFB9 /* MenuScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScreen.cpp; sourceTree = "<group>"; };
 		4C03E9561C96C67F00E6EFB9 /* MenuScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScreen.h; sourceTree = "<group>"; };
 		4C03E9581C96C74000E6EFB9 /* HowToPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HowToPlay.png; sourceTree = "<group>"; };
@@ -257,6 +262,8 @@
 				4CA5324D1C84995D00550B05 /* tmx */,
 				4CFCA7571C9D6D790063D38D /* WinScreen.cpp */,
 				4CFCA7581C9D6D790063D38D /* WinScreen.h */,
+				22C8EEB61CA968DA002F3F5E /* EndScreen.cpp */,
+				22C8EEB81CA968F8002F3F5E /* EndScreen.h */,
 			);
 			path = KarateKid;
 			sourceTree = "<group>";
@@ -330,6 +337,7 @@
 		4CC798B81C8465B100C2CD96 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				22C8EEB41CA96858002F3F5E /* theend.png */,
 				4C7DF0E51C92DA0F00855472 /* potions */,
 				4CB1867C1C90721300640D99 /* gameOver.jpg */,
 				4CFCA75A1C9D6DDE0063D38D /* winScreenBG.png */,
@@ -416,6 +424,7 @@
 				4C03E9591C96C74000E6EFB9 /* HowToPlay.png in Resources */,
 				4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
+				22C8EEB51CA96858002F3F5E /* theend.png in Resources */,
 				4C50F2281C94556100C26618 /* potion.wav in Resources */,
 				224963A21CA85CFF0006DD62 /* btnBgWhite.png in Resources */,
 				4CEBB1CD1C9D915100393EB6 /* desert.txt in Resources */,
@@ -480,6 +489,7 @@
 				4C0B85EA1C97FF10005F71A1 /* Screen.cpp in Sources */,
 				4CDEFE281C8DE65A00DCCF17 /* GUIBar.cpp in Sources */,
 				4CA097E91C8F270700BD7238 /* Scene.cpp in Sources */,
+				22C8EEB71CA968DA002F3F5E /* EndScreen.cpp in Sources */,
 				4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */,
 				4CA5327D1C849DFB00550B05 /* pugixml.cpp in Sources */,
 				4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */,

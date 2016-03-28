@@ -23,9 +23,13 @@ void WinScreen::handleInput(sf::Event &event)
     if(event.type == Event::KeyPressed)
     {
         screenManager->initScenes();
-        screenManager->setScreen("menuwon");
+        if(screenManager->getSceneCount() < 3)
+            screenManager->setScreen("menuwon");
+        else
+            screenManager->setScreen("end");
     }
 }
+
 
 void WinScreen::update(sf::Time time)
 {}

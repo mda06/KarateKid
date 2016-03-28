@@ -136,6 +136,7 @@ void MenuScreen::update(Time time)
         switch (state)
         {
             case BEGIN:
+                screenManager->setSceneCount(1);
                 screenManager->setScreen("sceneforest");
                 break;
             case PAUSE:

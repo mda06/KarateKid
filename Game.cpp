@@ -11,6 +11,7 @@
 #include "GameOverScreen.h"
 #include "WinScreen.h"
 #include "MenuScreen.h"
+#include "EndScreen.h"
 
 Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/)
 {
@@ -23,6 +24,7 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     screenManager->addScreen(s, "scenedesert");
     screenManager->addScreen(new GameOverScreen(screenManager), "gameover");
     screenManager->addScreen(new WinScreen(screenManager), "win");
+    screenManager->addScreen(new EndScreen(screenManager), "end");
     screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::BEGIN), "menubegin");
     screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::PAUSE), "menupause");
     screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::WON), "menuwon");
@@ -64,12 +66,18 @@ void Game::run()
                 if(event.key.code == Keyboard::Num1)
                 {
                     if(screenManager->getCurrentScreenKey() != "sceneforest")
+                    {
                         screenManager->setScreen("sceneforest");
+                        screenManager->setSceneCount(1);
+                    }
                 }
                 if(event.key.code == Keyboard::Num2)
                 {
                     if(screenManager->getCurrentScreenKey() != "scenedesert")
+                    {
                         screenManager->setScreen("scenedesert");
+                        screenManager->setSceneCount(2);
+                    }
                 }
             }
           
