@@ -31,6 +31,12 @@ void ScreenManager::handleInput(Event &event)
 
 void ScreenManager::update(Time time)
 {
+    /*
+    if(getCurrentScreenKey() == "sceneforest")
+        sceneCount = 1;
+    else if(getCurrentScreenKey() == "scenedesert")
+        sceneCount = 2;
+    */
     curScreen->update(time);
 }
 
@@ -42,19 +48,12 @@ void ScreenManager::render(RenderTarget &rt)
 void ScreenManager::setScreen(std::string key)
 {
     AbstractScreen* tmp = curScreen;
-    std::string oldScreenKey = getCurrentScreenKey();
     if(curScreen != nullptr)
         curScreen->leave();
     
     curScreen = screens[key];
     if(curScreen != nullptr)
-    {
-        std::string s = curScreen->getScreenManager()->getCurrentScreenKey();
-        if(s.find("menu") != -1)
-            curScreen->enter(oldScreenKey);
-        else
             curScreen->enter();
-    }
     else
         curScreen = tmp;
 }

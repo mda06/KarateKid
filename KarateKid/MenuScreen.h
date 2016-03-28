@@ -34,7 +34,7 @@ public:
     void handleInput(Event &event);
     void update(Time time);
     void render(RenderTarget &rt);
-    void enter(std::string osk);
+    void enter();
     void init();
     
 };

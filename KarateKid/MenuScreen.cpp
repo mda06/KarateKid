@@ -11,7 +11,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-MenuScreen::MenuScreen(ScreenManager *sm, Window *w, MenuState state) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "btnBgWhite.png", "Play"), btnHowTo(Vector2f(320, 260), resourcePath() + "btnBgWhite.png", "How"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return"), btnExit(Vector2f(320, 340), resourcePath() + "btnBgWhite.png", "Exit"), firstIndex(1), lastIndex(3), index(1), focus(false), state(state)
+MenuScreen::MenuScreen(ScreenManager *sm, Window *w, MenuState state) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "buttonbg.png", "Play"), btnHowTo(Vector2f(320, 260), resourcePath() + "buttonbg.png", "Help"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return"), btnExit(Vector2f(320, 340), resourcePath() + "buttonbg.png", "Exit"), firstIndex(1), lastIndex(3), index(1), focus(false), state(state)
 {
     if(!textHowToPlay.loadFromFile(resourcePath() + "HowToPlay.png"))
         std::cout << "Can't load howtoplay.png" << std::endl;
@@ -139,13 +139,20 @@ void MenuScreen::update(Time time)
                 screenManager->setScreen("sceneforest");
                 break;
             case PAUSE:
-                screenManager->setScreen(oldScreenKey);
-                break;
             case WON:
-                screenManager->setScreen("scenedesert");
-                break;
             case LOST:
-                screenManager->setScreen("sceneforest");
+                switch(screenManager->getSceneCount())
+                {
+                    case 1:
+                        screenManager->setScreen("sceneforest");
+                        break;
+                    case 2:
+                        screenManager->setScreen("scenedesert");
+                        break;
+                    default:
+                        screenManager->setScreen("sceneforest");
+                        break;
+                }
                 break;
         }
     }
@@ -169,10 +176,8 @@ void MenuScreen::render(RenderTarget &rt)
     }
 }
 
-void MenuScreen::enter(std::string osk)
+void MenuScreen::enter()
 {
-    oldScreenKey = osk;
-    std::cout << "osk: " << osk << std::endl;
     init();
 }
 
