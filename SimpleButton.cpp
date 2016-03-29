@@ -26,7 +26,7 @@ SimpleButton::SimpleButton(Vector2f pos, std::string path, std::string txt)
     text.setCharacterSize(30);
     text.setColor(Color::Black);
     text.setString(txt);
-    text.setPosition(pos.x - text.getGlobalBounds().width / 2, pos.y - text.getGlobalBounds().height / 2);
+    text.setPosition(pos.x + 5 - text.getGlobalBounds().width / 2, pos.y - text.getGlobalBounds().height / 2);
     
     isClicked = false;
 }

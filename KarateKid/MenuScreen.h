@@ -17,7 +17,7 @@ class MenuScreen : public AbstractScreen
 public:
     enum MenuState {BEGIN, PAUSE, WON, LOST};
 private:
-    Window *window;
+    RenderWindow *window;
     SimpleButton btnPlay, btnHowTo, btnExit, btnReturn;
     Texture textHowToPlay, textBG;
     Sprite sprHowToPlay, sprBG;
@@ -30,7 +30,7 @@ private:
     std::string oldScreenKey;
     
 public:
-    MenuScreen(ScreenManager* sm, Window* w, MenuState state);
+    MenuScreen(ScreenManager* sm, RenderWindow* w, MenuState state);
     void handleInput(Event &event);
     void update(Time time);
     void render(RenderTarget &rt);

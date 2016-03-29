@@ -11,7 +11,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-MenuScreen::MenuScreen(ScreenManager *sm, Window *w, MenuState state) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "buttonbg.png", "Play"), btnHowTo(Vector2f(320, 260), resourcePath() + "buttonbg.png", "Help"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return"), btnExit(Vector2f(320, 340), resourcePath() + "buttonbg.png", "Exit"), firstIndex(1), lastIndex(3), index(1), focus(false), state(state)
+MenuScreen::MenuScreen(ScreenManager *sm, RenderWindow *w, MenuState state) : AbstractScreen(sm), renderHowToPlay(false), btnPlay(Vector2f(320, 180), resourcePath() + "buttonbg.png", "Play"), btnHowTo(Vector2f(320, 260), resourcePath() + "buttonbg.png", "Help"), btnReturn(Vector2f(550, 340), resourcePath() + "btnBg.png", "Return"), btnExit(Vector2f(320, 340), resourcePath() + "buttonbg.png", "Exit"), firstIndex(1), lastIndex(3), index(1), focus(false), state(state)
 {
     if(!textHowToPlay.loadFromFile(resourcePath() + "HowToPlay.png"))
         std::cout << "Can't load howtoplay.png" << std::endl;
@@ -53,7 +53,7 @@ MenuScreen::MenuScreen(ScreenManager *sm, Window *w, MenuState state) : Abstract
             break;
     }
 
-    text.setPosition(320 - text.getGlobalBounds().width / 2, 80 - text.getGlobalBounds().height / 2);
+    text.setPosition(320 - text.getGlobalBounds().width / 2, 60 - text.getGlobalBounds().height / 2);
     
     window = w;
  }
@@ -73,7 +73,7 @@ void MenuScreen::handleInput(sf::Event &event)
         }
         else if (event.type == sf::Event::MouseMoved)
         {
-            if(btnReturn.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            if(btnReturn.getSprite().getGlobalBounds().contains(window->mapPixelToCoords(Mouse::getPosition(*window))))
                 focus = true;
             else focus = false;
         }
@@ -101,11 +101,11 @@ void MenuScreen::handleInput(sf::Event &event)
         }
         else if(event.type == Event::MouseMoved)
         {
-            if(btnPlay.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            if(btnPlay.getSprite().getGlobalBounds().contains(window->mapPixelToCoords(Mouse::getPosition(*window))))
                 index = 1;
-            else if(btnHowTo.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            else if(btnHowTo.getSprite().getGlobalBounds().contains(window->mapPixelToCoords(Mouse::getPosition(*window))))
                 index = 2;
-            else if(btnExit.getSprite().getGlobalBounds().contains(Vector2f(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)))
+            else if(btnExit.getSprite().getGlobalBounds().contains(window->mapPixelToCoords(Mouse::getPosition(*window))))
                 index = 3;
             else index = 0;
         }
