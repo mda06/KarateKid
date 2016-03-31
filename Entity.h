@@ -47,7 +47,7 @@ protected:
     float checkColY(float dt);
     
 public:
-    Entity(CollisionHandler *col, Vector2f pos, Vector2f size, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enableFootAtk = false);
+    Entity(CollisionHandler *col, Vector2f pos, Vector2f size, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enemy, bool enableFootAtk = false);
     void init();
     virtual void update(Time time);
     void render(RenderTarget &rt);

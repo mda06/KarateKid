@@ -10,10 +10,18 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-FeatureHandler::FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown): size(size), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false), fighterChar(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown)
+FeatureHandler::FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enemy): size(size), type(IDLE), animatedSprite(seconds(1)), isAnimDeadFinished(false), fighterChar(maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown), enemy(enemy)
 {
-    if(!texture.loadFromFile(resourcePath() + "blond.png"))
-        std::cout << "Failed to load texture in AnimationHandler" << std::endl;
+    if(!enemy)
+    {
+        if(!texture.loadFromFile(resourcePath() + "blond.png"))
+            std::cout << "Failed to load texture in AnimationHandler" << std::endl;
+    }
+    else
+    {
+        if(!texture.loadFromFile(resourcePath() + "brun.png"))
+            std::cout << "Failed to load texture in AnimationHandler" << std::endl;
+    }
     
     texture.setSmooth(true);
    

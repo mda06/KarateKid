@@ -95,7 +95,7 @@ void Scene::initEnemies()
             }
             enemies.push_back(new Enemy(colHandler, Vector2f(x, y), health, maxStrength, 1.5f, 1.5f, 1.5f, entitySize));
             enemies.back()->init();
-            enemies.back()->setColor(Color::Magenta);
+            //enemies.back()->setColor(Color::Magenta);
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();

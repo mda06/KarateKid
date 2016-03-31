@@ -29,9 +29,10 @@ private:
     Vector2f size;
     FighterCharacteristics fighterChar;
     bool isAnimDeadFinished;
+    bool enemy;
     
 public:
-    FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown);
+    FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enemy);
     void update(Time time);
     void setType(AnimationType type, Entity* launcher = NULL, Entity* receiver = NULL);
     void move(Vector2f move);
