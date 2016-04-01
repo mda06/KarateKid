@@ -57,6 +57,9 @@ void Scene::init()
     mapView.reset(FloatRect(0, 0, 640, 480));
     hudView.reset(FloatRect(0, 0, 640, 480));
     
+    if(mapName.find("desert") != -1)
+        mapView.zoom(1.7);
+    
     player->init();
     initEnemies();
     
