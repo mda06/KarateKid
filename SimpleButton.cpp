@@ -23,7 +23,7 @@ SimpleButton::SimpleButton(Vector2f pos, std::string path, std::string txt)
     if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
         std::cout << "Can't load font !" << std::endl;
     text.setFont(font);
-    text.setCharacterSize(30);
+    text.setCharacterSize(25);
     text.setColor(Color::Black);
     text.setString(txt);
     text.setPosition(pos.x + 5 - text.getGlobalBounds().width / 2, pos.y - text.getGlobalBounds().height / 2);
