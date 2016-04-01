@@ -16,6 +16,8 @@ class WinScreen : public AbstractScreen
 private:
     Texture txtWin;
     Sprite sprWin;
+    Font font;
+    Text text1, text2;
     
 public:
     WinScreen(ScreenManager* sm);

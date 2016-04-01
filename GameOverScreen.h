@@ -16,6 +16,8 @@ class GameOverScreen : public AbstractScreen
 private:
     Texture txtGameOver;
     Sprite sprGameOver;
+    Font font;
+    Text game, over;
     
 public:
     GameOverScreen(ScreenManager* sm);

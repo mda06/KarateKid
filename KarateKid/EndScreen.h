@@ -16,6 +16,8 @@ class EndScreen : public AbstractScreen
 private:
     Texture txtEnd;
     Sprite sprEnd;
+    Font font;
+    Text text;
     
 public:
     EndScreen(ScreenManager* sm);

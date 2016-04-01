@@ -79,6 +79,14 @@ void Game::run()
                         screenManager->setSceneCount(2);
                     }
                 }
+                if(event.key.code == Keyboard::Num0)
+                {
+                    screenManager->setScreen("end");
+                }
+                if(event.key.code == Keyboard::Num9)
+                {
+                    screenManager->setScreen("win");
+                }
             }
           
             screenManager->handleInput(event);
