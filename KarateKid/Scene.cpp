@@ -137,13 +137,22 @@ void Scene::handleInput(Event &event)
     
     if(event.type == Event::Resized)
     {
-        /*std::cout << mapView.getSize().x << ", " << mapView.getSize().y << std::endl;
+        float aspectRatio = (float) event.size.height / (float) mapView.getSize().y;
         
-        std::cout << "\tRatio: " << aspectRatio << std::endl;*/
-        //mapView.setSize(event.size.width * aspectRatio * 1.3f, event.size.height * aspectRatio);
-        //float aspectRatio = (float) event.size.width / (float) event.size.height;
-        //float y = event.size.height;
+        /*
+        std::cout << "map : " << mapView.getSize().x << ", " << mapView.getSize().y << std::endl;
+        std::cout << "HUD : " << hudView.getSize().x << ", " << hudView.getSize().y << std::endl;
+        std::cout << "event : " << event.size.width << ", " << event.size.height << std::endl;
+        std::cout << "\tRatio: " << aspectRatio << std::endl;
+        */
+        /*
+        mapView.setSize(event.size.width * aspectRatio * 1.3f, event.size.height * aspectRatio);
+        float y = event.size.height;
         mapView.setSize(event.size.width, mapView.getSize().y);
+        mapView.setSize(event.size.width, event.size.height);
+        */
+        
+        mapView.setSize(event.size.width / aspectRatio, mapView.getSize().y);
     }
 }
 
