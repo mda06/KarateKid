@@ -15,7 +15,7 @@
 #include "ResourcePath.hpp"
 #include "ScreenManager.h"
 
-Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize) : AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize)
+Scene::Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize)
 {
     colHandler = new CollisionHandler(this);
     player = new Player(colHandler, pos, entitySize);
@@ -26,6 +26,13 @@ Scene::Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Ve
     txtPosition.setCharacterSize(20);
     
     srand(time(NULL));
+    
+    view = FloatRect(0, 0, 640, 480);
+    mapView.reset(view);
+    hudView.reset(FloatRect(0, 0, 640, 480));
+    
+    if(mapName.find("desert") != -1)
+        mapView.zoom(1.7);
     
     std::cout << "Loading map... " << ml.Load(mapName) << std::endl;;
     //Change with quadtree for optimisation and don't update enemies not in the range of the rect
@@ -54,12 +61,6 @@ Scene::~Scene()
 
 void Scene::init()
 {
-    mapView.reset(FloatRect(0, 0, 640, 480));
-    hudView.reset(FloatRect(0, 0, 640, 480));
-    
-    if(mapName.find("desert") != -1)
-        mapView.zoom(1.7);
-    
     player->init();
     initEnemies();
     
@@ -155,6 +156,7 @@ void Scene::handleInput(Event &event)
         mapView.setSize(event.size.width, event.size.height);
         */
         
+        view = FloatRect(0, 0, event.size.width / aspectRatio, mapView.getSize().y);
         mapView.setSize(event.size.width / aspectRatio, mapView.getSize().y);
     }
 }
@@ -290,4 +292,11 @@ void Scene::addText(String txt, Vector2f pos)
 {
     textInfo.push_back(new Text(txt, font, 15));
     textInfo[textInfo.size() - 1]->setPosition(pos);
+}
+
+void Scene::enter()
+{
+    float aspectRatio = (float) window->getSize().y / (float) mapView.getSize().y;
+    view = FloatRect(0, 0, window->getSize().x / aspectRatio, mapView.getSize().y);
+    mapView.setSize(window->getSize().x / aspectRatio, mapView.getSize().y);
 }

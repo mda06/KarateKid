@@ -39,9 +39,11 @@ private:
     void addGameObject(Vector2f pos, bool boss);
     std::vector<Text*> textInfo;
     Vector2f entitySize;
+    FloatRect view;
+    RenderWindow *window;
 
 public:
-    Scene(ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize);
+    Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize);
     virtual ~Scene();
     void init();
     void handleInput(Event &event);
@@ -51,6 +53,8 @@ public:
     Player* getPlayer();
     std::vector<GameObject*> getGameObjects();
     void addText(String txt, Vector2f pos);
+    void enter();
+    
 };
 
 #endif /* defined(__KarateKid__Scene__) */
