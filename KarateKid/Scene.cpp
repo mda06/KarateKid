@@ -291,4 +291,47 @@ void Scene::enter()
         view = FloatRect(0, 0, window->getSize().x / aspectRatio, mapView.getSize().y);
         mapView.setSize(window->getSize().x / aspectRatio, mapView.getSize().y);
     }
+    else
+    {
+        timer();
+    }
+}
+
+void Scene::timer()
+{
+    bool stop = false;
+    Clock clock;
+
+    txtTimer.setString("3");
+    txtTimer.setFont(font);
+    txtTimer.setPosition(320 - txtTimer.getGlobalBounds().width / 2, 240 - txtTimer.getGlobalBounds().height/2);
+    txtTimer.setCharacterSize(100);
+    
+    init();
+    window->clear();
+    render(*window);
+    window->draw(txtTimer);
+    window->display();
+    
+    clock.restart();
+    while(!stop)
+    {
+        Time ellapsed = clock.getElapsedTime();
+        
+        if(ellapsed.asSeconds() >= 4)
+            stop = true;
+        else if(ellapsed.asSeconds() >= 3)
+            txtTimer.setString("Fight");
+        else if(ellapsed.asSeconds() >= 2)
+            txtTimer.setString("1");
+        else if(ellapsed.asSeconds() >= 1)
+            txtTimer.setString("2");
+        
+        txtTimer.setPosition(320 - txtTimer.getGlobalBounds().width / 2, 240 - txtTimer.getGlobalBounds().height/2);
+        
+        window->clear();
+        render(*window);
+        window->draw(txtTimer);
+        window->display();
+    }
 }

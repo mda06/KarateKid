@@ -33,7 +33,7 @@ private:
     std::string enemiesFile, mapName;
     std::vector<Enemy*> enemies;
     Font font;
-    Text txtPosition;
+    Text txtPosition, txtTimer;
     Keyboard::Key keyBlock;
     std::vector<GameObject*> gameObjects;
     void addGameObject(Vector2f pos, bool boss);
@@ -55,6 +55,7 @@ public:
     std::vector<GameObject*> getGameObjects();
     void addText(String txt, Vector2f pos);
     void enter();
+    void timer();
     
 };
 
