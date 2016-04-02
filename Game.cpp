@@ -48,6 +48,10 @@ void Game::run()
     while (window.isOpen())
     {
         Time ellapsed = clock.restart();
+        //Bug when resing the window, the time that we drag will increase ellapsed and the player get than a to big delta value for the formulas...
+        if(ellapsed.asSeconds() > .005f)
+            ellapsed = clock.restart();
+        
         while (window.pollEvent(event))
         {
             if(event.type == sf::Event::Closed) window.close();
@@ -91,7 +95,7 @@ void Game::run()
           
             screenManager->handleInput(event);
         }
-     
+        
         screenManager->update(ellapsed);
         
         window.clear();
