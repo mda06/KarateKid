@@ -150,6 +150,9 @@ void MenuScreen::update(Time time)
                     case 2:
                         screenManager->setScreen("scenedesert");
                         break;
+                    case 3:
+                        screenManager->setScreen("scenefinal");
+                        break;
                     default:
                         screenManager->setScreen("sceneforest");
                         break;

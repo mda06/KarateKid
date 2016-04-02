@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		22455D351C930A4B00C00560 /* potionEnergy.png in Resources */ = {isa = PBXBuildFile; fileRef = 22455D341C930A4B00C00560 /* potionEnergy.png */; };
 		2249639E1CA8524F0006DD62 /* menu-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2249639D1CA8524F0006DD62 /* menu-bg.jpg */; };
-		224963A21CA85CFF0006DD62 /* btnBgWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 224963A11CA85CFF0006DD62 /* btnBgWhite.png */; };
+		22686CC11CB04F7400EAA31D /* final.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22686CBE1CB04F7400EAA31D /* final.txt */; };
+		22686CC31CB04F7400EAA31D /* final.png in Resources */ = {isa = PBXBuildFile; fileRef = 22686CC01CB04F7400EAA31D /* final.png */; };
+		22686CC51CB05A9200EAA31D /* final.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 22686CC41CB05A9200EAA31D /* final.tmx */; };
 		2286A2A01CA95F8200A78465 /* buttonbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2286A29F1CA95F8200A78465 /* buttonbg.png */; };
 		228DC5D61C9307040069D09D /* potionStrength.png in Resources */ = {isa = PBXBuildFile; fileRef = 228DC5D51C9307040069D09D /* potionStrength.png */; };
 		22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */; };
@@ -74,7 +76,9 @@
 /* Begin PBXFileReference section */
 		22455D341C930A4B00C00560 /* potionEnergy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionEnergy.png; sourceTree = "<group>"; };
 		2249639D1CA8524F0006DD62 /* menu-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "menu-bg.jpg"; sourceTree = "<group>"; };
-		224963A11CA85CFF0006DD62 /* btnBgWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnBgWhite.png; sourceTree = "<group>"; };
+		22686CBE1CB04F7400EAA31D /* final.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = final.txt; sourceTree = "<group>"; };
+		22686CC01CB04F7400EAA31D /* final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = final.png; sourceTree = "<group>"; };
+		22686CC41CB05A9200EAA31D /* final.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = final.tmx; sourceTree = "<group>"; };
 		2286A29F1CA95F8200A78465 /* buttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg.png; sourceTree = "<group>"; };
 		228DC5D51C9307040069D09D /* potionStrength.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionStrength.png; sourceTree = "<group>"; };
 		22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_couleur.png; sourceTree = "<group>"; };
@@ -189,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				2286A29F1CA95F8200A78465 /* buttonbg.png */,
-				224963A11CA85CFF0006DD62 /* btnBgWhite.png */,
 				2249639D1CA8524F0006DD62 /* menu-bg.jpg */,
 				4C03E9641C96D16D00E6EFB9 /* btnBg.png */,
 				4C03E9581C96C74000E6EFB9 /* HowToPlay.png */,
@@ -304,6 +307,9 @@
 		4C9CDE281C899D8400693D5B /* map */ = {
 			isa = PBXGroup;
 			children = (
+				22686CC41CB05A9200EAA31D /* final.tmx */,
+				22686CBE1CB04F7400EAA31D /* final.txt */,
+				22686CC01CB04F7400EAA31D /* final.png */,
 				4CEBB1D41C9D9D5D00393EB6 /* desert.tmx */,
 				4CEBB1C81C9D90C800393EB6 /* tilesetDesertGlued.png */,
 				4C1F10AB1C8B19070062A96D /* forest.txt */,
@@ -413,10 +419,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */,
+				22686CC11CB04F7400EAA31D /* final.txt in Resources */,
 				22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */,
 				4CFCA7531C9D67FD0063D38D /* potionKey.png in Resources */,
 				2286A2A01CA95F8200A78465 /* buttonbg.png in Resources */,
 				4CA097EB1C8F328300BD7238 /* forest.tmx in Resources */,
+				22686CC51CB05A9200EAA31D /* final.tmx in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
 				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,
 				4CEBB1D51C9D9D5D00393EB6 /* desert.tmx in Resources */,
@@ -429,7 +437,6 @@
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				22C8EEB51CA96858002F3F5E /* theend.png in Resources */,
 				4C50F2281C94556100C26618 /* potion.wav in Resources */,
-				224963A21CA85CFF0006DD62 /* btnBgWhite.png in Resources */,
 				4CEBB1CD1C9D915100393EB6 /* desert.txt in Resources */,
 				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,
 				2249639E1CA8524F0006DD62 /* menu-bg.jpg in Resources */,
@@ -442,6 +449,7 @@
 				228DC5D61C9307040069D09D /* potionStrength.png in Resources */,
 				4C1F10AC1C8B19070062A96D /* forest.txt in Resources */,
 				4CB1867D1C90721300640D99 /* gameOver.jpg in Resources */,
+				22686CC31CB04F7400EAA31D /* final.png in Resources */,
 				4C03E9651C96D16D00E6EFB9 /* btnBg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
