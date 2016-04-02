@@ -41,9 +41,10 @@ private:
     Vector2f entitySize;
     FloatRect view;
     RenderWindow *window;
+    bool fixed;
 
 public:
-    Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize);
+    Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed = false);
     virtual ~Scene();
     void init();
     void handleInput(Event &event);

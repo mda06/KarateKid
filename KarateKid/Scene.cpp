@@ -15,7 +15,7 @@
 #include "ResourcePath.hpp"
 #include "ScreenManager.h"
 
-Scene::Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize)
+Scene::Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize), fixed(fixed)
 {
     colHandler = new CollisionHandler(this);
     player = new Player(colHandler, pos, entitySize);
@@ -141,23 +141,12 @@ void Scene::handleInput(Event &event)
     
     if(event.type == Event::Resized)
     {
-        float aspectRatio = (float) event.size.height / (float) mapView.getSize().y;
-        
-        /*
-        std::cout << "map : " << mapView.getSize().x << ", " << mapView.getSize().y << std::endl;
-        std::cout << "HUD : " << hudView.getSize().x << ", " << hudView.getSize().y << std::endl;
-        std::cout << "event : " << event.size.width << ", " << event.size.height << std::endl;
-        std::cout << "\tRatio: " << aspectRatio << std::endl;
-        */
-        /*
-        mapView.setSize(event.size.width * aspectRatio * 1.3f, event.size.height * aspectRatio);
-        float y = event.size.height;
-        mapView.setSize(event.size.width, mapView.getSize().y);
-        mapView.setSize(event.size.width, event.size.height);
-        */
-        
-        view = FloatRect(0, 0, event.size.width / aspectRatio, mapView.getSize().y);
-        mapView.setSize(event.size.width / aspectRatio, mapView.getSize().y);
+        if(!fixed)
+        {
+            float aspectRatio = (float) event.size.height / (float) mapView.getSize().y;
+            view = FloatRect(0, 0, event.size.width / aspectRatio, mapView.getSize().y);
+            mapView.setSize(event.size.width / aspectRatio, mapView.getSize().y);
+        }
     }
 }
 
@@ -296,7 +285,10 @@ void Scene::addText(String txt, Vector2f pos)
 
 void Scene::enter()
 {
-    float aspectRatio = (float) window->getSize().y / (float) mapView.getSize().y;
-    view = FloatRect(0, 0, window->getSize().x / aspectRatio, mapView.getSize().y);
-    mapView.setSize(window->getSize().x / aspectRatio, mapView.getSize().y);
+    if(!fixed)
+    {
+        float aspectRatio = (float) window->getSize().y / (float) mapView.getSize().y;
+        view = FloatRect(0, 0, window->getSize().x / aspectRatio, mapView.getSize().y);
+        mapView.setSize(window->getSize().x / aspectRatio, mapView.getSize().y);
+    }
 }
