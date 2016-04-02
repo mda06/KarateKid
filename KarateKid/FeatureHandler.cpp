@@ -197,3 +197,8 @@ AnimatedSprite &FeatureHandler::getSprite()
 {
     return animatedSprite;
 }
+
+Vector2f FeatureHandler::getSize()
+{
+    return size;
+}

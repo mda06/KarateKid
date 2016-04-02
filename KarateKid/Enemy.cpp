@@ -10,17 +10,22 @@
 
 Enemy::Enemy(CollisionHandler * col, Vector2f pos, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, Vector2f size) : Entity(col, pos, size, false, maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown, true), targetRange(50)
 {
-    
     setMaxVel(Vector2f(250, 250));
     setAccel(Vector2f(200, 450));
     deccel = Vector2f(500, 250);
+    
+    setOrientation(LEFT);
 }
 
 
 void Enemy::update(Time time)
 {
+    Vector2f newPos = getPosition();
+    if(featureHandler.getSize().y > 48)
+        newPos.y -= featureHandler.getSize().y - 48 - 20;
+    
     Entity::update(time);
-    gbHealth.setPosition(getPosition());
+    gbHealth.setPosition(newPos);
 }
 
 void Enemy::updateTarget(Entity *target)

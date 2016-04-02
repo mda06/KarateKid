@@ -35,7 +35,7 @@ GUIBar::GUIBar(std::string pathBack, std::string pathFront, Vector2f pos, int mw
     if(!withBack)
     {
         spriteFront.setScale(0.5, 1);
-        spriteFront.setPosition(pos.x - (maxWidth / 4), pos.y - 30);
+        setPosition(pos);
     }
     else
         spriteFront.setPosition(pos.x + 22, pos.y + 6);
@@ -55,7 +55,7 @@ void GUIBar::setWithBack(bool b)
 
 void GUIBar::setPosition(Vector2f pos)
 {
-    spriteFront.setPosition(pos.x - (maxWidth / 4), pos.y - 30);
+    spriteFront.setPosition(pos.x - (maxWidth / 4), pos.y - 40);
 }
 
 void GUIBar::draw(RenderTarget &rt)

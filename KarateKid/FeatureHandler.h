@@ -44,6 +44,8 @@ public:
     Vector2f getPosition() const;
     bool isAnimationFinished() const;
     FighterCharacteristics& getFighterCharacteristics();
+    Vector2f getSize();
+    
 };
 
 #endif /* defined(__KarateKid__AnimationHandler__) */
