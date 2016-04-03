@@ -22,6 +22,9 @@
 		22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAC21C8E2E1F001A8E71 /* barre_force_vide.png */; };
 		22C8EEB51CA96858002F3F5E /* theend.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C8EEB41CA96858002F3F5E /* theend.png */; };
 		22C8EEB71CA968DA002F3F5E /* EndScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22C8EEB61CA968DA002F3F5E /* EndScreen.cpp */; };
+		22DE49921CB1995200C50DBE /* beach.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22DE498F1CB1995200C50DBE /* beach.txt */; };
+		22DE49931CB1995200C50DBE /* beach.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 22DE49901CB1995200C50DBE /* beach.tmx */; };
+		22DE49941CB1995200C50DBE /* tilesetBeachGlued.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DE49911CB1995200C50DBE /* tilesetBeachGlued.png */; };
 		22EF980E1CADC51500EE2AE9 /* brun.png in Resources */ = {isa = PBXBuildFile; fileRef = 22EF980D1CADC51500EE2AE9 /* brun.png */; };
 		4C03E9571C96C67F00E6EFB9 /* MenuScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C03E9551C96C67F00E6EFB9 /* MenuScreen.cpp */; };
 		4C03E9591C96C74000E6EFB9 /* HowToPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C03E9581C96C74000E6EFB9 /* HowToPlay.png */; };
@@ -90,6 +93,9 @@
 		22C8EEB41CA96858002F3F5E /* theend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theend.png; sourceTree = "<group>"; };
 		22C8EEB61CA968DA002F3F5E /* EndScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EndScreen.cpp; sourceTree = "<group>"; };
 		22C8EEB81CA968F8002F3F5E /* EndScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EndScreen.h; sourceTree = "<group>"; };
+		22DE498F1CB1995200C50DBE /* beach.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = beach.txt; sourceTree = "<group>"; };
+		22DE49901CB1995200C50DBE /* beach.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = beach.tmx; sourceTree = "<group>"; };
+		22DE49911CB1995200C50DBE /* tilesetBeachGlued.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilesetBeachGlued.png; sourceTree = "<group>"; };
 		22EF980D1CADC51500EE2AE9 /* brun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brun.png; sourceTree = "<group>"; };
 		4C03E9551C96C67F00E6EFB9 /* MenuScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScreen.cpp; sourceTree = "<group>"; };
 		4C03E9561C96C67F00E6EFB9 /* MenuScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScreen.h; sourceTree = "<group>"; };
@@ -307,6 +313,9 @@
 		4C9CDE281C899D8400693D5B /* map */ = {
 			isa = PBXGroup;
 			children = (
+				22DE498F1CB1995200C50DBE /* beach.txt */,
+				22DE49901CB1995200C50DBE /* beach.tmx */,
+				22DE49911CB1995200C50DBE /* tilesetBeachGlued.png */,
 				22686CC41CB05A9200EAA31D /* final.tmx */,
 				22686CBE1CB04F7400EAA31D /* final.txt */,
 				22686CC01CB04F7400EAA31D /* final.png */,
@@ -418,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DE49921CB1995200C50DBE /* beach.txt in Resources */,
 				22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */,
 				22686CC11CB04F7400EAA31D /* final.txt in Resources */,
 				22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */,
@@ -427,6 +437,7 @@
 				22686CC51CB05A9200EAA31D /* final.tmx in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
 				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,
+				22DE49941CB1995200C50DBE /* tilesetBeachGlued.png in Resources */,
 				4CEBB1D51C9D9D5D00393EB6 /* desert.tmx in Resources */,
 				4CFCA75B1C9D6DDE0063D38D /* winScreenBG.png in Resources */,
 				4CD76A601C92249A008D70DF /* punch.wav in Resources */,
@@ -436,6 +447,7 @@
 				4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
 				22C8EEB51CA96858002F3F5E /* theend.png in Resources */,
+				22DE49931CB1995200C50DBE /* beach.tmx in Resources */,
 				4C50F2281C94556100C26618 /* potion.wav in Resources */,
 				4CEBB1CD1C9D915100393EB6 /* desert.txt in Resources */,
 				22BFCAC31C8E2E1F001A8E71 /* barre_force_vide.png in Resources */,

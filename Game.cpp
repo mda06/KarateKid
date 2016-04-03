@@ -25,6 +25,10 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     s->init();
     screenManager->addScreen(s, "scenedesert");
     
+    s = new Scene(&window, screenManager, resourcePath() + "beach.txt", "beach.tmx", Vector2f(40, 80), Vector2f(48, 48));
+    s->init();
+    screenManager->addScreen(s, "scenebeach");
+    
     s = new Scene(&window, screenManager, resourcePath() + "final.txt", "final.tmx", Vector2f(80, 363), Vector2f(100, 100), true);
     s->init();
     screenManager->addScreen(s, "scenefinal");
@@ -92,10 +96,18 @@ void Game::run()
                 }
                 if(event.key.code == Keyboard::Num3)
                 {
+                    if(screenManager->getCurrentScreenKey() != "scenebeach")
+                    {
+                        screenManager->setScreen("scenebeach");
+                        screenManager->setSceneCount(3);
+                    }
+                }
+                if(event.key.code == Keyboard::Num4)
+                {
                     if(screenManager->getCurrentScreenKey() != "scenefinal")
                     {
                         screenManager->setScreen("scenefinal");
-                        screenManager->setSceneCount(3);
+                        screenManager->setSceneCount(4);
                     }
                 }
                 if(event.key.code == Keyboard::Num0)

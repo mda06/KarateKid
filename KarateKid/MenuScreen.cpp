@@ -151,6 +151,9 @@ void MenuScreen::update(Time time)
                         screenManager->setScreen("scenedesert");
                         break;
                     case 3:
+                        screenManager->setScreen("scenebeach");
+                        break;
+                    case 4:
                         screenManager->setScreen("scenefinal");
                         break;
                     default:
