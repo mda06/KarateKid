@@ -35,6 +35,8 @@ public:
     void nextScene();
     int getSceneCount();
     void setSceneCount(int sc);
+    int getTotalScenes();
+    
 };
 
 #endif /* defined(__KarateKid__ScreenManager__) */

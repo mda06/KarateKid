@@ -101,3 +101,16 @@ void ScreenManager::setSceneCount(int sc)
 {
     sceneCount = sc;
 }
+
+int ScreenManager::getTotalScenes()
+{
+    int count = 0;
+    
+    for(auto it = screens.begin();it != screens.end(); ++it)
+    {
+        if(it->first.find("scene") != -1)
+            count++;
+    }
+    
+    return count;
+}
