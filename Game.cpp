@@ -25,7 +25,7 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     s->init();
     screenManager->addScreen(s, "scenedesert");
     
-    s = new Scene(&window, screenManager, resourcePath() + "beach.txt", "beach.tmx", Vector2f(40, 80), Vector2f(48, 48));
+    s = new Scene(&window, screenManager, resourcePath() + "plage.txt", "plage.tmx", Vector2f(40, 80), Vector2f(48, 48));
     s->init();
     screenManager->addScreen(s, "scenebeach");
     
