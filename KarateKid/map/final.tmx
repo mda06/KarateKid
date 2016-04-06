@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="2">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="5">
  <tileset firstgid="1" name="final" tilewidth="16" tileheight="16" tilecount="1200" columns="40">
-  <image source="../Documents/School/KarateKid/KarateKid/map/final.png" width="640" height="480"/>
+  <image source="final.png" width="640" height="480"/>
  </tileset>
  <layer name="Background" width="40" height="30">
   <data encoding="base64" compression="zlib">
@@ -10,5 +10,7 @@
  </layer>
  <objectgroup name="Col">
   <object id="1" x="-1" y="414" width="641" height="66"/>
+  <object id="2" x="-1" y="56" width="16" height="358"/>
+  <object id="4" x="624" y="56" width="16" height="358"/>
  </objectgroup>
 </map>
