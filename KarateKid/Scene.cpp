@@ -103,6 +103,10 @@ void Scene::initEnemies()
             std::cout << "Added enemy at " << x << "/" << y << std::endl;
         }
         file.close();
+        if(mapName.find("final") != -1)
+            enemies.back()->setTargetRange(window->getSize().x);
+        else
+            enemies.back()->setTargetRange(window->getSize().x / 4);
     }
     else
     {

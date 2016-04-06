@@ -109,3 +109,7 @@ void Enemy::moveRight(float ex, float px, Entity *target)
         setDirection(STOP);
 }
 
+void Enemy::setTargetRange(int range)
+{
+    targetRange = range;
+}
