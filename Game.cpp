@@ -12,6 +12,7 @@
 #include "WinScreen.h"
 #include "MenuScreen.h"
 #include "EndScreen.h"
+#include "ScenarioScreen.h"
 
 Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/)
 {
@@ -41,9 +42,17 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::WON), "menuwon");
     screenManager->addScreen(new MenuScreen(screenManager, &window, MenuScreen::LOST), "menulost");
     
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "Intro_Johnny.png"), "intro1");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "Intro_Daniel.png"), "intro2");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "Intro_texte.png"), "intro3");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_text1.png"), "scenario1");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_text2.png"), "scenario2");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_tournament.png"), "scenario3");
+    
     screenManager->setScreen("menubegin");
     
-    oldCurrScreenKey = "sceneforest";
+    oldCurrScreenKey = "scenebeach";
 }
 
 Game::~Game()
@@ -80,33 +89,33 @@ void Game::run()
                 }
                 if(event.key.code == Keyboard::Num1)
                 {
-                    if(screenManager->getCurrentScreenKey() != "sceneforest")
+                    if(screenManager->getCurrentScreenNumber() != 1)
                     {
-                        screenManager->setScreen("sceneforest");
+                        screenManager->setScreen(1);
                         screenManager->setSceneCount(1);
                     }
                 }
                 if(event.key.code == Keyboard::Num2)
                 {
-                    if(screenManager->getCurrentScreenKey() != "scenedesert")
+                    if(screenManager->getCurrentScreenNumber() != 2)
                     {
-                        screenManager->setScreen("scenedesert");
+                        screenManager->setScreen(2);
                         screenManager->setSceneCount(2);
                     }
                 }
                 if(event.key.code == Keyboard::Num3)
                 {
-                    if(screenManager->getCurrentScreenKey() != "scenebeach")
+                    if(screenManager->getCurrentScreenNumber() != 3)
                     {
-                        screenManager->setScreen("scenebeach");
+                        screenManager->setScreen(3);
                         screenManager->setSceneCount(3);
                     }
                 }
                 if(event.key.code == Keyboard::Num4)
                 {
-                    if(screenManager->getCurrentScreenKey() != "scenefinal")
+                    if(screenManager->getCurrentScreenNumber() != 4)
                     {
-                        screenManager->setScreen("scenefinal");
+                        screenManager->setScreen(4);
                         screenManager->setSceneCount(4);
                     }
                 }

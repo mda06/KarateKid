@@ -10,7 +10,7 @@
 #include "Scene.h"
 #include <iostream>
 
-ScreenManager::ScreenManager() : curScreen(nullptr), sceneCount(1)
+ScreenManager::ScreenManager() : curScreen(nullptr), sceneCount(1), scenarioCount(0), passed(false)
 {}
 
 ScreenManager::~ScreenManager()
@@ -24,6 +24,12 @@ void ScreenManager::addScreen(AbstractScreen* as, std::string key)
     screens[key] = as;
 }
 
+void ScreenManager::addScenarioScreen(ScenarioScreen* ss, std::string key)
+{
+    screens[key] = ss;
+    scenarioScreens.push_back(ss);
+}
+
 void ScreenManager::handleInput(Event &event)
 {
     curScreen->handleInput(event);
@@ -31,12 +37,6 @@ void ScreenManager::handleInput(Event &event)
 
 void ScreenManager::update(Time time)
 {
-    /*
-    if(getCurrentScreenKey() == "sceneforest")
-        sceneCount = 1;
-    else if(getCurrentScreenKey() == "scenedesert")
-        sceneCount = 2;
-    */
     curScreen->update(time);
 }
 
@@ -56,6 +56,63 @@ void ScreenManager::setScreen(std::string key)
             curScreen->enter();
     else
         curScreen = tmp;
+}
+
+void ScreenManager::setScreen(int i)
+{
+    switch(i)
+    {
+        case 1:
+            setScreen("scenebeach");
+            break;
+        case 2:
+            setScreen("sceneforest");
+            break;
+        case 3:
+            setScreen("scenedesert");
+            break;
+        case 4:
+            setScreen("scenefinal");
+            break;
+        default:
+            setScreen("scenebeach");
+            break;
+    }
+}
+
+void ScreenManager::setScenarioScreen(int i)
+{
+    scenarioCount = i;
+    
+    AbstractScreen* tmp = curScreen;
+    if(curScreen != nullptr)
+        curScreen->leave();
+    
+    curScreen = scenarioScreens[scenarioCount - 1];
+    if(curScreen != nullptr)
+        curScreen->enter();
+    else
+        curScreen = tmp;
+}
+
+
+void ScreenManager::setNextScenarioScreen()
+{
+    if(scenarioCount == 3 && !passed)
+    {
+        setScreen(1);
+        passed = true;
+    }
+    else if (scenarioCount == 6)
+    {
+        setScreen(2);
+    }
+    else
+    {
+        scenarioCount++;
+    
+        setScenarioScreen(scenarioCount);
+    }
 }
 
 void ScreenManager::initScenes()
@@ -78,6 +135,23 @@ std::string ScreenManager::getCurrentScreenKey() const
             return it->first;
     
     return "Not found";
+}
+
+int ScreenManager::getCurrentScreenNumber() const
+{
+    std::string key = getCurrentScreenKey();
+    
+    
+    if(key == "scenebeach")
+        return 1;
+    else if(key == "sceneforest")
+        return 2;
+    else if(key == "scenedesert")
+        return 3;
+    else if(key == "scenefinal")
+        return 4;
+    else
+        return -1;
 }
 
 AbstractScreen *ScreenManager::getCurrentScreen()

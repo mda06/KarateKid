@@ -17,6 +17,13 @@
 		22686CC51CB05A9200EAA31D /* final.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 22686CC41CB05A9200EAA31D /* final.tmx */; };
 		2286A2A01CA95F8200A78465 /* buttonbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2286A29F1CA95F8200A78465 /* buttonbg.png */; };
 		228DC5D61C9307040069D09D /* potionStrength.png in Resources */ = {isa = PBXBuildFile; fileRef = 228DC5D51C9307040069D09D /* potionStrength.png */; };
+		22AC773F1CB554D7009611C1 /* ScenarioScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22AC773E1CB554D7009611C1 /* ScenarioScreen.cpp */; };
+		22AC77441CB5609C009611C1 /* Intro_texte.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AC77411CB5609C009611C1 /* Intro_texte.png */; };
+		22AC77451CB5609C009611C1 /* Intro_Daniel.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AC77421CB5609C009611C1 /* Intro_Daniel.png */; };
+		22AC77461CB5609C009611C1 /* Intro_Johnny.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AC77431CB5609C009611C1 /* Intro_Johnny.png */; };
+		22AC774A1CB59FD3009611C1 /* afterscene1_tournament.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AC77471CB59FD3009611C1 /* afterscene1_tournament.png */; };
+		22AC774B1CB59FD3009611C1 /* afterscene1_text2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AC77481CB59FD3009611C1 /* afterscene1_text2.png */; };
+		22AC774C1CB59FD3009611C1 /* afterscene1_text1.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AC77491CB59FD3009611C1 /* afterscene1_text1.png */; };
 		22BFCABC1C8E299B001A8E71 /* barre_energie_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */; };
 		22BFCABD1C8E299B001A8E71 /* barre_energie_vide.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */; };
 		22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BFCAB81C8E299B001A8E71 /* barre_force_couleur.png */; };
@@ -90,6 +97,14 @@
 		22686CC41CB05A9200EAA31D /* final.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = final.tmx; sourceTree = "<group>"; };
 		2286A29F1CA95F8200A78465 /* buttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg.png; sourceTree = "<group>"; };
 		228DC5D51C9307040069D09D /* potionStrength.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionStrength.png; sourceTree = "<group>"; };
+		22AC773E1CB554D7009611C1 /* ScenarioScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScenarioScreen.cpp; sourceTree = "<group>"; };
+		22AC77401CB55526009611C1 /* ScenarioScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScenarioScreen.h; sourceTree = "<group>"; };
+		22AC77411CB5609C009611C1 /* Intro_texte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Intro_texte.png; sourceTree = "<group>"; };
+		22AC77421CB5609C009611C1 /* Intro_Daniel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Intro_Daniel.png; sourceTree = "<group>"; };
+		22AC77431CB5609C009611C1 /* Intro_Johnny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Intro_Johnny.png; sourceTree = "<group>"; };
+		22AC77471CB59FD3009611C1 /* afterscene1_tournament.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = afterscene1_tournament.png; sourceTree = "<group>"; };
+		22AC77481CB59FD3009611C1 /* afterscene1_text2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = afterscene1_text2.png; sourceTree = "<group>"; };
+		22AC77491CB59FD3009611C1 /* afterscene1_text1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = afterscene1_text1.png; sourceTree = "<group>"; };
 		22BFCAB61C8E299B001A8E71 /* barre_energie_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_couleur.png; sourceTree = "<group>"; };
 		22BFCAB71C8E299B001A8E71 /* barre_energie_vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_energie_vide.png; sourceTree = "<group>"; };
 		22BFCAB81C8E299B001A8E71 /* barre_force_couleur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barre_force_couleur.png; sourceTree = "<group>"; };
@@ -267,6 +282,8 @@
 				4C3E9F581C845FEA00D85323 /* ResourcePath.hpp */,
 				4C3E9F561C845FEA00D85323 /* ResourcePath.mm */,
 				4C3E9F5B1C845FEA00D85323 /* Resources */,
+				22AC773E1CB554D7009611C1 /* ScenarioScreen.cpp */,
+				22AC77401CB55526009611C1 /* ScenarioScreen.h */,
 				4CA097E71C8F270700BD7238 /* Scene.cpp */,
 				4CA097E81C8F270700BD7238 /* Scene.h */,
 				4C0B85E81C97FF10005F71A1 /* Screen.cpp */,
@@ -363,6 +380,12 @@
 		4CC798B81C8465B100C2CD96 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				22AC77471CB59FD3009611C1 /* afterscene1_tournament.png */,
+				22AC77481CB59FD3009611C1 /* afterscene1_text2.png */,
+				22AC77491CB59FD3009611C1 /* afterscene1_text1.png */,
+				22AC77411CB5609C009611C1 /* Intro_texte.png */,
+				22AC77421CB5609C009611C1 /* Intro_Daniel.png */,
+				22AC77431CB5609C009611C1 /* Intro_Johnny.png */,
 				22EF980D1CADC51500EE2AE9 /* brun.png */,
 				22C8EEB41CA96858002F3F5E /* theend.png */,
 				4C7DF0E51C92DA0F00855472 /* potions */,
@@ -438,15 +461,20 @@
 			files = (
 				22DE49921CB1995200C50DBE /* beach.txt in Resources */,
 				220263071CB2BC6200C7D97E /* plage.txt in Resources */,
+				22AC77461CB5609C009611C1 /* Intro_Johnny.png in Resources */,
 				22BFCABE1C8E299B001A8E71 /* barre_force_couleur.png in Resources */,
 				22686CC11CB04F7400EAA31D /* final.txt in Resources */,
 				22BFCAC11C8E299B001A8E71 /* barre_hp_vide.png in Resources */,
+				22AC77451CB5609C009611C1 /* Intro_Daniel.png in Resources */,
 				220263091CB2BC6200C7D97E /* tileset_Beach_Glued.png in Resources */,
 				4CFCA7531C9D67FD0063D38D /* potionKey.png in Resources */,
+				22AC774A1CB59FD3009611C1 /* afterscene1_tournament.png in Resources */,
+				22AC77441CB5609C009611C1 /* Intro_texte.png in Resources */,
 				2286A2A01CA95F8200A78465 /* buttonbg.png in Resources */,
 				4CA097EB1C8F328300BD7238 /* forest.tmx in Resources */,
 				22686CC51CB05A9200EAA31D /* final.tmx in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
+				22AC774B1CB59FD3009611C1 /* afterscene1_text2.png in Resources */,
 				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,
 				22DE49941CB1995200C50DBE /* tilesetBeachGlued.png in Resources */,
 				4CEBB1D51C9D9D5D00393EB6 /* desert.tmx in Resources */,
@@ -458,6 +486,7 @@
 				4C03E9591C96C74000E6EFB9 /* HowToPlay.png in Resources */,
 				4C03E95B1C96CAF800E6EFB9 /* menuScreenBG.png in Resources */,
 				4CC798BC1C8465B100C2CD96 /* skull.png in Resources */,
+				22AC774C1CB59FD3009611C1 /* afterscene1_text1.png in Resources */,
 				22C8EEB51CA96858002F3F5E /* theend.png in Resources */,
 				22DE49931CB1995200C50DBE /* beach.tmx in Resources */,
 				4C50F2281C94556100C26618 /* potion.wav in Resources */,
@@ -526,6 +555,7 @@
 				4CDEFE281C8DE65A00DCCF17 /* GUIBar.cpp in Sources */,
 				4CA097E91C8F270700BD7238 /* Scene.cpp in Sources */,
 				22C8EEB71CA968DA002F3F5E /* EndScreen.cpp in Sources */,
+				22AC773F1CB554D7009611C1 /* ScenarioScreen.cpp in Sources */,
 				4C2401141C8B9AB70068ED85 /* FightState.cpp in Sources */,
 				4CA5327D1C849DFB00550B05 /* pugixml.cpp in Sources */,
 				4CEBEB2B1C8ED2AC0049F23B /* Player.cpp in Sources */,

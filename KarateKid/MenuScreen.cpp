@@ -37,7 +37,7 @@ MenuScreen::MenuScreen(ScreenManager *sm, RenderWindow *w, MenuState state) : Ab
     {
         case BEGIN:
             text.setString("Karate Kid");
-            btnPlay.setText("Play");
+            btnPlay.setText("Start");
             break;
         case PAUSE:
             text.setString("Pause");
@@ -137,29 +137,12 @@ void MenuScreen::update(Time time)
         {
             case BEGIN:
                 screenManager->setSceneCount(1);
-                screenManager->setScreen("sceneforest");
+                screenManager->setNextScenarioScreen();
                 break;
             case PAUSE:
             case WON:
             case LOST:
-                switch(screenManager->getSceneCount())
-                {
-                    case 1:
-                        screenManager->setScreen("sceneforest");
-                        break;
-                    case 2:
-                        screenManager->setScreen("scenedesert");
-                        break;
-                    case 3:
-                        screenManager->setScreen("scenebeach");
-                        break;
-                    case 4:
-                        screenManager->setScreen("scenefinal");
-                        break;
-                    default:
-                        screenManager->setScreen("sceneforest");
-                        break;
-                }
+                screenManager->setScreen(screenManager->getSceneCount());
                 break;
         }
     }

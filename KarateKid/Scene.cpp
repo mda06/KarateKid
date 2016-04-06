@@ -15,7 +15,7 @@
 #include "ResourcePath.hpp"
 #include "ScreenManager.h"
 
-Scene::Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize), fixed(fixed)
+Scene::Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize), fixed(fixed), timerDone(false)
 {
     colHandler = new CollisionHandler(this);
     player = new Player(colHandler, pos, entitySize);
@@ -43,6 +43,9 @@ Scene::Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, s
             colHandler->setObjects(o.objects);
         }
     }
+    
+    if(mapName.find("plage") != -1)
+        addStoryText("Daniel wants to fight !", Vector2f(4300, 283));
 }
 
 Scene::~Scene()
@@ -56,6 +59,9 @@ Scene::~Scene()
         delete go;
     
     for(Text* t : textInfo)
+        delete t;
+    
+    for(Text* t : storyText)
         delete t;
 }
 
@@ -71,6 +77,13 @@ void Scene::init()
     for(Text* t : textInfo)
         delete t;
     textInfo.clear();
+    
+    for(Text* t : storyText)
+        delete t;
+    storyText.clear();
+    
+    if(mapName.find("plage") != -1)
+        addStoryText("Daniel wants to fight !", Vector2f(4300, 270));
 }
 
 void Scene::initEnemies()
@@ -195,7 +208,10 @@ void Scene::update(Time time)
     
     player->update(time);
     if(player->isDeadAnimFinished())
+    {
+        timerDone = false;
         screenManager->setScreen("gameover");
+    }
     
     if (player->getGlobalBounds().top > ml.GetMapSize().y)
     {
@@ -249,6 +265,8 @@ void Scene::render(RenderTarget &window)
 {
     window.setView(mapView);
     ml.Draw(window, MapLayer::DrawType::All);
+    for(Text* t : storyText)
+        window.draw(*t);
     for(Entity* e : enemies)
     {
         e->render(window);
@@ -287,6 +305,12 @@ void Scene::addText(String txt, Vector2f pos)
     textInfo[textInfo.size() - 1]->setPosition(pos);
 }
 
+void Scene::addStoryText(String txt, Vector2f pos)
+{
+    storyText.push_back(new Text(txt, font, 20));
+    storyText[storyText.size() - 1]->setPosition(pos);
+}
+
 void Scene::enter()
 {
     if(!fixed)
@@ -295,7 +319,7 @@ void Scene::enter()
         view = FloatRect(0, 0, window->getSize().x / aspectRatio, mapView.getSize().y);
         mapView.setSize(window->getSize().x / aspectRatio, mapView.getSize().y);
     }
-    else
+    else if (!timerDone)
     {
         timer();
     }
@@ -338,4 +362,6 @@ void Scene::timer()
         window->draw(txtTimer);
         window->display();
     }
+    
+    timerDone = true;
 }

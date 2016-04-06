@@ -37,11 +37,11 @@ private:
     Keyboard::Key keyBlock;
     std::vector<GameObject*> gameObjects;
     void addGameObject(Vector2f pos, bool boss);
-    std::vector<Text*> textInfo;
+    std::vector<Text*> textInfo, storyText;
     Vector2f entitySize;
     FloatRect view;
     RenderWindow *window;
-    bool fixed;
+    bool fixed, timerDone;
 
 public:
     Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed = false);
@@ -54,6 +54,7 @@ public:
     Player* getPlayer();
     std::vector<GameObject*> getGameObjects();
     void addText(String txt, Vector2f pos);
+    void addStoryText(String txt, Vector2f pos);
     void enter();
     void timer();
     

@@ -102,7 +102,7 @@ void GameObjectKey::effect(Entity *target)
 {
     GameObject::effect(target);
     sm->nextScene();
-    text = "Key !";
+    //text = "Key !";
 }
 
 Vector2f GameObject::getPos()
