@@ -34,7 +34,7 @@ public:
     void update(Time time);
     void render(RenderTarget &rt);
     void setScreen(std::string key);
-    void setScreen(int i);
+    void setScene(int i);
     void setScenarioScreen(int i);
     void setNextScenarioScreen();
     void initScenes();

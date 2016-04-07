@@ -84,6 +84,8 @@ void Scene::init()
     
     if(mapName.find("plage") != -1)
         addStoryText("Daniel wants to fight !", Vector2f(4300, 270));
+    
+    timerDone = false;
 }
 
 void Scene::initEnemies()

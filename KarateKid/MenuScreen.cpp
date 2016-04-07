@@ -137,12 +137,12 @@ void MenuScreen::update(Time time)
         {
             case BEGIN:
                 screenManager->setSceneCount(1);
-                screenManager->setNextScenarioScreen();
+                screenManager->setScenarioScreen(1);
                 break;
             case PAUSE:
             case WON:
             case LOST:
-                screenManager->setScreen(screenManager->getSceneCount());
+                screenManager->setScene(screenManager->getSceneCount());
                 break;
         }
     }

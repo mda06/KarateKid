@@ -91,7 +91,7 @@ void Game::run()
                 {
                     if(screenManager->getCurrentScreenNumber() != 1)
                     {
-                        screenManager->setScreen(1);
+                        screenManager->setScene(1);
                         screenManager->setSceneCount(1);
                     }
                 }
@@ -99,7 +99,7 @@ void Game::run()
                 {
                     if(screenManager->getCurrentScreenNumber() != 2)
                     {
-                        screenManager->setScreen(2);
+                        screenManager->setScene(2);
                         screenManager->setSceneCount(2);
                     }
                 }
@@ -107,7 +107,7 @@ void Game::run()
                 {
                     if(screenManager->getCurrentScreenNumber() != 3)
                     {
-                        screenManager->setScreen(3);
+                        screenManager->setScene(3);
                         screenManager->setSceneCount(3);
                     }
                 }
@@ -115,7 +115,7 @@ void Game::run()
                 {
                     if(screenManager->getCurrentScreenNumber() != 4)
                     {
-                        screenManager->setScreen(4);
+                        screenManager->setScene(4);
                         screenManager->setSceneCount(4);
                     }
                 }

@@ -58,7 +58,7 @@ void ScreenManager::setScreen(std::string key)
         curScreen = tmp;
 }
 
-void ScreenManager::setScreen(int i)
+void ScreenManager::setScene(int i)
 {
     switch(i)
     {
@@ -100,17 +100,18 @@ void ScreenManager::setNextScenarioScreen()
 {
     if(scenarioCount == 3 && !passed)
     {
-        setScreen(1);
+        setScene(1);
         passed = true;
     }
     else if (scenarioCount == 6)
     {
-        setScreen(2);
+        setScene(2);
     }
     else
     {
         scenarioCount++;
-    
+        passed = false;
+        
         setScenarioScreen(scenarioCount);
     }
 }
