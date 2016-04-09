@@ -19,7 +19,7 @@ FeatureHandler::FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int m
     }
     else
     {
-        if(!texture.loadFromFile(resourcePath() + "brun.png"))
+        if(!texture.loadFromFile(resourcePath() + "brun2test.png"))
             std::cout << "Failed to load texture in AnimationHandler" << std::endl;
     }
     
