@@ -116,12 +116,47 @@ void ScreenManager::setNextScenarioScreen()
     }
 }
 
-void ScreenManager::initScenes()
+void ScreenManager::initAllScenes()
 {
     for(auto it = screens.begin();it != screens.end(); ++it)
     {
         std::string key = it->first;
         if (key.find("scene") != std::string::npos) {
+            std::cout << "Initializating: " << key << '\n';
+            Scene* s = (Scene*)it->second;
+            s->init();
+        }
+    }
+}
+
+void ScreenManager::initScene(int s)
+{
+    std::string key;
+    switch(s)
+    {
+        case 1:
+            key = "scenebeach";
+            break;
+        case 2:
+            key = "sceneforest";
+            break;
+        case 3:
+            key = "scenedesert";
+            break;
+        case 4:
+            key = "scenefinal";
+            break;
+        default:
+            key = "scenebeach";
+            break;
+    }
+    
+    std::cout << "number " << s << ", key : " << key << std::endl;
+    
+    for(auto it = screens.begin();it != screens.end(); ++it)
+    {
+        if (it->first.find(key) != std::string::npos)
+        {
             std::cout << "Initializating: " << key << '\n';
             Scene* s = (Scene*)it->second;
             s->init();
@@ -138,23 +173,6 @@ std::string ScreenManager::getCurrentScreenKey() const
     return "Not found";
 }
 
-int ScreenManager::getCurrentScreenNumber() const
-{
-    std::string key = getCurrentScreenKey();
-    
-    
-    if(key == "scenebeach")
-        return 1;
-    else if(key == "sceneforest")
-        return 2;
-    else if(key == "scenedesert")
-        return 3;
-    else if(key == "scenefinal")
-        return 4;
-    else
-        return -1;
-}
-
 AbstractScreen *ScreenManager::getCurrentScreen()
 {
     return curScreen;
@@ -163,7 +181,7 @@ AbstractScreen *ScreenManager::getCurrentScreen()
 void ScreenManager::nextScene()
 {
     sceneCount++;
-    initScenes();
+    initScene(sceneCount);
     setScreen("win");
 }
 

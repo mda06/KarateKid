@@ -45,7 +45,8 @@ public:
     bool isAnimationFinished() const;
     FighterCharacteristics& getFighterCharacteristics();
     Vector2f getSize();
-    
+    void setSize(Vector2f s);
+    bool getEnemy();
 };
 
 #endif /* defined(__KarateKid__AnimationHandler__) */

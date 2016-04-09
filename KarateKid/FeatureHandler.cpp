@@ -72,7 +72,9 @@ FeatureHandler::FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int m
     animatedSprite.play(idleAnim);
     
      animatedSprite.setOrigin(animatedSprite.getGlobalBounds().width / 2, animatedSprite.getGlobalBounds().height/2);
-    animatedSprite.setScale(size.x / 100, size.y / 160);
+    //if(enemy)
+        animatedSprite.setScale(size.x / 100, size.y / 160);
+    
     animatedSprite.setPosition(pos);
 }
 
@@ -172,6 +174,8 @@ bool FeatureHandler::isAnimationFinished() const
 
 void FeatureHandler::init()
 {
+    if(!enemy)
+        std::cout << "init featurehandler of player" << std::endl;
     isAnimDeadFinished = false;
     setType(IDLE);
     animatedSprite.play();
@@ -201,4 +205,35 @@ AnimatedSprite &FeatureHandler::getSprite()
 Vector2f FeatureHandler::getSize()
 {
     return size;
+}
+
+void FeatureHandler::setSize(Vector2f s)
+{
+ /*
+    std::cout << size.x << ", " << size.y << " fh setsize" << std::endl;
+    
+    animatedSprite.setScale(size.x / s.x, size.y / s.y);
+    std::cout << size.x / s.x << ", " << size.y / s.y << " fh setscale" << std::endl;
+    
+    size = s;
+    std::cout << size.x << ", " << size.y << " fh size" << std::endl;
+    */
+    
+    
+    Vector2f oldSize = Vector2f(93, 161);
+    Vector2f scale = Vector2f(s.x / oldSize.x, s.y / oldSize.y);
+    Vector2f newSize = Vector2f(oldSize.x * scale.x, oldSize.y * scale.y);
+    
+    getSprite().setScale(scale);
+    
+    Vector2f realSize = Vector2f(getSprite().getGlobalBounds().width, getSprite().getGlobalBounds().height);
+    
+    std::cout << "- asked size = " << s.x << ", " << s.y << std::endl << "- scale : " << scale.x << ", " << scale.y << std::endl << "- oldsize : " << oldSize.x << ", " << oldSize.y << std::endl << "- newsize : " << newSize.x << ", " << newSize.y << std::endl<< "- realsize : " << realSize.x << ", " << realSize.y << std::endl;
+    
+    size = s;
+}
+
+bool FeatureHandler::getEnemy()
+{
+    return enemy;
 }

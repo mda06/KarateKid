@@ -38,13 +38,13 @@ private:
     std::vector<GameObject*> gameObjects;
     void addGameObject(Vector2f pos, bool boss);
     std::vector<Text*> textInfo, storyText;
-    Vector2f entitySize;
+    Vector2f entitySize, playerPos;
     FloatRect view;
     RenderWindow *window;
     bool fixed, timerDone;
 
 public:
-    Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed = false);
+    Scene(Player *p, RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed = false);
     virtual ~Scene();
     void init();
     void handleInput(Event &event);

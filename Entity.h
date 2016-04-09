@@ -48,6 +48,7 @@ protected:
     
 public:
     Entity(CollisionHandler *col, Vector2f pos, Vector2f size, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enemy, bool enableFootAtk = false);
+    Entity(Vector2f pos, Vector2f size, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enemy, bool enableFootAtk = false);
     void init();
     virtual void update(Time time);
     void render(RenderTarget &rt);
@@ -67,6 +68,10 @@ public:
     FloatRect getGlobalBounds();
     FighterCharacteristics &getFighterCharacteristics();
     void drawHpBar(RenderTarget &rt);
+    void setColHandler(CollisionHandler *ch);
+    void setPosition(Vector2f p);
+    FeatureHandler getFeatureHandler();
+    
 };
 
 #endif /* defined(__KarateKid__Entity__) */

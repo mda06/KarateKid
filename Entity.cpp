@@ -21,11 +21,22 @@ Entity::Entity(CollisionHandler *col, Vector2f pos, Vector2f size, bool withBack
     txtHp.setCharacterSize(7);
 }
 
+Entity::Entity(Vector2f pos, Vector2f size, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enemy, bool fatk) : accel(1000, 500), deccel(850, 1000), maxVel(400, 450), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), featureHandler(FeatureHandler(pos, size, maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown, enemy)), enableFootAtk(fatk)
+{
+    if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
+        std::cout << "Can't load font !" << std::endl;
+    txtHp.setFont(font);
+    txtHp.setCharacterSize(7);
+}
+
 void Entity::init()
 {
+    std::cout << "init entity" << std::endl;
     direction = STOP;
     vel = Vector2f();
     featureHandler.getSprite().setPosition(initialPos);
+    if(!featureHandler.getEnemy())
+        std::cout << "player set pos to " << initialPos.x << ", " << initialPos.y << std::endl;
     featureHandler.init();
 }
 
@@ -308,4 +319,19 @@ void Entity::drawHpBar(RenderTarget &rt)
 {
     gbHealth.draw(rt);
     rt.draw(txtHp);
+}
+
+void Entity::setColHandler(CollisionHandler *ch)
+{
+    colHandler = ch;
+}
+
+FeatureHandler Entity::getFeatureHandler()
+{
+    return featureHandler;
+}
+
+void Entity::setPosition(Vector2f p)
+{
+    initialPos = p;
 }

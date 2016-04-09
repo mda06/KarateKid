@@ -17,20 +17,21 @@
 Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar | Style::Close*/)
 {
     screenManager = new ScreenManager();
+    player = new Player(Vector2f(0, 0), Vector2f(48, 48));
     
-    Scene *s = new Scene(&window, screenManager, resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30), Vector2f(48, 48));
+    Scene *s = new Scene(player, &window, screenManager, resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30), Vector2f(48, 48));
     s->init();
     screenManager->addScreen(s, "sceneforest");
     
-    s = new Scene(&window, screenManager, resourcePath() + "desert.txt", "desert.tmx", Vector2f(120, 650), Vector2f(80, 100));
+    s = new Scene(player, &window, screenManager, resourcePath() + "desert.txt", "desert.tmx", Vector2f(120, 650), Vector2f(80, 100));
     s->init();
     screenManager->addScreen(s, "scenedesert");
     
-    s = new Scene(&window, screenManager, resourcePath() + "plage.txt", "plage.tmx", Vector2f(40, 80), Vector2f(48, 48));
+    s = new Scene(player, &window, screenManager, resourcePath() + "plage.txt", "plage.tmx", Vector2f(40, 80), Vector2f(48, 48));
     s->init();
     screenManager->addScreen(s, "scenebeach");
     
-    s = new Scene(&window, screenManager, resourcePath() + "final.txt", "final.tmx", Vector2f(80, 363), Vector2f(100, 100), true);
+    s = new Scene(player, &window, screenManager, resourcePath() + "final.txt", "final.tmx", Vector2f(80, 363), Vector2f(100, 100), true);
     s->init();
     screenManager->addScreen(s, "scenefinal");
     
@@ -51,6 +52,7 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_tournament.png"), "scenario3");
     
     screenManager->setScreen("menubegin");
+    screenManager->initScene(1);
     
     oldCurrScreenKey = "scenebeach";
 }
@@ -58,6 +60,7 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
 Game::~Game()
 {
     delete screenManager;
+    delete player;
 }
 
 void Game::run()
@@ -89,7 +92,7 @@ void Game::run()
                 }
                 if(event.key.code == Keyboard::Num1)
                 {
-                    if(screenManager->getCurrentScreenNumber() != 1)
+                    if(screenManager->getSceneCount() != 1)
                     {
                         screenManager->setScene(1);
                         screenManager->setSceneCount(1);
@@ -97,7 +100,7 @@ void Game::run()
                 }
                 if(event.key.code == Keyboard::Num2)
                 {
-                    if(screenManager->getCurrentScreenNumber() != 2)
+                    if(screenManager->getSceneCount() != 2)
                     {
                         screenManager->setScene(2);
                         screenManager->setSceneCount(2);
@@ -105,7 +108,7 @@ void Game::run()
                 }
                 if(event.key.code == Keyboard::Num3)
                 {
-                    if(screenManager->getCurrentScreenNumber() != 3)
+                    if(screenManager->getSceneCount() != 3)
                     {
                         screenManager->setScene(3);
                         screenManager->setSceneCount(3);
@@ -113,7 +116,7 @@ void Game::run()
                 }
                 if(event.key.code == Keyboard::Num4)
                 {
-                    if(screenManager->getCurrentScreenNumber() != 4)
+                    if(screenManager->getSceneCount() != 4)
                     {
                         screenManager->setScene(4);
                         screenManager->setSceneCount(4);

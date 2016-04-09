@@ -37,10 +37,10 @@ public:
     void setScene(int i);
     void setScenarioScreen(int i);
     void setNextScenarioScreen();
-    void initScenes();
+    void initAllScenes();
+    void initScene(int s);
     AbstractScreen *getCurrentScreen();
     std::string getCurrentScreenKey() const;
-    int getCurrentScreenNumber() const;
     void nextScene();
     int getSceneCount();
     void setSceneCount(int sc);

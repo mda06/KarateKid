@@ -15,10 +15,15 @@
 #include "ResourcePath.hpp"
 #include "ScreenManager.h"
 
-Scene::Scene(RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize), fixed(fixed), timerDone(false)
+Scene::Scene(Player *p, RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize), fixed(fixed), timerDone(false), playerPos(pos)
 {
     colHandler = new CollisionHandler(this);
-    player = new Player(colHandler, pos, entitySize);
+    
+    player = p;
+    p->setColHandler(colHandler);
+    //p->getFeatureHandler().setSize(entitySize);
+    p->setPosition(pos);
+    std::cout << "p set correctly in scene" << std::endl;
     
     if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
         std::cout << "Can't load font !" << std::endl;
@@ -52,7 +57,7 @@ Scene::~Scene()
 {
     for(Entity* e : enemies)
         delete e;
-    delete player;
+    
     delete colHandler;
     
     for(GameObject* go : gameObjects)
@@ -67,7 +72,7 @@ Scene::~Scene()
 
 void Scene::init()
 {
-    player->init();
+    player->init(colHandler, entitySize, playerPos);
     initEnemies();
     
     for(GameObject* go : gameObjects)
