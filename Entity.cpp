@@ -31,12 +31,9 @@ Entity::Entity(Vector2f pos, Vector2f size, bool withBack, int maxHealth, int ma
 
 void Entity::init()
 {
-    std::cout << "init entity" << std::endl;
     direction = STOP;
     vel = Vector2f();
     featureHandler.getSprite().setPosition(initialPos);
-    if(!featureHandler.getEnemy())
-        std::cout << "player set pos to " << initialPos.x << ", " << initialPos.y << std::endl;
     featureHandler.init();
 }
 

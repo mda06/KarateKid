@@ -24,6 +24,7 @@ private:
     std::vector<ScenarioScreen*> scenarioScreens;
     int scenarioCount;
     bool passed;
+    std::string oldScreenKey;
     
 public:
     ScreenManager();
@@ -40,6 +41,7 @@ public:
     void initAllScenes();
     void initScene(int s);
     AbstractScreen *getCurrentScreen();
+    std::string getOldScreenKey();
     std::string getCurrentScreenKey() const;
     void nextScene();
     int getSceneCount();

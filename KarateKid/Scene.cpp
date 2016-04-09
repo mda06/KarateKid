@@ -320,6 +320,9 @@ void Scene::addStoryText(String txt, Vector2f pos)
 
 void Scene::enter()
 {
+    if(screenManager->getOldScreenKey() != "menupause")
+        init();
+    
     if(!fixed)
     {
         float aspectRatio = (float) window->getSize().y / (float) mapView.getSize().y;

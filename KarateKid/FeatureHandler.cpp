@@ -209,27 +209,11 @@ Vector2f FeatureHandler::getSize()
 
 void FeatureHandler::setSize(Vector2f s)
 {
- /*
-    std::cout << size.x << ", " << size.y << " fh setsize" << std::endl;
-    
-    animatedSprite.setScale(size.x / s.x, size.y / s.y);
-    std::cout << size.x / s.x << ", " << size.y / s.y << " fh setscale" << std::endl;
-    
-    size = s;
-    std::cout << size.x << ", " << size.y << " fh size" << std::endl;
-    */
-    
-    
     Vector2f oldSize = Vector2f(93, 161);
     Vector2f scale = Vector2f(s.x / oldSize.x, s.y / oldSize.y);
-    Vector2f newSize = Vector2f(oldSize.x * scale.x, oldSize.y * scale.y);
     
     getSprite().setScale(scale);
-    
-    Vector2f realSize = Vector2f(getSprite().getGlobalBounds().width, getSprite().getGlobalBounds().height);
-    
-    std::cout << "- asked size = " << s.x << ", " << s.y << std::endl << "- scale : " << scale.x << ", " << scale.y << std::endl << "- oldsize : " << oldSize.x << ", " << oldSize.y << std::endl << "- newsize : " << newSize.x << ", " << newSize.y << std::endl<< "- realsize : " << realSize.x << ", " << realSize.y << std::endl;
-    
+
     size = s;
 }
 

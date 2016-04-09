@@ -47,7 +47,9 @@ void ScreenManager::render(RenderTarget &rt)
 
 void ScreenManager::setScreen(std::string key)
 {
-    AbstractScreen* tmp = curScreen;
+    oldScreenKey = getCurrentScreenKey();
+    
+    AbstractScreen* tmp  = curScreen;
     if(curScreen != nullptr)
         curScreen->leave();
     
@@ -78,6 +80,8 @@ void ScreenManager::setScene(int i)
             setScreen("scenebeach");
             break;
     }
+    
+    
 }
 
 void ScreenManager::setScenarioScreen(int i)
@@ -162,6 +166,11 @@ void ScreenManager::initScene(int s)
             s->init();
         }
     }
+}
+
+std::string ScreenManager::getOldScreenKey()
+{
+    return oldScreenKey;
 }
 
 std::string ScreenManager::getCurrentScreenKey() const
