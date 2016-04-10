@@ -30,7 +30,6 @@ void EndScreen::handleInput(sf::Event &event)
 {
     if(event.type == Event::KeyPressed)
     {
-        screenManager->initAllScenes();
         screenManager->setScreen("menubegin");
     }
 }

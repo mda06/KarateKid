@@ -20,10 +20,6 @@ Scene::Scene(Player *p, RenderWindow *window, ScreenManager *sm, std::string ene
     colHandler = new CollisionHandler(this);
     
     player = p;
-    p->setColHandler(colHandler);
-    //p->getFeatureHandler().setSize(entitySize);
-    p->setPosition(pos);
-    std::cout << "p set correctly in scene" << std::endl;
     
     if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
         std::cout << "Can't load font !" << std::endl;
@@ -39,7 +35,7 @@ Scene::Scene(Player *p, RenderWindow *window, ScreenManager *sm, std::string ene
     if(mapName.find("desert") != -1)
         mapView.zoom(1.7);
     
-    std::cout << "Loading map... " << ml.Load(mapName) << std::endl;;
+    std::cout << "Loading map " << mapName << "... " << ml.Load(mapName) << std::endl;;
     //Change with quadtree for optimisation and don't update enemies not in the range of the rect
     for(MapLayer o : ml.GetLayers())
     {
@@ -72,7 +68,7 @@ Scene::~Scene()
 
 void Scene::init()
 {
-    player->init(colHandler, entitySize, playerPos);
+    player->initToScene(colHandler, entitySize, playerPos);
     initEnemies();
     
     for(GameObject* go : gameObjects)
@@ -152,6 +148,7 @@ void Scene::handleInput(Event &event)
         if(event.key.code == Keyboard::R)
         {
             init();
+            player->initStats();
         }
     }
     if(event.type == Event::KeyReleased)
@@ -217,6 +214,7 @@ void Scene::update(Time time)
     if(player->isDeadAnimFinished())
     {
         timerDone = false;
+        player->initStats();
         screenManager->setScreen("gameover");
     }
     
@@ -321,7 +319,10 @@ void Scene::addStoryText(String txt, Vector2f pos)
 void Scene::enter()
 {
     if(screenManager->getOldScreenKey() != "menupause")
+    {
+        std::cout << "Initializing " << screenManager->getCurrentScreenKey() << std::endl;
         init();
+    }
     
     if(!fixed)
     {
@@ -345,7 +346,6 @@ void Scene::timer()
     txtTimer.setPosition(320 - txtTimer.getGlobalBounds().width / 2, 240 - txtTimer.getGlobalBounds().height/2);
     txtTimer.setCharacterSize(100);
     
-    init();
     window->clear();
     render(*window);
     window->draw(txtTimer);

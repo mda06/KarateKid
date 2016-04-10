@@ -71,10 +71,8 @@ FeatureHandler::FeatureHandler(Vector2f pos, Vector2f size, int maxHealth, int m
  
     animatedSprite.play(idleAnim);
     
-     animatedSprite.setOrigin(animatedSprite.getGlobalBounds().width / 2, animatedSprite.getGlobalBounds().height/2);
-    //if(enemy)
-        animatedSprite.setScale(size.x / 100, size.y / 160);
-    
+    animatedSprite.setOrigin(animatedSprite.getGlobalBounds().width / 2, animatedSprite.getGlobalBounds().height/2);
+    animatedSprite.setScale(size.x / 100, size.y / 160);
     animatedSprite.setPosition(pos);
 }
 
@@ -174,8 +172,6 @@ bool FeatureHandler::isAnimationFinished() const
 
 void FeatureHandler::init()
 {
-    if(!enemy)
-        std::cout << "init featurehandler of player" << std::endl;
     isAnimDeadFinished = false;
     setType(IDLE);
     animatedSprite.play();

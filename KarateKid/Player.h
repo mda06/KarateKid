@@ -21,7 +21,8 @@ public:
     virtual void updateGUIBar();
     void drawEnergyBar(RenderTarget &rt);
     void drawStrengthBar(RenderTarget &rt);
-    void init(CollisionHandler *ch, Vector2f size, Vector2f pos);
+    void initToScene(CollisionHandler *ch, Vector2f size, Vector2f pos);
+    void initStats();
     
 };
 

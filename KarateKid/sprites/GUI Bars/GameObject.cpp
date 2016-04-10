@@ -33,7 +33,6 @@ GameObject::~GameObject()
 
 void GameObject::update(float dt)
 {
-    //sprite.move(0, -10*dt);
     sprite.setPosition(sprite.getPosition().x, sprite.getPosition().y - 10*dt);
     if(sprite.getPosition().y < 0)
         isUse = true;

@@ -80,8 +80,6 @@ void ScreenManager::setScene(int i)
             setScreen("scenebeach");
             break;
     }
-    
-    
 }
 
 void ScreenManager::setScenarioScreen(int i)
@@ -155,8 +153,6 @@ void ScreenManager::initScene(int s)
             break;
     }
     
-    std::cout << "number " << s << ", key : " << key << std::endl;
-    
     for(auto it = screens.begin();it != screens.end(); ++it)
     {
         if (it->first.find(key) != std::string::npos)
@@ -190,7 +186,6 @@ AbstractScreen *ScreenManager::getCurrentScreen()
 void ScreenManager::nextScene()
 {
     sceneCount++;
-    initScene(sceneCount);
     setScreen("win");
 }
 

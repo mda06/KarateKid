@@ -20,19 +20,15 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     player = new Player(Vector2f(0, 0), Vector2f(48, 48));
     
     Scene *s = new Scene(player, &window, screenManager, resourcePath() + "forest.txt", "forest.tmx", Vector2f(40, 30), Vector2f(48, 48));
-    s->init();
     screenManager->addScreen(s, "sceneforest");
     
     s = new Scene(player, &window, screenManager, resourcePath() + "desert.txt", "desert.tmx", Vector2f(120, 650), Vector2f(80, 100));
-    s->init();
     screenManager->addScreen(s, "scenedesert");
     
     s = new Scene(player, &window, screenManager, resourcePath() + "plage.txt", "plage.tmx", Vector2f(40, 80), Vector2f(48, 48));
-    s->init();
     screenManager->addScreen(s, "scenebeach");
     
     s = new Scene(player, &window, screenManager, resourcePath() + "final.txt", "final.tmx", Vector2f(80, 363), Vector2f(100, 100), true);
-    s->init();
     screenManager->addScreen(s, "scenefinal");
     
     screenManager->addScreen(new GameOverScreen(screenManager), "gameover");
@@ -52,7 +48,6 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_tournament.png"), "scenario3");
     
     screenManager->setScreen("menubegin");
-    screenManager->initScene(1);
     
     oldCurrScreenKey = "scenebeach";
 }

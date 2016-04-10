@@ -37,7 +37,6 @@ void GameOverScreen::handleInput(sf::Event &event)
 {
     if(event.type == Event::KeyPressed)
     {
-        screenManager->initScene(screenManager->getSceneCount());
         screenManager->setScreen("menulost");
     }
 }
