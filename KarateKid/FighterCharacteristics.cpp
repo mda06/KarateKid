@@ -76,6 +76,27 @@ void FighterCharacteristics::hit(int dmg)
     if(health > maxHealth) health = maxHealth;
 }
 
+bool FighterCharacteristics::willKill(int dmg) const
+{
+    float multiplier;
+    
+    switch (getFightState())
+    {
+        case NORMAL_STATE: multiplier = 1;
+            break;
+        case BLOCK_STATE: multiplier = 0.3;
+            break;
+        case ATTACK_FOOT_STATE:
+        case ATTACK_PUNCH_STATE: multiplier = 1.3;
+            break;
+    }
+    
+    if (health <= dmg * multiplier)
+        return true;
+    else
+        return false;
+}
+
 void FighterCharacteristics::setHealthAndMaxHealth(int h)
 {
     health = maxHealth = h;

@@ -41,7 +41,7 @@ private:
     Vector2f entitySize, playerPos;
     FloatRect view;
     RenderWindow *window;
-    bool fixed, timerDone;
+    bool fixed, timerDone, readyToBreakLeg;
 
 public:
     Scene(Player *p, RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed = false);

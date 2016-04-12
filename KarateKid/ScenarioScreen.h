@@ -18,12 +18,17 @@ private:
     Sprite spr;
     Font font;
     Text text;
+    bool video;
+    Clock c;
+    Time t;
     
 public:
-    ScenarioScreen(RenderWindow *w, ScreenManager* sm, std::string img);
+    ScenarioScreen(RenderWindow *w, ScreenManager* sm, std::string img, bool video = false);
     void handleInput(Event &event);
     void update(Time time);
     void render(RenderTarget &rt);
+    void enter();
+    
 };
 
 #endif /* ScenarioScreen_h */

@@ -105,9 +105,30 @@ void ScreenManager::setNextScenarioScreen()
         setScene(1);
         passed = true;
     }
-    else if (scenarioCount == 6)
+    else if (scenarioCount == 6 && !passed)
     {
         setScene(2);
+        passed = true;
+    }
+    else if (scenarioCount == 7 && passed)
+    {
+        setScene(3);
+        passed = false;
+    }
+    else if (scenarioCount == 9 && !passed)
+    {
+        setScene(4);
+        passed = true;
+    }
+    else if (scenarioCount == 10 && passed)
+    {
+        setScene(4);
+        passed = false;
+    }
+    else if (scenarioCount == 21)
+    {
+        setScreen("end");
+        passed = false;
     }
     else
     {

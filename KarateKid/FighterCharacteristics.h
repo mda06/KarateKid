@@ -37,6 +37,7 @@ public:
     void setFightState(FightState fs);
     void effect(Entity* launcher, Entity* receiver);
     void hit(int dmg);
+    bool willKill(int dmg) const;
     void setHealthAndMaxHealth(int h);
     void setStrength(int s);
     void addStrength(float s);

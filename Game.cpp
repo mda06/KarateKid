@@ -43,9 +43,32 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "Intro_Daniel.png"), "intro2");
     screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "Intro_texte.png"), "intro3");
     
-    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_text1.png"), "scenario1");
-    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_text2.png"), "scenario2");
-    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_tournament.png"), "scenario3");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_text1.png"), "scenario_1.1");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_text2.png"), "scenario_1.2");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene1_tournament.png"), "scenario_1.3");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene2_text1.png"), "scenario_2.1");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene3_text1.png"), "scenario_3.1");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene3_text2.png"), "scenario_3.2");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "final_text1.png"), "final1");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "legbreak1.png", true), "legbreak1");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "legbreak2.png", true), "legbreak2");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "legbreak3.png", true), "legbreak3");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "legbreak4.png", true), "legbreak4");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterlegbreak_1.png"), "legbreak5");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "lastscene_img1.png"), "endscene1");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "lastscene_img2.png", true), "endscene2");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "lastscene_img3.png", true), "endscene3");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "lastscene_img4.png", true), "endscene4");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "lastscene_img5.png", true), "endscene5");
+    
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "final_lasttext.png"), "lasttext");
     
     screenManager->setScreen("menubegin");
     

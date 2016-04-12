@@ -39,6 +39,10 @@ void WinScreen::handleInput(sf::Event &event)
     {
         if(screenManager->getSceneCount() == 2)
             screenManager->setScenarioScreen(4);
+        else if(screenManager->getSceneCount() == 3)
+            screenManager->setScenarioScreen(7);
+        else if(screenManager->getSceneCount() == 4)
+            screenManager->setScenarioScreen(8);
         else if(screenManager->getSceneCount() <= screenManager->getTotalScenes())
             screenManager->setScreen("menuwon");
         else

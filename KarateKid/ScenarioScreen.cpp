@@ -11,7 +11,7 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
-ScenarioScreen::ScenarioScreen(RenderWindow *w, ScreenManager *sm, std::string img) : AbstractScreen(sm)
+ScenarioScreen::ScenarioScreen(RenderWindow *w, ScreenManager *sm, std::string img, bool video) : AbstractScreen(sm), video(video)
 {
     if(!txt.loadFromFile(resourcePath() + img))
         std::cout << "Can't load scenario texture" << std::endl;
@@ -24,17 +24,34 @@ ScenarioScreen::ScenarioScreen(RenderWindow *w, ScreenManager *sm, std::string i
 
 void ScenarioScreen::handleInput(sf::Event &event)
 {
-    if(event.type == Event::KeyPressed)
+    if(!video)
     {
-        screenManager->setNextScenarioScreen();
+        if(event.type == Event::KeyPressed)
+        {
+            screenManager->setNextScenarioScreen();
+        }
     }
 }
 
 
 void ScenarioScreen::update(sf::Time time)
-{}
+{
+    if(video)
+    {
+        t += c.restart();
+        
+        if(t.asSeconds() >= 0.3)
+            screenManager->setNextScenarioScreen();
+    }
+}
 
 void ScenarioScreen::render(RenderTarget &rt)
 {
     rt.draw(spr);
+}
+
+void ScenarioScreen::enter()
+{
+    c.restart();
+    t = Time::Zero;
 }

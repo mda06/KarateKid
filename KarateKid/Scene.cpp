@@ -15,7 +15,7 @@
 #include "ResourcePath.hpp"
 #include "ScreenManager.h"
 
-Scene::Scene(Player *p, RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize), fixed(fixed), timerDone(false), playerPos(pos)
+Scene::Scene(Player *p, RenderWindow *window, ScreenManager *sm, std::string enemiesFile, std::string mapName, Vector2f pos, Vector2f entitySize, bool fixed) : window(window), AbstractScreen(sm), ml(resourcePath()), enemiesFile(enemiesFile), keyBlock(Keyboard::C), mapName(mapName), entitySize(entitySize), fixed(fixed), timerDone(false), playerPos(pos), readyToBreakLeg(false)
 {
     colHandler = new CollisionHandler(this);
     
@@ -139,9 +139,31 @@ void Scene::handleInput(Event &event)
         if(event.key.code == Keyboard::Left) player->setDirection(LEFT);
         if(event.key.code == Keyboard::Space || event.key.code == Keyboard::Up) player->jump();
         if(event.key.code == Keyboard::W)
-            player->attackFoot();
+        {
+            if(readyToBreakLeg)
+            {
+                screenManager->setScenarioScreen(11);
+            }
+            else
+                player->attackFoot();
+        }
         if(event.key.code == Keyboard::X)
-            player->attackPunch();
+        {
+            if(mapName.find("final") != -1)
+            {
+                if(!readyToBreakLeg)
+                {
+                    if(enemies[0]->getFighterCharacteristics().willKill(player->getFighterCharacteristics().getDamages()))
+                    {
+                        readyToBreakLeg = true;
+                        screenManager->setScenarioScreen(10);
+                    }
+                }
+            }
+            
+            if(!readyToBreakLeg)
+                player->attackPunch();
+        }
         if(event.key.code == keyBlock)
             player->block();
         
@@ -318,10 +340,13 @@ void Scene::addStoryText(String txt, Vector2f pos)
 
 void Scene::enter()
 {
-    if(screenManager->getOldScreenKey() != "menupause")
+    if(screenManager->getOldScreenKey() != "menupause" && screenManager->getOldScreenKey() != "final1")
     {
         std::cout << "Initializing " << screenManager->getCurrentScreenKey() << std::endl;
         init();
+        
+        if(screenManager->getSceneCount() == 1)
+            player->initStats();
     }
     
     if(!fixed)
