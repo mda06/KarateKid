@@ -37,9 +37,9 @@ void SimpleButton::handleInput(Event &event, Vector2f mousePos)
     {
         FloatRect fr = sprBg.getGlobalBounds();
         if(fr.contains(mousePos))
-           sprBg.setScale(1.2f, 1.2f);
+            sprBg.setScale(1.2f, 1.2f);
         else
-           sprBg.setScale(1, 1);
+            sprBg.setScale(1, 1);
     }
     if(Mouse::isButtonPressed(Mouse::Button::Left))
     {
@@ -111,4 +111,9 @@ void SimpleButton::setText(std::string txt)
 {
     text.setString(txt);
     text.setPosition(sprBg.getPosition().x - text.getGlobalBounds().width / 2, sprBg.getPosition().y - text.getGlobalBounds().height / 2);
+}
+
+std::string SimpleButton::getText()
+{
+    return text.getString();
 }

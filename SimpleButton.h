@@ -30,6 +30,7 @@ public:
     void setScale(float x, float y);
     Sprite getSprite();
     void setText(std::string txt);
+    std::string getText();
     
 };
 

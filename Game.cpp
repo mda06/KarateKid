@@ -155,7 +155,7 @@ void Game::run()
         
         screenManager->update(ellapsed);
         
-        window.clear();
+        window.clear(sf::Color(205, 201, 201));
         screenManager->render(window);
         window.display();
     }

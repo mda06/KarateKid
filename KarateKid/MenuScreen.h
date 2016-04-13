@@ -18,13 +18,13 @@ public:
     enum MenuState {BEGIN, PAUSE, WON, LOST};
 private:
     RenderWindow *window;
-    SimpleButton btnPlay, btnHowTo, btnExit, btnReturn;
-    Texture textHowToPlay, textBG;
-    Sprite sprHowToPlay, sprBG;
-    bool renderHowToPlay, focus;
+    SimpleButton btnPlay, btnHowTo, btnExit, btnReturn, btnNext;
+    Texture txtrInstructions, txtrControls, textBG;
+    Sprite sprInstructions, sprControls, sprBG;
+    bool renderHowToPlay, renderControls;
     int index;
     const int firstIndex, lastIndex;
-    Text text;
+    Text textMenu, textControls, textInstructions;
     Font font;
     MenuState state;
     std::string oldScreenKey;
@@ -36,6 +36,7 @@ public:
     void render(RenderTarget &rt);
     void enter();
     void init();
+    void changeBtnNextText();
     
 };
 

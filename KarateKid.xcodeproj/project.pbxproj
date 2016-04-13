@@ -10,6 +10,10 @@
 		220263071CB2BC6200C7D97E /* plage.txt in Resources */ = {isa = PBXBuildFile; fileRef = 220263041CB2BC6200C7D97E /* plage.txt */; };
 		220263081CB2BC6200C7D97E /* plage.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 220263051CB2BC6200C7D97E /* plage.tmx */; };
 		220263091CB2BC6200C7D97E /* tileset_Beach_Glued.png in Resources */ = {isa = PBXBuildFile; fileRef = 220263061CB2BC6200C7D97E /* tileset_Beach_Glued.png */; };
+		2231734C1CBE8FD2002D5DDF /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231734A1CBE8FD2002D5DDF /* Instructions.png */; };
+		2231734D1CBE8FD2002D5DDF /* Controls.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231734B1CBE8FD2002D5DDF /* Controls.png */; };
+		2231734F1CBE9F0E002D5DDF /* buttonbg_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2231734E1CBE9F0E002D5DDF /* buttonbg_small.png */; };
+		223173531CBEA800002D5DDF /* buttonbg_arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 223173521CBEA800002D5DDF /* buttonbg_arrowright.png */; };
 		22455D351C930A4B00C00560 /* potionEnergy.png in Resources */ = {isa = PBXBuildFile; fileRef = 22455D341C930A4B00C00560 /* potionEnergy.png */; };
 		2249639E1CA8524F0006DD62 /* menu-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2249639D1CA8524F0006DD62 /* menu-bg.jpg */; };
 		22535FD21CB9387E0032647E /* brun2test.png in Resources */ = {isa = PBXBuildFile; fileRef = 22535FD11CB9387E0032647E /* brun2test.png */; };
@@ -98,6 +102,10 @@
 		220263041CB2BC6200C7D97E /* plage.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plage.txt; sourceTree = "<group>"; };
 		220263051CB2BC6200C7D97E /* plage.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = plage.tmx; sourceTree = "<group>"; };
 		220263061CB2BC6200C7D97E /* tileset_Beach_Glued.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset_Beach_Glued.png; sourceTree = "<group>"; };
+		2231734A1CBE8FD2002D5DDF /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions.png; sourceTree = "<group>"; };
+		2231734B1CBE8FD2002D5DDF /* Controls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Controls.png; sourceTree = "<group>"; };
+		2231734E1CBE9F0E002D5DDF /* buttonbg_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg_small.png; sourceTree = "<group>"; };
+		223173521CBEA800002D5DDF /* buttonbg_arrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg_arrowright.png; sourceTree = "<group>"; };
 		22455D341C930A4B00C00560 /* potionEnergy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potionEnergy.png; sourceTree = "<group>"; };
 		2249639D1CA8524F0006DD62 /* menu-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "menu-bg.jpg"; sourceTree = "<group>"; };
 		22535FD11CB9387E0032647E /* brun2test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brun2test.png; sourceTree = "<group>"; };
@@ -279,6 +287,10 @@
 		4C03E95C1C96CBA200E6EFB9 /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				223173521CBEA800002D5DDF /* buttonbg_arrowright.png */,
+				2231734E1CBE9F0E002D5DDF /* buttonbg_small.png */,
+				2231734A1CBE8FD2002D5DDF /* Instructions.png */,
+				2231734B1CBE8FD2002D5DDF /* Controls.png */,
 				2286A29F1CA95F8200A78465 /* buttonbg.png */,
 				2249639D1CA8524F0006DD62 /* menu-bg.jpg */,
 				4C03E9641C96D16D00E6EFB9 /* btnBg.png */,
@@ -525,11 +537,14 @@
 				22907D7B1CBD32DF00819D54 /* afterscene1_text2.png in Resources */,
 				22907D851CBD32DF00819D54 /* final_lasttext.png in Resources */,
 				4C1F10B11C8B36C50062A96D /* master_of_break.ttf in Resources */,
+				2231734C1CBE8FD2002D5DDF /* Instructions.png in Resources */,
+				223173531CBEA800002D5DDF /* buttonbg_arrowright.png in Resources */,
 				22BFCAC01C8E299B001A8E71 /* barre_hp_couleur.png in Resources */,
 				22907D841CBD32DF00819D54 /* lastscene_img5.png in Resources */,
 				4CEBB1D51C9D9D5D00393EB6 /* desert.tmx in Resources */,
 				220263081CB2BC6200C7D97E /* plage.tmx in Resources */,
 				22907D881CBD32DF00819D54 /* Intro_Johnny.png in Resources */,
+				2231734D1CBE8FD2002D5DDF /* Controls.png in Resources */,
 				22907D891CBD32DF00819D54 /* Intro_texte.png in Resources */,
 				22907D831CBD32DF00819D54 /* lastscene_img4.png in Resources */,
 				22907D7A1CBD32DF00819D54 /* afterscene1_text1.png in Resources */,
@@ -555,6 +570,7 @@
 				22907D861CBD32DF00819D54 /* final_text1.png in Resources */,
 				228DC5D61C9307040069D09D /* potionStrength.png in Resources */,
 				22907D811CBD32DF00819D54 /* lastscene_img2.png in Resources */,
+				2231734F1CBE9F0E002D5DDF /* buttonbg_small.png in Resources */,
 				4C1F10AC1C8B19070062A96D /* forest.txt in Resources */,
 				22686CC31CB04F7400EAA31D /* final.png in Resources */,
 				22907D7C1CBD32DF00819D54 /* afterscene1_tournament.png in Resources */,
