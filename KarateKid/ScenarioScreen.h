@@ -18,12 +18,12 @@ private:
     Sprite spr;
     Font font;
     Text text;
-    bool video;
-    Clock c;
-    Time t;
+    bool video, pause;
+    Clock c1, c2;
+    Time t1, t2;
     
 public:
-    ScenarioScreen(RenderWindow *w, ScreenManager* sm, std::string img, bool video = false);
+    ScenarioScreen(RenderWindow *w, ScreenManager* sm, std::string img, bool video = false, bool pause = false);
     void handleInput(Event &event);
     void update(Time time);
     void render(RenderTarget &rt);
