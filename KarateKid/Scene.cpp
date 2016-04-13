@@ -47,6 +47,9 @@ Scene::Scene(Player *p, RenderWindow *window, ScreenManager *sm, std::string ene
     
     if(mapName.find("plage") != -1)
         addStoryText("Daniel wants to fight !", Vector2f(4300, 283));
+    
+    if(mapName.find("final") != -1 && readyToBreakLeg)
+        addStoryText("Press W !", Vector2f(320, 150));
 }
 
 Scene::~Scene()
@@ -85,6 +88,8 @@ void Scene::init()
     
     if(mapName.find("plage") != -1)
         addStoryText("Daniel wants to fight !", Vector2f(4300, 270));
+    if(mapName.find("final") != -1 && readyToBreakLeg)
+        addStoryText("Press W !", Vector2f(320, 150));
     
     timerDone = false;
 }
@@ -209,6 +214,13 @@ void Scene::addGameObject(Vector2f pos, bool boss)
 
 void Scene::update(Time time)
 {
+    if(mapName.find("final") != -1 && readyToBreakLeg)
+    {
+        if(storyText.size() < 1)
+            addStoryText("Press W !", Vector2f(320, 200));
+    }
+    
+    
     for(int i = enemies.size() - 1; i >= 0; i--)
     {
         Enemy *e = enemies[i];
@@ -347,6 +359,12 @@ void Scene::enter()
         
         if(screenManager->getSceneCount() == 1)
             player->initStats();
+    }
+    
+    if(screenManager->getOldScreenKey() == "menulost")
+    {
+        player->setDirection(RIGHT);
+        player->setDirection(STOP);
     }
     
     if(!fixed)

@@ -13,7 +13,7 @@
 #include <sstream>
 #include <iomanip>
 
-Entity::Entity(CollisionHandler *col, Vector2f pos, Vector2f size, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enemy, bool fatk) : accel(1000, 500), deccel(850, 1000), maxVel(400, 450), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), featureHandler(FeatureHandler(pos, size, maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown, enemy)), enableFootAtk(fatk)
+Entity::Entity(CollisionHandler *col, Vector2f pos, Vector2f size, bool withBack, int maxHealth, int maxStrength, float blockWaitTime, float atkPunchCooldown, float atkFootCooldown, bool enemy, bool fatk) : accel(1000, 500), deccel(850, 1000), maxVel(400, 450), colHandler(col), initialPos(pos), gbHealth(resourcePath() + "barre_hp_vide.png", resourcePath() + "barre_hp_couleur.png", Vector2f(10, 70), 126, withBack), featureHandler(FeatureHandler(pos, size, maxHealth, maxStrength, blockWaitTime, atkPunchCooldown, atkFootCooldown, enemy)), enableFootAtk(fatk), enemy(!withBack)
 {
     if(!font.loadFromFile(resourcePath() + "master_of_break.ttf"))
         std::cout << "Can't load font !" << std::endl;
@@ -54,7 +54,11 @@ void Entity::updateGUIBar()
     std::stringstream stream;
     stream << fc.getHealth() << " / " << fc.getMaxHealth();
     txtHp.setString(stream.str());
-    txtHp.setPosition(gbHealth.getPos().x + (gbHealth.getWidth() / 4), gbHealth.getPos().y - 2);
+    
+    if(!enemy)
+        txtHp.setPosition(gbHealth.getPos().x + (gbHealth.getWidth() / 4), gbHealth.getPos().y - 2);
+    else
+        txtHp.setPosition(gbHealth.getPos().x + (gbHealth.getWidth() / 4), gbHealth.getPos().y - 12);
 }
 
 void Entity::handleMovement(float dt)

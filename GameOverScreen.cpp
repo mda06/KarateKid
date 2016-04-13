@@ -24,13 +24,13 @@ GameOverScreen::GameOverScreen(ScreenManager *sm) : AbstractScreen(sm)
     
     game.setFont(font);
     game.setCharacterSize(120);
-    game.setString("Game");
-    game.setPosition(320 - game.getGlobalBounds().width / 2, 170 - game.getGlobalBounds().height / 2);
+    game.setString("You");
+    game.setPosition(50 + 320 - game.getGlobalBounds().width / 2, 170 - game.getGlobalBounds().height / 2);
     
     over.setFont(font);
     over.setCharacterSize(120);
-    over.setString("Over");
-    over.setPosition(320 - over.getGlobalBounds().width / 2, 310 - over.getGlobalBounds().height / 2);
+    over.setString("Died");
+    over.setPosition(50 + 320 - over.getGlobalBounds().width / 2, 310 - over.getGlobalBounds().height / 2);
 }
 
 void GameOverScreen::handleInput(sf::Event &event)
