@@ -36,43 +36,7 @@ public:
     void render(RenderTarget &rt);
     void enter();
     void init();
-    void changeBtnNextText();
     
 };
-
-/*
-class MenuScreenBegin : public MenuScreen
-{
-private:
-    SimpleButton btnPlay;
-    
-public:
-    MenuScreenBegin(ScreenManager* sm, Window* w);
-};
-
-class MenuScreenPause : public MenuScreen
-{
-private:
-    SimpleButton btnContinue;
-    
-public:
-    MenuScreenPause(ScreenManager* sm, Window* w);
-};
-
-class MenuScreenWon : public MenuScreen
-{
-private:
-    SimpleButton btnNext;
-    
-public:
-    MenuScreenWon(ScreenManager* sm, Window* w);
-};
-
-class MenuScreenLost : public MenuScreen
-{
-public:
-    MenuScreenLost(ScreenManager* sm, Window* w);
-};
-*/
 
 #endif /* defined(__KarateKid__MenuScreen__) */

@@ -100,14 +100,13 @@ void Game::run()
             {
                 if(event.key.code == Keyboard::Escape)
                 {
-                    if(screenManager->getCurrentScreenKey() == "menupause")
-                        screenManager->setScreen(oldCurrScreenKey);
-                    else
+                    if (screenManager->getCurrentScreenKey().find("menu") == -1)
                     {
                         oldCurrScreenKey = screenManager->getCurrentScreenKey();
                         screenManager->setScreen("menupause");
                     }
                 }
+                /*
                 if(event.key.code == Keyboard::Num1)
                 {
                     if(screenManager->getSceneCount() != 1)
@@ -148,6 +147,7 @@ void Game::run()
                 {
                     screenManager->setScreen("win");
                 }
+                */
             }
           
             screenManager->handleInput(event);

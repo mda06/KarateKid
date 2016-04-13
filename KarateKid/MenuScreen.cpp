@@ -151,12 +151,17 @@ void MenuScreen::update(Time time)
         if(btnNext.clicked())
         {
             init();
-            changeBtnNextText();
             index = 0;
             if(renderControls)
+            {
                 renderControls = false;
+                btnNext.setText("Controls");
+            }
             else
+            {
                 renderControls = true;
+                btnNext.setText("Instructions");
+            }
         }
         
         return;
@@ -166,6 +171,7 @@ void MenuScreen::update(Time time)
         init();
         renderHowToPlay = true;
         renderControls = false;
+        btnNext.setText("Controls");
     }
     if(btnExit.clicked())
         window->close();
@@ -229,14 +235,4 @@ void MenuScreen::init()
     btnExit.setScale(1, 1);
     btnReturn.setScale(1, 1);
     btnNext.setScale(1, 1);
-}
-
-void MenuScreen::changeBtnNextText()
-{
-    if(btnNext.getText() == "Controls")
-        btnNext.setText("Instructions");
-    else if(btnNext.getText() == "Instructions")
-        btnNext.setText("Controls");
-    else
-        btnNext.setText("Next");
 }
