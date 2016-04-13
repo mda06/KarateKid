@@ -66,8 +66,8 @@ GameObjectPotion::GameObjectPotion(Vector2f pos) : GameObject(resourcePath() + "
 void GameObjectPotion::effect(Entity *target)
 {
     GameObject::effect(target);
-    target->getFighterCharacteristics().addHealth(50);
-    text = "+50 Health";
+    target->getFighterCharacteristics().addHealth(400);
+    text = "+400 Health";
 }
 
 GameObjectStrength::GameObjectStrength(Vector2f pos) : GameObject(resourcePath() + "potionStrength.png", pos)
