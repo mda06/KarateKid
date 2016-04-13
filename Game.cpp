@@ -52,7 +52,7 @@ Game::Game() : window(VideoMode(640, 480), "Karate Kid 1984"/*, Style::Titlebar 
     screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene3_text1.png"), "scenario_3.1");
     screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "afterscene3_text2.png"), "scenario_3.2");
     
-    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "final_text1.png"), "final1");
+    screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "final_text1.png", false, true), "final1");
     
     screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "legbreak1.png", true), "legbreak1");
     screenManager->addScenarioScreen(new ScenarioScreen(&window, screenManager, "legbreak2.png", true), "legbreak2");

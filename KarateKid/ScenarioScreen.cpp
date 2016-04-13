@@ -31,6 +31,7 @@ void ScenarioScreen::handleInput(sf::Event &event)
             screenManager->setNextScenarioScreen();
         }
     }
+    /*
     if(pause)
     {
         if(event.type == Event::KeyPressed)
@@ -38,6 +39,7 @@ void ScenarioScreen::handleInput(sf::Event &event)
             pause = false;;
         }
     }
+     */
 }
 
 
@@ -47,14 +49,14 @@ void ScenarioScreen::update(sf::Time time)
     {
         t1 += c1.restart();
         
-        if(t1.asSeconds() >= 0.3)
+        if(t1.asSeconds() >= 0.5)
             screenManager->setNextScenarioScreen();
     }
     if(pause)
     {
         t2 += c2.restart();
         
-        if(t2.asSeconds() >= 0.3)
+        if(t2.asSeconds() >= 2)
             screenManager->setNextScenarioScreen();
     }
 }
